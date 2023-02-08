@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>bookAe</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+  </welcome-file-list>
+  
+  <!-- ContextLoaderListener는 contextConfigLocation를 읽어서 RootApplicationContext를 생성. -->
+  <listener>
+  	<listener-class>
+  		org.springframework.web.context.ContextLoaderListener
+  	</listener-class>
+  </listener>
+  <!-- ContextLoaderListener를 이용해 빈 설정 XML 파일들을 읽어 들임. -->
+  
+  <context-param>
+  	<param-name>contextConfigLocation</param-name>
+  	<param-value>
+  		<!-- 애플리케이션 실행시 ContextLoaderListener로 해당 위치의 설정 파일을 읽어들임. -->
+  		/WEB-INF/config/action-mybatis.xml
+  	</param-value>
+  </context-param>
+  
+  <!-- encoding 설정 -->
+  <filter>
+  	<filter-name>encodingFilter</filter-name>
+  	<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+  	<init-param>
+  		<param-name>encoding</param-name>
+  		<param-value>UTF-8</param-value>
+  	</init-param>
+  </filter>
+  
+  <filter-mapping>
+  	<filter-name>encodingFilter</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+  <servlet>
+  	<servlet-name>action</servlet-name><!-- dispatcherServlet을 action이란 이름의 서블릿으로 만듦. -->
+  	<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+  	<load-on-startup>1</load-on-startup><!-- 브라우저 접근시가 아닌 톰캣서버 실행시 DispatcherServlet의 매핑정보를 메모리에 저장-->
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>action</servlet-name>
+  	<url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+</web-app>
