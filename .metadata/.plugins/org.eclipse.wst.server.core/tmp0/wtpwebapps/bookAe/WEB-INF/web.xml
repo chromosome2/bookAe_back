@@ -51,6 +51,12 @@
   	<servlet-name>action</servlet-name><!-- 모든 서블릿의 이름을 action으로 시작하겠다. -->
   	<url-pattern>*.do</url-pattern>
   </servlet-mapping>
+  
+  <!-- 시작페이지 설정 -->
+  <welcome-file-list>
+  	<welcome-file>/WEB-INF/views/index.jsp</welcome-file>
+  </welcome-file-list>
+  
 </web-app>
 
 <!-- 
