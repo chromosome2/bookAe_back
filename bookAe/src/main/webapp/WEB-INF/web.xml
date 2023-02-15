@@ -42,13 +42,13 @@
   </filter-mapping>
   
   <servlet>
-  	<servlet-name>action</servlet-name><!-- dispatcherServlet을 action이란 이름의 서블릿으로 만듦. -->
+  	<servlet-name>action</servlet-name>
   	<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-  	<load-on-startup>1</load-on-startup><!-- 브라우저 접근시가 아닌 톰캣서버 실행시 DispatcherServlet의 매핑정보를 메모리에 저장-->
+  	<load-on-startup>1</load-on-startup>
   </servlet>
   
   <servlet-mapping>
-  	<servlet-name>action</servlet-name><!-- 모든 서블릿의 이름을 action으로 시작하겠다. -->
+  	<servlet-name>action</servlet-name>
   	<url-pattern>*.do</url-pattern>
   </servlet-mapping>
   

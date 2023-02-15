@@ -1,5 +1,0 @@
-package bookae.member.controller;
-
-public interface memberController {
-
-}

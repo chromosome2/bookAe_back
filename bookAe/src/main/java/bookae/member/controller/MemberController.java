@@ -1,5 +1,7 @@
 package bookae.member.controller;
 
-public interface MemberController {
+import org.springframework.web.servlet.ModelAndView;
 
+public interface MemberController {
+	
 }

@@ -25,13 +25,13 @@
         <header>
             <div class="head">
                 <h1 class="logo">
-                    <a href="">
+                    <a href="${contextPath }">
                         <img src="resources/images/logo.png" alt="BookAe 로고">
                     </a>
                 </h1>
                 <ul class="infoLink">
-                    <li><a href="">로그인</a></li>
-                    <li><a href="">회원가입</a></li>
+                    <li><a href="${contextPath}/login/loginForm.do">로그인</a></li>
+                    <li><a href="${contextPath}/join/joinForm.do">회원가입</a></li>
                 </ul>
                 <div class="test">
                     <div class="search">
@@ -72,7 +72,7 @@
                     </li>
                     <li><a href="#">커뮤니티</a>
                         <ul class="community">
-                            <li><a href="${contextPath}/views/community/community.jsp">감상평</a></li>
+                            <li><a href="${contextPath}/community/community.do">감상평</a></li>
                             <li><a href="#">자유게시판</a></li>
                             <li><a href="#">추천게시판</a></li>
                             <li class="white">.</li>

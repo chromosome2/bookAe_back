@@ -32,6 +32,6 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 @Repository, @Component 클래스가 모두 빈으로 등록 -->
 <!-- 만약 component-scan을 사용하지 않으면, 빈으로 설정할 클래스들을
 우리가 직접 xml 파일에 일일이 등록해 주어야 한다. -->
-<context:component-scan base-package="springAnnotation"/>
+<context:component-scan base-package="bookae"/>
 
 </beans>
