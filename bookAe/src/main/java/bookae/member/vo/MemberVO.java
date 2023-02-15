@@ -12,11 +12,18 @@ public class MemberVO {
 	private String nickname;
 	private int tel;
 	private String email;
+	private String email_add;
 	private Date joindate;
 	private String admin_id;
 	private String admin_pw;
 	
 	
+	public String getEmail_add() {
+		return email_add;
+	}
+	public void setEmail_add(String email_add) {
+		this.email_add = "@"+email_add;
+	}
 	public String getId() {
 		return id;
 	}

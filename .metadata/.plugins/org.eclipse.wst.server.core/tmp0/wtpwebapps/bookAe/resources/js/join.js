@@ -8,14 +8,14 @@ $(function () {
     //logInfo 종료
 
     //이메일주소 시작
-    $('#emailAfter').change(function () {
-        $('#emailAfter option:selected').each(function () {
+    $('#email_after').change(function () {
+        $('#email_after option:selected').each(function () {
             if($(this).val()=='1'){
-                $('#emailAdd').attr('disabled',false);
-                $('#emailAdd').val('');
+                $('#email_add').attr('readonly',false);
+                $('#email_add').val('');
             }else{
-                $('#emailAdd').val($(this).text());
-                $('#emailAdd').attr('disabled',true);
+                $('#email_add').val($(this).text());
+                $('#email_add').attr('readonly',true);
             }
         });
     });
@@ -24,7 +24,7 @@ $(function () {
 
 //비밀번호 맞는지 확인
 function passCheck(){
-    var pass=document.getElementById('password').value;
+    var pass=document.getElementById('pw').value;
     var passC=document.getElementById('passwordCheck').value;
     if(pass==passC){
         $('.passCInfo').text('*일치합니다');

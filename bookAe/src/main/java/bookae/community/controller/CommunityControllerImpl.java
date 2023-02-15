@@ -12,7 +12,7 @@ import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
 import bookae.member.controller.MemberController;
 
 @Controller("communityController")
-public class CommunityControllerImpl extends MultiActionController implements MemberController{
+public class CommunityControllerImpl extends MultiActionController implements CommunityController{
 	
 	@RequestMapping(value="/community/community.do", method=RequestMethod.GET)
 	public ModelAndView joinForm(HttpServletRequest request, HttpServletResponse response)

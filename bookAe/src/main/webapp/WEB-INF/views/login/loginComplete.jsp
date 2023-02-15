@@ -33,25 +33,8 @@
     	
     	<!--메인컨텐츠 시작-->
         <section class="memberLogin">
-            <h2>로그인</h2>
-            <form action="${contextPath }/login/loginMember.do" method="post" id="loginForm" name="frmLogin">
-                <fieldset>
-                    <legend>로그인 폼</legend>
-                    <p class="idForm">
-                        <label for="userID">아이디</label>
-                        <input type="text" id="userID" name="id" required>
-                    </p>
-                    <p class="pwForm">
-                        <label for="userPw">비밀번호</label>
-                        <input type="password" id="userPw" name="pw" required>
-                    </p>
-                    <label class="autoLogin"><input type="checkbox" name="autoLoginCheck" value="autoLoginCheck"><i class="circle"></i>자동 로그인</label>
-                    <button type="submit"><p>로그인</p></button>
-                    <p>
-                        <a href="#" class="lg_Fid">아이디찾기</a>/<a href="#" class="lg_Fpw">비밀번호찾기</a><a href="join.html" class="lg_join">회원가입하러가기</a>
-                    </p>
-                </fieldset>
-            </form>
+            <h2>로그인 성공!</h2>
+            
         </section>
         <!--메인컨텐츠 종료-->
         

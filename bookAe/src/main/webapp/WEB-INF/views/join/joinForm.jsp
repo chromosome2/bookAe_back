@@ -35,7 +35,7 @@
     <!--메인컨텐츠 시작-->
         <section class="memberJoin">
             <h2>회원가입</h2>
-            <form method="post" id="joinForm" name="joinForm">
+            <form action="${contextPath }/join/joinMember.do" method="post" id="joinForm" name="joinForm">
                 <fieldset>
                     <legend>회원가입 정보 입력 폼</legend>
                     <p>
@@ -46,7 +46,7 @@
                         <span class="logInfo"></span>
                     </p>
                     <p>
-                        <input type="password" id="password" name="password" required placeholder="비밀번호">
+                        <input type="password" id="pw" name="pw" required placeholder="비밀번호">
                         <span class="logInfo"></span>
                     </p>
                     <p>
@@ -62,13 +62,13 @@
                         <span class="logInfo"></span>
                     </p>
                     <p class="emailArea">
-                        <input type="text" id="email" required placeholder="이메일">
+                        <input type="text" id="email" name="email" required placeholder="이메일">
                         <a>@</a>
-                        <input type="text" id="emailAdd" required disabled value="naver.com">
-                        <select id="emailAfter" name="emailAfter">
+                        <input type="text" id="email_add" name="email_add" required readonly value="naver.com">
+                        <select id="email_after" name="email_after">
                             <option value="naver">naver.com</option>
                             <option value="daum">daum.net</option>
-                            <option value="google">gamil.com</option>
+                            <option value="google">gmail.com</option>
                             <option value="nate">nate.com</option>
                             <option value="1">직접 입력</option>
                         </select>

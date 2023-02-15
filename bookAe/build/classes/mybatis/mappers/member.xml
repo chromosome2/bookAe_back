@@ -4,12 +4,20 @@
    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
    
 <mapper namespace="mapper.member">
-	<resultMap type="memberVO" id="memResult">
-		<result property="id" column="id"/>
-		<result property="name" column="name"/>
-		<result property="nickname" column="nickname"/>
-		<result property="tel" column="tel"/>
-		<result property="email" column="email"/>
-		<result property="joinDate" column="joinDate"/>
-	</resultMap>
+	
+	<insert id="joinMember" parameterType="memberVO">
+		<![CDATA[
+			INSERT INTO jointbl(name, id, pw, nickname, tel, email, email_add) 
+			VALUES(#{name}, #{id}, #{pw}, #{nickname}, #{tel}, #{email}, #{email_add})
+		]]>
+	</insert>
+	
+	<select id="loginMember" resultType="String" parameterType="memberVO">
+		<![CDATA[
+			SELECT DECODE(count(*), 1, 'true', 'false') 
+			AS RESULT FROM jointbl 
+			WHERE id=#{id} and pw=#{pw}
+		]]>
+	</select>
+	
 </mapper>

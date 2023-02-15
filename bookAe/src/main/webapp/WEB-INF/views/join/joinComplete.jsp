@@ -34,7 +34,9 @@
     
     <!--메인컨텐츠 시작-->
         <section class="join_complete_contents">
-            <h2>회원가입 성공!</h2>
+            <h2>회원가입에 성공하셨습니다.</h2>
+            <button>로그인</button>
+            <button>메인 페이지</button>
         </section>
         <!--메인컨텐츠 종료-->
         
