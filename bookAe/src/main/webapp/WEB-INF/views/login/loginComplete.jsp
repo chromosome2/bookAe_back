@@ -20,6 +20,16 @@
     <script src="../resources/js/jquery-3.6.0.min.js"></script>
     <script src="../resources/js/common.js"></script>
 	<title>북愛 - 로그인 페이지</title>
+	<c:choose>
+		<c:when test='${login_msg=="success" }'>
+			<script>
+				window.onload = function() {
+					var uid= '<%=(String)session.getAttribute("id")%>';
+					alert(uid+"님 로그인 성공");
+				}
+			</script>
+		</c:when>
+	</c:choose>
 </head>
 <body>
 	<!--건너뛰기 링크 시작-->

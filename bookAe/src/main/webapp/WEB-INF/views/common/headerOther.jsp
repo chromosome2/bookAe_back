@@ -29,10 +29,20 @@
                         <img src="../resources/images/logo.png" alt="BookAe 로고">
                     </a>
                 </h1>
-                <ul class="infoLink">
-                    <li><a href="${contextPath}/login/loginForm.do">로그인</a></li>
-                    <li><a href="${contextPath}/join/joinForm.do">회원가입</a></li>
-                </ul>
+                <c:choose>
+                	<c:when test="${isLogin == true }">
+                		<ul class="infoLink">
+		                    <li><a href="#">마이 페이지</a></li>
+		                    <li><a href="${contextPath }/login/logout.do">로그아웃</a></li>
+		                </ul>
+                	</c:when>
+                	<c:otherwise>
+	                	<ul class="infoLink">
+		                    <li><a href="${contextPath}/login/loginForm.do">로그인</a></li>
+		                    <li><a href="${contextPath}/join/joinForm.do">회원가입</a></li>
+		                </ul>
+                	</c:otherwise>
+                </c:choose>
                 <div class="test">
                     <div class="search">
                         <h2 class="hidden">도서 검색</h2>

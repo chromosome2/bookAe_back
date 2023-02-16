@@ -4,7 +4,9 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
-
+<%
+	request.setCharacterEncoding("utf-8");
+%>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,6 +22,13 @@
     <script src="../resources/js/jquery-3.6.0.min.js"></script>
     <script src="../resources/js/common.js"></script>
 	<title>북愛 - 로그인 페이지</title>
+	<c:if test="${login_msg=='fail' }">
+		<script type="text/javascript">
+			window.onload = function() {
+				alert("아이디 혹은 비밀번호가 일치하지 않습니다.");
+			}
+		</script>
+	</c:if>
 </head>
 <body>
 	<!--건너뛰기 링크 시작-->

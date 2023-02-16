@@ -2,11 +2,14 @@ package bookae.member.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
 
@@ -18,7 +21,7 @@ public class MemberControllerImpl extends MultiActionController implements Membe
 	
 	@Autowired
 	private MemberService memberService;
-	
+	HttpSession session;
 	//프로젝트 내부 전체를 검색해서, 해당 타입의 인스턴스가 1개만 있는 경우 그 인스턴스를 자동으로 연결
 	//autowired를 사용하면 set을 따로 안해줘도됨.
 	@Autowired
@@ -40,6 +43,11 @@ public class MemberControllerImpl extends MultiActionController implements Membe
 			throws Exception {
 		String viewName=getViewName(request);
 		ModelAndView mav=new ModelAndView("login/"+viewName);
+		session=request.getSession();
+		if(session.getAttribute("login_msg")=="fail") {
+			mav.addObject("login_msg","fail");
+			session.removeAttribute("login_msg");
+		}
 		System.out.println("loginForm.jsp 열기");
 		return mav;
 	}
@@ -58,6 +66,7 @@ public class MemberControllerImpl extends MultiActionController implements Membe
 			throws Exception {
 		String viewName=getViewName(request);
 		ModelAndView mav=new ModelAndView("login/"+viewName);
+		mav.addObject("login_msg","success");
 		System.out.println("loginComplete.jsp 열기");
 		return mav;
 	}
@@ -79,16 +88,35 @@ public class MemberControllerImpl extends MultiActionController implements Membe
 			throws Exception {
 		String result=memberService.loginMember(memberVO);
 		ModelAndView mav;
+		session=request.getSession();
 		if(result.equals("true")) {
 			System.out.println("로그인 성공");
 			mav=new ModelAndView("redirect:/login/loginComplete.do");
+			session.setAttribute("isLogin", true);
+			session.setAttribute("id", memberVO.getId());
 		}else {
 			System.out.println("로그인 안성공");
 			mav=new ModelAndView("redirect:/login/loginForm.do");
+			session.setAttribute("login_msg", "fail");
 		}
 		System.out.println("loginMember.do");
 		return mav;
 	}
+	
+	@RequestMapping(value="/login/logout.do", method=RequestMethod.GET)
+	public ModelAndView logout(HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		ModelAndView mav=new ModelAndView("redirect:/");
+		session.invalidate();
+		if(session==null || !request.isRequestedSessionIdValid()) {
+			System.out.println("logout 완료");
+		}
+		return mav;
+	}
+	
+	
+	
+	
 	
 	private String getViewName(HttpServletRequest request) throws Exception{
 		String contextPath=request.getContextPath();//내 경로. 프로젝트 이름까지.
