@@ -91,7 +91,7 @@ public class MemberControllerImpl extends MultiActionController implements Membe
 		session=request.getSession();
 		if(result.equals("true")) {
 			System.out.println("로그인 성공");
-			mav=new ModelAndView("redirect:/login/loginComplete.do");
+			mav=new ModelAndView("redirect:/");
 			session.setAttribute("isLogin", true);
 			session.setAttribute("id", memberVO.getId());
 		}else {
@@ -107,12 +107,18 @@ public class MemberControllerImpl extends MultiActionController implements Membe
 	public ModelAndView logout(HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 		ModelAndView mav=new ModelAndView("redirect:/");
+		session=request.getSession(false);
 		session.invalidate();
 		if(session==null || !request.isRequestedSessionIdValid()) {
 			System.out.println("logout 완료");
 		}
 		return mav;
 	}
+	
+	
+	
+	
+	
 	
 	
 	

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+      PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+   
+<mapper namespace="mapper.community">
+
+	<resultMap type="communityVO" id="communityResult">
+		<result property="board_title" column="board_title"/>
+		<result property="board_genre" column="board_genre"/>
+		<result property="board_like" column="board_like"/>
+		<result property="board_date" column="board_date"/>
+		<result property="nickname" column="nickname"/>
+	</resultMap>
+	
+	<select id="community_list_view" resultMap="communityResult">
+		<![CDATA[
+			select board_title, board_genre, board_like, board_date, j.nickname  
+			from boardtbl b, jointbl j where b.id=j.id 
+			order by board_num desc
+		]]>
+	</select>
+	
+</mapper>

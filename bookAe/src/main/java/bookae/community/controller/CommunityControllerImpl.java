@@ -1,26 +1,40 @@
 package bookae.community.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
 
+import bookae.community.service.CommunityService;
 import bookae.member.controller.MemberController;
 
 @Controller("communityController")
 public class CommunityControllerImpl extends MultiActionController implements CommunityController{
 	
+	@Autowired
+	private CommunityService communityService;
+	
+	@Override
 	@RequestMapping(value="/community/community.do", method=RequestMethod.GET)
-	public ModelAndView joinForm(HttpServletRequest request, HttpServletResponse response)
+	public ModelAndView community_list_view(HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 		String viewName=getViewName(request);
+		List communityList=communityService.community_list_view();
 		ModelAndView mav=new ModelAndView("community/"+viewName);
+		mav.addObject("communityList",communityList);
 		return mav;
 	}
+	
+	
+	
+	
 	
 	private String getViewName(HttpServletRequest request) throws Exception{
 		String contextPath=request.getContextPath();//내 경로. 프로젝트 이름까지.
