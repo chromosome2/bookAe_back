@@ -21,5 +21,10 @@ public class CommunityDAOImpl implements CommunityDAO{
 		communityList=sqlSession.selectList("mapper.community.community_list_view");
 		return communityList;
 	}
+	
+	public int max_num() throws DataAccessException{
+		int num =(int)sqlSession.selectOne("mapper.community.max_num");
+		return num;
+	}
 
 }

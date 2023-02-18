@@ -6,5 +6,6 @@ import org.springframework.dao.DataAccessException;
 
 public interface CommunityDAO {
 	public List community_list_view() throws DataAccessException;
+	public int max_num() throws DataAccessException;
 
 }

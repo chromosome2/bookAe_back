@@ -57,9 +57,9 @@
                     	</tr>
                     </c:if>
                     <c:if test="${!empty communityList }">
-	                    <c:forEach var="community" items="${communityList }">
+	                    <c:forEach var="community" items="${communityList }" varStatus="communityNum">
 		                    <tr>
-		                        <td>1</td>
+		                        <td>${max_num-communityNum.count+1 }</td>
 		                        <td>
 		                        	<a href="#">
 		                        	<span class="genre">&lt;${community.board_genre }&gt;</span> 

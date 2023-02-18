@@ -21,4 +21,10 @@
 		]]>
 	</select>
 	
+	<select id="max_num" resultType="_int">
+		<![CDATA[
+			SELECT count(*) as max from boardtbl
+		]]>
+	</select>
+	
 </mapper>

@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -29,6 +30,7 @@ public class CommunityControllerImpl extends MultiActionController implements Co
 		List communityList=communityService.community_list_view();
 		ModelAndView mav=new ModelAndView("community/"+viewName);
 		mav.addObject("communityList",communityList);
+		mav.addObject("max_num",communityService.max_num());
 		return mav;
 	}
 	
@@ -69,5 +71,10 @@ public class CommunityControllerImpl extends MultiActionController implements Co
 		}
 		return fileName;
 	}
+
+
+
+
+
 
 }

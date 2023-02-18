@@ -19,6 +19,10 @@ public class CommunityServiceImpl implements CommunityService{
 		return communityDAO.community_list_view();
 	}
 	
+	public int max_num() throws DataAccessException{
+		return communityDAO.max_num();
+	}
+	
 	
 
 }
