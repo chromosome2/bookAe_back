@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
@@ -32,6 +33,26 @@ public class CommunityControllerImpl extends MultiActionController implements Co
 		mav.addObject("communityList",communityList);
 		mav.addObject("max_num",communityService.max_num());
 		return mav;
+	}
+	
+	@RequestMapping(value="/community/writeCommunity.do", method=RequestMethod.GET)
+	public ModelAndView writeCommunityForm(HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		HttpSession session=request.getSession();
+		String viewName=getViewName(request);
+		ModelAndView mav=new ModelAndView("community/"+viewName);
+		System.out.println("writeCommunity.jsp 열기");
+		return mav;
+	}
+
+	@Override
+	@RequestMapping(value="/community/addArticle.do", method=RequestMethod.POST)
+	public ModelAndView addArticle(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		ModelAndView mav=new ModelAndView();
+		HttpSession session=request.getSession();
+		String id=(String)session.getAttribute("id");
+		
+		return null;
 	}
 	
 	

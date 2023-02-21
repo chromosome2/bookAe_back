@@ -12,5 +12,7 @@ import bookae.member.vo.MemberVO;
 public interface CommunityController {
 	public ModelAndView community_list_view (HttpServletRequest request,
 			HttpServletResponse response) throws Exception;
+	public ModelAndView addArticle (HttpServletRequest request,
+			HttpServletResponse response) throws Exception;
 
 }

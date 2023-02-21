@@ -47,7 +47,6 @@ INDEX VERSION 1.131+C:\su_cho\workspace\bookae\.metadata\.plugins\org.eclipse.jd
 1302816680.index
 770178099.index
 1721131889.index
-3020478391.index
 1078882294.index
 1983250745.index
 3157901103.index
