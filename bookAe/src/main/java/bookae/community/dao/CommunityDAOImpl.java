@@ -27,4 +27,10 @@ public class CommunityDAOImpl implements CommunityDAO{
 		return num;
 	}
 
+	@Override
+	public int addArticle(CommunityVO communityVO) throws DataAccessException {
+		int result=sqlSession.insert("mapper.community.addArticle", communityVO);
+		return result;
+	}
+
 }

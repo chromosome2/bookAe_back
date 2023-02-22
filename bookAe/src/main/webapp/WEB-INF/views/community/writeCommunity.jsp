@@ -22,23 +22,10 @@
     <link rel="stylesheet" href="../resources/css/summernote-lite.css">
     <script src="../resources/js/jquery-3.6.0.min.js"></script>
     <script src="../resources/js/common.js"></script>
+    <script src="../resources/js/writeCommunity.js"></script>
     <script src="../resources/js/summernote-lite.js"></script>
     <script src="../resources/js/summernote-ko-KR.js"></script>
 	<title>북愛 - 커뮤니티 페이지</title>
-	<script type="text/javascript">
-		$(document).ready(function() {
-			//여기 아래 부분
-			$('#summernote').summernote({
-				  height: 700,                 // 에디터 높이
-				  minHeight: null,             // 최소 높이
-				  maxHeight: null,             // 최대 높이
-				  focus: true,                  // 에디터 로딩후 포커스를 맞출지 여부
-				  lang: "ko-KR",					// 한글 설정
-				  placeholder: ''	//placeholder 설정
-		          
-			});
-		});
-	</script>
 </head>
 <body>
 	<!--건너뛰기 링크 시작-->
@@ -54,9 +41,9 @@
         <div class="communityMenu">
             <h2><img src="../resources/images/community.png" alt="게시판 로고" width="50">감상평 게시판</h2>
             <section>
-            	<form action="${contextPath }/community/addArticle.do" method="post" enctype="multipart/form-data">
+            	<form action="${contextPath }/community/addArticle.do" method="POST" id="writeArticleForm" name="writeArticleForm" enctype="multipart/form-data">
             		<div class="articleNameBox">
-            			<select id="select_genre" name="select_genre">
+            			<select id="board_genre" name="board_genre">
 	                        <option value="none">장르</option>
 	                        <option value="LiberalArts">인문학</option>
 	                        <option value="Novel">소설</option>
@@ -68,10 +55,12 @@
 	                        <option value="SelfImprovement">자기계발</option>
 	                        <option value="IT">컴퓨터/IT</option>
 	                        <option value="History">역사/문화</option>
+	                        <option value="etc">기타</option>
 	                    </select>
-            			<input id="articleName" type="text" name="title" placeholder="제목">
+            			<input id="board_title" type="text" name="board_title" placeholder="제목">
             		</div>
-            		<textarea id="summernote" name="editordata"></textarea>
+            		<textarea id="summernote" name="board_content"></textarea>
+            		<input id="submitBtn" type="button" value="완료" onclick="before_submit(this.form)"/>
             	</form>
             </section>
         </div>

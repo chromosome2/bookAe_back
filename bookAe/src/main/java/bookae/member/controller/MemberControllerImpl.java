@@ -77,7 +77,7 @@ public class MemberControllerImpl extends MultiActionController implements Membe
 			throws Exception {
 		request.setCharacterEncoding("UTF-8");
 		int result=memberService.joinMember(memberVO);
-		ModelAndView mav=new ModelAndView("redirect:/join/joinComplete.do");;
+		ModelAndView mav=new ModelAndView("redirect:/join/joinComplete.do");
 		System.out.println("joinMember.do");
 		return mav;
 	}

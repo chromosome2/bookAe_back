@@ -27,4 +27,11 @@
 		]]>
 	</select>
 	
+	<insert id="addArticle" parameterType="communityVO">
+		<![CDATA[
+			INSERT INTO boardtbl(board_num, board_title, id, board_like, board_view, board_genre, board_content) 
+			VALUES((SELECT NVL(MAX(board_num),0)+1 FROM boardtbl), #{board_title}, #{id}, 0, 0, #{board_genre}, #{board_content})
+		]]>
+	</insert>
+	
 </mapper>

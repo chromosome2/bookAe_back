@@ -72,7 +72,9 @@
 	                    </c:forEach>
                     </c:if>
                 </table>
-                <a href="${contextPath }/community/writeCommunity.do" id="writeCom">글쓰기</a>
+                <c:if test="${!empty id }">
+                	<a href="${contextPath }/community/writeCommunity.do" id="writeCom">글쓰기</a>
+                </c:if>
                 <div class="page">
                     <a>&lt;</a>
                     <a href="#">1</a>

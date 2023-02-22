@@ -7,6 +7,7 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
 import bookae.community.dao.CommunityDAO;
+import bookae.community.vo.CommunityVO;
 
 @Service("communityService")
 public class CommunityServiceImpl implements CommunityService{
@@ -21,6 +22,11 @@ public class CommunityServiceImpl implements CommunityService{
 	
 	public int max_num() throws DataAccessException{
 		return communityDAO.max_num();
+	}
+
+	@Override
+	public int addArticle(CommunityVO communityVO) throws DataAccessException {
+		return communityDAO.addArticle(communityVO);
 	}
 	
 	

@@ -9,12 +9,14 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
 
 import bookae.community.service.CommunityService;
+import bookae.community.vo.CommunityVO;
 import bookae.member.controller.MemberController;
 
 @Controller("communityController")
@@ -47,12 +49,23 @@ public class CommunityControllerImpl extends MultiActionController implements Co
 
 	@Override
 	@RequestMapping(value="/community/addArticle.do", method=RequestMethod.POST)
-	public ModelAndView addArticle(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		ModelAndView mav=new ModelAndView();
-		HttpSession session=request.getSession();
+	public ModelAndView addArticle(@ModelAttribute("communityVO") CommunityVO communityVO, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		request.setCharacterEncoding("UTF-8");
+		HttpSession session=request.getSession(false);
 		String id=(String)session.getAttribute("id");
-		
-		return null;
+		communityVO.setId(id);
+		System.out.println(communityVO.getId());
+		System.out.println(communityVO.getBoard_num());
+		System.out.println(communityVO.getBoard_title());
+		System.out.println(request.getParameter("board_title"));
+		System.out.println(communityVO.getBoard_like());
+		System.out.println(communityVO.getBoard_view());
+		System.out.println(communityVO.getBoard_genre());
+		System.out.println(communityVO.getBoard_content());
+		int result=communityService.addArticle(communityVO);
+		ModelAndView mav=new ModelAndView("redirect:/community/community.do");
+		System.out.println("addArticle 실행");
+		return mav;
 	}
 	
 	
