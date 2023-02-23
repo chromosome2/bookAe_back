@@ -28,6 +28,11 @@ public class CommunityServiceImpl implements CommunityService{
 	public int addArticle(CommunityVO communityVO) throws DataAccessException {
 		return communityDAO.addArticle(communityVO);
 	}
+
+	@Override
+	public CommunityVO viewArticle(int board_num) throws DataAccessException {
+		return communityDAO.viewArticle(board_num);
+	}
 	
 	
 

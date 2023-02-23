@@ -6,6 +6,7 @@
 <mapper namespace="mapper.community">
 
 	<resultMap type="communityVO" id="communityResult">
+		<result property="board_num" column="board_num"/>
 		<result property="board_title" column="board_title"/>
 		<result property="board_genre" column="board_genre"/>
 		<result property="board_like" column="board_like"/>
@@ -15,7 +16,7 @@
 	
 	<select id="community_list_view" resultMap="communityResult">
 		<![CDATA[
-			select board_title, board_genre, board_like, board_date, j.nickname  
+			select board_num, board_title, board_genre, board_like, board_date, j.nickname  
 			from boardtbl b, jointbl j where b.id=j.id 
 			order by board_num desc
 		]]>
@@ -33,5 +34,11 @@
 			VALUES((SELECT NVL(MAX(board_num),0)+1 FROM boardtbl), #{board_title}, #{id}, 0, 0, #{board_genre}, #{board_content})
 		]]>
 	</insert>
+	
+	<select id="viewArticle" resultType="communityVO" parameterType="int">
+		<![CDATA[
+			SELECT * FROM boardtbl WHERE board_num=#{board_num}
+		]]>
+	</select>
 	
 </mapper>

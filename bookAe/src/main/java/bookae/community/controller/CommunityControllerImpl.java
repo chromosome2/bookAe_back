@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
 
@@ -24,6 +25,8 @@ public class CommunityControllerImpl extends MultiActionController implements Co
 	
 	@Autowired
 	private CommunityService communityService;
+	@Autowired
+	private CommunityVO communityVO;
 	
 	@Override
 	@RequestMapping(value="/community/community.do", method=RequestMethod.GET)
@@ -54,19 +57,39 @@ public class CommunityControllerImpl extends MultiActionController implements Co
 		HttpSession session=request.getSession(false);
 		String id=(String)session.getAttribute("id");
 		communityVO.setId(id);
-		System.out.println(communityVO.getId());
-		System.out.println(communityVO.getBoard_num());
-		System.out.println(communityVO.getBoard_title());
-		System.out.println(request.getParameter("board_title"));
-		System.out.println(communityVO.getBoard_like());
-		System.out.println(communityVO.getBoard_view());
-		System.out.println(communityVO.getBoard_genre());
-		System.out.println(communityVO.getBoard_content());
+		
+		String[] eng_genre= {"LiberalArts","Novel","Poem","Food","Health","Hobby","Science","SelfImprovement","IT","History","etc"};
+		String[] kor_genre= {"인문학","소설","시/에세이","요리","건강","취미/실용/스포츠","과학","자기계발","컴퓨터/IT","역사/문화","기타"};
+		String genre=communityVO.getBoard_genre();
+		for(int i=0; i<eng_genre.length; i++) {
+			if(genre.equals(eng_genre[i])) {
+				communityVO.setBoard_genre(kor_genre[i]);
+			}
+		}
+		
 		int result=communityService.addArticle(communityVO);
 		ModelAndView mav=new ModelAndView("redirect:/community/community.do");
 		System.out.println("addArticle 실행");
 		return mav;
 	}
+
+	@Override
+	@RequestMapping(value="/community/viewArticle.do", method=RequestMethod.GET)
+	public ModelAndView viewArticle(@RequestParam("board_num") int board_num, HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		String viewName=getViewName(request);
+		communityVO=communityService.viewArticle(board_num);
+		ModelAndView mav=new ModelAndView("community/"+viewName);
+		mav.addObject("board", communityVO);
+		System.out.println("viewArticle.jsp 열기");
+		return mav;
+	}
+	
+	
+	
+	
+	
+	
 	
 	
 	

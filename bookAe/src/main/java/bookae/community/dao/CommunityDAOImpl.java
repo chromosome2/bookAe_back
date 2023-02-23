@@ -33,4 +33,9 @@ public class CommunityDAOImpl implements CommunityDAO{
 		return result;
 	}
 
+	@Override
+	public CommunityVO viewArticle(int board_num) throws DataAccessException {
+		return (CommunityVO)sqlSession.selectOne("mapper.community.viewArticle", board_num);
+	}
+
 }

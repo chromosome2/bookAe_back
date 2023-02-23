@@ -24,7 +24,7 @@
     <script src="../resources/js/common.js"></script>
     <script src="../resources/js/writeCommunity.js"></script>
     <script src="../resources/js/summernote-lite.js"></script>
-    <script src="../resources/js/summernote-ko-KR.js"></script>
+    <script src="../resources/js/lang/summernote-ko-KR.js"></script>
 	<title>북愛 - 커뮤니티 페이지</title>
 </head>
 <body>
@@ -41,7 +41,7 @@
         <div class="communityMenu">
             <h2><img src="../resources/images/community.png" alt="게시판 로고" width="50">감상평 게시판</h2>
             <section>
-            	<form action="${contextPath }/community/addArticle.do" method="POST" id="writeArticleForm" name="writeArticleForm" enctype="multipart/form-data">
+            	<form action="${contextPath }/community/addArticle.do" method="post" id="writeArticleForm" name="writeArticleForm">
             		<div class="articleNameBox">
             			<select id="board_genre" name="board_genre">
 	                        <option value="none">장르</option>
