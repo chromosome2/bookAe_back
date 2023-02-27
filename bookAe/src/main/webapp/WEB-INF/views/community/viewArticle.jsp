@@ -35,11 +35,11 @@
     <!--#wrapper 시작-->
     <div id="wrapper">
     
-    	<jsp:include page="../common/headerOther.jsp"/>
+    	<jsp:include page="../common/header.jsp"/>
     	
     	<!--감상평 게시판 시작-->
         <div class="communityMenu">
-            <h2><img src="../resources/images/community.png" alt="게시판 로고" width="50">감상평 게시판</h2>
+            <h2><img src="${contextPath }/resources/images/community.png" alt="게시판 로고" width="50">감상평 게시판</h2>
             <section>
             	<table align="center">
 					<tr>

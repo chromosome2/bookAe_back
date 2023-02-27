@@ -39,7 +39,7 @@
     <!--#wrapper 시작-->
     <div id="wrapper">
     
-    	<jsp:include page="../common/headerOther.jsp"/>
+    	<jsp:include page="../common/header.jsp"/>
     	
     	<!--메인컨텐츠 시작-->
         <section class="memberLogin">

@@ -15,16 +15,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="sujin">
     <meta name="robots" content="all">
-    <link rel="shortcut icon" href="../resources/images/그림2.ico">
-    <link rel="stylesheet" href="../resources/css/common.css">
-    <link rel="stylesheet" href="../resources/css/normalize.css">
-    <link rel="stylesheet" href="../resources/css/community.css">
-    <link rel="stylesheet" href="../resources/css/summernote-lite.css">
-    <script src="../resources/js/jquery-3.6.0.min.js"></script>
-    <script src="../resources/js/common.js"></script>
-    <script src="../resources/js/writeCommunity.js"></script>
-    <script src="../resources/js/summernote-lite.js"></script>
-    <script src="../resources/js/lang/summernote-ko-KR.js"></script>
+    <link rel="shortcut icon" href="${contextPath }/resources/images/그림2.ico">
+    <link rel="stylesheet" href="${contextPath }/resources/css/common.css">
+    <link rel="stylesheet" href="${contextPath }/resources/css/normalize.css">
+    <link rel="stylesheet" href="${contextPath }/resources/css/community.css">
+    <link rel="stylesheet" href="${contextPath }/resources/css/summernote-lite.css">
+    <script src="${contextPath }/resources/js/jquery-3.6.0.min.js"></script>
+    <script src="${contextPath }/resources/js/common.js"></script>
+    <script src="${contextPath }/resources/js/summernote-lite.js"></script>
+    <script src="${contextPath }/resources/js/lang/summernote-ko-KR.js"></script>
+    <script src="${contextPath }/resources/js/writeCommunity.js"></script>
 	<title>북愛 - 커뮤니티 페이지</title>
 </head>
 <body>
@@ -35,11 +35,11 @@
     <!--#wrapper 시작-->
     <div id="wrapper">
     
-    	<jsp:include page="../common/headerOther.jsp"/>
+    	<jsp:include page="../common/header.jsp"/>
     	
     	<!--감상평 게시판 시작-->
         <div class="communityMenu">
-            <h2><img src="../resources/images/community.png" alt="게시판 로고" width="50">감상평 게시판</h2>
+            <h2><img src="${contextPath }/resources/images/community.png" alt="게시판 로고" width="50">감상평 게시판</h2>
             <section>
             	<form action="${contextPath }/community/addArticle.do" method="post" id="writeArticleForm" name="writeArticleForm">
             		<div class="articleNameBox">

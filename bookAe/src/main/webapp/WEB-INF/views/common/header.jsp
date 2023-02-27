@@ -13,11 +13,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="sujin">
     <meta name="robots" content="all">
-    <link rel="shortcut icon" href="${contextPath }/resources/images/그림2.ico">
-    <link rel="stylesheet" href="${contextPath }/resources/css/common.css">
-    <link rel="stylesheet" href="${contextPath }/resources/css/normalize.css">
-    <script src="${contextPath }/resources/js/jquery-3.6.0.min.js"></script>
-    <script src="${contextPath }/resources/js/common.js"></script>
 	<title>북愛 - 메인 페이지</title>
 </head>
 <body>
@@ -26,7 +21,7 @@
             <div class="head">
                 <h1 class="logo">
                     <a href="${contextPath }">
-                        <img src="resources/images/logo.png" alt="BookAe 로고">
+                        <img src="${contextPath}/resources/images/logo.png" alt="BookAe 로고">
                     </a>
                 </h1>
                 <c:choose>
