@@ -15,12 +15,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="sujin">
     <meta name="robots" content="all">
-    <link rel="shortcut icon" href="../resources/images/그림2.ico">
-    <link rel="stylesheet" href="../resources/css/common.css">
-    <link rel="stylesheet" href="../resources/css/normalize.css">
-    <link rel="stylesheet" href="../resources/css/community.css">
-    <script src="../resources/js/jquery-3.6.0.min.js"></script>
-    <script src="../resources/js/common.js"></script>
+    <link rel="shortcut icon" href="${contextPath }/resources/images/그림2.ico">
+    <link rel="stylesheet" href="${contextPath }/resources/css/common.css">
+    <link rel="stylesheet" href="${contextPath }/resources/css/normalize.css">
+    <link rel="stylesheet" href="${contextPath }/resources/css/community.css">
+    <script src="${contextPath }/resources/js/jquery-3.6.0.min.js"></script>
+    <script src="${contextPath }/resources/js/common.js"></script>
 	<title>북愛 - 로그인 페이지</title>
 </head>
 <body>
