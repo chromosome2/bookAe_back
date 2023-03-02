@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="${contextPath }/resources/css/common.css">
     <link rel="stylesheet" href="${contextPath }/resources/css/normalize.css">
     <link rel="stylesheet" href="${contextPath }/resources/css/community.css">
+    <link rel="stylesheet" href="${contextPath }/resources/css/writeCommunity.css">
     <link rel="stylesheet" href="${contextPath }/resources/css/summernote-lite.css">
     <script src="${contextPath }/resources/js/jquery-3.6.0.min.js"></script>
     <script src="${contextPath }/resources/js/common.js"></script>
@@ -39,12 +40,12 @@
     	
     	<!--감상평 게시판 시작-->
         <div class="communityMenu">
-            <h2><img src="${contextPath }/resources/images/community.png" alt="게시판 로고" width="50">감상평 게시판</h2>
-            <section>
+            <a href="${contextPath}/community/community.do"><h2><img src="${contextPath }/resources/images/community.png" alt="게시판 로고" width="50">감상평 게시글</h2></a>
+            <section id="content_section">
             	<form action="${contextPath }/community/addArticle.do" method="post" id="writeArticleForm" name="writeArticleForm">
             		<div class="articleNameBox">
             			<select id="board_genre" name="board_genre">
-	                        <option value="none">장르</option>
+	                        <option value="none">--장르--</option>
 	                        <option value="LiberalArts">인문학</option>
 	                        <option value="Novel">소설</option>
 	                        <option value="Poem">시/에세이</option>
@@ -59,8 +60,15 @@
 	                    </select>
             			<input id="board_title" type="text" name="board_title" placeholder="제목">
             		</div>
-            		<textarea id="summernote" name="board_content"></textarea>
-            		<input id="submitBtn" type="button" value="완료" onclick="before_submit(this.form)"/>
+            		<div id="content_box">
+            			<textarea id="summernote" name="board_content"></textarea>
+            		</div>
+            		<div id="contents_footer">
+	            		<div id="button_box">
+		            		<input id="cancelBtn" class="commBtn canBtn" type="button" value="취소" onclick="cancelWriteCommunity()"/>
+		            		<input id="submitBtn" class="commBtn subBtn" type="button" value="완료" onclick="before_submit(this.form)"/>
+	            		</div>
+            		</div>
             	</form>
             </section>
         </div>

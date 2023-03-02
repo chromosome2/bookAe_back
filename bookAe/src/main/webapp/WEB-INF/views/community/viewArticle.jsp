@@ -39,7 +39,7 @@
     	
     	<!--감상평 게시판 시작-->
         <div class="communityMenu">
-            <h2><img src="${contextPath }/resources/images/community.png" alt="게시판 로고" width="50">감상평 게시판</h2>
+            <a href="${contextPath}/community/community.do"><h2><img src="${contextPath }/resources/images/community.png" alt="게시판 로고" width="50">감상평 게시글</h2></a>
             <section>
             	<table align="center">
 					<tr>
@@ -61,6 +61,8 @@
 						<td><input type="text" value="<fmt:formatDate value="${board.board_date}"/>" disabled></td>
 					</tr>
 				</table>
+				<div id="contents_footer">
+				</div>
             </section>
         </div>
         <!--감상평 게시판 종료-->

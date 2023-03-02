@@ -35,7 +35,7 @@
     	
     	<!--감상평 게시판 시작-->
         <div class="communityMenu">
-            <h2><img src="../resources/images/community.png" alt="게시판 로고" width="50">감상평 게시판</h2>
+            <a href="${contextPath}/community/community.do"><h2><img src="${contextPath }/resources/images/community.png" alt="게시판 로고" width="50">감상평 게시글</h2></a>
             <section>
                 <form action="search_community.jsp" method="get" id="searchBook">
                     <select name="head">
@@ -72,17 +72,19 @@
 	                    </c:forEach>
                     </c:if>
                 </table>
-                <c:if test="${!empty id }">
-                	<a href="${contextPath }/community/writeCommunity.do" id="writeCom">글쓰기</a>
-                </c:if>
-                <div class="page">
-                    <a>&lt;</a>
-                    <a href="#">1</a>
-                    <a href="#">2</a>
-                    <a href="#">3</a>
-                    <a href="#">4</a>
-                    <a href="#">5</a>
-                    <a href="#">&gt;</a>
+                <div id="contents_footer">
+	                <c:if test="${!empty id }">
+	                	<a href="${contextPath }/community/writeCommunity.do" id="writeCom">글쓰기</a>
+	                </c:if>
+	                <div class="page">
+	                    <a>&lt;</a>
+	                    <a href="#">1</a>
+	                    <a href="#">2</a>
+	                    <a href="#">3</a>
+	                    <a href="#">4</a>
+	                    <a href="#">5</a>
+	                    <a href="#">&gt;</a>
+	                </div>
                 </div>
             </section>
         </div>

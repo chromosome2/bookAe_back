@@ -1,8 +1,8 @@
 /*감상평 게시판 시작*/
 .communityMenu{
     width: 1280px;
-    height: 1200px;
     margin: 0 auto;
+    position: relative;
 }
 .communityMenu h2{
     font-size: 2em;
@@ -147,5 +147,10 @@
 }
 .page a:first-child:hover{
     font-weight: 400;
+}
+
+#contents_footer{
+	position: relative;
+	height: 350px;
 }
 /*감상평 게시판 종료*/

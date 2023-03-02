@@ -1,4 +1,5 @@
 $(document).ready(function() {
+	//summernote API
   $('#summernote').summernote({
 		  height: 700,                 // 에디터 높이
 		  minHeight: null,             // 최소 높이
@@ -10,6 +11,7 @@ $(document).ready(function() {
 	});
 });
 		
+//장르, 제목, 내용 선택 안했을 시 alert로 경고
 function before_submit(frm){
 	var board_genre=$('#board_genre').val();
 	var title= $('#board_title').val();
@@ -27,3 +29,9 @@ function before_submit(frm){
 	}
 	frm.submit();
 }
+
+//취소 버튼시 community로 돌아가기
+function cancelWriteCommunity() {
+	location.href="${contextPath}/community/community.do";
+}
+

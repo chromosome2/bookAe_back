@@ -42,13 +42,6 @@ $(function () {
 
 
     //베스트셀러 시작
-    for(var i=0;i<3;i++){
-        if(i==0){
-            select(i);
-        }else{
-            nonselect(i);
-        }
-    }
     $('.bestSellerBanner section').click(function () {
         index=$(this).index();
         for(var i=0;i<3;i++){
