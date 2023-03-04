@@ -26,6 +26,12 @@
     <script src="${contextPath }/resources/js/summernote-lite.js"></script>
     <script src="${contextPath }/resources/js/lang/summernote-ko-KR.js"></script>
     <script src="${contextPath }/resources/js/writeCommunity.js"></script>
+	<script type="text/javascript">
+		//취소 버튼시 community로 돌아가기
+		function cancelWriteCommunity() {
+			location.href="${contextPath}/community/community.do";
+		}
+	</script>
 	<title>북愛 - 커뮤니티 페이지</title>
 </head>
 <body>

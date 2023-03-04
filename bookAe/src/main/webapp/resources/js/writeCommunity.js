@@ -30,8 +30,5 @@ function before_submit(frm){
 	frm.submit();
 }
 
-//취소 버튼시 community로 돌아가기
-function cancelWriteCommunity() {
-	location.href="${contextPath}/community/community.do";
-}
+
 
