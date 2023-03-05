@@ -35,7 +35,11 @@ public class CommunityDAOImpl implements CommunityDAO{
 
 	@Override
 	public CommunityVO viewArticle(int board_num) throws DataAccessException {
-		return (CommunityVO)sqlSession.selectOne("mapper.community.viewArticle", board_num);
+		CommunityVO article=(CommunityVO)sqlSession.selectOne("mapper.community.viewArticle", board_num);
+		String nickname=(String)sqlSession.selectOne("mapper.community.getNickname",article.getId());
+		article.setNickname(nickname);
+		System.out.println(article.getBoard_like());
+		return article;
 	}
 
 }

@@ -41,4 +41,10 @@
 		]]>
 	</select>
 	
+	<select id="getNickname" resultType="String" parameterType="String">
+		<![CDATA[
+			SELECT nickname FROM jointbl WHERE id=#{id}
+		]]>
+	</select>
+	
 </mapper>

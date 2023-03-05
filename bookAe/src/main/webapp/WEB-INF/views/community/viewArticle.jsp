@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="${contextPath }/resources/css/common.css">
     <link rel="stylesheet" href="${contextPath }/resources/css/normalize.css">
     <link rel="stylesheet" href="${contextPath }/resources/css/community.css">
+    <link rel="stylesheet" href="${contextPath }/resources/css/viewArticle.css">
     <link rel="stylesheet" href="${contextPath }/resources/css/summernote-lite.css">
     <script src="${contextPath }/resources/js/jquery-3.6.0.min.js"></script>
     <script src="${contextPath }/resources/js/common.js"></script>
@@ -41,28 +42,22 @@
         <div class="communityMenu">
             <a href="${contextPath}/community/community.do"><h2><img src="${contextPath }/resources/images/community.png" alt="게시판 로고" width="50">감상평 게시글</h2></a>
             <section>
-            	<table align="center">
-					<tr>
-						<td width="150" align="center" bgcolor="#ff9933">작성자아이디</td>
-						<td><input type="text" value="${board.id}" disabled name="writer" disabled></td>
-					</tr>
-					<tr>
-						<td width="150" align="center" bgcolor="#ff9933">제목</td>
-						<td><input type="text" value="${board.board_title}" disabled name="title" id="id_title" disabled></td>
-					</tr>
-					<tr>
-						<td width="150" align="center" bgcolor="#ff9933">내용</td>
-						<td>
-							<span name="content" id="content" disabled>${board.board_content}</span>
-						</td>
-					</tr>
-					<tr>
-						<td width="150" align="center" bgcolor="#ff9933">등록일자</td>
-						<td><input type="text" value="<fmt:formatDate value="${board.board_date}"/>" disabled></td>
-					</tr>
-				</table>
-				<div id="contents_footer">
-				</div>
+            	<div id="article_box">
+            		<div id="article_header_box">
+            			<p id="article_title"><span id="article_genre">&lt;${board.board_genre}&gt;</span> 
+            			${board.board_title}</p>
+            			<p id="article_header_info"><span id="article_view">조회 ${board.board_view}</span> / <span>${board.board_date}</span> / <span>${board.nickname }</span></p>
+            		</div>
+            		<div id="article_content_box">
+            			<span name="content" id="content" disabled>${board.board_content}</span>
+            		</div>
+            		<div id="article_footer_box">
+            			<button id="like_btn"><span id="heart">추천수</span><br>${board.board_like }</button>
+            		</div>
+            		<div id="article_coment_box">
+            			<p id="article_coment_info">댓글 0</p>
+            		</div>
+            	</div>
             </section>
         </div>
         <!--감상평 게시판 종료-->
