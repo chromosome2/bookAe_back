@@ -54,8 +54,9 @@
             		<div id="article_footer_box">
             			<button id="like_btn"><span id="heart">추천수</span><br>${board.board_like }</button>
             		</div>
-            		<div id="article_coment_box">
-            			<p id="article_coment_info">댓글 0</p>
+            		<div id="article_comment_box">
+            			<p id="article_comment_info">댓글 0</p>
+            			<
             		</div>
             	</div>
             </section>

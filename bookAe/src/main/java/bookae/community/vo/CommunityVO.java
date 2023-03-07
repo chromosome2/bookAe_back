@@ -18,10 +18,10 @@ public class CommunityVO {
 	private int board_pic_size;
 	private String nickname;
 	
-	private int commend_num;
-	private Date commend_date;
-	private int commend_parent;
-	private String commend_content;
+	private int comment_num;
+	private Date comment_date;
+	private int comment_parent;
+	private String comment_content;
 	
 	
 	
@@ -85,29 +85,29 @@ public class CommunityVO {
 	public void setBoard_pic_size(int board_pic_size) {
 		this.board_pic_size = board_pic_size;
 	}
-	public int getCommend_num() {
-		return commend_num;
+	public int getcomment_num() {
+		return comment_num;
 	}
-	public void setCommend_num(int commend_num) {
-		this.commend_num = commend_num;
+	public void setcomment_num(int comment_num) {
+		this.comment_num = comment_num;
 	}
-	public Date getCommend_date() {
-		return commend_date;
+	public Date getcomment_date() {
+		return comment_date;
 	}
-	public void setCommend_date(Date commend_date) {
-		this.commend_date = commend_date;
+	public void setcomment_date(Date comment_date) {
+		this.comment_date = comment_date;
 	}
-	public int getCommend_parent() {
-		return commend_parent;
+	public int getcomment_parent() {
+		return comment_parent;
 	}
-	public void setCommend_parent(int commend_parent) {
-		this.commend_parent = commend_parent;
+	public void setcomment_parent(int comment_parent) {
+		this.comment_parent = comment_parent;
 	}
-	public String getCommend_content() {
-		return commend_content;
+	public String getcomment_content() {
+		return comment_content;
 	}
-	public void setCommend_content(String commend_content) {
-		this.commend_content = commend_content;
+	public void setcomment_content(String comment_content) {
+		this.comment_content = comment_content;
 	}
 	public String getNickname() {
 		return nickname;
