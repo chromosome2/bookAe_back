@@ -16,7 +16,9 @@
 	
 	<select id="community_list_view" resultMap="communityResult">
 		<![CDATA[
-			select board_num, board_title, board_genre, board_like, board_date, j.nickname  
+			select board_num, board_title, board_genre, 
+			(SELECT NVL(count(*),0) FROM liketbl WHERE board_num=b.board_num) as board_like,  
+			board_date, j.nickname  
 			from boardtbl b, jointbl j where b.id=j.id 
 			order by board_num desc
 		]]>
@@ -41,9 +43,29 @@
 		]]>
 	</select>
 	
+	<update id="updateBoardView" parameterType="int">
+		<![CDATA[
+			UPDATE boardtbl SET board_view=board_view+1 WHERE board_num=#{board_num}
+		]]>
+	</update>
+	
 	<select id="getNickname" resultType="String" parameterType="String">
 		<![CDATA[
 			SELECT nickname FROM jointbl WHERE id=#{id}
+		]]>
+	</select>
+	
+	<select id="likeIs" resultType="String" parameterType="communityVO">
+		<![CDATA[
+			SELECT DECODE(count(*), 1, 'true', 'false') 
+			AS RESULT FROM liketbl 
+			WHERE id=#{id} and board_num=#{board_num}
+		]]>
+	</select>
+	
+	<select id="getBoardLike" resultType="_int" parameterType="int">
+		<![CDATA[
+			SELECT NVL(count(*),0) AS board_like FROM liketbl WHERE board_num=#{board_num}
 		]]>
 	</select>
 	

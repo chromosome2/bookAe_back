@@ -33,6 +33,11 @@ public class CommunityServiceImpl implements CommunityService{
 	public CommunityVO viewArticle(int board_num) throws DataAccessException {
 		return communityDAO.viewArticle(board_num);
 	}
+
+	@Override
+	public boolean getLike(String id, int board_num) throws DataAccessException {
+		return communityDAO.getLike(id, board_num);
+	}
 	
 	
 

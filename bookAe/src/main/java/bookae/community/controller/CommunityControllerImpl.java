@@ -78,7 +78,20 @@ public class CommunityControllerImpl extends MultiActionController implements Co
 	public ModelAndView viewArticle(@RequestParam("board_num") int board_num, HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 		String viewName=getViewName(request);
+		
+		//article의 정보 다 가져오기
 		communityVO=communityService.viewArticle(board_num);
+		
+		//로그인한 사람의 article like 여부
+		HttpSession session=request.getSession(false);
+		if(session==null || !request.isRequestedSessionIdValid() || session.getAttribute("isLogin")==null || session.getAttribute("id")==null) {
+			communityVO.setLikeIs(false);
+		}else {
+			String log_id=(String)session.getAttribute("id");
+			boolean likeIs=communityService.getLike(log_id, board_num);
+			communityVO.setLikeIs(likeIs);
+		}
+		
 		ModelAndView mav=new ModelAndView("community/"+viewName);
 		mav.addObject("board", communityVO);
 		System.out.println("viewArticle.jsp 열기");

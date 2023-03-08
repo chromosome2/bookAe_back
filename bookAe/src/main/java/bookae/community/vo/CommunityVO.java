@@ -17,6 +17,7 @@ public class CommunityVO {
 	private String board_pic_name;
 	private int board_pic_size;
 	private String nickname;
+	private boolean likeIs;
 	
 	private int comment_num;
 	private Date comment_date;
@@ -114,6 +115,36 @@ public class CommunityVO {
 	}
 	public void setNickname(String nickname) {
 		this.nickname = nickname;
+	}
+	public boolean getLikeIs() {
+		return likeIs;
+	}
+	public void setLikeIs(boolean likeIs) {
+		this.likeIs = likeIs;
+	}
+	public int getComment_num() {
+		return comment_num;
+	}
+	public void setComment_num(int comment_num) {
+		this.comment_num = comment_num;
+	}
+	public Date getComment_date() {
+		return comment_date;
+	}
+	public void setComment_date(Date comment_date) {
+		this.comment_date = comment_date;
+	}
+	public int getComment_parent() {
+		return comment_parent;
+	}
+	public void setComment_parent(int comment_parent) {
+		this.comment_parent = comment_parent;
+	}
+	public String getComment_content() {
+		return comment_content;
+	}
+	public void setComment_content(String comment_content) {
+		this.comment_content = comment_content;
 	}
 	
 	

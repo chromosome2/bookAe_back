@@ -16,5 +16,6 @@ public interface CommunityService {
 	public int max_num() throws DataAccessException;
 	public int addArticle (CommunityVO communityVO) throws DataAccessException;
 	public CommunityVO viewArticle (int board_num) throws DataAccessException;
+	public boolean getLike(String id, int board_num) throws DataAccessException;
 
 }

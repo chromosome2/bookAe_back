@@ -29,6 +29,7 @@ public class MemberControllerImpl extends MultiActionController implements Membe
 	
 	//header.jsp에서 회원가입을 누르면 "${contextPath }/join/join.do"형식으로 요청이 들어옴.
 	//value는 요청받을 url / method는 어떤 요청을 받을지.
+	//joinForm.jsp 열기
 	@RequestMapping(value="/join/joinForm.do", method=RequestMethod.GET)
 	public ModelAndView joinForm(HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
@@ -38,6 +39,7 @@ public class MemberControllerImpl extends MultiActionController implements Membe
 		return mav;
 	}
 	
+	//loginForm.jsp 열기
 	@RequestMapping(value="/login/loginForm.do", method=RequestMethod.GET)
 	public ModelAndView loginForm(HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
@@ -52,6 +54,7 @@ public class MemberControllerImpl extends MultiActionController implements Membe
 		return mav;
 	}
 	
+	//joinComplete.jsp 열기
 	@RequestMapping(value="/join/joinComplete.do", method=RequestMethod.GET)
 	public ModelAndView joinComplete(HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
@@ -61,6 +64,7 @@ public class MemberControllerImpl extends MultiActionController implements Membe
 		return mav;
 	}
 	
+	//loginComplete.jsp 열기
 	@RequestMapping(value="/login/loginComplete.do", method=RequestMethod.GET)
 	public ModelAndView loginComplete(HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
@@ -71,6 +75,7 @@ public class MemberControllerImpl extends MultiActionController implements Membe
 		return mav;
 	}
 
+	//회원가입. 멤버 insert하기
 	@Override
 	@RequestMapping(value="/join/joinMember.do", method=RequestMethod.POST)
 	public ModelAndView joinMember(MemberVO memberVO, HttpServletRequest request, HttpServletResponse response)
@@ -82,6 +87,7 @@ public class MemberControllerImpl extends MultiActionController implements Membe
 		return mav;
 	}
 
+	//로그인하기
 	@Override
 	@RequestMapping(value="/login/loginMember.do", method=RequestMethod.POST)
 	public ModelAndView loginMember(MemberVO memberVO, HttpServletRequest request, HttpServletResponse response)
@@ -92,7 +98,7 @@ public class MemberControllerImpl extends MultiActionController implements Membe
 		if(result.equals("true")) {
 			System.out.println("로그인 성공");
 			mav=new ModelAndView("redirect:/");
-			session.setAttribute("isLogin", true);
+			session.setAttribute("isLogin", true);//session에 로그인 정보 추가.
 			session.setAttribute("id", memberVO.getId());
 		}else {
 			System.out.println("로그인 안성공");
@@ -103,12 +109,13 @@ public class MemberControllerImpl extends MultiActionController implements Membe
 		return mav;
 	}
 	
+	//로그아웃하기
 	@RequestMapping(value="/login/logout.do", method=RequestMethod.GET)
 	public ModelAndView logout(HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 		ModelAndView mav=new ModelAndView("redirect:/");
 		session=request.getSession(false);
-		session.invalidate();
+		session.invalidate();//session 비우기
 		if(session==null || !request.isRequestedSessionIdValid()) {
 			System.out.println("logout 완료");
 		}

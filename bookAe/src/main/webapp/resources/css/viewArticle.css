@@ -30,15 +30,21 @@
 	padding-bottom: 100px;
     border-bottom: 2px solid #e2e2e2;
 }
+
 #like_btn{
 	width: 120px;
     height: 65px;
     font-size: 0.9em;
-    background-color: #fff;
-    border: 3px solid #ccc;
     border-radius: 5%;
+    background-color: #fff;
 }
-#like_btn:hover{
+.unlike{
+    border: 3px solid #ccc;
+}
+.unlike:hover{
+	border: 3px solid #ffb7b7;
+}
+.like{
 	border: 3px solid #ffb7b7;
 }
 #heart{
@@ -48,15 +54,22 @@
     overflow: hidden;
     white-space: nowrap;
 }
-#heart::before{
+.unlike #heart::before{
 	position: relative;
     left: -20px;
     top: 3px;
     content: "♡";
 	color: rgb(245, 27, 27);
 }
-#like_btn:hover #heart::before{
+.unlike:hover #heart::before{
 	content: "♥";
+}
+.like #heart::before{
+	position: relative;
+    left: -20px;
+    top: 3px;
+    content: "♥";
+	color: rgb(245, 27, 27);
 }
 
 #article_comment_box{

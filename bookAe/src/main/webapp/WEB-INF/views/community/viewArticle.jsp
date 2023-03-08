@@ -23,8 +23,16 @@
     <link rel="stylesheet" href="${contextPath }/resources/css/summernote-lite.css">
     <script src="${contextPath }/resources/js/jquery-3.6.0.min.js"></script>
     <script src="${contextPath }/resources/js/common.js"></script>
+    <script src="${contextPath }/resources/js/viewArticle.js"></script>
     <script src="${contextPath }/resources/js/summernote-lite.js"></script>
     <script src="${contextPath }/resources/js/lang/summernote-ko-KR.js"></script>
+    
+    <script language=JavaScript>
+	    $(function () {
+	    	var like_sw=${board.likeIs};
+	    });
+    </script>
+    
 	<title>북愛 - 커뮤니티 페이지</title>
 </head>
 <body>
@@ -52,11 +60,47 @@
             			<span name="content" id="content" disabled>${board.board_content}</span>
             		</div>
             		<div id="article_footer_box">
-            			<button id="like_btn"><span id="heart">추천수</span><br>${board.board_like }</button>
+            			<c:if test="${board.likeIs==true }">
+            				<button id="like_btn" class="like" onclick="fn_like_btn()"><span id="heart">추천수</span><br><span id="board_like">${board.board_like }</span></button>
+            			</c:if>
+            			<c:if test="${board.likeIs==false }">
+            				<button id="like_btn" class="unlike" onclick="fn_like_btn()"><span id="heart">추천수</span><br><span id="board_like">${board.board_like }</span></button>
+            			</c:if>
             		</div>
             		<div id="article_comment_box">
             			<p id="article_comment_info">댓글 0</p>
-            			<
+            			<div id="one_comment_box">
+            				<div id="parent_comment" class="comment_box">
+            					<p id="parent_comment_header" class="comment_header">
+	            					<span id="parent_comment_nickname" class="comment_nickname">꼬미집사</span>
+	            					<span id="parent_comment_date" class="comment_date">2023.03.08</span>
+            					</p>
+            					<p id="parent_comment_content" class="comment_content">이런 해석도 가능하군요. 저와 다른 관점이라 흥미롭게 봤습니다. 추천드리고 갑니다.</p>
+            					<p id="parent_comment_footer" class="comment_footer">
+            						<a href="#">수정</a> | <a href="#">삭제</a> | <a href="#">답글</a>
+            					</p>
+            				</div>
+            				
+            				<div id="child_comment" class="comment_box">
+            					<p id="child_comment_header" class="comment_header">
+            						<span id="child_comment_nickname" class="comment_nickname">2가염색체나열</span>
+	            					<span id="child_comment_date" class="comment_date">2023.03.08</span>
+            					</p>
+            					<p id="child_comment_content" class="comment_content"><span id="reply_parent_nickname">@꼬미집사</span>추천 감사합니다. 꼬미집사님의 의견도 들어보고싶군요.</p>
+            					<p id="child_comment_footer" class="comment_footer">
+            						<a href="#">수정</a> | <a href="#">삭제</a> | <a href="#">답글</a>
+            					</p>
+            				</div>
+            				
+            				<div id="write_comment">
+            					<form action="${contextPath}/community/writeComment.do" method="post" id="writeComment" name="writeComment">
+            						<textarea rows="5" cols="100" name="comment_content"></textarea>
+            						<div id="button_box">
+					            		<input id="submitBtn" class="commBtn subBtn" type="button" value="완료" onclick="before_submit(this.form)"/>
+				            		</div>
+            					</form>
+            				</div>
+            			</div>
             		</div>
             	</div>
             </section>
