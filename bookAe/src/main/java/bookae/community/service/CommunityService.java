@@ -1,6 +1,7 @@
 package bookae.community.service;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,5 +18,7 @@ public interface CommunityService {
 	public int addArticle (CommunityVO communityVO) throws DataAccessException;
 	public CommunityVO viewArticle (int board_num) throws DataAccessException;
 	public boolean getLike(String id, int board_num) throws DataAccessException;
+	public void addLike(Map<String, Object> likeInfo) throws DataAccessException;
+	public void delLike(Map<String, Object> likeInfo) throws DataAccessException;
 
 }

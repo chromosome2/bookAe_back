@@ -1,6 +1,7 @@
 package bookae.community.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
@@ -37,6 +38,18 @@ public class CommunityServiceImpl implements CommunityService{
 	@Override
 	public boolean getLike(String id, int board_num) throws DataAccessException {
 		return communityDAO.getLike(id, board_num);
+	}
+
+	@Override
+	public void addLike(Map<String, Object> likeInfo) throws DataAccessException {
+		communityDAO.addLike(likeInfo);
+		
+	}
+
+	@Override
+	public void delLike(Map<String, Object> likeInfo) throws DataAccessException {
+		communityDAO.delLike(likeInfo);
+		
 	}
 	
 	

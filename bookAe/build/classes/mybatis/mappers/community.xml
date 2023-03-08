@@ -69,4 +69,17 @@
 		]]>
 	</select>
 	
+	<insert id="addLike" parameterType="communityVO">
+		<![CDATA[
+			INSERT INTO liketbl (id, board_num) 
+			VALUES(#{id}, #{board_num})
+		]]>
+	</insert>
+	
+	<delete id="delLike" parameterType="communityVO">
+		<![CDATA[
+			DELETE FROM liketbl WHERE id=#{id} AND board_num=#{board_num}
+		]]>
+	</delete>
+	
 </mapper>

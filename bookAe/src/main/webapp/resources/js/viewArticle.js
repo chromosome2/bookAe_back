@@ -1,13 +1,13 @@
 $(function () {
 	//좋아요 버튼 클릭시 ui변경
-	$('#like_btn').click(function() {
+	/*$('#like_btn').click(function() {
 		like_sw=!like_sw;
 		if(like_sw){
 			$(this).attr('class','like');
 		}else{
 			$(this).attr('class','unlike');
 		}
-	});
+	});*/
 });
 
 //댓글 내용을 작성하지 않았을 시 경고

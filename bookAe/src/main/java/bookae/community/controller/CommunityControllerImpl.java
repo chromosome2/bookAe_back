@@ -1,18 +1,23 @@
 package bookae.community.controller;
 
+import java.io.PrintWriter;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
 
@@ -96,6 +101,50 @@ public class CommunityControllerImpl extends MultiActionController implements Co
 		mav.addObject("board", communityVO);
 		System.out.println("viewArticle.jsp 열기");
 		return mav;
+	}
+
+	@SuppressWarnings("unchecked")
+	@RequestMapping(value="/community/addLike.do", method=RequestMethod.POST)
+	public void addLike(HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		String id=request.getParameter("id");
+		int board_num=Integer.parseInt(request.getParameter("board_num"));
+		String tel="010-1111-2222";
+		
+		JSONObject json=new JSONObject();
+		json.put("tel", tel);
+		
+		PrintWriter pw=response.getWriter();
+		pw.println(json);
+		pw.flush();
+		pw.close();
+		System.out.println(id+" "+board_num);
+	}
+
+	@ResponseBody
+	@RequestMapping(value="/community/delLike.do", method=RequestMethod.POST)
+	@Override
+	public void delLike(@RequestBody Map<String, Object> likeInfo, HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		communityService.delLike(likeInfo);
+		
+	}
+	
+	@SuppressWarnings("unchecked")
+	@RequestMapping(value="/community/test.do")
+	public void test(HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		String name=request.getParameter("name");
+		String tel="010-1111-1111";
+		System.out.println(name+" "+tel);
+		
+		JSONObject json=new JSONObject();
+		json.put("tel", tel);
+		
+		PrintWriter pw=response.getWriter();
+		pw.println(json);
+		pw.flush();
+		pw.close();
 	}
 	
 	

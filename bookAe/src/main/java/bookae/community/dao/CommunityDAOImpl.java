@@ -1,6 +1,7 @@
 package bookae.community.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -61,6 +62,16 @@ public class CommunityDAOImpl implements CommunityDAO{
 		
 		return likeIs;
 		
+	}
+
+	@Override
+	public void addLike(Map<String, Object> likeInfo) throws DataAccessException {
+		sqlSession.insert("mapper.community.addLike", likeInfo);
+	}
+	
+	@Override
+	public void delLike(Map<String, Object> likeInfo) throws DataAccessException {
+		sqlSession.delete("mapper.community.delLike", likeInfo);
 	}
 
 }

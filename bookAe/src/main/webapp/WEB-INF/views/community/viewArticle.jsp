@@ -27,9 +27,53 @@
     <script src="${contextPath }/resources/js/summernote-lite.js"></script>
     <script src="${contextPath }/resources/js/lang/summernote-ko-KR.js"></script>
     
-    <script language=JavaScript>
+    <script type="text/javascript">
 	    $(function () {
+	    	//좋아요 버튼 function
 	    	var like_sw=${board.likeIs};
+	    	var board_like=${board.board_like};
+	    	var board_num = ${board.board_num};
+	    	var id= '<%=(String)session.getAttribute("id")%>';
+	    	
+	    	//좋아요 버튼을 누를때마다 sql문을 실행하기 위해
+	    	if(!like_sw){
+	    		$('#like_btn').click(function() {
+	    			$.ajax({
+	    				type:'POST',
+	    				url:'${contextPath}/community/addLike.do',
+	    				contentType:'application/json; charset=UTF-8',
+	    				data:JSON.stringify({"board_num" : board_num,
+   							  "id" : id}),
+   						dataType:"json",
+	    				success:function(data){
+	    					alert('좋아요 성공!');
+	    					$('#like_btn').attr('class','like');
+	    					$("#board_like").text(board_like+1);
+	    				},
+	    				error : function(data){
+	    					alert('실패!');
+	    				}
+	    			})
+	    		})
+	    	}else{
+	    		$('#like_btn').click(function() {
+	    			$.ajax({
+	    				type:'POST',
+	    				url:'${contextPath}/community/delLike.do',
+	    				contentType:'application/json; charset=UTF-8',
+	    				data:JSON.stringify({"board_num" : board_num,
+ 							  "id" : id}),
+	    				success:function(data){
+	    					alert('좋아요 취소 성공!');
+	    	    			$('#like_btn').attr('class','unlike');
+	    					$("#board_like").text(board_like-1);
+	    				},
+	    				error : function(data){
+	    					alert('실패!');
+	    				}
+	    			})
+	    		})
+	    	}
 	    });
     </script>
     
@@ -61,10 +105,10 @@
             		</div>
             		<div id="article_footer_box">
             			<c:if test="${board.likeIs==true }">
-            				<button id="like_btn" class="like" onclick="fn_like_btn()"><span id="heart">추천수</span><br><span id="board_like">${board.board_like }</span></button>
+            				<button id="like_btn" class="like"><span id="heart">추천수</span><br><span id="board_like">${board.board_like }</span></button>
             			</c:if>
             			<c:if test="${board.likeIs==false }">
-            				<button id="like_btn" class="unlike" onclick="fn_like_btn()"><span id="heart">추천수</span><br><span id="board_like">${board.board_like }</span></button>
+            				<button id="like_btn" class="unlike"><span id="heart">추천수</span><br><span id="board_like">${board.board_like }</span></button>
             			</c:if>
             		</div>
             		<div id="article_comment_box">
