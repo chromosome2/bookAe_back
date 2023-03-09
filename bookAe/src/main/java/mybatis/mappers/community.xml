@@ -24,6 +24,15 @@
 		]]>
 	</select>
 	
+	<select id="two_best_community_list" resultMap="communityResult">
+		<![CDATA[
+			SELECT * FROM (select board_num, board_title, board_genre, 
+			(SELECT NVL(count(*),0) FROM liketbl WHERE board_num=b.board_num) as board_like, 
+			board_date, j.nickname 
+			from boardtbl b, jointbl j where b.id=j.id order by board_like desc) A WHERE not board_like=0 and rownum<=2
+		]]>
+	</select>
+	
 	<select id="max_num" resultType="_int">
 		<![CDATA[
 			SELECT count(*) as max from boardtbl

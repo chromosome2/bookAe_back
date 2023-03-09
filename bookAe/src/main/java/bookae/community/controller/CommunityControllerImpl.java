@@ -31,18 +31,26 @@ public class CommunityControllerImpl extends MultiActionController implements Co
 	@Autowired
 	private CommunityService communityService;
 	
+	//커뮤니티 목록 불러오기
 	@Override
 	@RequestMapping(value="/community/community.do", method=RequestMethod.GET)
 	public ModelAndView community_list_view(HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 		String viewName=getViewName(request);
+		
+		//리스트 불러오기
 		List communityList=communityService.community_list_view();
+		List bestCommunityList=communityService.two_best_community_list();
+		
 		ModelAndView mav=new ModelAndView("community/"+viewName);
 		mav.addObject("communityList",communityList);
+		mav.addObject("bestCommunityList",bestCommunityList);
 		mav.addObject("max_num",communityService.max_num());
+		
 		return mav;
 	}
 	
+	//글쓰기 폼 열기
 	@RequestMapping(value="/community/writeCommunity.do", method=RequestMethod.GET)
 	public ModelAndView writeCommunityForm(HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
@@ -53,6 +61,7 @@ public class CommunityControllerImpl extends MultiActionController implements Co
 		return mav;
 	}
 
+	//글쓰기 기능
 	@Override
 	@RequestMapping(value="/community/addArticle.do", method=RequestMethod.POST)
 	public ModelAndView addArticle(@ModelAttribute("communityVO") CommunityVO communityVO, HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -76,6 +85,7 @@ public class CommunityControllerImpl extends MultiActionController implements Co
 		return mav;
 	}
 
+	//게시글 하나 보기
 	@Override
 	@RequestMapping(value="/community/viewArticle.do", method=RequestMethod.GET)
 	public ModelAndView viewArticle(@RequestParam("board_num") int board_num, HttpServletRequest request, HttpServletResponse response)
@@ -163,8 +173,6 @@ public class CommunityControllerImpl extends MultiActionController implements Co
 		//url과 uri의 차이
 		//url은 http://127.0.0.1:8090/member/join.do
 		//uri는 /member/join.do
-		System.out.println((String)request.getAttribute("javax.servlet.include.request_uri"));
-		System.out.println(request.getRequestURI());
 		if(uri == null || uri.trim().equals("")) {//uri가 비었다면
 			uri=request.getRequestURI();//버전바뀌면서 getAttribute를 많이 쓰게됐나봄. 왜인지는 모르겠으나... 어쨌든 같은 값을 가져오는 함수인거 같음.
 		}

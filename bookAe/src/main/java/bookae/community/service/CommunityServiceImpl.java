@@ -50,6 +50,11 @@ public class CommunityServiceImpl implements CommunityService{
 	public int delLike(CommunityVO communityVO) throws DataAccessException {
 		return communityDAO.delLike(communityVO);
 	}
+
+	@Override
+	public List two_best_community_list() throws DataAccessException {
+		return communityDAO.two_best_community_list();
+	}
 	
 	
 

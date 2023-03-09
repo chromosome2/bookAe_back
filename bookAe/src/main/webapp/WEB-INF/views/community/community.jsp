@@ -51,6 +51,21 @@
                     <tr id="title">
                         <th>번호</th><th>제목</th><th>작성시간</th><th>글쓴이</th>
                     </tr>
+                    <c:if test="${!empty bestCommunityList }">
+                    	<c:forEach var="best" items="${bestCommunityList }">
+		                    <tr class="bestCommunity">
+		                        <td class="bestHighlight">Best!</td>
+		                        <td>
+		                        	<a href="${contextPath }/community/viewArticle.do?board_num=${best.board_num}">
+		                        	<span class="genre">&lt;${best.board_genre }&gt;</span> 
+		                        	${best.board_title }(
+		                        	<span class="recommend">추천수</span>${best.board_like })</a>
+		                        </td>
+		                        <td>${best.board_date}</td>
+		                        <td>${best.nickname }</td>
+		                    </tr>
+	                    </c:forEach>
+                    </c:if>
                     <c:if test="${empty communityList }">
                     	<tr>
                     		<td colspan="4" align="center">게시글이 없습니다.</td>

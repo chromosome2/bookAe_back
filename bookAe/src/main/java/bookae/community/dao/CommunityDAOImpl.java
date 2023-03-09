@@ -18,6 +18,7 @@ public class CommunityDAOImpl implements CommunityDAO{
 	@Autowired
 	private SqlSession sqlSession;
 	
+	//커뮤니티 목록 불러오기
 	@Override
 	public List<CommunityVO> community_list_view() throws DataAccessException {
 		List<CommunityVO> communityList=null;
@@ -25,17 +26,20 @@ public class CommunityDAOImpl implements CommunityDAO{
 		return communityList;
 	}
 	
+	//커뮤니티 게시글 갯수 가져오기. max가 아니라 count가 더 적절한 말일듯 함.
 	public int max_num() throws DataAccessException{
 		int num =(int)sqlSession.selectOne("mapper.community.max_num");
 		return num;
 	}
 
+	//게시글 작성
 	@Override
 	public int addArticle(CommunityVO communityVO) throws DataAccessException {
 		int result=sqlSession.insert("mapper.community.addArticle", communityVO);
 		return result;
 	}
 
+	//게시글 자세히 보기
 	@Override
 	public CommunityVO viewArticle(int board_num) throws DataAccessException {
 		//조회수업데이트
@@ -64,6 +68,7 @@ public class CommunityDAOImpl implements CommunityDAO{
 		
 	}
 
+	//좋아요 기능
 	@Override
 	public int addLike(CommunityVO communityVO) throws DataAccessException {
 		//liketbl에 insert
@@ -73,6 +78,7 @@ public class CommunityDAOImpl implements CommunityDAO{
 		return board_like;
 	}
 	
+	//좋아요 취소 기능
 	@Override
 	public int delLike(CommunityVO communityVO) throws DataAccessException {
 		//liketbl에 delete
@@ -80,6 +86,14 @@ public class CommunityDAOImpl implements CommunityDAO{
 		//like 갯수 가져오기
 		int board_like=(int)sqlSession.selectOne("mapper.community.getBoardLike",communityVO.getBoard_num());
 		return board_like;
+	}
+
+	//베스트 커뮤니티 리스트 두개 가져오기
+	@Override
+	public List two_best_community_list() throws DataAccessException {
+		List<CommunityVO> bestCommunityList=null;
+		bestCommunityList=sqlSession.selectList("mapper.community.two_best_community_list");
+		return bestCommunityList;
 	}
 
 }
