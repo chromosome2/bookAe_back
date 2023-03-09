@@ -28,53 +28,63 @@
     <script src="${contextPath }/resources/js/lang/summernote-ko-KR.js"></script>
     
     <script type="text/javascript">
-	    $(function () {
-	    	//좋아요 버튼 function
-	    	var like_sw=${board.likeIs};
+  		//좋아요 버튼 function
+    	function fn_like_btn() {
+	    	var like_sw;
+	    	if($("#like_btn").attr('class')==='like'){
+	    		like_sw=true;
+	    	}else{
+	    		like_sw=false;
+	    	}
 	    	var board_like=${board.board_like};
 	    	var board_num = ${board.board_num};
+	    	
+	    	//값이 null일시 'null'로 저장. 왜인지는 모름.
 	    	var id= '<%=(String)session.getAttribute("id")%>';
 	    	
-	    	//좋아요 버튼을 누를때마다 sql문을 실행하기 위해
-	    	if(!like_sw){
-	    		$('#like_btn').click(function() {
-	    			$.ajax({
-	    				type:'POST',
-	    				url:'${contextPath}/community/addLike.do',
-	    				contentType:'application/json; charset=UTF-8',
-	    				data:JSON.stringify({"board_num" : board_num,
-   							  "id" : id}),
-   						dataType:"json",
-	    				success:function(data){
-	    					alert('좋아요 성공!');
-	    					$('#like_btn').attr('class','like');
-	    					$("#board_like").text(board_like+1);
-	    				},
-	    				error : function(data){
-	    					alert('실패!');
-	    				}
-	    			})
-	    		})
+	    	console.log(like_sw+" "+board_like+" "+board_num+" "+id);
+	    	
+	    	if(id==="null"){
+	    		alert("로그인 해주세요!");
 	    	}else{
-	    		$('#like_btn').click(function() {
+	    		//좋아요 버튼을 누를때마다 sql문을 실행하기 위해 ajax로 데이터 전송
+	    		var data={"board_num" : board_num, "id" : id,};
+	    		if(like_sw===false){
 	    			$.ajax({
 	    				type:'POST',
-	    				url:'${contextPath}/community/delLike.do',
-	    				contentType:'application/json; charset=UTF-8',
-	    				data:JSON.stringify({"board_num" : board_num,
- 							  "id" : id}),
+  						dataType:"json",
+  						data: data,
+	    				url:'${contextPath}/community/addLike.do',
+	    				//왜인지는 모르겠지만 쓰면 전달이 안됨!
+	    				//contentType:'application/json; charset=UTF-8',
 	    				success:function(data){
-	    					alert('좋아요 취소 성공!');
-	    	    			$('#like_btn').attr('class','unlike');
-	    					$("#board_like").text(board_like-1);
+	    					$('#like_btn').attr('class','like');
+	    					$("#board_like").text(data['board_like']);
+	    					like_sw=!like_sw;
 	    				},
 	    				error : function(data){
-	    					alert('실패!');
+	    					alert('좋아요 실패! 잠시 뒤 다시 시도해주세요.');
 	    				}
 	    			})
-	    		})
+	    		}else{
+	    			$.ajax({
+	    				type:'POST',
+  						dataType:"json",
+  						data: data,
+	    				url:'${contextPath}/community/delLike.do',
+	    				success:function(data){
+	    	    			$('#like_btn').attr('class','unlike');
+	    					$("#board_like").text(data['board_like']);
+	    					like_sw=!like_sw;
+	    				},
+	    				error : function(data){
+	    					alert('좋아요 취소 실패! 잠시 뒤 다시 시도해주세요.');
+	    				}
+	    			})
+	    		}
+	    		
 	    	}
-	    });
+    	}
     </script>
     
 	<title>북愛 - 커뮤니티 페이지</title>
@@ -105,10 +115,10 @@
             		</div>
             		<div id="article_footer_box">
             			<c:if test="${board.likeIs==true }">
-            				<button id="like_btn" class="like"><span id="heart">추천수</span><br><span id="board_like">${board.board_like }</span></button>
+            				<button id="like_btn" class="like" onclick="fn_like_btn()"><span id="heart">추천수</span><br><span id="board_like">${board.board_like }</span></button>
             			</c:if>
             			<c:if test="${board.likeIs==false }">
-            				<button id="like_btn" class="unlike"><span id="heart">추천수</span><br><span id="board_like">${board.board_like }</span></button>
+            				<button id="like_btn" class="unlike" onclick="fn_like_btn()"><span id="heart">추천수</span><br><span id="board_like">${board.board_like }</span></button>
             			</c:if>
             		</div>
             		<div id="article_comment_box">

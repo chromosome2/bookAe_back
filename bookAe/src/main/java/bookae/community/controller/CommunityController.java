@@ -19,9 +19,9 @@ public interface CommunityController {
 			HttpServletResponse response) throws Exception;
 	public ModelAndView viewArticle (@RequestParam("board_num") int board_num, HttpServletRequest request,
 			HttpServletResponse response) throws Exception;
-	//public void addLike(@RequestBody Map<String, Object> likeInfo, HttpServletRequest request,
-	//		HttpServletResponse response) throws Exception;
-	public void delLike(@RequestBody Map<String, Object> likeInfo, HttpServletRequest request,
+	public void addLike(HttpServletRequest request,
+			HttpServletResponse response) throws Exception;
+	public void delLike(HttpServletRequest request,
 			HttpServletResponse response) throws Exception;
 
 }

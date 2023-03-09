@@ -41,15 +41,14 @@ public class CommunityServiceImpl implements CommunityService{
 	}
 
 	@Override
-	public void addLike(Map<String, Object> likeInfo) throws DataAccessException {
-		communityDAO.addLike(likeInfo);
+	public int addLike(CommunityVO communityVO) throws DataAccessException {
+		return communityDAO.addLike(communityVO);
 		
 	}
 
 	@Override
-	public void delLike(Map<String, Object> likeInfo) throws DataAccessException {
-		communityDAO.delLike(likeInfo);
-		
+	public int delLike(CommunityVO communityVO) throws DataAccessException {
+		return communityDAO.delLike(communityVO);
 	}
 	
 	

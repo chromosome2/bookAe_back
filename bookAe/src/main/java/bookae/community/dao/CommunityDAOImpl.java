@@ -65,13 +65,21 @@ public class CommunityDAOImpl implements CommunityDAO{
 	}
 
 	@Override
-	public void addLike(Map<String, Object> likeInfo) throws DataAccessException {
-		sqlSession.insert("mapper.community.addLike", likeInfo);
+	public int addLike(CommunityVO communityVO) throws DataAccessException {
+		//liketbl에 insert
+		sqlSession.insert("mapper.community.addLike", communityVO);
+		//like 갯수 가져오기
+		int board_like=(int)sqlSession.selectOne("mapper.community.getBoardLike",communityVO.getBoard_num());
+		return board_like;
 	}
 	
 	@Override
-	public void delLike(Map<String, Object> likeInfo) throws DataAccessException {
-		sqlSession.delete("mapper.community.delLike", likeInfo);
+	public int delLike(CommunityVO communityVO) throws DataAccessException {
+		//liketbl에 delete
+		sqlSession.delete("mapper.community.delLike", communityVO);
+		//like 갯수 가져오기
+		int board_like=(int)sqlSession.selectOne("mapper.community.getBoardLike",communityVO.getBoard_num());
+		return board_like;
 	}
 
 }

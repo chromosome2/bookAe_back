@@ -30,8 +30,6 @@ public class CommunityControllerImpl extends MultiActionController implements Co
 	
 	@Autowired
 	private CommunityService communityService;
-	@Autowired
-	private CommunityVO communityVO;
 	
 	@Override
 	@RequestMapping(value="/community/community.do", method=RequestMethod.GET)
@@ -85,7 +83,7 @@ public class CommunityControllerImpl extends MultiActionController implements Co
 		String viewName=getViewName(request);
 		
 		//article의 정보 다 가져오기
-		communityVO=communityService.viewArticle(board_num);
+		CommunityVO communityVO=communityService.viewArticle(board_num);
 		
 		//로그인한 사람의 article like 여부
 		HttpSession session=request.getSession(false);
@@ -103,46 +101,48 @@ public class CommunityControllerImpl extends MultiActionController implements Co
 		return mav;
 	}
 
-	@SuppressWarnings("unchecked")
+	//좋아요버튼 작업
+	@SuppressWarnings("unchecked") // 노란경고 안뜨게
+	@Override
 	@RequestMapping(value="/community/addLike.do", method=RequestMethod.POST)
 	public void addLike(HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 		String id=request.getParameter("id");
 		int board_num=Integer.parseInt(request.getParameter("board_num"));
-		String tel="010-1111-2222";
+		
+		CommunityVO communityVO=new CommunityVO();
+		communityVO.setId(id);
+		communityVO.setBoard_num(board_num);
+		
+		int board_like=communityService.addLike(communityVO);//liketbl에 insert
 		
 		JSONObject json=new JSONObject();
-		json.put("tel", tel);
+		json.put("board_like", board_like);//json에 데이터 저장
 		
 		PrintWriter pw=response.getWriter();
-		pw.println(json);
+		pw.println(json);//보내주기
 		pw.flush();
 		pw.close();
-		System.out.println(id+" "+board_num);
 	}
 
-	@ResponseBody
 	@RequestMapping(value="/community/delLike.do", method=RequestMethod.POST)
 	@Override
-	public void delLike(@RequestBody Map<String, Object> likeInfo, HttpServletRequest request, HttpServletResponse response)
+	public void delLike(HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
-		communityService.delLike(likeInfo);
+		String id=request.getParameter("id");
+		int board_num=Integer.parseInt(request.getParameter("board_num"));
 		
-	}
-	
-	@SuppressWarnings("unchecked")
-	@RequestMapping(value="/community/test.do")
-	public void test(HttpServletRequest request, HttpServletResponse response)
-			throws Exception {
-		String name=request.getParameter("name");
-		String tel="010-1111-1111";
-		System.out.println(name+" "+tel);
+		CommunityVO communityVO=new CommunityVO();
+		communityVO.setId(id);
+		communityVO.setBoard_num(board_num);
+		
+		int board_like=communityService.delLike(communityVO);//liketbl에 insert
 		
 		JSONObject json=new JSONObject();
-		json.put("tel", tel);
+		json.put("board_like", board_like);//json에 데이터 저장
 		
 		PrintWriter pw=response.getWriter();
-		pw.println(json);
+		pw.println(json);//보내주기
 		pw.flush();
 		pw.close();
 	}
