@@ -29,7 +29,7 @@
 			SELECT * FROM (select board_num, board_title, board_genre, 
 			(SELECT NVL(count(*),0) FROM liketbl WHERE board_num=b.board_num) as board_like, 
 			board_date, j.nickname 
-			from boardtbl b, jointbl j where b.id=j.id order by board_like desc) A WHERE not board_like=0 and rownum<=2
+			from boardtbl b, jointbl j where b.id=j.id order by board_like desc, board_view desc) A WHERE not board_like=0 and rownum<=2
 		]]>
 	</select>
 	
@@ -41,8 +41,8 @@
 	
 	<insert id="addArticle" parameterType="communityVO">
 		<![CDATA[
-			INSERT INTO boardtbl(board_num, board_title, id, board_like, board_view, board_genre, board_content) 
-			VALUES((SELECT NVL(MAX(board_num),0)+1 FROM boardtbl), #{board_title}, #{id}, 0, 0, #{board_genre}, #{board_content})
+			INSERT INTO boardtbl(board_num, board_title, id, board_view, board_genre, board_content) 
+			VALUES((SELECT NVL(MAX(board_num),0)+1 FROM boardtbl), #{board_title}, #{id}, 0, #{board_genre}, #{board_content})
 		]]>
 	</insert>
 	
