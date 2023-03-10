@@ -66,12 +66,14 @@ public class CommunityControllerImpl extends MultiActionController implements Co
 			
 			//페이징된 리스트 불러오기
 			List communityList=communityService.pagingBoard(pagingVO);
+			List bestCommunityList=communityService.two_best_community_list();
 			
 			
 			ModelAndView mav=new ModelAndView("community/"+viewName);
 			mav.addObject("max_num",max_num);
 			mav.addObject("paging",pagingVO);
 			mav.addObject("communityList",communityList);
+			mav.addObject("bestCommunityList",bestCommunityList);
 			
 			return mav;
 		}

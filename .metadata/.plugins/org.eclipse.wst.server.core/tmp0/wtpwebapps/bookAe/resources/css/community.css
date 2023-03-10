@@ -139,18 +139,12 @@
     color: rgb(58, 58, 58);
     right: 50px;
 }
-.page a:first-child {
-    color: #ccc;
-}
-.page a:nth-child(2){
+.page .present_page {
     font-weight: bold;
     border-bottom: 1px solid;
 }
 .page a:hover{
     font-weight: bold;
-}
-.page a:first-child:hover{
-    font-weight: 400;
 }
 
 #contents_footer{
