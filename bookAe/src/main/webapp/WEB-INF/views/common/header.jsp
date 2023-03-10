@@ -78,7 +78,7 @@
                     <li><a href="#">커뮤니티</a>
                         <ul class="community">
                             <!-- <li><a href="${contextPath}/community/community.do">감상평</a></li> -->
-                            <li><a href="${contextPath}/community/boardList.do">감상평</a></li>
+                            <li><a href="${contextPath}/community/community.do">감상평</a></li>
                             <li><a href="#">자유게시판</a></li>
                             <li><a href="#">추천게시판</a></li>
                             <li class="white">.</li>

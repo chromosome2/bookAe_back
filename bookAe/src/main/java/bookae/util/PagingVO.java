@@ -5,7 +5,7 @@ public class PagingVO {
 	private int startPage; //시작페이지
 	private int endPage; //끝페이지
 	private int total; //게시글 총 개수
-	private int cntPerPage; //페이지당 글 개수
+	private int cntPerPage=8; //페이지당 글 개수
 	private int lastPage; //마지막페이지
 	private int start; //SQL쿼리에 쓸 rownum의 start
 	private int end; //SQL쿼리에 쓸 rownum의 end
@@ -16,9 +16,8 @@ public class PagingVO {
 		
 	}
 	
-	public PagingVO(int total, int nowPage, int cntPerPage) {
+	public PagingVO(int total, int nowPage) {
 		setNowPage(nowPage);
-		setCntPerPage(cntPerPage);
 		setTotal(total);
 		calcLastPage(getTotal(), getCntPerPage());
 		calcStartEndPage(getNowPage(), cntPage);

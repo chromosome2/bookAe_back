@@ -26,7 +26,6 @@ public interface CommunityController {
 			HttpServletResponse response) throws Exception;
 	public ModelAndView boardList (PagingVO pagingVO, 
 			@RequestParam(value="nowPage", required=false) String nowPage, 
-			@RequestParam(value="cntPerPage", required=false) String cntPerPage, 
 			HttpServletRequest request,
 			HttpServletResponse response) throws Exception;
 

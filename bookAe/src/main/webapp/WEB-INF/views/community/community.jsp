@@ -103,7 +103,7 @@
 	                <!-- 페이징 -->
 	                <div class="page">
 	                	<c:if test="${paging.startPage !=1 }">
-	                		<a href="${contextPath }/community/boardList?nowPage=${paging.startPage - 1 }&cntPerPage='8'">&lt;</a>
+	                		<a href="${contextPath }/community/community.do?nowPage=${paging.startPage - 1 }">&lt;</a>
 	                	</c:if>
 	                	<c:forEach begin="${paging.startPage }" end="${paging.endPage }" var="p">
 	                		<c:choose>
@@ -111,12 +111,12 @@
 	                				<b>${p }</b>
 	                			</c:when>
 	                			<c:when test="${p != paging.nowPage }">
-	                				<a href="${contextPath }/community/boardList?nowPage=${p }&cntPerPage='8'">${p }</a>
+	                				<a href="${contextPath }/community/community.do?nowPage=${p }">${p }</a>
 	                			</c:when>
 	                		</c:choose>
 	                	</c:forEach>
 	                	<c:if test="${paging.endPage !=paging.lastPage }">
-	                		<a href="${contextPath }/community/boardList?nowPage=${paging.endPage+1 }&cntPerPage='8'">&gt;</a>
+	                		<a href="${contextPath }/community/community.do?nowPage=${paging.endPage+1 }">&gt;</a>
 	                	</c:if>
 	                </div>
                 </div>

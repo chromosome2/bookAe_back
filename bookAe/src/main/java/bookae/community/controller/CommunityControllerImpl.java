@@ -50,6 +50,31 @@ public class CommunityControllerImpl extends MultiActionController implements Co
 		
 		return mav;
 	}*/
+	//페이징 기능을 합친 게시글 가져오기
+		@Override
+		@RequestMapping(value="/community/community.do", method=RequestMethod.GET)
+		public ModelAndView boardList(PagingVO pagingVO, String nowPage, HttpServletRequest request,
+				HttpServletResponse response) throws Exception {
+			String viewName=getViewName(request);
+
+			//vo 계산하기
+			int max_num=communityService.max_num();
+			if(nowPage == null) {
+				nowPage ="1";
+			}
+			pagingVO = new PagingVO(max_num, Integer.parseInt(nowPage));
+			
+			//페이징된 리스트 불러오기
+			List communityList=communityService.pagingBoard(pagingVO);
+			
+			
+			ModelAndView mav=new ModelAndView("community/"+viewName);
+			mav.addObject("max_num",max_num);
+			mav.addObject("paging",pagingVO);
+			mav.addObject("communityList",communityList);
+			
+			return mav;
+		}
 	
 	
 	
@@ -161,33 +186,7 @@ public class CommunityControllerImpl extends MultiActionController implements Co
 		pw.close();
 	}
 
-	//페이징 기능을 합친 게시글 가져오기
-	@Override
-	@RequestMapping(value="/community/boardList.do", method=RequestMethod.GET)
-	public ModelAndView boardList(PagingVO pagingVO, String nowPage, String cntPerPage, HttpServletRequest request,
-			HttpServletResponse response) throws Exception {
-		int max_num=communityService.max_num();
-		if(nowPage == null && cntPerPage == null) {
-			nowPage ="1";
-		}else if(nowPage ==null) {
-			nowPage="1";
-		}
-		System.out.println("ccc");
-		System.out.println(max_num);
-		System.out.println(nowPage);
-		System.out.println(cntPerPage);
-		
-		pagingVO = new PagingVO(max_num, Integer.parseInt(nowPage),8);
-		//리스트 불러오기
-		List communityList=communityService.pagingBoard(pagingVO);
-		
-		
-		ModelAndView mav=new ModelAndView("community/community");
-		mav.addObject("max_num",max_num);
-		mav.addObject("paging",pagingVO);
-		mav.addObject("communityList",communityList);
-		return mav;
-	}
+	
 	
 	
 	

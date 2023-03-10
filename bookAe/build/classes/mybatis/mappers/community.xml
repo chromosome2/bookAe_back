@@ -103,12 +103,15 @@
 	</delete>
 	
 	<!-- 페이징 처리 후 게시글 조회 -->
-	<select id="pagingBoard" resultType="bookae.util.PagingVO" parameterType="bookae.util.PagingVO">
+	<select id="pagingBoard" resultMap="communityResult" parameterType="bookae.util.PagingVO">
 		<![CDATA[
 			SELECT * FROM 
-		    (SELECT ROWNUM rn, A.* FROM 
-	        (SELECT * FROM boardtbl ORDER BY board_num desc) A
-		    )
+			(SELECT ROWNUM rn, A.* FROM 
+			(SELECT board_num, board_title, board_genre, 
+			(SELECT NVL(count(*),0) FROM liketbl WHERE board_num=b.board_num) as board_like,  
+			board_date, j.nickname  
+			FROM boardtbl b, jointbl j WHERE b.id=j.id ORDER BY board_num desc) A
+			)
 			WHERE rn BETWEEN #{start} AND #{end}
 		]]>
 	</select>
