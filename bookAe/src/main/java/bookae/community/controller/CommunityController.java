@@ -11,10 +11,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import bookae.community.vo.CommunityVO;
+import bookae.util.PagingVO;
 
 public interface CommunityController {
-	public ModelAndView community_list_view (HttpServletRequest request,
-			HttpServletResponse response) throws Exception;
+	/*public ModelAndView community_list_view (HttpServletRequest request,
+			HttpServletResponse response) throws Exception;*/
 	public ModelAndView addArticle (@ModelAttribute("communityVO") CommunityVO communityVO, HttpServletRequest request,
 			HttpServletResponse response) throws Exception;
 	public ModelAndView viewArticle (@RequestParam("board_num") int board_num, HttpServletRequest request,
@@ -22,6 +23,11 @@ public interface CommunityController {
 	public void addLike(HttpServletRequest request,
 			HttpServletResponse response) throws Exception;
 	public void delLike(HttpServletRequest request,
+			HttpServletResponse response) throws Exception;
+	public ModelAndView boardList (PagingVO pagingVO, 
+			@RequestParam(value="nowPage", required=false) String nowPage, 
+			@RequestParam(value="cntPerPage", required=false) String cntPerPage, 
+			HttpServletRequest request,
 			HttpServletResponse response) throws Exception;
 
 }

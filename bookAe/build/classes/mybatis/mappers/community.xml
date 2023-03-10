@@ -14,6 +14,7 @@
 		<result property="nickname" column="nickname"/>
 	</resultMap>
 	
+	<!-- 감상평 게시판의 모든 게시글의 정보 가져오기 -->
 	<select id="community_list_view" resultMap="communityResult">
 		<![CDATA[
 			select board_num, board_title, board_genre, 
@@ -24,6 +25,7 @@
 		]]>
 	</select>
 	
+	<!-- 추천수가 제일 높은, 그 다음으로는 조회수가 제일 높은 게시글 두개만 가져오기 -->
 	<select id="two_best_community_list" resultMap="communityResult">
 		<![CDATA[
 			SELECT * FROM (select board_num, board_title, board_genre, 
@@ -33,12 +35,14 @@
 		]]>
 	</select>
 	
+	<!-- 게시글의 총 개수 -->
 	<select id="max_num" resultType="_int">
 		<![CDATA[
 			SELECT count(*) as max from boardtbl
 		]]>
 	</select>
 	
+	<!-- 게시글 추가 -->
 	<insert id="addArticle" parameterType="communityVO">
 		<![CDATA[
 			INSERT INTO boardtbl(board_num, board_title, id, board_view, board_genre, board_content) 
@@ -46,24 +50,28 @@
 		]]>
 	</insert>
 	
+	<!-- 한 게시글 상세 보기 -->
 	<select id="viewArticle" resultType="communityVO" parameterType="int">
 		<![CDATA[
 			SELECT * FROM boardtbl WHERE board_num=#{board_num}
 		]]>
 	</select>
 	
+	<!-- 조회수 올리기 -->
 	<update id="updateBoardView" parameterType="int">
 		<![CDATA[
 			UPDATE boardtbl SET board_view=board_view+1 WHERE board_num=#{board_num}
 		]]>
 	</update>
 	
+	<!-- 닉네임 가져오기 -->
 	<select id="getNickname" resultType="String" parameterType="String">
 		<![CDATA[
 			SELECT nickname FROM jointbl WHERE id=#{id}
 		]]>
 	</select>
 	
+	<!-- 좋아요를 눌렀었는지 여부 확인 -->
 	<select id="likeIs" resultType="String" parameterType="communityVO">
 		<![CDATA[
 			SELECT DECODE(count(*), 1, 'true', 'false') 
@@ -72,12 +80,14 @@
 		]]>
 	</select>
 	
+	<!-- 좋아요 개수 가져오기 -->
 	<select id="getBoardLike" resultType="_int" parameterType="int">
 		<![CDATA[
 			SELECT NVL(count(*),0) AS board_like FROM liketbl WHERE board_num=#{board_num}
 		]]>
 	</select>
 	
+	<!-- 좋아요 추가 -->
 	<insert id="addLike" parameterType="communityVO">
 		<![CDATA[
 			INSERT INTO liketbl (id, board_num) 
@@ -85,10 +95,22 @@
 		]]>
 	</insert>
 	
+	<!-- 좋아요 취소 -->
 	<delete id="delLike" parameterType="communityVO">
 		<![CDATA[
 			DELETE FROM liketbl WHERE id=#{id} AND board_num=#{board_num}
 		]]>
 	</delete>
+	
+	<!-- 페이징 처리 후 게시글 조회 -->
+	<select id="pagingBoard" resultType="bookae.util.PagingVO" parameterType="bookae.util.PagingVO">
+		<![CDATA[
+			SELECT * FROM 
+		    (SELECT ROWNUM rn, A.* FROM 
+	        (SELECT * FROM boardtbl ORDER BY board_num desc) A
+		    )
+			WHERE rn BETWEEN #{start} AND #{end}
+		]]>
+	</select>
 	
 </mapper>

@@ -21,8 +21,9 @@
     <link rel="stylesheet" href="${contextPath }/resources/css/community.css">
     <script src="${contextPath }/resources/js/jquery-3.6.0.min.js"></script>
     <script src="${contextPath }/resources/js/common.js"></script>
-	<title>북愛 - 로그인 페이지</title>
+	<title>북愛 - 감상평 페이지</title>
 </head>
+
 <body>
 	<!--건너뛰기 링크 시작-->
     <a id="skipNav" href="mainContents">본문 바로가기</a>
@@ -35,14 +36,15 @@
     	
     	<!--감상평 게시판 시작-->
         <div class="communityMenu">
+        	
             <a href="${contextPath}/community/community.do"><h2><img src="${contextPath }/resources/images/community.png" alt="게시판 로고" width="50">감상평 게시글</h2></a>
             <section>
                 <form action="search_community.jsp" method="get" id="searchBook">
                     <select name="head">
-                        <option value="title">전체</option>
+                        <option value="total">전체</option>
                         <option value="name">제목</option>
                         <option value="writer">글쓴이</option>
-                        <option value="naeyong">내용</option>
+                        <option value="content">내용</option>
                     </select>
                     <input type="text" id="Search_community" name="Search_community" required>
                     <button type="submit">검색</button>
@@ -51,6 +53,8 @@
                     <tr id="title">
                         <th>번호</th><th>제목</th><th>작성시간</th><th>글쓴이</th>
                     </tr>
+                    
+                    <!-- 베스트게시글 -->
                     <c:if test="${!empty bestCommunityList }">
                     	<c:forEach var="best" items="${bestCommunityList }">
 		                    <tr class="bestCommunity">
@@ -66,6 +70,8 @@
 		                    </tr>
 	                    </c:forEach>
                     </c:if>
+                    
+                    <!-- 게시글 -->
                     <c:if test="${empty communityList }">
                     	<tr>
                     		<td colspan="4" align="center">게시글이 없습니다.</td>
@@ -87,18 +93,31 @@
 	                    </c:forEach>
                     </c:if>
                 </table>
+                
                 <div id="contents_footer">
+                	<!-- 글쓰기 버튼 -->
 	                <c:if test="${!empty id }">
 	                	<a href="${contextPath }/community/writeCommunity.do" id="writeCom">글쓰기</a>
 	                </c:if>
+	                
+	                <!-- 페이징 -->
 	                <div class="page">
-	                    <a>&lt;</a>
-	                    <a href="#">1</a>
-	                    <a href="#">2</a>
-	                    <a href="#">3</a>
-	                    <a href="#">4</a>
-	                    <a href="#">5</a>
-	                    <a href="#">&gt;</a>
+	                	<c:if test="${paging.startPage !=1 }">
+	                		<a href="${contextPath }/community/boardList?nowPage=${paging.startPage - 1 }&cntPerPage='8'">&lt;</a>
+	                	</c:if>
+	                	<c:forEach begin="${paging.startPage }" end="${paging.endPage }" var="p">
+	                		<c:choose>
+	                			<c:when test="${p == paging.nowPage }">
+	                				<b>${p }</b>
+	                			</c:when>
+	                			<c:when test="${p != paging.nowPage }">
+	                				<a href="${contextPath }/community/boardList?nowPage=${p }&cntPerPage='8'">${p }</a>
+	                			</c:when>
+	                		</c:choose>
+	                	</c:forEach>
+	                	<c:if test="${paging.endPage !=paging.lastPage }">
+	                		<a href="${contextPath }/community/boardList?nowPage=${paging.endPage+1 }&cntPerPage='8'">&gt;</a>
+	                	</c:if>
 	                </div>
                 </div>
             </section>

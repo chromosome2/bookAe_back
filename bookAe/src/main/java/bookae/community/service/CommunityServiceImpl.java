@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import bookae.community.dao.CommunityDAO;
 import bookae.community.vo.CommunityVO;
+import bookae.util.PagingVO;
 
 @Service("communityService")
 public class CommunityServiceImpl implements CommunityService{
@@ -54,6 +55,11 @@ public class CommunityServiceImpl implements CommunityService{
 	@Override
 	public List two_best_community_list() throws DataAccessException {
 		return communityDAO.two_best_community_list();
+	}
+
+	@Override
+	public List<PagingVO> pagingBoard(PagingVO pagingVO) throws DataAccessException {
+		return communityDAO.pagingBoard(pagingVO);
 	}
 	
 	

@@ -24,6 +24,7 @@ import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
 import bookae.community.service.CommunityService;
 import bookae.community.vo.CommunityVO;
 import bookae.member.controller.MemberController;
+import bookae.util.PagingVO;
 
 @Controller("communityController")
 public class CommunityControllerImpl extends MultiActionController implements CommunityController{
@@ -32,7 +33,7 @@ public class CommunityControllerImpl extends MultiActionController implements Co
 	private CommunityService communityService;
 	
 	//커뮤니티 목록 불러오기
-	@Override
+	/*@Override
 	@RequestMapping(value="/community/community.do", method=RequestMethod.GET)
 	public ModelAndView community_list_view(HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
@@ -48,7 +49,9 @@ public class CommunityControllerImpl extends MultiActionController implements Co
 		mav.addObject("max_num",communityService.max_num());
 		
 		return mav;
-	}
+	}*/
+	
+	
 	
 	//글쓰기 폼 열기
 	@RequestMapping(value="/community/writeCommunity.do", method=RequestMethod.GET)
@@ -135,6 +138,7 @@ public class CommunityControllerImpl extends MultiActionController implements Co
 		pw.close();
 	}
 
+	//싫어요버튼 작업
 	@RequestMapping(value="/community/delLike.do", method=RequestMethod.POST)
 	@Override
 	public void delLike(HttpServletRequest request, HttpServletResponse response)
@@ -155,6 +159,34 @@ public class CommunityControllerImpl extends MultiActionController implements Co
 		pw.println(json);//보내주기
 		pw.flush();
 		pw.close();
+	}
+
+	//페이징 기능을 합친 게시글 가져오기
+	@Override
+	@RequestMapping(value="/community/boardList.do", method=RequestMethod.GET)
+	public ModelAndView boardList(PagingVO pagingVO, String nowPage, String cntPerPage, HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		int max_num=communityService.max_num();
+		if(nowPage == null && cntPerPage == null) {
+			nowPage ="1";
+		}else if(nowPage ==null) {
+			nowPage="1";
+		}
+		System.out.println("ccc");
+		System.out.println(max_num);
+		System.out.println(nowPage);
+		System.out.println(cntPerPage);
+		
+		pagingVO = new PagingVO(max_num, Integer.parseInt(nowPage),8);
+		//리스트 불러오기
+		List communityList=communityService.pagingBoard(pagingVO);
+		
+		
+		ModelAndView mav=new ModelAndView("community/community");
+		mav.addObject("max_num",max_num);
+		mav.addObject("paging",pagingVO);
+		mav.addObject("communityList",communityList);
+		return mav;
 	}
 	
 	

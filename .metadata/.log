@@ -2366,3 +2366,2305 @@ java.lang.NoSuchMethodError: 'boolean com.ibm.icu.text.UTF16.isSurrogate(char)'
 
 !ENTRY org.eclipse.lsp4e 1 0 2023-03-09 23:42:34.892
 !MESSAGE [Info]	ESLint server running in node v16.14.2
+!SESSION 2023-03-10 00:52:51.512 -----------------------------------------------
+eclipse.buildId=4.24.0.I20220607-0700
+java.version=17.0.3
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=ko_KR
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.ui 2 0 2023-03-10 00:53:07.076
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2023-03-10 00:53:07.076
+!MESSAGE Commands should really have a category: plug-in='org.springframework.ide.eclipse.boot', id='org.springframework.ide.eclipse.boot.ui.EnableDisableBootDevtools', categoryId='org.springframework.ide.eclipse.boot.commands.category'
+
+!ENTRY org.eclipse.ui 2 0 2023-03-10 00:53:29.591
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2023-03-10 00:53:29.591
+!MESSAGE Commands should really have a category: plug-in='org.springframework.ide.eclipse.boot', id='org.springframework.ide.eclipse.boot.ui.EnableDisableBootDevtools', categoryId='org.springframework.ide.eclipse.boot.commands.category'
+
+!ENTRY org.eclipse.jface 2 0 2023-03-10 00:53:30.951
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2023-03-10 00:53:30.951
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@33c5e52f,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@74474fc0,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2023-03-10 00:53:30.951
+!MESSAGE A conflict occurred for ALT+SHIFT+R:
+Binding(ALT+SHIFT+R,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.rename.element,Rename - Refactoring ,
+		Rename the selected element,
+		Category(org.eclipse.jdt.ui.category.refactoring,Refactor - Java,Java Refactoring Actions,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@7cd239f6,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+SHIFT+R,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.rename,Rename,
+		Rename the selected item,
+		Category(org.eclipse.ui.category.file,File,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@5ba7391b,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.mylyn.tasks.core 4 0 2023-03-10 00:53:32.073
+!MESSAGE Unexpected error while loading repository template extensions
+!SUBENTRY 1 org.eclipse.mylyn.tasks.core 4 0 2023-03-10 00:53:32.073
+!MESSAGE Could not load repository template extension contributed by 'org.eclipse.mylyn.bugzilla.ide' with connectorKind 'bugzilla'
+
+!ENTRY org.eclipse.wildwebdeveloper.xml 4 0 2023-03-10 00:53:36.288
+!MESSAGE Error while getting URI 'platform:/plugin/org.eclipse.persistence.moxy/org/eclipse/persistence/jaxb/eclipselink_oxm_2_5.xsd' from plugin 'org.eclipse.jpt.common.eclipselink.core' : /org/eclipse/persistence/jaxb/eclipselink_oxm_2_5.xsd
+!STACK 0
+java.io.FileNotFoundException: /org/eclipse/persistence/jaxb/eclipselink_oxm_2_5.xsd
+	at org.eclipse.osgi.storage.url.bundleentry.Handler.findBundleEntry(Handler.java:55)
+	at org.eclipse.osgi.storage.url.BundleResourceHandler.openConnection(BundleResourceHandler.java:182)
+	at java.base/java.net.URL.openConnection(URL.java:1094)
+	at org.eclipse.core.internal.boot.PlatformURLConnection.connect(PlatformURLConnection.java:115)
+	at org.eclipse.core.internal.boot.PlatformURLConnection.getURLAsLocal(PlatformURLConnection.java:240)
+	at org.eclipse.core.internal.runtime.PlatformURLConverter.toFileURL(PlatformURLConverter.java:37)
+	at org.eclipse.core.runtime.FileLocator.toFileURL(FileLocator.java:263)
+	at org.eclipse.wildwebdeveloper.xml.internal.ui.preferences.XMLCatalogs.createURI(XMLCatalogs.java:139)
+	at org.eclipse.wildwebdeveloper.xml.internal.ui.preferences.XMLCatalogs.lambda$3(XMLCatalogs.java:87)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)
+	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:992)
+	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
+	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:992)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at org.eclipse.wildwebdeveloper.xml.internal.ui.preferences.XMLCatalogs.getWTPExtensionCatalog(XMLCatalogs.java:65)
+	at org.eclipse.wildwebdeveloper.xml.internal.ui.preferences.XMLCatalogs.getAllCatalogs(XMLCatalogs.java:52)
+	at org.eclipse.wildwebdeveloper.xml.internal.ui.preferences.XMLPreferenceConstants.storePreferencesToLemminxOptions(XMLPreferenceConstants.java:90)
+	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.mergeCustomInitializationOptions(XMLLanguageServer.java:169)
+	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.getInitializationOptions(XMLLanguageServer.java:164)
+	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$7(LanguageServerWrapper.java:364)
+	at java.base/java.util.concurrent.CompletableFuture$UniCompose.tryFire(CompletableFuture.java:1150)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1773)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.exec(CompletableFuture.java:1760)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:373)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1182)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1655)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1622)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165)
+
+!ENTRY org.eclipse.wildwebdeveloper.xml 4 0 2023-03-10 00:53:36.399
+!MESSAGE Error while getting URI 'platform:/plugin/org.springframework.beans/org/springframework/beans/factory/xml/spring-beans.dtd' from plugin 'org.springframework.ide.eclipse.beans.ui.editor' : /org/springframework/beans/factory/xml/spring-beans.dtd
+!STACK 0
+java.io.FileNotFoundException: /org/springframework/beans/factory/xml/spring-beans.dtd
+	at org.eclipse.osgi.storage.url.bundleentry.Handler.findBundleEntry(Handler.java:55)
+	at org.eclipse.osgi.storage.url.BundleResourceHandler.openConnection(BundleResourceHandler.java:182)
+	at java.base/java.net.URL.openConnection(URL.java:1094)
+	at org.eclipse.core.internal.boot.PlatformURLConnection.connect(PlatformURLConnection.java:115)
+	at org.eclipse.core.internal.boot.PlatformURLConnection.getURLAsLocal(PlatformURLConnection.java:240)
+	at org.eclipse.core.internal.runtime.PlatformURLConverter.toFileURL(PlatformURLConverter.java:37)
+	at org.eclipse.core.runtime.FileLocator.toFileURL(FileLocator.java:263)
+	at org.eclipse.wildwebdeveloper.xml.internal.ui.preferences.XMLCatalogs.createURI(XMLCatalogs.java:139)
+	at org.eclipse.wildwebdeveloper.xml.internal.ui.preferences.XMLCatalogs.lambda$3(XMLCatalogs.java:69)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)
+	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:992)
+	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
+	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:992)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at org.eclipse.wildwebdeveloper.xml.internal.ui.preferences.XMLCatalogs.getWTPExtensionCatalog(XMLCatalogs.java:65)
+	at org.eclipse.wildwebdeveloper.xml.internal.ui.preferences.XMLCatalogs.getAllCatalogs(XMLCatalogs.java:52)
+	at org.eclipse.wildwebdeveloper.xml.internal.ui.preferences.XMLPreferenceConstants.storePreferencesToLemminxOptions(XMLPreferenceConstants.java:90)
+	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.mergeCustomInitializationOptions(XMLLanguageServer.java:169)
+	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.getInitializationOptions(XMLLanguageServer.java:164)
+	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$7(LanguageServerWrapper.java:364)
+	at java.base/java.util.concurrent.CompletableFuture$UniCompose.tryFire(CompletableFuture.java:1150)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1773)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.exec(CompletableFuture.java:1760)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:373)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1182)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1655)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1622)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165)
+
+!ENTRY org.eclipse.egit.ui 2 0 2023-03-10 00:53:36.655
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\sujin'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.ui 4 0 2023-03-10 00:54:15.491
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.NoSuchMethodError: 'boolean com.ibm.icu.text.UTF16.isSurrogate(char)'
+	at org.eclipse.jdt.internal.ui.text.JavaWordFinder.findWord(JavaWordFinder.java:39)
+	at org.eclipse.jdt.internal.ui.text.java.hover.AbstractJavaEditorTextHover.getHoverRegion(AbstractJavaEditorTextHover.java:94)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverRegion(JavaEditorTextHoverProxy.java:65)
+	at org.eclipse.jface.text.TextViewerHoverManager.computeInformation(TextViewerHoverManager.java:128)
+	at org.eclipse.jface.text.AbstractInformationControlManager.doShowInformation(AbstractInformationControlManager.java:1101)
+	at org.eclipse.jface.text.AbstractHoverInformationControlManager$MouseTracker.mouseHover(AbstractHoverInformationControlManager.java:511)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:212)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4251)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1066)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4068)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3645)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:644)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:551)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:156)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:07:38.267
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/oomph/uss/updates/latest, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:07:39.583
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/oomph/uss/drops/nightly/N20180202-232207, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:07:42.435
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:07:42.613
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/6.11.0, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:07:42.666
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/updatesites/6.11.0.r201704240320, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:07:42.703
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/6.12.0, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:07:42.756
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/updatesites/6.12.0.r201709030044, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:07:42.792
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/6.13.1, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:07:42.872
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/updatesites/6.13.1.r201712040202, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:07:42.913
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/updatesites/6.13.1.r201712040515, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:07:42.947
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/6.14.2, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:07:43.001
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/updatesites/6.14.2.r201802161450, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:07:43.036
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/6.14.3, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:07:43.090
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/updatesites/6.14.3.r201802240500, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:07:43.124
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/7.0.0, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:07:43.179
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/updatesites/7.0.0.r201908191551, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:07:43.217
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/7.1.0, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:07:43.271
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/updatesites/7.1.0.r202001120626, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:07:43.305
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/7.2.0, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:07:43.348
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/updatesites/7.2.0.r202003151902, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:07:43.378
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/7.3.0, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:07:43.429
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/updatesites/7.3.0.r202008060316, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:07:43.468
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/7.4.0, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:07:43.523
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/updatesites/7.4.0.r202105021533, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:07:43.555
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/7.5.0, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:07:43.637
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/updatesites/7.5.0.r202201070709, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:07:43.670
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/7.6.1, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:07:43.720
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/updatesites/7.6.1.r202207070546, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:07:52.278
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/technology/m2e/releases/, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:07:55.866
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/technology/m2e/releases/content.xml.xz, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:07:57.703
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/technology/m2e/releases/, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2023-03-10 01:08:02.204
+!MESSAGE No repository found at http://download.eclipse.org/technology/m2e/releases/.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:08:02.210
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/updates/release/latest, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:08:03.754
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/release/1.2.2/content.xml.xz, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:08:06.385
+!MESSAGE Using unsafe http transport to retrieve http://download.oracle.com/otn_software/oepe/12.2.1.9/photon/repository/dependencies/, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:08:12.761
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/e4/snapshots/org.eclipse.e4.ui/content.xml.xz, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:08:14.118
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/updates, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:08:15.482
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/updates/release, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:08:16.821
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/release/1.2.1, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:08:18.067
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/release/1.2.0, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:08:19.630
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/release/1.1.0, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:08:21.083
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/updates/milestone, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:08:22.457
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/milestone/S911-1.2-RC1, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:08:23.934
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/milestone/S909-1.2-RC1, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:08:25.774
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/milestone/S908-1.2-RC1, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:08:27.515
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/milestone/S20210519-025928-1.2.2-M1/content.xml.xz, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:08:29.169
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/milestone/S20210406-153234/content.xml.xz, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:08:30.899
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/milestone/S20191129-202804-1.2.1-RC2, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:08:32.384
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/milestone/S20191118-183434-1.2.1-RC1, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:08:33.838
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/milestone/S20170529-101518-1.1-RC2, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:08:35.293
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/milestone/S20170525-115740-1.1-RC2, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:08:37.139
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/milestone/S20170523-143239-1.1-RC1, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:08:38.990
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/milestone/S20170516-113326-1.1-M7, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:08:40.720
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/updates/nightly, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:08:42.456
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/nightly/N20230309-044151/content.xml.xz, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:08:44.317
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/nightly/N20230308-044146/content.xml.xz, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:08:46.058
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/nightly/N20230307-044136/content.xml.xz, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:08:47.899
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/nightly/N20230306-044149/content.xml.xz, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:08:49.743
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/nightly/N20230305-044154/content.xml.xz, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:09:09.284
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/technology/m2e/releases/, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:09:12.561
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/technology/m2e/releases/content.xml.xz, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:09:14.404
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/technology/m2e/releases/, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:09:27.975
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/e4/snapshots/org.eclipse.e4.ui/artifacts.xml.xz, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:09:47.187
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/updates, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:09:48.814
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/updates/release, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:09:50.563
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/release/1.2.2/artifacts.xml.xz, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:09:52.307
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/release/1.2.1, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:09:54.149
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/release/1.2.0, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:09:55.992
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/release/1.1.0, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:09:57.836
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/updates/milestone, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:09:59.583
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/milestone/S911-1.2-RC1, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:10:01.113
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/milestone/S909-1.2-RC1, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:10:02.648
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/milestone/S908-1.2-RC1, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:10:04.507
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/milestone/S20210519-025928-1.2.2-M1/artifacts.xml.xz, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:10:06.332
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/milestone/S20210406-153234/artifacts.xml.xz, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:10:07.988
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/milestone/S20191129-202804-1.2.1-RC2, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:10:09.562
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/milestone/S20191118-183434-1.2.1-RC1, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:10:11.254
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/milestone/S20170529-101518-1.1-RC2, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:10:12.992
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/milestone/S20170525-115740-1.1-RC2, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:10:14.835
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/milestone/S20170523-143239-1.1-RC1, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:10:16.679
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/milestone/S20170516-113326-1.1-M7, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:10:18.436
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/updates/nightly, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:10:20.057
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/nightly/N20230309-044151/artifacts.xml.xz, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:10:21.903
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/nightly/N20230308-044146/artifacts.xml.xz, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:10:23.644
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/nightly/N20230307-044136/artifacts.xml.xz, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:10:26.205
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/nightly/N20230306-044149/artifacts.xml.xz, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:10:28.046
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/nightly/N20230305-044154/artifacts.xml.xz, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:10:40.978
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/oomph/uss/updates/latest, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:10:42.790
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/oomph/uss/drops/nightly/N20180202-232207, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:10:48.215
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:10:48.626
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/6.11.0, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:10:48.927
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/updatesites/6.11.0.r201704240320, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:10:49.242
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/6.12.0, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:10:49.650
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/updatesites/6.12.0.r201709030044, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:10:49.893
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/6.13.1, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:10:50.162
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/updatesites/6.13.1.r201712040202, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:10:50.419
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/updatesites/6.13.1.r201712040515, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:10:50.718
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/6.14.2, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:10:50.982
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/updatesites/6.14.2.r201802161450, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:10:51.220
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/6.14.3, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:10:51.470
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/updatesites/6.14.3.r201802240500, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:10:51.754
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/7.0.0, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:10:51.997
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/updatesites/7.0.0.r201908191551, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:10:52.240
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/7.1.0, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:10:52.495
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/updatesites/7.1.0.r202001120626, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:10:52.783
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/7.2.0, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:10:53.036
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/updatesites/7.2.0.r202003151902, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:10:53.279
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/7.3.0, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:10:53.527
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/updatesites/7.3.0.r202008060316, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:10:53.795
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/7.4.0, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:10:54.068
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/updatesites/7.4.0.r202105021533, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:10:54.329
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/7.5.0, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:10:54.588
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/updatesites/7.5.0.r202201070709, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:10:54.871
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/7.6.1, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:10:55.127
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/updatesites/7.6.1.r202207070546, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:10:59.576
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/technology/m2e/releases/, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:11:03.066
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/technology/m2e/releases/artifacts.xml.xz, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:11:04.899
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/technology/m2e/releases/, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:11:10.432
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/updates/release/latest, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 01:11:19.370
+!MESSAGE Using unsafe http transport to retrieve http://download.oracle.com/otn_software/oepe/12.2.1.9/photon/repository/dependencies/, see CVE-2021-41033. Consider using https instead.
+!SESSION 2023-03-10 18:38:42.143 -----------------------------------------------
+eclipse.buildId=4.24.0.I20220607-0700
+java.version=17.0.3
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=ko_KR
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.ui 2 0 2023-03-10 18:39:03.310
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2023-03-10 18:39:03.310
+!MESSAGE Commands should really have a category: plug-in='org.springframework.ide.eclipse.boot', id='org.springframework.ide.eclipse.boot.ui.EnableDisableBootDevtools', categoryId='org.springframework.ide.eclipse.boot.commands.category'
+
+!ENTRY org.eclipse.ui 2 0 2023-03-10 18:39:27.826
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2023-03-10 18:39:27.826
+!MESSAGE Commands should really have a category: plug-in='org.springframework.ide.eclipse.boot', id='org.springframework.ide.eclipse.boot.ui.EnableDisableBootDevtools', categoryId='org.springframework.ide.eclipse.boot.commands.category'
+
+!ENTRY org.eclipse.jface 2 0 2023-03-10 18:39:29.558
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2023-03-10 18:39:29.558
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@6ea1fc9,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@75e068dc,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2023-03-10 18:39:29.558
+!MESSAGE A conflict occurred for ALT+SHIFT+R:
+Binding(ALT+SHIFT+R,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.rename.element,Rename - Refactoring ,
+		Rename the selected element,
+		Category(org.eclipse.jdt.ui.category.refactoring,Refactor - Java,Java Refactoring Actions,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@437a4e61,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+SHIFT+R,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.rename,Rename,
+		Rename the selected item,
+		Category(org.eclipse.ui.category.file,File,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@268eefe7,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.mylyn.tasks.core 4 0 2023-03-10 18:39:30.707
+!MESSAGE Unexpected error while loading repository template extensions
+!SUBENTRY 1 org.eclipse.mylyn.tasks.core 4 0 2023-03-10 18:39:30.707
+!MESSAGE Could not load repository template extension contributed by 'org.eclipse.mylyn.bugzilla.ide' with connectorKind 'bugzilla'
+
+!ENTRY org.eclipse.egit.ui 2 0 2023-03-10 18:39:36.069
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\sujin'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.wildwebdeveloper.xml 4 0 2023-03-10 18:39:36.996
+!MESSAGE Error while getting URI 'platform:/plugin/org.eclipse.persistence.moxy/org/eclipse/persistence/jaxb/eclipselink_oxm_2_5.xsd' from plugin 'org.eclipse.jpt.common.eclipselink.core' : /org/eclipse/persistence/jaxb/eclipselink_oxm_2_5.xsd
+!STACK 0
+java.io.FileNotFoundException: /org/eclipse/persistence/jaxb/eclipselink_oxm_2_5.xsd
+	at org.eclipse.osgi.storage.url.bundleentry.Handler.findBundleEntry(Handler.java:55)
+	at org.eclipse.osgi.storage.url.BundleResourceHandler.openConnection(BundleResourceHandler.java:182)
+	at java.base/java.net.URL.openConnection(URL.java:1094)
+	at org.eclipse.core.internal.boot.PlatformURLConnection.connect(PlatformURLConnection.java:115)
+	at org.eclipse.core.internal.boot.PlatformURLConnection.getURLAsLocal(PlatformURLConnection.java:240)
+	at org.eclipse.core.internal.runtime.PlatformURLConverter.toFileURL(PlatformURLConverter.java:37)
+	at org.eclipse.core.runtime.FileLocator.toFileURL(FileLocator.java:263)
+	at org.eclipse.wildwebdeveloper.xml.internal.ui.preferences.XMLCatalogs.createURI(XMLCatalogs.java:139)
+	at org.eclipse.wildwebdeveloper.xml.internal.ui.preferences.XMLCatalogs.lambda$3(XMLCatalogs.java:87)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)
+	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:992)
+	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
+	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:992)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at org.eclipse.wildwebdeveloper.xml.internal.ui.preferences.XMLCatalogs.getWTPExtensionCatalog(XMLCatalogs.java:65)
+	at org.eclipse.wildwebdeveloper.xml.internal.ui.preferences.XMLCatalogs.getAllCatalogs(XMLCatalogs.java:52)
+	at org.eclipse.wildwebdeveloper.xml.internal.ui.preferences.XMLPreferenceConstants.storePreferencesToLemminxOptions(XMLPreferenceConstants.java:90)
+	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.mergeCustomInitializationOptions(XMLLanguageServer.java:169)
+	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.getInitializationOptions(XMLLanguageServer.java:164)
+	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$7(LanguageServerWrapper.java:364)
+	at java.base/java.util.concurrent.CompletableFuture$UniCompose.tryFire(CompletableFuture.java:1150)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1773)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.exec(CompletableFuture.java:1760)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:373)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1182)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1655)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1622)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165)
+
+!ENTRY org.eclipse.wildwebdeveloper.xml 4 0 2023-03-10 18:39:37.115
+!MESSAGE Error while getting URI 'platform:/plugin/org.springframework.beans/org/springframework/beans/factory/xml/spring-beans.dtd' from plugin 'org.springframework.ide.eclipse.beans.ui.editor' : /org/springframework/beans/factory/xml/spring-beans.dtd
+!STACK 0
+java.io.FileNotFoundException: /org/springframework/beans/factory/xml/spring-beans.dtd
+	at org.eclipse.osgi.storage.url.bundleentry.Handler.findBundleEntry(Handler.java:55)
+	at org.eclipse.osgi.storage.url.BundleResourceHandler.openConnection(BundleResourceHandler.java:182)
+	at java.base/java.net.URL.openConnection(URL.java:1094)
+	at org.eclipse.core.internal.boot.PlatformURLConnection.connect(PlatformURLConnection.java:115)
+	at org.eclipse.core.internal.boot.PlatformURLConnection.getURLAsLocal(PlatformURLConnection.java:240)
+	at org.eclipse.core.internal.runtime.PlatformURLConverter.toFileURL(PlatformURLConverter.java:37)
+	at org.eclipse.core.runtime.FileLocator.toFileURL(FileLocator.java:263)
+	at org.eclipse.wildwebdeveloper.xml.internal.ui.preferences.XMLCatalogs.createURI(XMLCatalogs.java:139)
+	at org.eclipse.wildwebdeveloper.xml.internal.ui.preferences.XMLCatalogs.lambda$3(XMLCatalogs.java:69)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)
+	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:992)
+	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
+	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:992)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at org.eclipse.wildwebdeveloper.xml.internal.ui.preferences.XMLCatalogs.getWTPExtensionCatalog(XMLCatalogs.java:65)
+	at org.eclipse.wildwebdeveloper.xml.internal.ui.preferences.XMLCatalogs.getAllCatalogs(XMLCatalogs.java:52)
+	at org.eclipse.wildwebdeveloper.xml.internal.ui.preferences.XMLPreferenceConstants.storePreferencesToLemminxOptions(XMLPreferenceConstants.java:90)
+	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.mergeCustomInitializationOptions(XMLLanguageServer.java:169)
+	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.getInitializationOptions(XMLLanguageServer.java:164)
+	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$7(LanguageServerWrapper.java:364)
+	at java.base/java.util.concurrent.CompletableFuture$UniCompose.tryFire(CompletableFuture.java:1150)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1773)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.exec(CompletableFuture.java:1760)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:373)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1182)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1655)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1622)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165)
+
+!ENTRY org.eclipse.ui 4 0 2023-03-10 18:40:06.334
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.NoSuchMethodError: 'boolean com.ibm.icu.text.UTF16.isSurrogate(char)'
+	at org.eclipse.jdt.internal.ui.text.JavaWordFinder.findWord(JavaWordFinder.java:39)
+	at org.eclipse.jdt.internal.ui.text.java.hover.AbstractJavaEditorTextHover.getHoverRegion(AbstractJavaEditorTextHover.java:94)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverRegion(JavaEditorTextHoverProxy.java:65)
+	at org.eclipse.jface.text.TextViewerHoverManager.computeInformation(TextViewerHoverManager.java:128)
+	at org.eclipse.jface.text.AbstractInformationControlManager.doShowInformation(AbstractInformationControlManager.java:1101)
+	at org.eclipse.jface.text.AbstractHoverInformationControlManager$MouseTracker.mouseHover(AbstractHoverInformationControlManager.java:511)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:212)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4251)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1066)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4068)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3645)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:644)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:551)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:156)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
+
+!ENTRY org.eclipse.jdt.ui 4 0 2023-03-10 18:49:35.235
+!MESSAGE The 'org.eclipse.mylyn.java.ui.LegacyJavadocCompletionProposalComputer_all' proposal computer from the 'org.eclipse.mylyn.java.ui' plug-in did not complete normally. Unable to instantiate the extension.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Plug-in org.eclipse.mylyn.java.ui was unable to load class org.eclipse.jdt.internal.ui.text.javadoc.LegacyJavadocCompletionProposalComputer.
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.throwException(RegistryStrategyOSGI.java:212)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:198)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:920)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:246)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:63)
+	at org.eclipse.jdt.internal.ui.text.java.CompletionProposalComputerDescriptor.createComputer(CompletionProposalComputerDescriptor.java:323)
+	at org.eclipse.jdt.internal.ui.text.java.CompletionProposalComputerDescriptor.getComputer(CompletionProposalComputerDescriptor.java:290)
+	at org.eclipse.jdt.internal.ui.text.java.CompletionProposalComputerDescriptor.sessionStarted(CompletionProposalComputerDescriptor.java:436)
+	at org.eclipse.jdt.internal.ui.text.java.CompletionProposalCategory.sessionStarted(CompletionProposalCategory.java:387)
+	at org.eclipse.jdt.internal.ui.text.java.ContentAssistProcessor$CompletionListener.assistSessionStarted(ContentAssistProcessor.java:124)
+	at org.eclipse.jface.text.contentassist.ContentAssistant.lambda$10(ContentAssistant.java:2467)
+	at java.base/java.util.Collections$SingletonSet.forEach(Collections.java:4905)
+	at org.eclipse.jface.text.contentassist.ContentAssistant.fireSessionBeginEvent(ContentAssistant.java:2464)
+	at org.eclipse.jface.text.contentassist.ContentAssistant.prepareToShowCompletions(ContentAssistant.java:1886)
+	at org.eclipse.jface.text.contentassist.ContentAssistant.showPossibleCompletions(ContentAssistant.java:1854)
+	at org.eclipse.jdt.internal.ui.javaeditor.CompilationUnitEditor$AdaptedSourceViewer.doOperation(CompilationUnitEditor.java:189)
+	at org.eclipse.ui.texteditor.ContentAssistAction.lambda$0(ContentAssistAction.java:85)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:74)
+	at org.eclipse.ui.texteditor.ContentAssistAction.run(ContentAssistAction.java:84)
+	at org.eclipse.ui.texteditor.RetargetTextEditorAction.run(RetargetTextEditorAction.java:232)
+	at org.eclipse.jface.action.Action.runWithEvent(Action.java:474)
+	at org.eclipse.jface.commands.ActionHandler.execute(ActionHandler.java:121)
+	at org.eclipse.ui.internal.handlers.E4HandlerProxy.execute(E4HandlerProxy.java:97)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:58)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.invokeUsingClass(InjectorImpl.java:317)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.invoke(InjectorImpl.java:251)
+	at org.eclipse.e4.core.contexts.ContextInjectionFactory.invoke(ContextInjectionFactory.java:173)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceHandler.execute(HandlerServiceHandler.java:156)
+	at org.eclipse.core.commands.Command.executeWithChecks(Command.java:488)
+	at org.eclipse.core.commands.ParameterizedCommand.executeWithChecks(ParameterizedCommand.java:485)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceImpl.executeHandler(HandlerServiceImpl.java:213)
+	at org.eclipse.e4.ui.bindings.keys.KeyBindingDispatcher.executeCommand(KeyBindingDispatcher.java:308)
+	at org.eclipse.e4.ui.bindings.keys.KeyBindingDispatcher.press(KeyBindingDispatcher.java:580)
+	at org.eclipse.e4.ui.bindings.keys.KeyBindingDispatcher.processKeyEvent(KeyBindingDispatcher.java:647)
+	at org.eclipse.e4.ui.bindings.keys.KeyBindingDispatcher.filterKeySequenceBindings(KeyBindingDispatcher.java:439)
+	at org.eclipse.e4.ui.bindings.keys.KeyBindingDispatcher$KeyDownFilter.handleEvent(KeyBindingDispatcher.java:96)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.filterEvent(Display.java:1262)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1065)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1090)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1075)
+	at org.eclipse.swt.widgets.Widget.sendKeyEvent(Widget.java:1117)
+	at org.eclipse.swt.widgets.Widget.sendKeyEvent(Widget.java:1113)
+	at org.eclipse.swt.widgets.Widget.wmChar(Widget.java:1542)
+	at org.eclipse.swt.widgets.Control.WM_CHAR(Control.java:4868)
+	at org.eclipse.swt.widgets.Canvas.WM_CHAR(Canvas.java:345)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4746)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:340)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5026)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessage(Native Method)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3643)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:644)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:551)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:156)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
+Caused by: java.lang.ClassNotFoundException: org.eclipse.jdt.internal.ui.text.javadoc.LegacyJavadocCompletionProposalComputer cannot be found by org.eclipse.mylyn.java.ui_3.24.0.v20170629-2230
+	at org.eclipse.osgi.internal.loader.BundleLoader.generateException(BundleLoader.java:541)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass0(BundleLoader.java:536)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:416)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:168)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:520)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:622)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:196)
+	... 74 more
+!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2023-03-10 18:49:35.236
+!MESSAGE Plug-in org.eclipse.mylyn.java.ui was unable to load class org.eclipse.jdt.internal.ui.text.javadoc.LegacyJavadocCompletionProposalComputer.
+!STACK 0
+java.lang.ClassNotFoundException: org.eclipse.jdt.internal.ui.text.javadoc.LegacyJavadocCompletionProposalComputer cannot be found by org.eclipse.mylyn.java.ui_3.24.0.v20170629-2230
+	at org.eclipse.osgi.internal.loader.BundleLoader.generateException(BundleLoader.java:541)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass0(BundleLoader.java:536)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:416)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:168)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:520)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:622)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:196)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:920)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:246)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:63)
+	at org.eclipse.jdt.internal.ui.text.java.CompletionProposalComputerDescriptor.createComputer(CompletionProposalComputerDescriptor.java:323)
+	at org.eclipse.jdt.internal.ui.text.java.CompletionProposalComputerDescriptor.getComputer(CompletionProposalComputerDescriptor.java:290)
+	at org.eclipse.jdt.internal.ui.text.java.CompletionProposalComputerDescriptor.sessionStarted(CompletionProposalComputerDescriptor.java:436)
+	at org.eclipse.jdt.internal.ui.text.java.CompletionProposalCategory.sessionStarted(CompletionProposalCategory.java:387)
+	at org.eclipse.jdt.internal.ui.text.java.ContentAssistProcessor$CompletionListener.assistSessionStarted(ContentAssistProcessor.java:124)
+	at org.eclipse.jface.text.contentassist.ContentAssistant.lambda$10(ContentAssistant.java:2467)
+	at java.base/java.util.Collections$SingletonSet.forEach(Collections.java:4905)
+	at org.eclipse.jface.text.contentassist.ContentAssistant.fireSessionBeginEvent(ContentAssistant.java:2464)
+	at org.eclipse.jface.text.contentassist.ContentAssistant.prepareToShowCompletions(ContentAssistant.java:1886)
+	at org.eclipse.jface.text.contentassist.ContentAssistant.showPossibleCompletions(ContentAssistant.java:1854)
+	at org.eclipse.jdt.internal.ui.javaeditor.CompilationUnitEditor$AdaptedSourceViewer.doOperation(CompilationUnitEditor.java:189)
+	at org.eclipse.ui.texteditor.ContentAssistAction.lambda$0(ContentAssistAction.java:85)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:74)
+	at org.eclipse.ui.texteditor.ContentAssistAction.run(ContentAssistAction.java:84)
+	at org.eclipse.ui.texteditor.RetargetTextEditorAction.run(RetargetTextEditorAction.java:232)
+	at org.eclipse.jface.action.Action.runWithEvent(Action.java:474)
+	at org.eclipse.jface.commands.ActionHandler.execute(ActionHandler.java:121)
+	at org.eclipse.ui.internal.handlers.E4HandlerProxy.execute(E4HandlerProxy.java:97)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:58)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.invokeUsingClass(InjectorImpl.java:317)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.invoke(InjectorImpl.java:251)
+	at org.eclipse.e4.core.contexts.ContextInjectionFactory.invoke(ContextInjectionFactory.java:173)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceHandler.execute(HandlerServiceHandler.java:156)
+	at org.eclipse.core.commands.Command.executeWithChecks(Command.java:488)
+	at org.eclipse.core.commands.ParameterizedCommand.executeWithChecks(ParameterizedCommand.java:485)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceImpl.executeHandler(HandlerServiceImpl.java:213)
+	at org.eclipse.e4.ui.bindings.keys.KeyBindingDispatcher.executeCommand(KeyBindingDispatcher.java:308)
+	at org.eclipse.e4.ui.bindings.keys.KeyBindingDispatcher.press(KeyBindingDispatcher.java:580)
+	at org.eclipse.e4.ui.bindings.keys.KeyBindingDispatcher.processKeyEvent(KeyBindingDispatcher.java:647)
+	at org.eclipse.e4.ui.bindings.keys.KeyBindingDispatcher.filterKeySequenceBindings(KeyBindingDispatcher.java:439)
+	at org.eclipse.e4.ui.bindings.keys.KeyBindingDispatcher$KeyDownFilter.handleEvent(KeyBindingDispatcher.java:96)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.filterEvent(Display.java:1262)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1065)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1090)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1075)
+	at org.eclipse.swt.widgets.Widget.sendKeyEvent(Widget.java:1117)
+	at org.eclipse.swt.widgets.Widget.sendKeyEvent(Widget.java:1113)
+	at org.eclipse.swt.widgets.Widget.wmChar(Widget.java:1542)
+	at org.eclipse.swt.widgets.Control.WM_CHAR(Control.java:4868)
+	at org.eclipse.swt.widgets.Canvas.WM_CHAR(Canvas.java:345)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4746)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:340)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5026)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessage(Native Method)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3643)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:644)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:551)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:156)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
+
+!ENTRY org.eclipse.ui 4 0 2023-03-10 18:50:45.837
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.NoSuchMethodError: 'boolean com.ibm.icu.text.UTF16.isSurrogate(char)'
+	at org.eclipse.jdt.internal.ui.text.JavaWordFinder.findWord(JavaWordFinder.java:39)
+	at org.eclipse.jdt.internal.ui.text.java.hover.AbstractJavaEditorTextHover.getHoverRegion(AbstractJavaEditorTextHover.java:94)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverRegion(JavaEditorTextHoverProxy.java:65)
+	at org.eclipse.jface.text.TextViewerHoverManager.computeInformation(TextViewerHoverManager.java:128)
+	at org.eclipse.jface.text.AbstractInformationControlManager.doShowInformation(AbstractInformationControlManager.java:1101)
+	at org.eclipse.jface.text.AbstractHoverInformationControlManager$MouseTracker.mouseHover(AbstractHoverInformationControlManager.java:511)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:212)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4251)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1066)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4068)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3645)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:644)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:551)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:156)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
+!SESSION 2023-03-10 19:19:03.844 -----------------------------------------------
+eclipse.buildId=4.24.0.I20220607-0700
+java.version=17.0.3
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=ko_KR
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.ui 2 0 2023-03-10 19:19:12.871
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2023-03-10 19:19:12.871
+!MESSAGE Commands should really have a category: plug-in='org.springframework.ide.eclipse.boot', id='org.springframework.ide.eclipse.boot.ui.EnableDisableBootDevtools', categoryId='org.springframework.ide.eclipse.boot.commands.category'
+
+!ENTRY org.eclipse.ui 2 0 2023-03-10 19:19:14.051
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2023-03-10 19:19:14.051
+!MESSAGE Commands should really have a category: plug-in='org.springframework.ide.eclipse.boot', id='org.springframework.ide.eclipse.boot.ui.EnableDisableBootDevtools', categoryId='org.springframework.ide.eclipse.boot.commands.category'
+
+!ENTRY org.eclipse.jface 2 0 2023-03-10 19:19:15.245
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2023-03-10 19:19:15.245
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@5bbf8daa,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@33c5e52f,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2023-03-10 19:19:15.245
+!MESSAGE A conflict occurred for ALT+SHIFT+R:
+Binding(ALT+SHIFT+R,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.rename.element,Rename - Refactoring ,
+		Rename the selected element,
+		Category(org.eclipse.jdt.ui.category.refactoring,Refactor - Java,Java Refactoring Actions,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@74474fc0,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+SHIFT+R,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.rename,Rename,
+		Rename the selected item,
+		Category(org.eclipse.ui.category.file,File,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@7cd239f6,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.mylyn.tasks.core 4 0 2023-03-10 19:19:16.479
+!MESSAGE Unexpected error while loading repository template extensions
+!SUBENTRY 1 org.eclipse.mylyn.tasks.core 4 0 2023-03-10 19:19:16.479
+!MESSAGE Could not load repository template extension contributed by 'org.eclipse.mylyn.bugzilla.ide' with connectorKind 'bugzilla'
+
+!ENTRY org.eclipse.egit.ui 2 0 2023-03-10 19:19:24.636
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\sujin'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.ui 4 0 2023-03-10 19:24:14.402
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.NoSuchMethodError: 'boolean com.ibm.icu.text.UTF16.isSurrogate(char)'
+	at org.eclipse.jdt.internal.ui.text.JavaWordFinder.findWord(JavaWordFinder.java:39)
+	at org.eclipse.jdt.internal.ui.text.java.hover.AbstractJavaEditorTextHover.getHoverRegion(AbstractJavaEditorTextHover.java:94)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverRegion(JavaEditorTextHoverProxy.java:65)
+	at org.eclipse.jface.text.TextViewerHoverManager.computeInformation(TextViewerHoverManager.java:128)
+	at org.eclipse.jface.text.AbstractInformationControlManager.doShowInformation(AbstractInformationControlManager.java:1101)
+	at org.eclipse.jface.text.AbstractHoverInformationControlManager$MouseTracker.mouseHover(AbstractHoverInformationControlManager.java:511)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:212)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4251)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1066)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4068)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3645)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:644)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:551)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:156)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
+
+!ENTRY org.eclipse.wildwebdeveloper.xml 4 0 2023-03-10 19:24:52.881
+!MESSAGE Error while getting URI 'platform:/plugin/org.eclipse.persistence.moxy/org/eclipse/persistence/jaxb/eclipselink_oxm_2_5.xsd' from plugin 'org.eclipse.jpt.common.eclipselink.core' : /org/eclipse/persistence/jaxb/eclipselink_oxm_2_5.xsd
+!STACK 0
+java.io.FileNotFoundException: /org/eclipse/persistence/jaxb/eclipselink_oxm_2_5.xsd
+	at org.eclipse.osgi.storage.url.bundleentry.Handler.findBundleEntry(Handler.java:55)
+	at org.eclipse.osgi.storage.url.BundleResourceHandler.openConnection(BundleResourceHandler.java:182)
+	at java.base/java.net.URL.openConnection(URL.java:1094)
+	at org.eclipse.core.internal.boot.PlatformURLConnection.connect(PlatformURLConnection.java:115)
+	at org.eclipse.core.internal.boot.PlatformURLConnection.getURLAsLocal(PlatformURLConnection.java:240)
+	at org.eclipse.core.internal.runtime.PlatformURLConverter.toFileURL(PlatformURLConverter.java:37)
+	at org.eclipse.core.runtime.FileLocator.toFileURL(FileLocator.java:263)
+	at org.eclipse.wildwebdeveloper.xml.internal.ui.preferences.XMLCatalogs.createURI(XMLCatalogs.java:139)
+	at org.eclipse.wildwebdeveloper.xml.internal.ui.preferences.XMLCatalogs.lambda$3(XMLCatalogs.java:87)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)
+	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:992)
+	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
+	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:992)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at org.eclipse.wildwebdeveloper.xml.internal.ui.preferences.XMLCatalogs.getWTPExtensionCatalog(XMLCatalogs.java:65)
+	at org.eclipse.wildwebdeveloper.xml.internal.ui.preferences.XMLCatalogs.getAllCatalogs(XMLCatalogs.java:52)
+	at org.eclipse.wildwebdeveloper.xml.internal.ui.preferences.XMLPreferenceConstants.storePreferencesToLemminxOptions(XMLPreferenceConstants.java:90)
+	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.mergeCustomInitializationOptions(XMLLanguageServer.java:169)
+	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.getInitializationOptions(XMLLanguageServer.java:164)
+	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$7(LanguageServerWrapper.java:364)
+	at java.base/java.util.concurrent.CompletableFuture$UniCompose.tryFire(CompletableFuture.java:1150)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1773)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.exec(CompletableFuture.java:1760)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:373)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1182)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1655)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1622)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165)
+
+!ENTRY org.eclipse.wildwebdeveloper.xml 4 0 2023-03-10 19:24:52.933
+!MESSAGE Error while getting URI 'platform:/plugin/org.springframework.beans/org/springframework/beans/factory/xml/spring-beans.dtd' from plugin 'org.springframework.ide.eclipse.beans.ui.editor' : /org/springframework/beans/factory/xml/spring-beans.dtd
+!STACK 0
+java.io.FileNotFoundException: /org/springframework/beans/factory/xml/spring-beans.dtd
+	at org.eclipse.osgi.storage.url.bundleentry.Handler.findBundleEntry(Handler.java:55)
+	at org.eclipse.osgi.storage.url.BundleResourceHandler.openConnection(BundleResourceHandler.java:182)
+	at java.base/java.net.URL.openConnection(URL.java:1094)
+	at org.eclipse.core.internal.boot.PlatformURLConnection.connect(PlatformURLConnection.java:115)
+	at org.eclipse.core.internal.boot.PlatformURLConnection.getURLAsLocal(PlatformURLConnection.java:240)
+	at org.eclipse.core.internal.runtime.PlatformURLConverter.toFileURL(PlatformURLConverter.java:37)
+	at org.eclipse.core.runtime.FileLocator.toFileURL(FileLocator.java:263)
+	at org.eclipse.wildwebdeveloper.xml.internal.ui.preferences.XMLCatalogs.createURI(XMLCatalogs.java:139)
+	at org.eclipse.wildwebdeveloper.xml.internal.ui.preferences.XMLCatalogs.lambda$3(XMLCatalogs.java:69)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)
+	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:992)
+	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
+	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:992)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at org.eclipse.wildwebdeveloper.xml.internal.ui.preferences.XMLCatalogs.getWTPExtensionCatalog(XMLCatalogs.java:65)
+	at org.eclipse.wildwebdeveloper.xml.internal.ui.preferences.XMLCatalogs.getAllCatalogs(XMLCatalogs.java:52)
+	at org.eclipse.wildwebdeveloper.xml.internal.ui.preferences.XMLPreferenceConstants.storePreferencesToLemminxOptions(XMLPreferenceConstants.java:90)
+	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.mergeCustomInitializationOptions(XMLLanguageServer.java:169)
+	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.getInitializationOptions(XMLLanguageServer.java:164)
+	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$7(LanguageServerWrapper.java:364)
+	at java.base/java.util.concurrent.CompletableFuture$UniCompose.tryFire(CompletableFuture.java:1150)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1773)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.exec(CompletableFuture.java:1760)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:373)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1182)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1655)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1622)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165)
+
+!ENTRY org.eclipse.lsp4e 1 0 2023-03-10 19:25:32.801
+!MESSAGE [Info]	ESLint server running in node v16.14.2
+
+!ENTRY org.eclipse.lsp4e 4 0 2023-03-10 19:25:38.265
+!MESSAGE TimeoutException
+!STACK 0
+java.util.concurrent.TimeoutException
+	at java.base/java.util.concurrent.CompletableFuture.timedGet(CompletableFuture.java:1960)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2095)
+	at org.eclipse.lsp4e.operations.hover.LSPTextHover.getHoverRegion(LSPTextHover.java:150)
+	at org.eclipse.ui.internal.genericeditor.hover.CompositeTextHover.getHoverRegion(CompositeTextHover.java:101)
+	at org.eclipse.jface.text.TextViewerHoverManager.computeInformation(TextViewerHoverManager.java:128)
+	at org.eclipse.jface.text.AbstractInformationControlManager.doShowInformation(AbstractInformationControlManager.java:1101)
+	at org.eclipse.jface.text.AbstractHoverInformationControlManager$MouseTracker.mouseHover(AbstractHoverInformationControlManager.java:511)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:212)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4251)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1066)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4068)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3645)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:644)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:551)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:156)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
+
+!ENTRY org.eclipse.lsp4e 1 0 2023-03-10 19:25:38.748
+!MESSAGE [Info]	[lspserver] Using Typescript version (bundled) 4.6.4 from path "C:\Users\sujin\Downloads\eclipse-jee-2022-06-R-win32-x86_64\eclipse\plugins\org.eclipse.wildwebdeveloper_0.5.22.202205250019\node_modules\typescript\lib\tsserver.js"
+
+!ENTRY org.eclipse.lsp4e 4 0 2023-03-10 19:25:38.769
+!MESSAGE TimeoutException
+!STACK 0
+java.util.concurrent.TimeoutException
+	at java.base/java.util.concurrent.CompletableFuture.timedGet(CompletableFuture.java:1960)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2095)
+	at org.eclipse.lsp4e.operations.hover.LSPTextHover.getHoverInfo(LSPTextHover.java:73)
+	at org.eclipse.ui.internal.genericeditor.hover.CompositeTextHover.getHoverInfo2(CompositeTextHover.java:60)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY org.eclipse.lsp4e 1 0 2023-03-10 19:26:15.481
+!MESSAGE [Info]	ESLint server running in node v16.14.2
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:39:47.531
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/oomph/uss/updates/latest, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:39:49.012
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/oomph/uss/drops/nightly/N20180202-232207, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:39:54.426
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:39:54.530
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/6.11.0, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:39:54.574
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/updatesites/6.11.0.r201704240320, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:39:54.601
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/6.12.0, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:39:54.648
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/updatesites/6.12.0.r201709030044, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:39:54.676
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/6.13.1, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:39:54.728
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/updatesites/6.13.1.r201712040202, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:39:54.754
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/updatesites/6.13.1.r201712040515, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:39:54.782
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/6.14.2, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:39:54.839
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/updatesites/6.14.2.r201802161450, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:39:54.866
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/6.14.3, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:39:54.911
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/updatesites/6.14.3.r201802240500, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:39:54.941
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/7.0.0, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:39:54.985
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/updatesites/7.0.0.r201908191551, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:39:55.008
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/7.1.0, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:39:55.056
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/updatesites/7.1.0.r202001120626, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:39:55.082
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/7.2.0, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:39:55.125
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/updatesites/7.2.0.r202003151902, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:39:55.152
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/7.3.0, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:39:55.198
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/updatesites/7.3.0.r202008060316, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:39:55.232
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/7.4.0, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:39:55.273
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/updatesites/7.4.0.r202105021533, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:39:55.300
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/7.5.0, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:39:55.564
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/updatesites/7.5.0.r202201070709, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:39:55.976
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/7.6.1, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:39:56.280
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/updatesites/7.6.1.r202207070546, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:40:08.364
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/technology/m2e/releases/, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:40:11.850
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/technology/m2e/releases/content.xml.xz, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:40:13.615
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/technology/m2e/releases/, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2023-03-10 19:40:18.814
+!MESSAGE No repository found at http://download.eclipse.org/technology/m2e/releases/.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:40:18.814
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/updates/release/latest, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:40:20.450
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/release/1.2.2/content.xml.xz, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:40:23.612
+!MESSAGE Using unsafe http transport to retrieve http://download.oracle.com/otn_software/oepe/12.2.1.9/photon/repository/dependencies/, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:40:31.757
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/e4/snapshots/org.eclipse.e4.ui/content.xml.xz, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:40:33.562
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/updates, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:40:35.286
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/updates/release, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:40:36.936
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/release/1.2.1, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:40:38.782
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/release/1.2.0, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:40:40.522
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/release/1.1.0, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:40:42.366
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/updates/milestone, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:40:44.206
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/milestone/S911-1.2-RC1, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:40:45.950
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/milestone/S909-1.2-RC1, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:40:47.624
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/milestone/S908-1.2-RC1, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:40:49.329
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/milestone/S20210519-025928-1.2.2-M1/content.xml.xz, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:40:50.983
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/milestone/S20210406-153234/content.xml.xz, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:40:52.337
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/milestone/S20191129-202804-1.2.1-RC2, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:40:53.713
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/milestone/S20191118-183434-1.2.1-RC1, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:40:55.012
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/milestone/S20170529-101518-1.1-RC2, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:40:56.387
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/milestone/S20170525-115740-1.1-RC2, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:40:57.832
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/milestone/S20170523-143239-1.1-RC1, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:40:59.238
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/milestone/S20170516-113326-1.1-M7, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:41:00.614
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/updates/nightly, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:41:01.869
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/nightly/N20230310-044239/content.xml.xz, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:41:03.128
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/nightly/N20230309-044151/content.xml.xz, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:41:04.435
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/nightly/N20230308-044146/content.xml.xz, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:41:05.779
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/nightly/N20230307-044136/content.xml.xz, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:41:07.259
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/nightly/N20230306-044149/content.xml.xz, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:41:25.460
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/technology/m2e/releases/, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:41:28.851
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/technology/m2e/releases/content.xml.xz, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:41:30.196
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/technology/m2e/releases/, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:41:43.737
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/e4/snapshots/org.eclipse.e4.ui/artifacts.xml.xz, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:41:58.428
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/updates, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:41:59.985
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/updates/release, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:42:01.726
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/release/1.2.2/artifacts.xml.xz, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:42:03.386
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/release/1.2.1, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:42:04.684
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/release/1.2.0, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:42:06.030
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/release/1.1.0, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:42:07.871
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/updates/milestone, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:42:09.422
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/milestone/S911-1.2-RC1, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:42:10.709
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/milestone/S909-1.2-RC1, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:42:12.301
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/milestone/S908-1.2-RC1, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:42:13.916
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/milestone/S20210519-025928-1.2.2-M1/artifacts.xml.xz, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:42:15.649
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/milestone/S20210406-153234/artifacts.xml.xz, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:42:17.296
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/milestone/S20191129-202804-1.2.1-RC2, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:42:19.135
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/milestone/S20191118-183434-1.2.1-RC1, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:42:20.880
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/milestone/S20170529-101518-1.1-RC2, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:42:22.671
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/milestone/S20170525-115740-1.1-RC2, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:42:24.360
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/milestone/S20170523-143239-1.1-RC1, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:42:25.897
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/milestone/S20170516-113326-1.1-M7, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:42:27.739
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/updates/nightly, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:42:29.477
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/nightly/N20230310-044239/artifacts.xml.xz, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:42:31.131
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/nightly/N20230309-044151/artifacts.xml.xz, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:42:32.761
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/nightly/N20230308-044146/artifacts.xml.xz, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:42:34.407
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/nightly/N20230307-044136/artifacts.xml.xz, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:42:36.053
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/drops/nightly/N20230306-044149/artifacts.xml.xz, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:42:48.966
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/oomph/uss/updates/latest, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:42:50.676
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/oomph/uss/drops/nightly/N20180202-232207, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:42:57.289
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:42:57.640
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/6.11.0, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:42:57.948
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/updatesites/6.11.0.r201704240320, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:42:58.259
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/6.12.0, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:42:58.561
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/updatesites/6.12.0.r201709030044, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:42:58.872
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/6.13.1, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:42:59.177
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/updatesites/6.13.1.r201712040202, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:42:59.502
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/updatesites/6.13.1.r201712040515, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:42:59.732
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/6.14.2, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:43:00.029
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/updatesites/6.14.2.r201802161450, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:43:00.262
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/6.14.3, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:43:00.553
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/updatesites/6.14.3.r201802240500, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:43:00.825
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/7.0.0, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:43:01.133
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/updatesites/7.0.0.r201908191551, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:43:01.383
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/7.1.0, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:43:01.638
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/updatesites/7.1.0.r202001120626, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:43:01.883
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/7.2.0, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:43:02.169
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/updatesites/7.2.0.r202003151902, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:43:02.396
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/7.3.0, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:43:02.652
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/updatesites/7.3.0.r202008060316, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:43:02.886
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/7.4.0, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:43:03.186
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/updatesites/7.4.0.r202105021533, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:43:03.417
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/7.5.0, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:43:03.679
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/updatesites/7.5.0.r202201070709, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:43:03.914
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/7.6.1, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:43:04.200
+!MESSAGE Using unsafe http transport to retrieve http://testng.org/testng-p2-update-site/updatesites/7.6.1.r202207070546, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:43:08.085
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/technology/m2e/releases/, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:43:11.567
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/technology/m2e/releases/artifacts.xml.xz, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:43:13.203
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/technology/m2e/releases/, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:43:18.124
+!MESSAGE Using unsafe http transport to retrieve http://download.eclipse.org/usssdk/updates/release/latest, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2023-03-10 19:43:24.487
+!MESSAGE Using unsafe http transport to retrieve http://download.oracle.com/otn_software/oepe/12.2.1.9/photon/repository/dependencies/, see CVE-2021-41033. Consider using https instead.
+
+!ENTRY org.eclipse.ui 4 0 2023-03-10 22:05:00.971
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.NoSuchMethodError: 'boolean com.ibm.icu.text.UTF16.isSurrogate(char)'
+	at org.eclipse.jdt.internal.ui.text.JavaWordFinder.findWord(JavaWordFinder.java:39)
+	at org.eclipse.jdt.internal.ui.text.java.hover.AbstractJavaEditorTextHover.getHoverRegion(AbstractJavaEditorTextHover.java:94)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverRegion(JavaEditorTextHoverProxy.java:65)
+	at org.eclipse.jface.text.TextViewerHoverManager.computeInformation(TextViewerHoverManager.java:128)
+	at org.eclipse.jface.text.AbstractInformationControlManager.doShowInformation(AbstractInformationControlManager.java:1101)
+	at org.eclipse.jface.text.AbstractHoverInformationControlManager$MouseTracker.mouseHover(AbstractHoverInformationControlManager.java:511)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:212)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4251)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1066)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4068)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3645)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:644)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:551)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:156)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
+
+!ENTRY org.eclipse.jdt.ui 4 0 2023-03-10 22:09:30.471
+!MESSAGE The 'org.eclipse.mylyn.java.ui.LegacyJavadocCompletionProposalComputer_all' proposal computer from the 'org.eclipse.mylyn.java.ui' plug-in did not complete normally. Unable to instantiate the extension.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Plug-in org.eclipse.mylyn.java.ui was unable to load class org.eclipse.jdt.internal.ui.text.javadoc.LegacyJavadocCompletionProposalComputer.
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.throwException(RegistryStrategyOSGI.java:212)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:198)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:920)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:246)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:63)
+	at org.eclipse.jdt.internal.ui.text.java.CompletionProposalComputerDescriptor.createComputer(CompletionProposalComputerDescriptor.java:323)
+	at org.eclipse.jdt.internal.ui.text.java.CompletionProposalComputerDescriptor.getComputer(CompletionProposalComputerDescriptor.java:290)
+	at org.eclipse.jdt.internal.ui.text.java.CompletionProposalComputerDescriptor.sessionStarted(CompletionProposalComputerDescriptor.java:436)
+	at org.eclipse.jdt.internal.ui.text.java.CompletionProposalCategory.sessionStarted(CompletionProposalCategory.java:387)
+	at org.eclipse.jdt.internal.ui.text.java.ContentAssistProcessor$CompletionListener.assistSessionStarted(ContentAssistProcessor.java:124)
+	at org.eclipse.jface.text.contentassist.ContentAssistant.lambda$10(ContentAssistant.java:2467)
+	at java.base/java.util.Collections$SingletonSet.forEach(Collections.java:4905)
+	at org.eclipse.jface.text.contentassist.ContentAssistant.fireSessionBeginEvent(ContentAssistant.java:2464)
+	at org.eclipse.jface.text.contentassist.ContentAssistant.prepareToShowCompletions(ContentAssistant.java:1886)
+	at org.eclipse.jface.text.contentassist.ContentAssistant.showPossibleCompletions(ContentAssistant.java:1854)
+	at org.eclipse.jdt.internal.ui.javaeditor.CompilationUnitEditor$AdaptedSourceViewer.doOperation(CompilationUnitEditor.java:189)
+	at org.eclipse.ui.texteditor.ContentAssistAction.lambda$0(ContentAssistAction.java:85)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:74)
+	at org.eclipse.ui.texteditor.ContentAssistAction.run(ContentAssistAction.java:84)
+	at org.eclipse.ui.texteditor.RetargetTextEditorAction.run(RetargetTextEditorAction.java:232)
+	at org.eclipse.jface.action.Action.runWithEvent(Action.java:474)
+	at org.eclipse.jface.commands.ActionHandler.execute(ActionHandler.java:121)
+	at org.eclipse.ui.internal.handlers.E4HandlerProxy.execute(E4HandlerProxy.java:97)
+	at jdk.internal.reflect.GeneratedMethodAccessor161.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:58)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.invokeUsingClass(InjectorImpl.java:317)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.invoke(InjectorImpl.java:251)
+	at org.eclipse.e4.core.contexts.ContextInjectionFactory.invoke(ContextInjectionFactory.java:173)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceHandler.execute(HandlerServiceHandler.java:156)
+	at org.eclipse.core.commands.Command.executeWithChecks(Command.java:488)
+	at org.eclipse.core.commands.ParameterizedCommand.executeWithChecks(ParameterizedCommand.java:485)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceImpl.executeHandler(HandlerServiceImpl.java:213)
+	at org.eclipse.e4.ui.bindings.keys.KeyBindingDispatcher.executeCommand(KeyBindingDispatcher.java:308)
+	at org.eclipse.e4.ui.bindings.keys.KeyBindingDispatcher.press(KeyBindingDispatcher.java:580)
+	at org.eclipse.e4.ui.bindings.keys.KeyBindingDispatcher.processKeyEvent(KeyBindingDispatcher.java:647)
+	at org.eclipse.e4.ui.bindings.keys.KeyBindingDispatcher.filterKeySequenceBindings(KeyBindingDispatcher.java:439)
+	at org.eclipse.e4.ui.bindings.keys.KeyBindingDispatcher$KeyDownFilter.handleEvent(KeyBindingDispatcher.java:96)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.filterEvent(Display.java:1262)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1065)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1090)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1075)
+	at org.eclipse.swt.widgets.Widget.sendKeyEvent(Widget.java:1117)
+	at org.eclipse.swt.widgets.Widget.sendKeyEvent(Widget.java:1113)
+	at org.eclipse.swt.widgets.Widget.wmChar(Widget.java:1542)
+	at org.eclipse.swt.widgets.Control.WM_CHAR(Control.java:4868)
+	at org.eclipse.swt.widgets.Canvas.WM_CHAR(Canvas.java:345)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4746)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:340)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5026)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessage(Native Method)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3643)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:644)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:551)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:156)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
+Caused by: java.lang.ClassNotFoundException: org.eclipse.jdt.internal.ui.text.javadoc.LegacyJavadocCompletionProposalComputer cannot be found by org.eclipse.mylyn.java.ui_3.24.0.v20170629-2230
+	at org.eclipse.osgi.internal.loader.BundleLoader.generateException(BundleLoader.java:541)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass0(BundleLoader.java:536)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:416)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:168)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:520)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:622)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:196)
+	... 73 more
+!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2023-03-10 22:09:30.472
+!MESSAGE Plug-in org.eclipse.mylyn.java.ui was unable to load class org.eclipse.jdt.internal.ui.text.javadoc.LegacyJavadocCompletionProposalComputer.
+!STACK 0
+java.lang.ClassNotFoundException: org.eclipse.jdt.internal.ui.text.javadoc.LegacyJavadocCompletionProposalComputer cannot be found by org.eclipse.mylyn.java.ui_3.24.0.v20170629-2230
+	at org.eclipse.osgi.internal.loader.BundleLoader.generateException(BundleLoader.java:541)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass0(BundleLoader.java:536)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:416)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:168)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:520)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:622)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:196)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:920)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:246)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:63)
+	at org.eclipse.jdt.internal.ui.text.java.CompletionProposalComputerDescriptor.createComputer(CompletionProposalComputerDescriptor.java:323)
+	at org.eclipse.jdt.internal.ui.text.java.CompletionProposalComputerDescriptor.getComputer(CompletionProposalComputerDescriptor.java:290)
+	at org.eclipse.jdt.internal.ui.text.java.CompletionProposalComputerDescriptor.sessionStarted(CompletionProposalComputerDescriptor.java:436)
+	at org.eclipse.jdt.internal.ui.text.java.CompletionProposalCategory.sessionStarted(CompletionProposalCategory.java:387)
+	at org.eclipse.jdt.internal.ui.text.java.ContentAssistProcessor$CompletionListener.assistSessionStarted(ContentAssistProcessor.java:124)
+	at org.eclipse.jface.text.contentassist.ContentAssistant.lambda$10(ContentAssistant.java:2467)
+	at java.base/java.util.Collections$SingletonSet.forEach(Collections.java:4905)
+	at org.eclipse.jface.text.contentassist.ContentAssistant.fireSessionBeginEvent(ContentAssistant.java:2464)
+	at org.eclipse.jface.text.contentassist.ContentAssistant.prepareToShowCompletions(ContentAssistant.java:1886)
+	at org.eclipse.jface.text.contentassist.ContentAssistant.showPossibleCompletions(ContentAssistant.java:1854)
+	at org.eclipse.jdt.internal.ui.javaeditor.CompilationUnitEditor$AdaptedSourceViewer.doOperation(CompilationUnitEditor.java:189)
+	at org.eclipse.ui.texteditor.ContentAssistAction.lambda$0(ContentAssistAction.java:85)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:74)
+	at org.eclipse.ui.texteditor.ContentAssistAction.run(ContentAssistAction.java:84)
+	at org.eclipse.ui.texteditor.RetargetTextEditorAction.run(RetargetTextEditorAction.java:232)
+	at org.eclipse.jface.action.Action.runWithEvent(Action.java:474)
+	at org.eclipse.jface.commands.ActionHandler.execute(ActionHandler.java:121)
+	at org.eclipse.ui.internal.handlers.E4HandlerProxy.execute(E4HandlerProxy.java:97)
+	at jdk.internal.reflect.GeneratedMethodAccessor161.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:58)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.invokeUsingClass(InjectorImpl.java:317)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.invoke(InjectorImpl.java:251)
+	at org.eclipse.e4.core.contexts.ContextInjectionFactory.invoke(ContextInjectionFactory.java:173)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceHandler.execute(HandlerServiceHandler.java:156)
+	at org.eclipse.core.commands.Command.executeWithChecks(Command.java:488)
+	at org.eclipse.core.commands.ParameterizedCommand.executeWithChecks(ParameterizedCommand.java:485)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceImpl.executeHandler(HandlerServiceImpl.java:213)
+	at org.eclipse.e4.ui.bindings.keys.KeyBindingDispatcher.executeCommand(KeyBindingDispatcher.java:308)
+	at org.eclipse.e4.ui.bindings.keys.KeyBindingDispatcher.press(KeyBindingDispatcher.java:580)
+	at org.eclipse.e4.ui.bindings.keys.KeyBindingDispatcher.processKeyEvent(KeyBindingDispatcher.java:647)
+	at org.eclipse.e4.ui.bindings.keys.KeyBindingDispatcher.filterKeySequenceBindings(KeyBindingDispatcher.java:439)
+	at org.eclipse.e4.ui.bindings.keys.KeyBindingDispatcher$KeyDownFilter.handleEvent(KeyBindingDispatcher.java:96)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.filterEvent(Display.java:1262)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1065)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1090)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1075)
+	at org.eclipse.swt.widgets.Widget.sendKeyEvent(Widget.java:1117)
+	at org.eclipse.swt.widgets.Widget.sendKeyEvent(Widget.java:1113)
+	at org.eclipse.swt.widgets.Widget.wmChar(Widget.java:1542)
+	at org.eclipse.swt.widgets.Control.WM_CHAR(Control.java:4868)
+	at org.eclipse.swt.widgets.Canvas.WM_CHAR(Canvas.java:345)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4746)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:340)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:5026)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessage(Native Method)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3643)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:644)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:551)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:156)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
+
+!ENTRY org.eclipse.wildwebdeveloper.xml 4 0 2023-03-10 22:45:23.070
+!MESSAGE Error while getting URI 'platform:/plugin/org.eclipse.persistence.moxy/org/eclipse/persistence/jaxb/eclipselink_oxm_2_5.xsd' from plugin 'org.eclipse.jpt.common.eclipselink.core' : /org/eclipse/persistence/jaxb/eclipselink_oxm_2_5.xsd
+!STACK 0
+java.io.FileNotFoundException: /org/eclipse/persistence/jaxb/eclipselink_oxm_2_5.xsd
+	at org.eclipse.osgi.storage.url.bundleentry.Handler.findBundleEntry(Handler.java:55)
+	at org.eclipse.osgi.storage.url.BundleResourceHandler.openConnection(BundleResourceHandler.java:182)
+	at java.base/java.net.URL.openConnection(URL.java:1094)
+	at org.eclipse.core.internal.boot.PlatformURLConnection.connect(PlatformURLConnection.java:115)
+	at org.eclipse.core.internal.boot.PlatformURLConnection.getURLAsLocal(PlatformURLConnection.java:240)
+	at org.eclipse.core.internal.runtime.PlatformURLConverter.toFileURL(PlatformURLConverter.java:37)
+	at org.eclipse.core.runtime.FileLocator.toFileURL(FileLocator.java:263)
+	at org.eclipse.wildwebdeveloper.xml.internal.ui.preferences.XMLCatalogs.createURI(XMLCatalogs.java:139)
+	at org.eclipse.wildwebdeveloper.xml.internal.ui.preferences.XMLCatalogs.lambda$3(XMLCatalogs.java:87)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)
+	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:992)
+	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
+	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:992)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at org.eclipse.wildwebdeveloper.xml.internal.ui.preferences.XMLCatalogs.getWTPExtensionCatalog(XMLCatalogs.java:65)
+	at org.eclipse.wildwebdeveloper.xml.internal.ui.preferences.XMLCatalogs.getAllCatalogs(XMLCatalogs.java:52)
+	at org.eclipse.wildwebdeveloper.xml.internal.ui.preferences.XMLPreferenceConstants.storePreferencesToLemminxOptions(XMLPreferenceConstants.java:90)
+	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.mergeCustomInitializationOptions(XMLLanguageServer.java:169)
+	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.getInitializationOptions(XMLLanguageServer.java:164)
+	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$7(LanguageServerWrapper.java:364)
+	at java.base/java.util.concurrent.CompletableFuture$UniCompose.tryFire(CompletableFuture.java:1150)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1773)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.exec(CompletableFuture.java:1760)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:373)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1182)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1655)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1622)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165)
+
+!ENTRY org.eclipse.wildwebdeveloper.xml 4 0 2023-03-10 22:45:23.112
+!MESSAGE Error while getting URI 'platform:/plugin/org.springframework.beans/org/springframework/beans/factory/xml/spring-beans.dtd' from plugin 'org.springframework.ide.eclipse.beans.ui.editor' : /org/springframework/beans/factory/xml/spring-beans.dtd
+!STACK 0
+java.io.FileNotFoundException: /org/springframework/beans/factory/xml/spring-beans.dtd
+	at org.eclipse.osgi.storage.url.bundleentry.Handler.findBundleEntry(Handler.java:55)
+	at org.eclipse.osgi.storage.url.BundleResourceHandler.openConnection(BundleResourceHandler.java:182)
+	at java.base/java.net.URL.openConnection(URL.java:1094)
+	at org.eclipse.core.internal.boot.PlatformURLConnection.connect(PlatformURLConnection.java:115)
+	at org.eclipse.core.internal.boot.PlatformURLConnection.getURLAsLocal(PlatformURLConnection.java:240)
+	at org.eclipse.core.internal.runtime.PlatformURLConverter.toFileURL(PlatformURLConverter.java:37)
+	at org.eclipse.core.runtime.FileLocator.toFileURL(FileLocator.java:263)
+	at org.eclipse.wildwebdeveloper.xml.internal.ui.preferences.XMLCatalogs.createURI(XMLCatalogs.java:139)
+	at org.eclipse.wildwebdeveloper.xml.internal.ui.preferences.XMLCatalogs.lambda$3(XMLCatalogs.java:69)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)
+	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:992)
+	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
+	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:992)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at org.eclipse.wildwebdeveloper.xml.internal.ui.preferences.XMLCatalogs.getWTPExtensionCatalog(XMLCatalogs.java:65)
+	at org.eclipse.wildwebdeveloper.xml.internal.ui.preferences.XMLCatalogs.getAllCatalogs(XMLCatalogs.java:52)
+	at org.eclipse.wildwebdeveloper.xml.internal.ui.preferences.XMLPreferenceConstants.storePreferencesToLemminxOptions(XMLPreferenceConstants.java:90)
+	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.mergeCustomInitializationOptions(XMLLanguageServer.java:169)
+	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.getInitializationOptions(XMLLanguageServer.java:164)
+	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$7(LanguageServerWrapper.java:364)
+	at java.base/java.util.concurrent.CompletableFuture$UniCompose.tryFire(CompletableFuture.java:1150)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1773)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.exec(CompletableFuture.java:1760)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:373)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1182)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1655)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1622)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165)
+
+!ENTRY org.eclipse.ui 4 0 2023-03-10 23:01:57.480
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.NoSuchMethodError: 'boolean com.ibm.icu.text.UTF16.isSurrogate(char)'
+	at org.eclipse.jdt.internal.ui.text.JavaWordFinder.findWord(JavaWordFinder.java:39)
+	at org.eclipse.jdt.internal.ui.text.java.hover.AbstractJavaEditorTextHover.getHoverRegion(AbstractJavaEditorTextHover.java:94)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverRegion(JavaEditorTextHoverProxy.java:65)
+	at org.eclipse.jface.text.TextViewerHoverManager.computeInformation(TextViewerHoverManager.java:128)
+	at org.eclipse.jface.text.AbstractInformationControlManager.doShowInformation(AbstractInformationControlManager.java:1101)
+	at org.eclipse.jface.text.AbstractHoverInformationControlManager$MouseTracker.mouseHover(AbstractHoverInformationControlManager.java:511)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:212)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4251)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1066)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4068)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3645)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:644)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:551)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:156)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
+
+!ENTRY org.eclipse.ui 4 0 2023-03-10 23:02:14.816
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.NoSuchMethodError: 'boolean com.ibm.icu.text.UTF16.isSurrogate(char)'
+	at org.eclipse.jdt.internal.ui.text.JavaWordFinder.findWord(JavaWordFinder.java:39)
+	at org.eclipse.jdt.internal.ui.text.java.hover.AbstractJavaEditorTextHover.getHoverRegion(AbstractJavaEditorTextHover.java:94)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverRegion(JavaEditorTextHoverProxy.java:65)
+	at org.eclipse.jface.text.TextViewerHoverManager.computeInformation(TextViewerHoverManager.java:128)
+	at org.eclipse.jface.text.AbstractInformationControlManager.doShowInformation(AbstractInformationControlManager.java:1101)
+	at org.eclipse.jface.text.AbstractHoverInformationControlManager$MouseTracker.mouseHover(AbstractHoverInformationControlManager.java:511)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:212)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4251)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1066)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4068)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3645)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:644)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:551)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:156)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
+
+!ENTRY org.eclipse.ui 4 0 2023-03-10 23:05:27.638
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.NoSuchMethodError: 'boolean com.ibm.icu.text.UTF16.isSurrogate(char)'
+	at org.eclipse.jdt.internal.ui.text.JavaWordFinder.findWord(JavaWordFinder.java:39)
+	at org.eclipse.jdt.internal.ui.text.java.hover.AbstractJavaEditorTextHover.getHoverRegion(AbstractJavaEditorTextHover.java:94)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverRegion(JavaEditorTextHoverProxy.java:65)
+	at org.eclipse.jface.text.TextViewerHoverManager.computeInformation(TextViewerHoverManager.java:128)
+	at org.eclipse.jface.text.AbstractInformationControlManager.doShowInformation(AbstractInformationControlManager.java:1101)
+	at org.eclipse.jface.text.AbstractHoverInformationControlManager$MouseTracker.mouseHover(AbstractHoverInformationControlManager.java:511)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:212)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4251)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1066)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4068)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3645)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:644)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:551)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:156)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
+
+!ENTRY org.eclipse.ui 4 0 2023-03-10 23:05:43.870
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.NoSuchMethodError: 'boolean com.ibm.icu.text.UTF16.isSurrogate(char)'
+	at org.eclipse.jdt.internal.ui.text.JavaWordFinder.findWord(JavaWordFinder.java:39)
+	at org.eclipse.jdt.internal.ui.text.java.hover.AbstractJavaEditorTextHover.getHoverRegion(AbstractJavaEditorTextHover.java:94)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverRegion(JavaEditorTextHoverProxy.java:65)
+	at org.eclipse.jface.text.TextViewerHoverManager.computeInformation(TextViewerHoverManager.java:128)
+	at org.eclipse.jface.text.AbstractInformationControlManager.doShowInformation(AbstractInformationControlManager.java:1101)
+	at org.eclipse.jface.text.AbstractHoverInformationControlManager$MouseTracker.mouseHover(AbstractHoverInformationControlManager.java:511)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:212)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4251)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1066)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4068)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3645)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:644)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:551)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:156)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
+
+!ENTRY org.eclipse.ui 4 0 2023-03-10 23:07:31.857
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.NoSuchMethodError: 'boolean com.ibm.icu.text.UTF16.isSurrogate(char)'
+	at org.eclipse.jdt.internal.ui.text.JavaWordFinder.findWord(JavaWordFinder.java:39)
+	at org.eclipse.jdt.internal.ui.text.java.hover.AbstractJavaEditorTextHover.getHoverRegion(AbstractJavaEditorTextHover.java:94)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverRegion(JavaEditorTextHoverProxy.java:65)
+	at org.eclipse.jface.text.TextViewerHoverManager.computeInformation(TextViewerHoverManager.java:128)
+	at org.eclipse.jface.text.AbstractInformationControlManager.doShowInformation(AbstractInformationControlManager.java:1101)
+	at org.eclipse.jface.text.AbstractHoverInformationControlManager$MouseTracker.mouseHover(AbstractHoverInformationControlManager.java:511)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:212)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4251)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1066)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4068)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3645)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:644)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:551)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:156)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
+
+!ENTRY org.eclipse.ui 4 0 2023-03-10 23:08:20.942
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.NoSuchMethodError: 'boolean com.ibm.icu.text.UTF16.isSurrogate(char)'
+	at org.eclipse.jdt.internal.ui.text.JavaWordFinder.findWord(JavaWordFinder.java:39)
+	at org.eclipse.jdt.internal.ui.text.java.hover.AbstractJavaEditorTextHover.getHoverRegion(AbstractJavaEditorTextHover.java:94)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverRegion(JavaEditorTextHoverProxy.java:65)
+	at org.eclipse.jface.text.TextViewerHoverManager.computeInformation(TextViewerHoverManager.java:128)
+	at org.eclipse.jface.text.AbstractInformationControlManager.doShowInformation(AbstractInformationControlManager.java:1101)
+	at org.eclipse.jface.text.AbstractHoverInformationControlManager$MouseTracker.mouseHover(AbstractHoverInformationControlManager.java:511)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:212)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4251)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1066)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4068)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3645)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:644)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:551)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:156)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
+
+!ENTRY org.eclipse.ui 4 0 2023-03-10 23:48:28.214
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.NoSuchMethodError: 'boolean com.ibm.icu.text.UTF16.isSurrogate(char)'
+	at org.eclipse.jdt.internal.ui.text.JavaWordFinder.findWord(JavaWordFinder.java:39)
+	at org.eclipse.jdt.internal.ui.text.java.hover.AbstractJavaEditorTextHover.getHoverRegion(AbstractJavaEditorTextHover.java:94)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverRegion(JavaEditorTextHoverProxy.java:65)
+	at org.eclipse.jface.text.TextViewerHoverManager.computeInformation(TextViewerHoverManager.java:128)
+	at org.eclipse.jface.text.AbstractInformationControlManager.doShowInformation(AbstractInformationControlManager.java:1101)
+	at org.eclipse.jface.text.AbstractHoverInformationControlManager$MouseTracker.mouseHover(AbstractHoverInformationControlManager.java:511)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:212)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4251)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1066)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4068)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3645)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:644)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:551)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:156)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
+
+!ENTRY org.eclipse.ui 4 0 2023-03-10 23:48:54.090
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.NoSuchMethodError: 'boolean com.ibm.icu.text.UTF16.isSurrogate(char)'
+	at org.eclipse.jdt.internal.ui.text.JavaWordFinder.findWord(JavaWordFinder.java:39)
+	at org.eclipse.jdt.internal.ui.text.java.hover.AbstractJavaEditorTextHover.getHoverRegion(AbstractJavaEditorTextHover.java:94)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverRegion(JavaEditorTextHoverProxy.java:65)
+	at org.eclipse.jface.text.TextViewerHoverManager.computeInformation(TextViewerHoverManager.java:128)
+	at org.eclipse.jface.text.AbstractInformationControlManager.doShowInformation(AbstractInformationControlManager.java:1101)
+	at org.eclipse.jface.text.AbstractHoverInformationControlManager$MouseTracker.mouseHover(AbstractHoverInformationControlManager.java:511)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:212)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4251)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1066)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4068)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3645)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:644)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:551)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:156)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
+!SESSION 2023-03-10 23:54:41.078 -----------------------------------------------
+eclipse.buildId=4.24.0.I20220607-0700
+java.version=17.0.3
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=ko_KR
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.ui 2 0 2023-03-10 23:54:49.358
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2023-03-10 23:54:49.358
+!MESSAGE Commands should really have a category: plug-in='org.springframework.ide.eclipse.boot', id='org.springframework.ide.eclipse.boot.ui.EnableDisableBootDevtools', categoryId='org.springframework.ide.eclipse.boot.commands.category'
+
+!ENTRY org.eclipse.ui 2 0 2023-03-10 23:54:50.320
+!MESSAGE Warnings while parsing the commands from the 'org.eclipse.ui.commands' and 'org.eclipse.ui.actionDefinitions' extension points.
+!SUBENTRY 1 org.eclipse.ui 2 0 2023-03-10 23:54:50.321
+!MESSAGE Commands should really have a category: plug-in='org.springframework.ide.eclipse.boot', id='org.springframework.ide.eclipse.boot.ui.EnableDisableBootDevtools', categoryId='org.springframework.ide.eclipse.boot.commands.category'
+
+!ENTRY org.eclipse.jface 2 0 2023-03-10 23:54:51.411
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2023-03-10 23:54:51.411
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@365291bd,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@68c05c5b,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2023-03-10 23:54:51.411
+!MESSAGE A conflict occurred for ALT+SHIFT+R:
+Binding(ALT+SHIFT+R,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.rename.element,Rename - Refactoring ,
+		Rename the selected element,
+		Category(org.eclipse.jdt.ui.category.refactoring,Refactor - Java,Java Refactoring Actions,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@1b5e6983,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+SHIFT+R,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.rename,Rename,
+		Rename the selected item,
+		Category(org.eclipse.ui.category.file,File,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@130a99fe,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.mylyn.tasks.core 4 0 2023-03-10 23:54:52.453
+!MESSAGE Unexpected error while loading repository template extensions
+!SUBENTRY 1 org.eclipse.mylyn.tasks.core 4 0 2023-03-10 23:54:52.454
+!MESSAGE Could not load repository template extension contributed by 'org.eclipse.mylyn.bugzilla.ide' with connectorKind 'bugzilla'
+
+!ENTRY org.eclipse.wildwebdeveloper.xml 4 0 2023-03-10 23:54:56.117
+!MESSAGE Error while getting URI 'platform:/plugin/org.eclipse.persistence.moxy/org/eclipse/persistence/jaxb/eclipselink_oxm_2_5.xsd' from plugin 'org.eclipse.jpt.common.eclipselink.core' : /org/eclipse/persistence/jaxb/eclipselink_oxm_2_5.xsd
+!STACK 0
+java.io.FileNotFoundException: /org/eclipse/persistence/jaxb/eclipselink_oxm_2_5.xsd
+	at org.eclipse.osgi.storage.url.bundleentry.Handler.findBundleEntry(Handler.java:55)
+	at org.eclipse.osgi.storage.url.BundleResourceHandler.openConnection(BundleResourceHandler.java:182)
+	at java.base/java.net.URL.openConnection(URL.java:1094)
+	at org.eclipse.core.internal.boot.PlatformURLConnection.connect(PlatformURLConnection.java:115)
+	at org.eclipse.core.internal.boot.PlatformURLConnection.getURLAsLocal(PlatformURLConnection.java:240)
+	at org.eclipse.core.internal.runtime.PlatformURLConverter.toFileURL(PlatformURLConverter.java:37)
+	at org.eclipse.core.runtime.FileLocator.toFileURL(FileLocator.java:263)
+	at org.eclipse.wildwebdeveloper.xml.internal.ui.preferences.XMLCatalogs.createURI(XMLCatalogs.java:139)
+	at org.eclipse.wildwebdeveloper.xml.internal.ui.preferences.XMLCatalogs.lambda$3(XMLCatalogs.java:87)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)
+	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:992)
+	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
+	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:992)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at org.eclipse.wildwebdeveloper.xml.internal.ui.preferences.XMLCatalogs.getWTPExtensionCatalog(XMLCatalogs.java:65)
+	at org.eclipse.wildwebdeveloper.xml.internal.ui.preferences.XMLCatalogs.getAllCatalogs(XMLCatalogs.java:52)
+	at org.eclipse.wildwebdeveloper.xml.internal.ui.preferences.XMLPreferenceConstants.storePreferencesToLemminxOptions(XMLPreferenceConstants.java:90)
+	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.mergeCustomInitializationOptions(XMLLanguageServer.java:169)
+	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.getInitializationOptions(XMLLanguageServer.java:164)
+	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$7(LanguageServerWrapper.java:364)
+	at java.base/java.util.concurrent.CompletableFuture$UniCompose.tryFire(CompletableFuture.java:1150)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1773)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.exec(CompletableFuture.java:1760)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:373)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1182)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1655)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1622)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165)
+
+!ENTRY org.eclipse.wildwebdeveloper.xml 4 0 2023-03-10 23:54:56.171
+!MESSAGE Error while getting URI 'platform:/plugin/org.springframework.beans/org/springframework/beans/factory/xml/spring-beans.dtd' from plugin 'org.springframework.ide.eclipse.beans.ui.editor' : /org/springframework/beans/factory/xml/spring-beans.dtd
+!STACK 0
+java.io.FileNotFoundException: /org/springframework/beans/factory/xml/spring-beans.dtd
+	at org.eclipse.osgi.storage.url.bundleentry.Handler.findBundleEntry(Handler.java:55)
+	at org.eclipse.osgi.storage.url.BundleResourceHandler.openConnection(BundleResourceHandler.java:182)
+	at java.base/java.net.URL.openConnection(URL.java:1094)
+	at org.eclipse.core.internal.boot.PlatformURLConnection.connect(PlatformURLConnection.java:115)
+	at org.eclipse.core.internal.boot.PlatformURLConnection.getURLAsLocal(PlatformURLConnection.java:240)
+	at org.eclipse.core.internal.runtime.PlatformURLConverter.toFileURL(PlatformURLConverter.java:37)
+	at org.eclipse.core.runtime.FileLocator.toFileURL(FileLocator.java:263)
+	at org.eclipse.wildwebdeveloper.xml.internal.ui.preferences.XMLCatalogs.createURI(XMLCatalogs.java:139)
+	at org.eclipse.wildwebdeveloper.xml.internal.ui.preferences.XMLCatalogs.lambda$3(XMLCatalogs.java:69)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)
+	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:992)
+	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
+	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:992)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596)
+	at org.eclipse.wildwebdeveloper.xml.internal.ui.preferences.XMLCatalogs.getWTPExtensionCatalog(XMLCatalogs.java:65)
+	at org.eclipse.wildwebdeveloper.xml.internal.ui.preferences.XMLCatalogs.getAllCatalogs(XMLCatalogs.java:52)
+	at org.eclipse.wildwebdeveloper.xml.internal.ui.preferences.XMLPreferenceConstants.storePreferencesToLemminxOptions(XMLPreferenceConstants.java:90)
+	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.mergeCustomInitializationOptions(XMLLanguageServer.java:169)
+	at org.eclipse.wildwebdeveloper.xml.internal.XMLLanguageServer.getInitializationOptions(XMLLanguageServer.java:164)
+	at org.eclipse.lsp4e.LanguageServerWrapper.lambda$7(LanguageServerWrapper.java:364)
+	at java.base/java.util.concurrent.CompletableFuture$UniCompose.tryFire(CompletableFuture.java:1150)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1773)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.exec(CompletableFuture.java:1760)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:373)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1182)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1655)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1622)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165)
+
+!ENTRY org.eclipse.egit.ui 2 0 2023-03-10 23:54:56.936
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\sujin'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.

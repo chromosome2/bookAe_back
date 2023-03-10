@@ -11,6 +11,7 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 
 import bookae.community.vo.CommunityVO;
+import bookae.util.PagingVO;
 
 @Repository("communityDAO")
 public class CommunityDAOImpl implements CommunityDAO{
@@ -26,7 +27,7 @@ public class CommunityDAOImpl implements CommunityDAO{
 		return communityList;
 	}
 	
-	//커뮤니티 게시글 갯수 가져오기. max가 아니라 count가 더 적절한 말일듯 함.
+	//커뮤니티 게시글 총 갯수 가져오기. max가 아니라 count가 더 적절한 말일듯 함.
 	public int max_num() throws DataAccessException{
 		int num =(int)sqlSession.selectOne("mapper.community.max_num");
 		return num;
@@ -94,6 +95,12 @@ public class CommunityDAOImpl implements CommunityDAO{
 		List<CommunityVO> bestCommunityList=null;
 		bestCommunityList=sqlSession.selectList("mapper.community.two_best_community_list");
 		return bestCommunityList;
+	}
+
+	//페이징 후 게시글 가져오기
+	@Override
+	public List<PagingVO> pagingBoard(PagingVO pagingVO) throws DataAccessException {
+		return sqlSession.selectList("mapper.community.pagingBoard", pagingVO);
 	}
 
 }
