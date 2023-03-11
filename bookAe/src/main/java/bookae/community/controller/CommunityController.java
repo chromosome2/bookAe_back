@@ -26,6 +26,11 @@ public interface CommunityController {
 			HttpServletResponse response) throws Exception;
 	public ModelAndView boardList (PagingVO pagingVO, 
 			@RequestParam(value="nowPage", required=false) String nowPage, 
+			@RequestParam(value="head", required=false) String head,
+			@RequestParam(value="search_community", required=false) String search_community, 
+			HttpServletRequest request,
+			HttpServletResponse response) throws Exception;
+	public ModelAndView searchBoardList (@ModelAttribute("pagingVO") PagingVO pagingVO, 
 			HttpServletRequest request,
 			HttpServletResponse response) throws Exception;
 

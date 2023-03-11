@@ -39,14 +39,14 @@
         	
             <a href="${contextPath}/community/community.do"><h2><img src="${contextPath }/resources/images/community.png" alt="게시판 로고" width="50">감상평 게시글</h2></a>
             <section>
-                <form action="search_community.jsp" method="get" id="searchBook">
+                <form action="${contextPath}/community/community.do" method="get" id="searchBook">
                     <select name="head">
                         <option value="total">전체</option>
-                        <option value="name">제목</option>
-                        <option value="writer">글쓴이</option>
-                        <option value="content">내용</option>
+                        <option value="board_title">제목</option>
+                        <option value="nickname">글쓴이</option>
+                        <option value="board_content">내용</option>
                     </select>
-                    <input type="text" id="Search_community" name="Search_community" required>
+                    <input type="text" id="search_community" name="search_community" required>
                     <button type="submit">검색</button>
                 </form>
                 <table class="tableCommu">
@@ -104,7 +104,7 @@
 	                <div class="page">
 	                	<!-- 시작페이지가 1이 아니면 '<' 추가 -->
 	                	<c:if test="${paging.startPage !=1 }">
-	                		<a href="${contextPath }/community/community.do?nowPage=${paging.startPage - 1 }">&lt;</a>
+	                		<a href="${contextPath }/community/community.do?nowPage=${paging.startPage - 1 }&">&lt;</a>
 	                	</c:if>
 	                	
 	                	<c:forEach begin="${paging.startPage }" end="${paging.endPage }" var="p">

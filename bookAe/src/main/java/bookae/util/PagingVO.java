@@ -12,6 +12,9 @@ public class PagingVO {
 	
 	private int cntPage=5; //페이지들을 몇개 보일건지
 	
+	private String head; //검색 select option
+	private String search_community; //검색 키워드
+	
 	public PagingVO() {
 		
 	}
@@ -134,11 +137,27 @@ public class PagingVO {
 		this.cntPage = cntPage;
 	}
 	
+	public String getHead() {
+		return head;
+	}
+
+	public void setHead(String head) {
+		this.head = head;
+	}
+
+	public String getSearch_community() {
+		return search_community;
+	}
+
+	public void setSearch_community(String search_community) {
+		this.search_community = search_community;
+	}
+
 	@Override
 	public String toString() {
 		return "PagingVO [nowPage=" + nowPage + ", startPage=" + startPage + ", endPage=" + endPage + ", total=" + total
 				+ ", cntPerPage=" + cntPerPage + ", lastPage=" + lastPage + ", start=" + start + ", end=" + end
-				+ ", cntPage=" + cntPage + "]";
+				+ ", cntPage=" + cntPage + ", head=" + head + ", search_community=" + search_community + "]";
 	}
 
 }

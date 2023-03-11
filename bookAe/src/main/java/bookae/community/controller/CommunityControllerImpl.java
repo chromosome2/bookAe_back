@@ -50,33 +50,49 @@ public class CommunityControllerImpl extends MultiActionController implements Co
 		
 		return mav;
 	}*/
-	//페이징 기능을 합친 게시글 가져오기
-		@Override
-		@RequestMapping(value="/community/community.do", method=RequestMethod.GET)
-		public ModelAndView boardList(PagingVO pagingVO, String nowPage, HttpServletRequest request,
-				HttpServletResponse response) throws Exception {
-			String viewName=getViewName(request);
+	
 
-			//vo 계산하기
-			int max_num=communityService.max_num();
-			if(nowPage == null) {
-				nowPage ="1";
-			}
-			pagingVO = new PagingVO(max_num, Integer.parseInt(nowPage));
-			
-			//페이징된 리스트 불러오기
-			List communityList=communityService.pagingBoard(pagingVO);
-			List bestCommunityList=communityService.two_best_community_list();
-			
-			
-			ModelAndView mav=new ModelAndView("community/"+viewName);
-			mav.addObject("max_num",max_num);
-			mav.addObject("paging",pagingVO);
-			mav.addObject("communityList",communityList);
-			mav.addObject("bestCommunityList",bestCommunityList);
-			
-			return mav;
+	@Override
+	public ModelAndView searchBoardList(PagingVO pagingVO, HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	//페이징 기능을 합친 게시글 가져오기
+	@Override
+	@RequestMapping(value="/community/community.do", method=RequestMethod.GET)
+	public ModelAndView boardList(PagingVO pagingVO, String nowPage, String head, String search_community,
+			HttpServletRequest request, HttpServletResponse response) throws Exception {
+		String viewName=getViewName(request);
+
+		//vo 계산하기
+		int max_num=communityService.max_num();
+		if(nowPage == null) {
+			nowPage ="1";
 		}
+		pagingVO = new PagingVO(max_num, Integer.parseInt(nowPage));
+		
+		//검색 키워드 가져오기
+		if(head != null && search_community != null) {
+			pagingVO.setHead(head);
+			pagingVO.setSearch_community(search_community);
+		}
+		System.out.println(pagingVO.getHead()+ " / "+pagingVO.getSearch_community());
+		
+		//페이징된 리스트 불러오기
+		List communityList=communityService.pagingBoard(pagingVO);
+		List bestCommunityList=communityService.two_best_community_list();
+		
+		
+		ModelAndView mav=new ModelAndView("community/"+viewName);
+		mav.addObject("max_num",max_num);
+		mav.addObject("paging",pagingVO);
+		mav.addObject("communityList",communityList);
+		mav.addObject("bestCommunityList",bestCommunityList);
+		
+		return mav;
+	}
 	
 	
 	
@@ -231,6 +247,11 @@ public class CommunityControllerImpl extends MultiActionController implements Co
 		}
 		return fileName;
 	}
+
+
+
+
+
 
 
 
