@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="${contextPath }/resources/css/community.css">
     <script src="${contextPath }/resources/js/jquery-3.6.0.min.js"></script>
     <script src="${contextPath }/resources/js/common.js"></script>
+    <script src="${contextPath }/resources/js/community.js"></script>
 	<title>북愛 - 감상평 페이지</title>
 </head>
 
@@ -47,7 +48,7 @@
                         <option value="board_content">내용</option>
                     </select>
                     <input type="text" id="search_community" name="search_community" required>
-                    <button type="submit">검색</button>
+                    <input id="submitBtn" class="subBtn" type="button" value="검색" onclick="before_submit(this.form)"/>
                 </form>
                 <table class="tableCommu">
                     <tr id="title">
@@ -104,7 +105,7 @@
 	                <div class="page">
 	                	<!-- 시작페이지가 1이 아니면 '<' 추가 -->
 	                	<c:if test="${paging.startPage !=1 }">
-	                		<a href="${contextPath }/community/community.do?nowPage=${paging.startPage - 1 }&">&lt;</a>
+	                		<a href="${contextPath }/community/community.do?nowPage=${paging.startPage - 1 }&head=${head}&search_community=${keyword}">&lt;</a>
 	                	</c:if>
 	                	
 	                	<c:forEach begin="${paging.startPage }" end="${paging.endPage }" var="p">
@@ -113,14 +114,14 @@
 	                				<span class="present_page">${p }</span>
 	                			</c:when>
 	                			<c:when test="${p != paging.nowPage }">
-	                				<a href="${contextPath }/community/community.do?nowPage=${p }">${p }</a>
+	                				<a href="${contextPath }/community/community.do?nowPage=${p }&head=${head}&search_community=${keyword}">${p }</a>
 	                			</c:when>
 	                		</c:choose>
 	                	</c:forEach>
 	                	
 	                	<!-- 화면의 끝 페이지랑 전체마지막페이지랑 같지않다면 '>'추가 -->
 	                	<c:if test="${paging.endPage !=paging.lastPage }">
-	                		<a href="${contextPath }/community/community.do?nowPage=${paging.endPage+1 }">&gt;</a>
+	                		<a href="${contextPath }/community/community.do?nowPage=${paging.endPage+1 }&head=${head}&search_community=${keyword}">&gt;</a>
 	                	</c:if>
 	                </div>
                 </div>

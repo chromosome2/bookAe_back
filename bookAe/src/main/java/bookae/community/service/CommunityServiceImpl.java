@@ -22,8 +22,8 @@ public class CommunityServiceImpl implements CommunityService{
 		return communityDAO.community_list_view();
 	}
 	
-	public int max_num() throws DataAccessException{
-		return communityDAO.max_num();
+	public int max_num(PagingVO pagingVO) throws DataAccessException{
+		return communityDAO.max_num(pagingVO);
 	}
 
 	@Override

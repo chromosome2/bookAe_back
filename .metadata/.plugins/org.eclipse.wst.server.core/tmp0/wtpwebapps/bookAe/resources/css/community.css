@@ -17,7 +17,6 @@
     top: 6px;
     margin-right: 10px;
 }
-
 .communityMenu #searchBook {
     width: 400px;
     float: right;
@@ -41,7 +40,7 @@
     border: none;
     border-bottom: 2px solid rgb(129, 129, 129);
 }
-#searchBook button {
+#searchBook #submitBtn {
     background-color: #fff;
     text-shadow: 1px 1px 0.5px rgba(0,0,0,0.2);
     color: rgb(88, 88, 88);

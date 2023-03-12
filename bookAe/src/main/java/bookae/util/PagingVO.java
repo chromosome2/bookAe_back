@@ -19,22 +19,14 @@ public class PagingVO {
 		
 	}
 	
-	public PagingVO(int total, int nowPage) {
-		setNowPage(nowPage);
-		setTotal(total);
-		calcLastPage(getTotal(), getCntPerPage());
-		calcStartEndPage(getNowPage(), cntPage);
-		calcStartEnd(getNowPage(), getCntPerPage());
-	}
-	
 	//제일 마지막 페이지 계산
-	public void calcLastPage(int total, int cntPerPage) {
+	public void calcLastPage(int total) {
 		setLastPage((int)Math.ceil((double)total / (double)cntPerPage));
 		//ex) total이 11, 8개씩 보여지고 싶다면, 11/8=1.3 => ceil은 올림 함수니까 2가 됨.
 	}
 	
 	//시작, 끝 페이지 계산
-	public void calcStartEndPage(int nowPage, int cntPage) {//현재페이지 몇개씩보여줄지
+	public void calcStartEndPage(int nowPage) {//현재페이지 몇개씩보여줄지
 		setEndPage(((int)Math.ceil((double)nowPage / (double)cntPage)) * cntPage);
 		//현재페이지가 1, 한번에 보여지는 페이지갯수가 5, 1 / 5 = 0.2 => 1 ==> 1*5 = 5
 		//현재페이지가 7, 한번에 보여지는 페이지갯수가 5, 7 / 5 = 1.4 => 2 ==> 2*5 = 10
@@ -56,7 +48,7 @@ public class PagingVO {
 	}
 	
 	//DB 쿼리에서 사용할 start, end값 계산
-	public void calcStartEnd(int nowPage, int cntPerPage) {
+	public void calcStartEnd(int nowPage) {
 		//nowPage가 4이고 cntPerPage가 8이라면
 		setEnd(nowPage*cntPerPage);
 		//4*8 =32

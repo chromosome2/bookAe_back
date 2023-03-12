@@ -66,19 +66,28 @@ public class CommunityControllerImpl extends MultiActionController implements Co
 			HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String viewName=getViewName(request);
 
-		//vo 계산하기
-		int max_num=communityService.max_num();
+		pagingVO=new PagingVO();
+		
+		//nowpage
 		if(nowPage == null) {
 			nowPage ="1";
 		}
-		pagingVO = new PagingVO(max_num, Integer.parseInt(nowPage));
+		pagingVO.setNowPage(Integer.parseInt(nowPage));
 		
 		//검색 키워드 가져오기
 		if(head != null && search_community != null) {
 			pagingVO.setHead(head);
 			pagingVO.setSearch_community(search_community);
 		}
-		System.out.println(pagingVO.getHead()+ " / "+pagingVO.getSearch_community());
+		
+		//max_num 세팅
+		int max_num=communityService.max_num(pagingVO);
+		pagingVO.setTotal(max_num);
+		
+		//pagingVO의 나머지값 계산
+		pagingVO.calcLastPage(pagingVO.getTotal());
+		pagingVO.calcStartEndPage(pagingVO.getNowPage());
+		pagingVO.calcStartEnd(pagingVO.getNowPage());
 		
 		//페이징된 리스트 불러오기
 		List communityList=communityService.pagingBoard(pagingVO);
@@ -87,6 +96,8 @@ public class CommunityControllerImpl extends MultiActionController implements Co
 		
 		ModelAndView mav=new ModelAndView("community/"+viewName);
 		mav.addObject("max_num",max_num);
+		mav.addObject("head",head);
+		mav.addObject("keyword",search_community);
 		mav.addObject("paging",pagingVO);
 		mav.addObject("communityList",communityList);
 		mav.addObject("bestCommunityList",bestCommunityList);

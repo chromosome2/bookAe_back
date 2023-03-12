@@ -36,10 +36,28 @@
 	</select>
 	
 	<!-- 게시글의 총 개수 -->
-	<select id="max_num" resultType="_int">
+	<select id="max_num" resultType="_int" parameterType="bookae.util.PagingVO">
 		<![CDATA[
-			SELECT count(*) as max from boardtbl
+			SELECT count(*) as total from boardtbl b, jointbl j WHERE b.id=j.id 
 		]]>
+		<if test="head != '' and head != null"> 
+			<choose>
+				<when test="head == 'total'">
+					and (nickname like '%'||#{search_community}||'%' 
+		            or board_title like '%'||#{search_community}||'%' 
+		            or board_content like '%'||#{search_community}||'%') 
+				</when>
+				<when test="head == 'board_title'">
+					and board_title like '%'||#{search_community}||'%' 
+				</when>
+				<when test="head == 'nickname'">
+					and nickname like '%'||#{search_community}||'%' 
+				</when>
+				<when test="head == 'board_content'">
+					and board_content like '%'||#{search_community}||'%' 
+				</when>
+			</choose>
+		</if>
 	</select>
 	
 	<!-- 게시글 추가 -->
@@ -117,9 +135,15 @@
 			            or board_title like '%'||#{search_community}||'%' 
 			            or board_content like '%'||#{search_community}||'%') 
 					</when>
-					<otherwise>
-						and #{head} like '%'||#{search_community}||'%' 
-					</otherwise>
+					<when test="head == 'board_title'">
+						and (board_title like '%'||#{search_community}||'%') 
+					</when>
+					<when test="head == 'nickname'">
+						and (nickname like '%'||#{search_community}||'%') 
+					</when>
+					<when test="head == 'board_content'">
+						and (board_content like '%'||#{search_community}||'%') 
+					</when>
 				</choose>
 			</if>
 			ORDER BY board_num desc) A
