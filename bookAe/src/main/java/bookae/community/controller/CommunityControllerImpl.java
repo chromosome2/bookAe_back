@@ -68,7 +68,7 @@ public class CommunityControllerImpl extends MultiActionController implements Co
 
 		pagingVO=new PagingVO();
 		
-		//nowpage
+		//nowpage 세팅, 현재 보고있는 페이지 번호
 		if(nowPage == null) {
 			nowPage ="1";
 		}
@@ -76,26 +76,26 @@ public class CommunityControllerImpl extends MultiActionController implements Co
 		
 		//검색 키워드 가져오기
 		if(head != null && search_community != null) {
-			pagingVO.setHead(head);
-			pagingVO.setSearch_community(search_community);
+			pagingVO.setHead(head); //검색할 항목
+			pagingVO.setSearch_community(search_community); //검색 키워드
 		}
 		
-		//max_num 세팅
-		int max_num=communityService.max_num(pagingVO);
-		pagingVO.setTotal(max_num);
+		//totalArticle 세팅, 게시글 개수 가져오기
+		int totalArticle=communityService.totalArticle(pagingVO);
+		pagingVO.setTotalArticle(totalArticle);
 		
 		//pagingVO의 나머지값 계산
-		pagingVO.calcLastPage(pagingVO.getTotal());
+		pagingVO.calcLastPage(pagingVO.getTotalArticle());
 		pagingVO.calcStartEndPage(pagingVO.getNowPage());
 		pagingVO.calcStartEnd(pagingVO.getNowPage());
 		
 		//페이징된 리스트 불러오기
 		List communityList=communityService.pagingBoard(pagingVO);
-		List bestCommunityList=communityService.two_best_community_list();
+		List bestCommunityList=communityService.two_best_community_list(); //좋아요 많은 게시글 두개 가져오기
 		
 		
 		ModelAndView mav=new ModelAndView("community/"+viewName);
-		mav.addObject("max_num",max_num);
+		mav.addObject("totalArticle",totalArticle);
 		mav.addObject("head",head);
 		mav.addObject("keyword",search_community);
 		mav.addObject("paging",pagingVO);

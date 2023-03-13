@@ -36,9 +36,9 @@
 	</select>
 	
 	<!-- 게시글의 총 개수 -->
-	<select id="max_num" resultType="_int" parameterType="bookae.util.PagingVO">
+	<select id="totalArticle" resultType="_int" parameterType="bookae.util.PagingVO">
 		<![CDATA[
-			SELECT count(*) as total from boardtbl b, jointbl j WHERE b.id=j.id 
+			SELECT count(*) as totalArticle from boardtbl b, jointbl j WHERE b.id=j.id 
 		]]>
 		<if test="head != '' and head != null"> 
 			<choose>

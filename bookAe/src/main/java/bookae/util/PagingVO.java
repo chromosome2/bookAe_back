@@ -4,7 +4,7 @@ public class PagingVO {
 	private int nowPage; //현재페이지
 	private int startPage; //시작페이지
 	private int endPage; //끝페이지
-	private int total; //게시글 총 개수
+	private int totalArticle; //게시글 총 개수
 	private int cntPerPage=8; //페이지당 글 개수
 	private int lastPage; //마지막페이지
 	private int start; //SQL쿼리에 쓸 rownum의 start
@@ -20,8 +20,8 @@ public class PagingVO {
 	}
 	
 	//제일 마지막 페이지 계산
-	public void calcLastPage(int total) {
-		setLastPage((int)Math.ceil((double)total / (double)cntPerPage));
+	public void calcLastPage(int totalArticle) {
+		setLastPage((int)Math.ceil((double)totalArticle / (double)cntPerPage));
 		//ex) total이 11, 8개씩 보여지고 싶다면, 11/8=1.3 => ceil은 올림 함수니까 2가 됨.
 	}
 	
@@ -81,12 +81,12 @@ public class PagingVO {
 		this.endPage = endPage;
 	}
 
-	public int getTotal() {
-		return total;
+	public int getTotalArticle() {
+		return totalArticle;
 	}
 
-	public void setTotal(int total) {
-		this.total = total;
+	public void setTotalArticle(int totalArticle) {
+		this.totalArticle = totalArticle;
 	}
 
 	public int getCntPerPage() {
@@ -147,7 +147,7 @@ public class PagingVO {
 
 	@Override
 	public String toString() {
-		return "PagingVO [nowPage=" + nowPage + ", startPage=" + startPage + ", endPage=" + endPage + ", total=" + total
+		return "PagingVO [nowPage=" + nowPage + ", startPage=" + startPage + ", endPage=" + endPage + ", totalArticle=" + totalArticle
 				+ ", cntPerPage=" + cntPerPage + ", lastPage=" + lastPage + ", start=" + start + ", end=" + end
 				+ ", cntPage=" + cntPage + ", head=" + head + ", search_community=" + search_community + "]";
 	}

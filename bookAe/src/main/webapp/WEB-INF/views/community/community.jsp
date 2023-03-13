@@ -81,7 +81,7 @@
                     <c:if test="${!empty communityList }">
 	                    <c:forEach var="community" items="${communityList }" varStatus="communityNum">
 		                    <tr>
-		                        <td>${(max_num-((paging.nowPage-1)*8))-communityNum.count+1 }</td>
+		                        <td>${(totalArticle-((paging.nowPage-1)*8))-communityNum.count+1 }</td>
 		                        <td>
 		                        	<a href="${contextPath }/community/viewArticle.do?board_num=${community.board_num}">
 		                        	<span class="genre">&lt;${community.board_genre }&gt;</span> 

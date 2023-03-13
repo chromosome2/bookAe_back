@@ -28,9 +28,9 @@ public class CommunityDAOImpl implements CommunityDAO{
 	}
 	
 	//커뮤니티 게시글 총 갯수 가져오기. max가 아니라 total이 더 적절한 말일듯 함.
-	public int max_num(PagingVO pagingVO) throws DataAccessException{
-		int num =(int)sqlSession.selectOne("mapper.community.max_num", pagingVO);
-		return num;
+	public int totalArticle(PagingVO pagingVO) throws DataAccessException{
+		int totalArticle =(int)sqlSession.selectOne("mapper.community.totalArticle", pagingVO);
+		return totalArticle;
 	}
 
 	//게시글 작성
