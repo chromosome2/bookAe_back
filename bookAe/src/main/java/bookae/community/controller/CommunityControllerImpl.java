@@ -51,15 +51,7 @@ public class CommunityControllerImpl extends MultiActionController implements Co
 		return mav;
 	}*/
 	
-
-	@Override
-	public ModelAndView searchBoardList(PagingVO pagingVO, HttpServletRequest request, HttpServletResponse response)
-			throws Exception {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
-	//페이징 기능을 합친 게시글 가져오기
+	//페이징 + 검색 기능을 합친 게시글 가져오기
 	@Override
 	@RequestMapping(value="/community/community.do", method=RequestMethod.GET)
 	public ModelAndView boardList(PagingVO pagingVO, String nowPage, String head, String search_community,
@@ -139,6 +131,27 @@ public class CommunityControllerImpl extends MultiActionController implements Co
 		int result=communityService.addArticle(communityVO);
 		ModelAndView mav=new ModelAndView("redirect:/community/community.do");
 		System.out.println("addArticle 실행");
+		return mav;
+	}
+
+
+	//Article 삭제하기
+	@Override
+	@RequestMapping(value="/community/delArticle.do", method=RequestMethod.GET)
+	public ModelAndView delArticle(int board_num, String id, HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		System.out.println("delArticle시작 : "+board_num+" / "+id);
+		String viewName=getViewName(request);
+		
+		//삭제
+		CommunityVO communityVO=new CommunityVO();
+		communityVO.setBoard_num(board_num);
+		communityVO.setId(id);
+		communityService.delArticle(communityVO);
+		System.out.println("controller ok!");
+		
+		ModelAndView mav=new ModelAndView("redirect:/community/community.do");
+		
 		return mav;
 	}
 
@@ -227,6 +240,17 @@ public class CommunityControllerImpl extends MultiActionController implements Co
 	
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//viewName 얻어오기
 	private String getViewName(HttpServletRequest request) throws Exception{
 		String contextPath=request.getContextPath();//내 경로. 프로젝트 이름까지.
 		String uri=(String)request.getAttribute("javax.servlet.include.request_uri");

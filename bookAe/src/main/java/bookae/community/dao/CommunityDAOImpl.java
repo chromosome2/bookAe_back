@@ -27,7 +27,7 @@ public class CommunityDAOImpl implements CommunityDAO{
 		return communityList;
 	}
 	
-	//커뮤니티 게시글 총 갯수 가져오기. max가 아니라 total이 더 적절한 말일듯 함.
+	//커뮤니티 게시글 총 갯수 가져오기.
 	public int totalArticle(PagingVO pagingVO) throws DataAccessException{
 		int totalArticle =(int)sqlSession.selectOne("mapper.community.totalArticle", pagingVO);
 		return totalArticle;
@@ -101,6 +101,16 @@ public class CommunityDAOImpl implements CommunityDAO{
 	@Override
 	public List<PagingVO> pagingBoard(PagingVO pagingVO) throws DataAccessException {
 		return sqlSession.selectList("mapper.community.pagingBoard", pagingVO);
+	}
+
+	//게시글 삭제
+	@Override
+	public void delArticle(CommunityVO communityVO) throws DataAccessException {
+		//게시글과 관련된 정보 삭제
+		sqlSession.delete("mapper.community.deleteLikeOfArticle",communityVO.getBoard_num());
+		//게시글 삭제
+		sqlSession.delete("mapper.community.delArticle",communityVO);
+		
 	}
 
 }

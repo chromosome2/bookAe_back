@@ -20,6 +20,10 @@ public interface CommunityController {
 			HttpServletResponse response) throws Exception;
 	public ModelAndView viewArticle (@RequestParam("board_num") int board_num, HttpServletRequest request,
 			HttpServletResponse response) throws Exception;
+	public ModelAndView delArticle (@RequestParam("board_num") int board_num, 
+			@RequestParam("id") String id, 
+			HttpServletRequest request,
+			HttpServletResponse response) throws Exception;
 	public void addLike(HttpServletRequest request,
 			HttpServletResponse response) throws Exception;
 	public void delLike(HttpServletRequest request,
@@ -28,9 +32,6 @@ public interface CommunityController {
 			@RequestParam(value="nowPage", required=false) String nowPage, 
 			@RequestParam(value="head", required=false) String head,
 			@RequestParam(value="search_community", required=false) String search_community, 
-			HttpServletRequest request,
-			HttpServletResponse response) throws Exception;
-	public ModelAndView searchBoardList (@ModelAttribute("pagingVO") PagingVO pagingVO, 
 			HttpServletRequest request,
 			HttpServletResponse response) throws Exception;
 

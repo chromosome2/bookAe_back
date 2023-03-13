@@ -151,4 +151,18 @@
 			WHERE rn BETWEEN #{start} AND #{end}
 	</select>
 	
+	<!-- article 삭제 -->
+	<delete id="delArticle" parameterType="communityVO">
+		<![CDATA[
+			DELETE FROM boardtbl WHERE id=#{id} AND board_num=#{board_num}
+		]]>
+	</delete>
+	
+	<!-- article 삭제시 좋아요 모두 삭제 -->
+	<delete id="deleteLikeOfArticle" parameterType="int">
+		<![CDATA[
+			DELETE FROM liketbl WHERE board_num=#{board_num}
+		]]>
+	</delete>
+	
 </mapper>

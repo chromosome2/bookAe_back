@@ -61,6 +61,12 @@ public class CommunityServiceImpl implements CommunityService{
 	public List<PagingVO> pagingBoard(PagingVO pagingVO) throws DataAccessException {
 		return communityDAO.pagingBoard(pagingVO);
 	}
+
+	@Override
+	public void delArticle(CommunityVO communityVO) throws DataAccessException {
+		//communityDAO.delArticle(communityVO);
+		System.out.println("service ok!");
+	}
 	
 	
 

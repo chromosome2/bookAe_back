@@ -30,7 +30,7 @@
     <script type="text/javascript">
   		//좋아요 버튼 function
     	function fn_like_btn() {
-	    	var like_sw;
+    		var like_sw;
 	    	if($("#like_btn").attr('class')==='like'){
 	    		like_sw=true;
 	    	}else{
@@ -85,6 +85,20 @@
 	    		
 	    	}
     	}
+  		
+  		//게시글 삭제
+  		function fn_deleteArticle() {
+  			//본인이 맞는지 확인
+  			var log_id='<%=(String)session.getAttribute("id")%>';
+  			var writer='<c:out value="${board.id}"/>';
+  			var board_num=${board.board_num};
+  			console.log(log_id+" / "+writer+" / "+board_num);
+  			if(log_id == writer){
+  				location.href="${contextPath}/community/delArticle.do?board_num="+board_num+"&id="+writer;
+  			}else{
+  				alert("잘못된 접근입니다.");
+  			}
+  		}
     </script>
     
 	<title>북愛 - 커뮤니티 페이지</title>
@@ -120,6 +134,13 @@
             			<c:if test="${board.likeIs==false }">
             				<button id="like_btn" class="unlike" onclick="fn_like_btn()"><span id="heart">추천수</span><br><span id="board_like">${board.board_like }</span></button>
             			</c:if>
+            			
+            			<p id="articleInfo">
+	            			<c:if test="${board.id==id }">
+	            				<input type="button" value="수정" class="articleInfoBtn modifyArticle" onclick="fn_modifyArticle()"/> | <input type="button" value="삭제" class="articleInfoBtn deleteArticle" onclick="fn_deleteArticle()"/>
+	            			</c:if>
+            			</p>
+            			
             		</div>
             		<div id="article_comment_box">
             			<p id="article_comment_info">댓글 0</p>

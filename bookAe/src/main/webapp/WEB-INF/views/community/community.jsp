@@ -40,6 +40,7 @@
         	
             <a href="${contextPath}/community/community.do"><h2><img src="${contextPath }/resources/images/community.png" alt="게시판 로고" width="50">감상평 게시글</h2></a>
             <section>
+            
                 <form action="${contextPath}/community/community.do" method="get" id="searchBook">
                     <select name="head">
                         <option value="total">전체</option>
@@ -50,6 +51,7 @@
                     <input type="text" id="search_community" name="search_community" required>
                     <input id="submitBtn" class="subBtn" type="button" value="검색" onclick="before_submit(this.form)"/>
                 </form>
+                
                 <table class="tableCommu">
                     <tr id="title">
                         <th>번호</th><th>제목</th><th>작성시간</th><th>글쓴이</th>
