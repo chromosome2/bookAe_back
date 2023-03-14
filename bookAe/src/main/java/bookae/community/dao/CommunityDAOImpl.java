@@ -110,7 +110,6 @@ public class CommunityDAOImpl implements CommunityDAO{
 		sqlSession.delete("mapper.community.deleteLikeOfArticle",communityVO.getBoard_num());
 		//게시글 삭제
 		sqlSession.delete("mapper.community.delArticle",communityVO);
-		
 	}
 
 }

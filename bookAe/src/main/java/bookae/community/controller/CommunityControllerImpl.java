@@ -142,7 +142,7 @@ public class CommunityControllerImpl extends MultiActionController implements Co
 			throws Exception {
 		System.out.println("delArticle시작 : "+board_num+" / "+id);
 		String viewName=getViewName(request);
-		
+	
 		//삭제
 		CommunityVO communityVO=new CommunityVO();
 		communityVO.setBoard_num(board_num);
