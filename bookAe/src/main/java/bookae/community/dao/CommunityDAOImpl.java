@@ -45,6 +45,7 @@ public class CommunityDAOImpl implements CommunityDAO{
 	public CommunityVO viewArticle(int board_num) throws DataAccessException {
 		//조회수업데이트
 		sqlSession.update("mapper.community.updateBoardView", board_num);
+		System.out.println(board_num);
 		//article 정보 가져오기
 		CommunityVO article=(CommunityVO)sqlSession.selectOne("mapper.community.viewArticle", board_num);
 		//article의 id정보로 닉네임 얻어오기
@@ -110,6 +111,12 @@ public class CommunityDAOImpl implements CommunityDAO{
 		sqlSession.delete("mapper.community.deleteLikeOfArticle",communityVO.getBoard_num());
 		//게시글 삭제
 		sqlSession.delete("mapper.community.delArticle",communityVO);
+	}
+
+	@Override
+	public void modArticle(CommunityVO communityVO) throws DataAccessException {
+		sqlSession.update("mapper.community.modArticle",communityVO);
+		
 	}
 
 }

@@ -68,6 +68,14 @@
 		]]>
 	</insert>
 	
+	<!-- 게시글 수정 -->
+	<update id="modArticle" parameterType="communityVO">
+		<![CDATA[
+			update boardtbl set board_title=#{board_title}, board_content=#{board_content}, board_genre=#{board_genre} 
+			where board_num=#{board_num}
+		]]>
+	</update>
+	
 	<!-- 한 게시글 상세 보기 -->
 	<select id="viewArticle" resultType="communityVO" parameterType="int">
 		<![CDATA[

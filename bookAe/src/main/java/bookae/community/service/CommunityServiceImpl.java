@@ -64,8 +64,13 @@ public class CommunityServiceImpl implements CommunityService{
 
 	@Override
 	public void delArticle(CommunityVO communityVO) throws DataAccessException {
-		System.out.println("service ok!");
 		communityDAO.delArticle(communityVO);
+	}
+
+	@Override
+	public void modArticle(CommunityVO communityVO) throws DataAccessException {
+		communityDAO.modArticle(communityVO);
+		
 	}
 	
 	

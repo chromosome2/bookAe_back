@@ -115,6 +115,11 @@
   				alert("잘못된 접근입니다.");
   			}
   		}
+  		function fn_modArticle() {
+  			var board_num=${board.board_num};
+  			location.href='${contextPath}/community/modCommunityForm.do?board_num='+board_num;
+  		}
+  		
     </script>
     
 	<title>북愛 - 커뮤니티 페이지</title>
@@ -141,7 +146,7 @@
             			<p id="article_header_info"><span id="article_view">조회 ${board.board_view}</span> / <span>${board.board_date}</span> / <span>${board.nickname }</span></p>
             		</div>
             		<div id="article_content_box">
-            			<span name="content" id="content" disabled>${board.board_content}</span>
+            			<span name="content" id="content">${board.board_content}</span>
             		</div>
             		<div id="article_footer_box">
             			<c:if test="${board.likeIs==true }">
@@ -153,7 +158,7 @@
             			
             			<p id="articleInfo">
 	            			<c:if test="${board.id==id }">
-	            				<input type="button" value="수정" class="articleInfoBtn modifyArticle" onclick="fn_modifyArticle()"/> | <input type="button" value="삭제" class="articleInfoBtn deleteArticle" onclick="fn_deleteArticle()"/>
+	            				<input type="button" value="수정" class="articleInfoBtn modifyArticle" onclick="fn_modArticle()"/> | <input type="button" value="삭제" class="articleInfoBtn deleteArticle" onclick="fn_deleteArticle()"/>
 	            			</c:if>
             			</p>
             			

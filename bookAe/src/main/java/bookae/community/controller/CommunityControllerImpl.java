@@ -119,14 +119,10 @@ public class CommunityControllerImpl extends MultiActionController implements Co
 		String id=(String)session.getAttribute("id");
 		communityVO.setId(id);
 		
-		String[] eng_genre= {"LiberalArts","Novel","Poem","Food","Health","Hobby","Science","SelfImprovement","IT","History","etc"};
-		String[] kor_genre= {"인문학","소설","시/에세이","요리","건강","취미/실용/스포츠","과학","자기계발","컴퓨터/IT","역사/문화","기타"};
+		//장르 한글로 바꾸기
 		String genre=communityVO.getBoard_genre();
-		for(int i=0; i<eng_genre.length; i++) {
-			if(genre.equals(eng_genre[i])) {
-				communityVO.setBoard_genre(kor_genre[i]);
-			}
-		}
+		genre=changeGenre(genre);
+		communityVO.setBoard_genre(genre);
 		
 		int result=communityService.addArticle(communityVO);
 		ModelAndView mav=new ModelAndView("redirect:/community/community.do");
@@ -140,7 +136,6 @@ public class CommunityControllerImpl extends MultiActionController implements Co
 	@RequestMapping(value="/community/delArticle.do", method=RequestMethod.POST)
 	public void delArticle(HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
-		String viewName=getViewName(request);
 		
 		//ajax 데이터 받아오기
 		String id=request.getParameter("id");
@@ -161,6 +156,53 @@ public class CommunityControllerImpl extends MultiActionController implements Co
 		pw.flush();
 		pw.close();
 	}
+	
+	
+	//글수정 폼 열기
+	@Override
+	@RequestMapping(value="/community/modCommunityForm.do", method=RequestMethod.GET)
+	public ModelAndView modCommunityForm(int board_num, HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		request.setCharacterEncoding("utf-8");
+		String viewName=getViewName(request);
+		
+		//게시글 정보 가져오기
+		CommunityVO communityVO=communityService.viewArticle(board_num);
+		
+		String[] eng_genre= {"LiberalArts","Novel","Poem","Food","Health","Hobby","Science","SelfImprovement","IT","History","etc"};
+		String[] kor_genre= {"인문학","소설","시/에세이","요리","건강","취미/실용/스포츠","과학","자기계발","컴퓨터/IT","역사/문화","기타"};
+		String genre=communityVO.getBoard_genre();
+		for(int i=0; i<eng_genre.length; i++) {
+			if(genre.equals(kor_genre[i])) {
+				communityVO.setBoard_genre(eng_genre[i]);
+			}
+		}
+		System.out.println(communityVO.getBoard_title());
+		
+		ModelAndView mav=new ModelAndView("community/"+viewName);
+		mav.addObject("board", communityVO);
+		System.out.println("modCommunityForm.jsp 열기");
+		return mav;
+	}
+
+	//게시글 수정하기
+	@Override
+	@RequestMapping(value="/community/modArticle.do", method=RequestMethod.POST)
+	public ModelAndView modArticle(CommunityVO communityVO, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		request.setCharacterEncoding("utf-8");
+		
+		//장르 한글로 바꾸기
+		String genre=communityVO.getBoard_genre();
+		genre=changeGenre(genre);
+		communityVO.setBoard_genre(genre);
+		
+		communityService.modArticle(communityVO);
+		System.out.println(communityVO.getBoard_num());
+		ModelAndView mav=new ModelAndView("redirect:/community/viewArticle.do?board_num="+communityVO.getBoard_num());
+		
+		return mav;
+		
+	}
 
 	//게시글 하나 보기
 	@Override
@@ -168,6 +210,7 @@ public class CommunityControllerImpl extends MultiActionController implements Co
 	public ModelAndView viewArticle(@RequestParam("board_num") int board_num, HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 		String viewName=getViewName(request);
+		System.out.println(board_num);
 		
 		//article의 정보 다 가져오기
 		CommunityVO communityVO=communityService.viewArticle(board_num);
@@ -233,6 +276,19 @@ public class CommunityControllerImpl extends MultiActionController implements Co
 		pw.println(json);//보내주기
 		pw.flush();
 		pw.close();
+	}
+	
+	private String changeGenre(String genre) {
+		String[] eng_genre= {"LiberalArts","Novel","Poem","Food","Health","Hobby","Science","SelfImprovement","IT","History","etc"};
+		String[] kor_genre= {"인문학","소설","시/에세이","요리","건강","취미/실용/스포츠","과학","자기계발","컴퓨터/IT","역사/문화","기타"};
+		String result;
+		for(int i=0; i<eng_genre.length; i++) {
+			if(genre.equals(eng_genre[i])) {
+				result=kor_genre[i];
+				return result;
+			}
+		}
+		return null;
 	}
 
 	
