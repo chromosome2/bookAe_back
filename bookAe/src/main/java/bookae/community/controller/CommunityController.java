@@ -20,9 +20,7 @@ public interface CommunityController {
 			HttpServletResponse response) throws Exception;
 	public ModelAndView viewArticle (@RequestParam("board_num") int board_num, HttpServletRequest request,
 			HttpServletResponse response) throws Exception;
-	public ModelAndView delArticle (@RequestParam("board_num") int board_num, 
-			@RequestParam("id") String id, 
-			HttpServletRequest request,
+	public void delArticle (HttpServletRequest request,
 			HttpServletResponse response) throws Exception;
 	public void addLike(HttpServletRequest request,
 			HttpServletResponse response) throws Exception;

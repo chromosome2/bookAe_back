@@ -28,6 +28,7 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 <!-- HTTP 메서드 및 HTTP 경로를 기반으로 메서드를 매핑하는 데 사용됩니다. -->
 <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter"/>
 
+
 <!-- base pacakage 하위의 @Controller, @Service
 @Repository, @Component 클래스가 모두 빈으로 등록 -->
 <!-- 만약 component-scan을 사용하지 않으면, 빈으로 설정할 클래스들을

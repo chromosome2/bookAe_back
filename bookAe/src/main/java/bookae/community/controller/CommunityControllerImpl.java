@@ -137,22 +137,29 @@ public class CommunityControllerImpl extends MultiActionController implements Co
 
 	//Article 삭제하기
 	@Override
-	@RequestMapping(value="/community/delArticle.do", method=RequestMethod.GET)
-	public ModelAndView delArticle(int board_num, String id, HttpServletRequest request, HttpServletResponse response)
+	@RequestMapping(value="/community/delArticle.do", method=RequestMethod.POST)
+	public void delArticle(HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
-		System.out.println("delArticle시작 : "+board_num+" / "+id);
 		String viewName=getViewName(request);
-	
+		
+		//ajax 데이터 받아오기
+		String id=request.getParameter("id");
+		int board_num=Integer.parseInt(request.getParameter("board_num"));
+		System.out.println(id+ " / "+board_num);
+		
 		//삭제
 		CommunityVO communityVO=new CommunityVO();
 		communityVO.setBoard_num(board_num);
 		communityVO.setId(id);
 		communityService.delArticle(communityVO);
-		System.out.println("controller ok!");
+		System.out.println("delArticle ok!");
 		
-		ModelAndView mav=new ModelAndView("redirect:/community/community.do");
+		JSONObject json=new JSONObject();
 		
-		return mav;
+		PrintWriter pw=response.getWriter();
+		pw.println(json);//보내주기
+		pw.flush();
+		pw.close();
 	}
 
 	//게시글 하나 보기

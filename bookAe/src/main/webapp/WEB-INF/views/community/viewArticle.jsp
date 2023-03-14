@@ -48,7 +48,7 @@
 	    		alert("로그인 해주세요!");
 	    	}else{
 	    		//좋아요 버튼을 누를때마다 sql문을 실행하기 위해 ajax로 데이터 전송
-	    		var data={"board_num" : board_num, "id" : id,};
+	    		var data={"board_num" : board_num, "id" : id};
 	    		if(like_sw===false){
 	    			$.ajax({
 	    				type:'POST',
@@ -88,13 +88,29 @@
   		
   		//게시글 삭제
   		function fn_deleteArticle() {
-  			//본인이 맞는지 확인
   			var log_id='<%=(String)session.getAttribute("id")%>';
   			var writer='<c:out value="${board.id}"/>';
   			var board_num=${board.board_num};
   			console.log(log_id+" / "+writer+" / "+board_num);
+
+  			//본인이 맞는지 확인
   			if(log_id == writer){
-  				location.href="${contextPath}/community/delArticle.do?board_num="+board_num+"&id="+writer;
+  				if(confirm("게시글을 정말 삭제하시겠습니까?")){
+  					var data={"board_num" : board_num, "id" : log_id};
+  	  				$.ajax({
+  	    				type:'POST',
+  						dataType:"json",
+  						data: data,
+  	    				url:'${contextPath}/community/delArticle.do',
+  	    				success:function(data){
+  	    					alert("삭제 완료했습니다.");
+  	    					location.href="${contextPath}/community/community.do";
+  	    				},
+  	    				error : function(data){
+  	    					alert('삭제를 실패했습니다. 1:1 문의를 이용해 주세요.');
+  	    				}
+  	    			})
+  				}
   			}else{
   				alert("잘못된 접근입니다.");
   			}
