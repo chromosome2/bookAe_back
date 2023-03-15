@@ -230,18 +230,25 @@
 	</insert>
 	
 	<!-- 댓글 삭제하기 -->
-	<insert id="delComment" parameterType="int">
+	<delete id="delComment" parameterType="int">
 		<![CDATA[
 			DELETE FROM commenttbl WHERE comment_num=#{comment_num}
 		]]>
-	</insert>
+	</delete>
+	
+	<!-- 게시글삭제 할때, 댓글 완전 삭제 -->
+	<delete id="delCommentOfArticle" parameterType="int">
+		<![CDATA[
+			DELETE FROM commenttbl WHERE board_num=#{board_num}
+		]]>
+	</delete>
 	
 	<!-- 관련 댓글 삭제하기 -->
-	<insert id="delReplyRelatedComment" parameterType="int">
+	<delete id="delReplyRelatedComment" parameterType="int">
 		<![CDATA[
 			DELETE FROM commenttbl WHERE comment_parent=#{comment_num}
 		]]>
-	</insert>
+	</delete>
 	
 	<!-- 부모댓글인지 확인 -->
 	<select id="getComment_parent" parameterType="int" resultType="int">

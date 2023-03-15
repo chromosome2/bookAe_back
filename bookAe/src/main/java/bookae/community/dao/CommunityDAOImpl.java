@@ -107,7 +107,11 @@ public class CommunityDAOImpl implements CommunityDAO{
 	@Override
 	public void delArticle(CommunityVO communityVO) throws DataAccessException {
 		//게시글과 관련된 정보 삭제
+		//좋아요삭제
 		sqlSession.delete("mapper.community.deleteLikeOfArticle",communityVO.getBoard_num());
+		//댓글삭제
+		sqlSession.delete("mapper.community.delCommentOfArticle", communityVO.getBoard_num());
+		
 		//게시글 삭제
 		sqlSession.delete("mapper.community.delArticle",communityVO);
 	}
