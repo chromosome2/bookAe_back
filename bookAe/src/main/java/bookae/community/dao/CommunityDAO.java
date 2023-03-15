@@ -25,5 +25,6 @@ public interface CommunityDAO {
 	public int total_cntComment(int board_num) throws DataAccessException;
 	public void addParentComment(CommunityVO communityVO) throws DataAccessException;
 	public void delComment(int comment_num) throws DataAccessException;
+	public CommunityVO getComment(int comment_num) throws DataAccessException;
 
 }

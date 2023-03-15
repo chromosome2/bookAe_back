@@ -336,6 +336,23 @@ public class CommunityControllerImpl extends MultiActionController implements Co
 		pw.close();
 	}
 	
+	//글쓰기 폼 열기
+	@Override
+	@RequestMapping(value="/popup/modCommentPopup.do", method=RequestMethod.GET)
+	public ModelAndView modCommentPopup(@RequestParam("comment_num") int comment_num, HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		String viewName=getViewName(request);
+		
+		//수정할 댓글 정보 가져오기
+		CommunityVO comment=communityService.getComment(comment_num);
+		
+		ModelAndView mav=new ModelAndView("popup/"+viewName);
+		mav.addObject("comment", comment);
+		
+		System.out.println("modCommentPopup.jsp 열기");
+		return mav;
+	}
+	
 	
 	
 

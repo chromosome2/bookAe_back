@@ -214,6 +214,14 @@
 		]]>
 	</select>
 	
+	<!-- 댓글 하나 가져오기 -->
+	<select id="getComment" resultType="communityVO" parameterType="int">
+		<![CDATA[
+			SELECT c.*, j.nickname FROM commenttbl c, jointbl j 
+			WHERE comment_num=#{comment_num} AND c.id=j.id
+		]]>
+	</select>
+	
 	<!-- 댓글 개수 가져오기 -->
 	<select id="total_cntComment" resultType="_int" parameterType="int">
 		<![CDATA[

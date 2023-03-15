@@ -169,6 +169,14 @@
   			}
   		}
   		
+  		//댓글 수정기능
+  		function fn_modComment(comment_num) {
+  			var url='${contextPath}/popup/modCommentPopup.do?comment_num='+comment_num;
+  			var popOption="width=350px, height=350px, top=300px, left=300px scrollbars=yes";
+  			
+  			window.open(url, 'modCommentPopup', popOption);
+  		}
+  		
     </script>
     
 	<title>북愛 - 커뮤니티 페이지</title>
@@ -225,9 +233,13 @@
 				            					<span class="parent_comment_nickname comment_nickname">${parent.nickname }</span>
 				            					<span class="parent_comment_date comment_date">${parent.comment_date }</span>
 			            					</p>
-			            					<p class="parent_comment_content comment_content">${parent.comment_content }</p>
+			            					
+			            					<div class="content_box">
+			            						<p class="parent_comment_content comment_content comment_content_box">${parent.comment_content }</p>
+			            					</div>
+			            					
 			            					<p class="parent_comment_footer comment_footer">
-			            						<input type="button" value="수정" class="commentBtn btn" onclick="fn_modComment()"/>
+			            						<input type="button" value="수정" class="commentBtn btn" onclick="fn_modComment('${parent.comment_num}')"/>
 			            						 | <input type="button" value="삭제" class="commentBtn btn" onclick="fn_delComment('${parent.id}','${parent.comment_num }')"/>
 			            						 | <input type="button" value="답글" class="commentBtn btn" onclick="fn_replyComment()"/>
 			            					</p>
@@ -241,9 +253,13 @@
 						            						<span class="child_comment_nickname comment_nickname">${child.nickname }</span>
 							            					<span class="child_comment_date comment_date">${child.comment_date }</span>
 						            					</p>
-						            					<p class="child_comment_content comment_content"><span class="reply_parent_nickname">@${child.annot_nickname }</span><span class="child_comment_content_span">${child.comment_content }</span></p>
+						            					
+						            					<div class="content_box">
+						            						<p class="child_comment_content comment_content"><span class="reply_parent_nickname">@${child.annot_nickname }</span><span class="comment_content_box">${child.comment_content }</span></p>
+						            					</div>
+						            						
 						            					<p class="child_comment_footer comment_footer">
-						            						<input type="button" value="수정" class="commentBtn btn" onclick="fn_modComment()"/>
+						            						<input type="button" value="수정" class="commentBtn btn" onclick="fn_modComment('${child.comment_num}')"/>
 						            						 | <input type="button" value="삭제" class="commentBtn btn" onclick="fn_delComment('${child.id}','${child.comment_num }')"/>
 						            						 | <input type="button" value="답글" class="commentBtn btn" onclick="fn_replyComment()"/>
 						            					</p>

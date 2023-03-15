@@ -172,4 +172,9 @@ public class CommunityDAOImpl implements CommunityDAO{
 		
 	}
 
+	@Override
+	public CommunityVO getComment(int comment_num) throws DataAccessException {
+		return (CommunityVO)sqlSession.selectOne("mapper.community.getComment", comment_num);
+	}
+
 }

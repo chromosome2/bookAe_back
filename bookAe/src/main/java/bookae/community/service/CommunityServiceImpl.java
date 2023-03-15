@@ -99,6 +99,11 @@ public class CommunityServiceImpl implements CommunityService{
 		communityDAO.delComment(comment_num);
 		
 	}
+
+	@Override
+	public CommunityVO getComment(int comment_num) throws DataAccessException {
+		return communityDAO.getComment(comment_num);
+	}
 	
 	
 

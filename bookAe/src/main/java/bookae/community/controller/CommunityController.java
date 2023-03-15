@@ -41,5 +41,7 @@ public interface CommunityController {
 			HttpServletResponse response) throws Exception;
 	public void delComment (HttpServletRequest request,
 			HttpServletResponse response) throws Exception;
+	public ModelAndView modCommentPopup(@RequestParam("comment_num") int comment_num, HttpServletRequest request, HttpServletResponse response)
+			throws Exception;
 
 }
