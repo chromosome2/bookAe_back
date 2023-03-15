@@ -128,4 +128,9 @@ public class CommunityDAOImpl implements CommunityDAO{
 		return sqlSession.selectList("mapper.community.boardChildCommentList", board_num);
 	}
 
+	@Override
+	public int total_cntComment(int board_num) throws DataAccessException {
+		return (int)sqlSession.selectOne("mapper.community.total_cntComment",board_num);
+	}
+
 }

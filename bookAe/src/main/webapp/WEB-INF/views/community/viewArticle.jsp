@@ -115,9 +115,28 @@
   				alert("잘못된 접근입니다.");
   			}
   		}
+  		
+  		//수정버튼 눌렀을 시 이동
   		function fn_modArticle() {
   			var board_num=${board.board_num};
   			location.href='${contextPath}/community/modCommunityForm.do?board_num='+board_num;
+  		}
+  		
+  		//댓글 내용을 작성하지 않았을 시 경고
+  		function before_submit(frm){
+  			var content= $('[name="comment_content"]').val();
+  			var id='<%=(String)session.getAttribute("id")%>';
+  			
+  			//로그인했는지 확인
+  			if(id!='null'){
+  				if(content.trim() == ''){
+  	  				alert("내용을 입력해주세요.");
+  	  				return false;
+  	  			}
+  	  			frm.submit();
+  			}else{
+  				alert("로그인 후 이용가능합니다.")
+  			}
   		}
   		
     </script>
@@ -164,46 +183,49 @@
             			
             		</div>
             		<div id="article_comment_box">
-            			<p id="article_comment_info">댓글 0</p>
-
-            			<div id="one_comment_box">
-            			<c:if test="${!empty parentComment }">
-            				<c:forEach var="parent" items="${parentComment}">
-            					<div id="parent_comment" class="comment_box">
-	            					<p id="parent_comment_header" class="comment_header">
-		            					<span id="parent_comment_nickname" class="comment_nickname">${parent.nickname }</span>
-		            					<span id="parent_comment_date" class="comment_date">${parent.comment_date }</span>
-	            					</p>
-	            					<p id="parent_comment_content" class="comment_content">${parent.comment_content }</p>
-	            					<p id="parent_comment_footer" class="comment_footer">
-	            						<a href="#">수정</a> | <a href="#">삭제</a> | <a href="#">답글</a>
-	            					</p>
-	            				</div>
-	            				<c:if test="${!empty childComment}">
-	            					<c:forEach var="child" items="${childComment}">
-	            						<c:if test="${child.comment_parent==parent.comment_num}">
-	            							<div id="child_comment" class="comment_box">
-				            					<p id="child_comment_header" class="comment_header">
-				            						<span id="child_comment_nickname" class="comment_nickname">${child.nickname }</span>
-					            					<span id="child_comment_date" class="comment_date">${child.comment_date }</span>
-				            					</p>
-				            					<p id="child_comment_content" class="comment_content"><span id="reply_parent_nickname">@${child.annot_nickname }</span>${child.comment_content }</p>
-				            					<p id="child_comment_footer" class="comment_footer">
-				            						<a href="#">수정</a> | <a href="#">삭제</a> | <a href="#">답글</a>
-				            					</p>
-				            				</div>
-	            						</c:if>
-	            					</c:forEach>
-	            				</c:if>
-            				</c:forEach>
-            			</c:if>
-            			</div>
+            			<p id="article_comment_info">댓글 ${total_cntComment }</p>
+            			
+            			<section id="comment_view_sec">
+	            			<c:if test="${!empty parentComment }">
+	            				<c:forEach var="parent" items="${parentComment}">
+	            					<div class="one_comment_box">
+		            					<div class="comment_box parent_comment">
+			            					<p class="parent_comment_header comment_header">
+				            					<span class="parent_comment_nickname comment_nickname">${parent.nickname }</span>
+				            					<span class="parent_comment_date comment_date">${parent.comment_date }</span>
+			            					</p>
+			            					<p class="parent_comment_content comment_content">${parent.comment_content }</p>
+			            					<p class="parent_comment_footer comment_footer">
+			            						<a href="#">수정</a> | <a href="#">삭제</a> | <a href="#">답글</a>
+			            					</p>
+			            				</div>
+			            				<c:if test="${!empty childComment}">
+			            					<c:forEach var="child" items="${childComment}">
+			            						<c:if test="${child.comment_parent==parent.comment_num}">
+			            							<div class="child_comment comment_box">
+						            					<p class="child_comment_header comment_header">
+						            						<span class="child_comment_L">┗</span>
+						            						<span class="child_comment_nickname comment_nickname">${child.nickname }</span>
+							            					<span class="child_comment_date comment_date">${child.comment_date }</span>
+						            					</p>
+						            					<p class="child_comment_content comment_content"><span class="reply_parent_nickname">@${child.annot_nickname }</span>${child.comment_content }</p>
+						            					<p class="child_comment_footer comment_footer">
+						            						<a href="#">수정</a> | <a href="#">삭제</a> | <a href="#">답글</a>
+						            					</p>
+						            				</div>
+			            						</c:if>
+			            					</c:forEach>
+			            				</c:if>
+			            			</div>
+	            				</c:forEach>
+	            			</c:if>
+            			</section>
             				
            				<div id="write_comment">
            					<form action="${contextPath}/community/writeComment.do" method="post" id="writeComment" name="writeComment">
-           						<textarea rows="5" cols="100" name="comment_content"></textarea>
+           						<textarea id="comment_textarea" rows="5" cols="100" name="comment_content"></textarea>
            						<div id="button_box">
-				            		<input id="submitBtn" class="commBtn subBtn" type="button" value="완료" onclick="before_submit(this.form)"/>
+				            		<input id="submitBtn" class="commBtn subBtn" type="button" value="작성" onclick="before_submit(this.form)"/>
 			            		</div>
            					</form>
            				</div>

@@ -82,6 +82,11 @@ public class CommunityServiceImpl implements CommunityService{
 	public List boardChildCommentList(int board_num) throws DataAccessException {
 		return communityDAO.boardChildCommentList(board_num);
 	}
+
+	@Override
+	public int total_cntComment(int board_num) throws DataAccessException {
+		return communityDAO.total_cntComment(board_num);
+	}
 	
 	
 

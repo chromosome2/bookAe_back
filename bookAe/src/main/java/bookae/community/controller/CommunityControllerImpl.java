@@ -209,7 +209,6 @@ public class CommunityControllerImpl extends MultiActionController implements Co
 	public ModelAndView viewArticle(@RequestParam("board_num") int board_num, HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 		String viewName=getViewName(request);
-		System.out.println(board_num);
 		
 		//article의 정보 다 가져오기
 		CommunityVO communityVO=communityService.viewArticle(board_num);
@@ -224,18 +223,23 @@ public class CommunityControllerImpl extends MultiActionController implements Co
 			communityVO.setLikeIs(likeIs);
 		}
 		
-		//댓글가져오기
+		//댓글관련
 		//부모 댓글 가져오기
 		List boardParentCommentList=communityService.boardParentCommentList(board_num);
 		//자식 댓글 가져오기
 		List<CommunityVO> boardChildCommentList=communityService.boardChildCommentList(board_num);
+		//댓글 개수 가져오기
+		int total_cntComment=communityService.total_cntComment(board_num);
 		
 		
 		ModelAndView mav=new ModelAndView("community/"+viewName);
 		mav.addObject("board", communityVO);
 		mav.addObject("parentComment", boardParentCommentList);
 		mav.addObject("childComment", boardChildCommentList);
+		mav.addObject("total_cntComment", total_cntComment);
+		
 		System.out.println("viewArticle.jsp 열기");
+		
 		return mav;
 	}
 

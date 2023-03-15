@@ -206,4 +206,11 @@
 			ORDER BY comment_num
 		]]>
 	</select>
+	
+	<!-- 좋아요 개수 가져오기 -->
+	<select id="total_cntComment" resultType="_int" parameterType="int">
+		<![CDATA[
+			SELECT NVL(count(*),0) AS total_cntComment FROM commenttbl WHERE board_num=#{board_num}
+		]]>
+	</select>
 </mapper>

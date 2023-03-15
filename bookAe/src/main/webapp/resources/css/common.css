@@ -218,10 +218,10 @@ nav {
 
 /*footer 시작*/
 #footer {
-    width: 100%;
+    width: 1280px;
     height: 250px;
     border-top: 2px solid #ccc;
-    margin-bottom: 20px;
+    margin: 0 auto 20px auto;
 }
 #footerInner {
     width: 1280px;
