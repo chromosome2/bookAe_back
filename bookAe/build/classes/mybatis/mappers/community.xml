@@ -5,6 +5,7 @@
    
 <mapper namespace="mapper.community">
 
+	<!-- article 정보 -->
 	<resultMap type="communityVO" id="communityResult">
 		<result property="board_num" column="board_num"/>
 		<result property="board_title" column="board_title"/>
@@ -12,6 +13,17 @@
 		<result property="board_like" column="board_like"/>
 		<result property="board_date" column="board_date"/>
 		<result property="nickname" column="nickname"/>
+	</resultMap>
+	
+	<!-- 댓글 정보 -->
+	<resultMap type="communityVO" id="commentResult">
+		<result property="board_num" column="board_num"/>
+		<result property="comment_num" column="comment_num"/>
+		<result property="comment_date" column="comment_date"/>
+		<result property="comment_parent" column="comment_parent"/>
+		<result property="comment_content" column="comment_content"/>
+		<result property="nickname" column="nickname"/>
+		<result property="annot_nickname" column="annot_nickname"/>
 	</resultMap>
 	
 	<!-- 감상평 게시판의 모든 게시글의 정보 가져오기 -->
@@ -173,4 +185,25 @@
 		]]>
 	</delete>
 	
+	<!-- parent 댓글 가져오기 -->
+	<select id="boardParentCommentList" resultMap="commentResult" parameterType="int">
+		<![CDATA[
+			SELECT c.*, j.nickname FROM commenttbl c, jointbl j 
+			WHERE board_num=#{board_num} AND comment_parent=0 AND c.id=j.id 
+			ORDER BY comment_num
+		]]>
+	</select>
+	
+	<!-- child 댓글 가져오기 -->
+	<select id="boardChildCommentList" resultMap="commentResult" parameterType="int">
+		<![CDATA[
+			SELECT c.*, j.nickname, 
+			    (SELECT nickname FROM jointbl WHERE id=
+			        (SELECT id FROM commenttbl WHERE comment_num=c.comment_annot)) 
+			    as annot_nickname 
+			FROM commenttbl c, jointbl j 
+			WHERE board_num=#{board_num} AND not comment_parent=0 AND c.id=j.id 
+			ORDER BY comment_num
+		]]>
+	</select>
 </mapper>

@@ -25,5 +25,7 @@ public interface CommunityService {
 	public int addLike(CommunityVO communityVO) throws DataAccessException;
 	public int delLike(CommunityVO communityVO) throws DataAccessException;
 	public List<PagingVO> pagingBoard(PagingVO pagingVO) throws DataAccessException;
+	public List boardParentCommentList(int board_num) throws DataAccessException;
+	public List boardChildCommentList(int board_num) throws DataAccessException;
 
 }

@@ -72,6 +72,16 @@ public class CommunityServiceImpl implements CommunityService{
 		communityDAO.modArticle(communityVO);
 		
 	}
+
+	@Override
+	public List boardParentCommentList(int board_num) throws DataAccessException {
+		return communityDAO.boardParentCommentList(board_num);
+	}
+
+	@Override
+	public List boardChildCommentList(int board_num) throws DataAccessException {
+		return communityDAO.boardChildCommentList(board_num);
+	}
 	
 	
 

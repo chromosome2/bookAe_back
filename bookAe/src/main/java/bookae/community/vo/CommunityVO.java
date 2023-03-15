@@ -14,15 +14,15 @@ public class CommunityVO {
 	private String board_genre;
 	private Date board_date;
 	private String board_content;
-	private String board_pic_name;
-	private int board_pic_size;
 	private String nickname;
 	private boolean likeIs;
 	
-	private int comment_num;
-	private Date comment_date;
-	private int comment_parent;
-	private String comment_content;
+	private int comment_num; //댓글 넘버
+	private Date comment_date; //댓글 날짜
+	private int comment_parent; //답글이 어디 소속인지
+	private int comment_annot; //답글의 주인
+	private String comment_content; //답글 내용
+	private String annot_nickname; //답글 주인의 닉네임
 	
 	
 	
@@ -74,42 +74,6 @@ public class CommunityVO {
 	public void setBoard_content(String board_content) {
 		this.board_content = board_content;
 	}
-	public String getBoard_pic_name() {
-		return board_pic_name;
-	}
-	public void setBoard_pic_name(String board_pic_name) {
-		this.board_pic_name = board_pic_name;
-	}
-	public int getBoard_pic_size() {
-		return board_pic_size;
-	}
-	public void setBoard_pic_size(int board_pic_size) {
-		this.board_pic_size = board_pic_size;
-	}
-	public int getcomment_num() {
-		return comment_num;
-	}
-	public void setcomment_num(int comment_num) {
-		this.comment_num = comment_num;
-	}
-	public Date getcomment_date() {
-		return comment_date;
-	}
-	public void setcomment_date(Date comment_date) {
-		this.comment_date = comment_date;
-	}
-	public int getcomment_parent() {
-		return comment_parent;
-	}
-	public void setcomment_parent(int comment_parent) {
-		this.comment_parent = comment_parent;
-	}
-	public String getcomment_content() {
-		return comment_content;
-	}
-	public void setcomment_content(String comment_content) {
-		this.comment_content = comment_content;
-	}
 	public String getNickname() {
 		return nickname;
 	}
@@ -145,6 +109,18 @@ public class CommunityVO {
 	}
 	public void setComment_content(String comment_content) {
 		this.comment_content = comment_content;
+	}
+	public int getComment_annot() {
+		return comment_annot;
+	}
+	public void setComment_annot(int comment_annot) {
+		this.comment_annot = comment_annot;
+	}
+	public String getAnnot_nickname() {
+		return annot_nickname;
+	}
+	public void setAnnot_nickname(String annot_nickname) {
+		this.annot_nickname = annot_nickname;
 	}
 	
 	

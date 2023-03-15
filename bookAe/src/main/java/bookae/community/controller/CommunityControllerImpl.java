@@ -140,7 +140,6 @@ public class CommunityControllerImpl extends MultiActionController implements Co
 		//ajax 데이터 받아오기
 		String id=request.getParameter("id");
 		int board_num=Integer.parseInt(request.getParameter("board_num"));
-		System.out.println(id+ " / "+board_num);
 		
 		//삭제
 		CommunityVO communityVO=new CommunityVO();
@@ -169,6 +168,7 @@ public class CommunityControllerImpl extends MultiActionController implements Co
 		//게시글 정보 가져오기
 		CommunityVO communityVO=communityService.viewArticle(board_num);
 		
+		//한글로 저장된 장르를 영어로 바꿔 전달.
 		String[] eng_genre= {"LiberalArts","Novel","Poem","Food","Health","Hobby","Science","SelfImprovement","IT","History","etc"};
 		String[] kor_genre= {"인문학","소설","시/에세이","요리","건강","취미/실용/스포츠","과학","자기계발","컴퓨터/IT","역사/문화","기타"};
 		String genre=communityVO.getBoard_genre();
@@ -177,7 +177,6 @@ public class CommunityControllerImpl extends MultiActionController implements Co
 				communityVO.setBoard_genre(eng_genre[i]);
 			}
 		}
-		System.out.println(communityVO.getBoard_title());
 		
 		ModelAndView mav=new ModelAndView("community/"+viewName);
 		mav.addObject("board", communityVO);
@@ -197,7 +196,7 @@ public class CommunityControllerImpl extends MultiActionController implements Co
 		communityVO.setBoard_genre(genre);
 		
 		communityService.modArticle(communityVO);
-		System.out.println(communityVO.getBoard_num());
+		
 		ModelAndView mav=new ModelAndView("redirect:/community/viewArticle.do?board_num="+communityVO.getBoard_num());
 		
 		return mav;
@@ -225,8 +224,17 @@ public class CommunityControllerImpl extends MultiActionController implements Co
 			communityVO.setLikeIs(likeIs);
 		}
 		
+		//댓글가져오기
+		//부모 댓글 가져오기
+		List boardParentCommentList=communityService.boardParentCommentList(board_num);
+		//자식 댓글 가져오기
+		List<CommunityVO> boardChildCommentList=communityService.boardChildCommentList(board_num);
+		
+		
 		ModelAndView mav=new ModelAndView("community/"+viewName);
 		mav.addObject("board", communityVO);
+		mav.addObject("parentComment", boardParentCommentList);
+		mav.addObject("childComment", boardChildCommentList);
 		System.out.println("viewArticle.jsp 열기");
 		return mav;
 	}
@@ -278,6 +286,7 @@ public class CommunityControllerImpl extends MultiActionController implements Co
 		pw.close();
 	}
 	
+	//영어값으로 들어온 장르 한글로 바꿔주기
 	private String changeGenre(String genre) {
 		String[] eng_genre= {"LiberalArts","Novel","Poem","Food","Health","Hobby","Science","SelfImprovement","IT","History","etc"};
 		String[] kor_genre= {"인문학","소설","시/에세이","요리","건강","취미/실용/스포츠","과학","자기계발","컴퓨터/IT","역사/문화","기타"};
@@ -290,6 +299,9 @@ public class CommunityControllerImpl extends MultiActionController implements Co
 		}
 		return null;
 	}
+	
+	
+	
 
 	
 	

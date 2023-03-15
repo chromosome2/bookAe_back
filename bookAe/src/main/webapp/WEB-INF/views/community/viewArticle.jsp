@@ -165,38 +165,48 @@
             		</div>
             		<div id="article_comment_box">
             			<p id="article_comment_info">댓글 0</p>
+
             			<div id="one_comment_box">
-            				<div id="parent_comment" class="comment_box">
-            					<p id="parent_comment_header" class="comment_header">
-	            					<span id="parent_comment_nickname" class="comment_nickname">꼬미집사</span>
-	            					<span id="parent_comment_date" class="comment_date">2023.03.08</span>
-            					</p>
-            					<p id="parent_comment_content" class="comment_content">이런 해석도 가능하군요. 저와 다른 관점이라 흥미롭게 봤습니다. 추천드리고 갑니다.</p>
-            					<p id="parent_comment_footer" class="comment_footer">
-            						<a href="#">수정</a> | <a href="#">삭제</a> | <a href="#">답글</a>
-            					</p>
-            				</div>
-            				
-            				<div id="child_comment" class="comment_box">
-            					<p id="child_comment_header" class="comment_header">
-            						<span id="child_comment_nickname" class="comment_nickname">2가염색체나열</span>
-	            					<span id="child_comment_date" class="comment_date">2023.03.08</span>
-            					</p>
-            					<p id="child_comment_content" class="comment_content"><span id="reply_parent_nickname">@꼬미집사</span>추천 감사합니다. 꼬미집사님의 의견도 들어보고싶군요.</p>
-            					<p id="child_comment_footer" class="comment_footer">
-            						<a href="#">수정</a> | <a href="#">삭제</a> | <a href="#">답글</a>
-            					</p>
-            				</div>
-            				
-            				<div id="write_comment">
-            					<form action="${contextPath}/community/writeComment.do" method="post" id="writeComment" name="writeComment">
-            						<textarea rows="5" cols="100" name="comment_content"></textarea>
-            						<div id="button_box">
-					            		<input id="submitBtn" class="commBtn subBtn" type="button" value="완료" onclick="before_submit(this.form)"/>
-				            		</div>
-            					</form>
-            				</div>
+            			<c:if test="${!empty parentComment }">
+            				<c:forEach var="parent" items="${parentComment}">
+            					<div id="parent_comment" class="comment_box">
+	            					<p id="parent_comment_header" class="comment_header">
+		            					<span id="parent_comment_nickname" class="comment_nickname">${parent.nickname }</span>
+		            					<span id="parent_comment_date" class="comment_date">${parent.comment_date }</span>
+	            					</p>
+	            					<p id="parent_comment_content" class="comment_content">${parent.comment_content }</p>
+	            					<p id="parent_comment_footer" class="comment_footer">
+	            						<a href="#">수정</a> | <a href="#">삭제</a> | <a href="#">답글</a>
+	            					</p>
+	            				</div>
+	            				<c:if test="${!empty childComment}">
+	            					<c:forEach var="child" items="${childComment}">
+	            						<c:if test="${child.comment_parent==parent.comment_num}">
+	            							<div id="child_comment" class="comment_box">
+				            					<p id="child_comment_header" class="comment_header">
+				            						<span id="child_comment_nickname" class="comment_nickname">${child.nickname }</span>
+					            					<span id="child_comment_date" class="comment_date">${child.comment_date }</span>
+				            					</p>
+				            					<p id="child_comment_content" class="comment_content"><span id="reply_parent_nickname">@${child.annot_nickname }</span>${child.comment_content }</p>
+				            					<p id="child_comment_footer" class="comment_footer">
+				            						<a href="#">수정</a> | <a href="#">삭제</a> | <a href="#">답글</a>
+				            					</p>
+				            				</div>
+	            						</c:if>
+	            					</c:forEach>
+	            				</c:if>
+            				</c:forEach>
+            			</c:if>
             			</div>
+            				
+           				<div id="write_comment">
+           					<form action="${contextPath}/community/writeComment.do" method="post" id="writeComment" name="writeComment">
+           						<textarea rows="5" cols="100" name="comment_content"></textarea>
+           						<div id="button_box">
+				            		<input id="submitBtn" class="commBtn subBtn" type="button" value="완료" onclick="before_submit(this.form)"/>
+			            		</div>
+           					</form>
+           				</div>
             		</div>
             	</div>
             </section>
