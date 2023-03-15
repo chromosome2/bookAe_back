@@ -183,3 +183,9 @@
 .subBtn:hover{
     background-color:rgb(9, 148, 39);
 }
+
+.btn{
+	border: none;
+    background-color: #fff;
+    color: #4f4f4f;
+}

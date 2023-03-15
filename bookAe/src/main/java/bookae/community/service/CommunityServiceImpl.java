@@ -87,6 +87,18 @@ public class CommunityServiceImpl implements CommunityService{
 	public int total_cntComment(int board_num) throws DataAccessException {
 		return communityDAO.total_cntComment(board_num);
 	}
+
+	@Override
+	public void addParentComment(CommunityVO communityVO) throws DataAccessException {
+		communityDAO.addParentComment(communityVO);
+		
+	}
+
+	@Override
+	public void delComment(int comment_num) throws DataAccessException {
+		communityDAO.delComment(comment_num);
+		
+	}
 	
 	
 

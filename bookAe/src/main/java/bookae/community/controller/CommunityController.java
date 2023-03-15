@@ -36,5 +36,10 @@ public interface CommunityController {
 			@RequestParam(value="search_community", required=false) String search_community, 
 			HttpServletRequest request,
 			HttpServletResponse response) throws Exception;
+	public ModelAndView addParentComment (@ModelAttribute("communityVO") CommunityVO communityVO,
+			HttpServletRequest request,
+			HttpServletResponse response) throws Exception;
+	public void delComment (HttpServletRequest request,
+			HttpServletResponse response) throws Exception;
 
 }

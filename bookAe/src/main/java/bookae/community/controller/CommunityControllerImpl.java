@@ -303,6 +303,38 @@ public class CommunityControllerImpl extends MultiActionController implements Co
 		}
 		return null;
 	}
+
+	//댓글 작성
+	@Override
+	@RequestMapping(value="/community/addParentComment.do", method=RequestMethod.POST)
+	public ModelAndView addParentComment(@ModelAttribute("communityVO") CommunityVO communityVO, HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		request.setCharacterEncoding("utf-8");
+		
+		communityService.addParentComment(communityVO);
+		
+		ModelAndView mav=new ModelAndView("redirect:/community/viewArticle.do?board_num="+communityVO.getBoard_num());
+		return mav;
+	}
+	
+	//댓글 삭제
+	@Override
+	@RequestMapping(value="/community/delComment.do", method=RequestMethod.POST)
+	public void delComment(HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		//ajax데이터 받아오기
+		int comment_num=Integer.parseInt(request.getParameter("comment_num"));
+		int board_num=Integer.parseInt(request.getParameter("board_num"));
+		
+		communityService.delComment(comment_num);
+		
+		JSONObject json=new JSONObject();
+		
+		PrintWriter pw=response.getWriter();
+		pw.println(json);//보내주기
+		pw.flush();
+		pw.close();
+	}
 	
 	
 	
@@ -361,15 +393,4 @@ public class CommunityControllerImpl extends MultiActionController implements Co
 		}
 		return fileName;
 	}
-
-
-
-
-
-
-
-
-
-
-
 }

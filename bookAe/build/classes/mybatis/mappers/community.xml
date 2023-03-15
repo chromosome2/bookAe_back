@@ -185,6 +185,13 @@
 		]]>
 	</delete>
 	
+	<!-- article 삭제시 관련 댓글 모두 삭제 -->
+	<delete id="deleteCommentOfArticle" parameterType="int">
+		<![CDATA[
+			DELETE FROM commenttbl WHERE board_num=#{board_num}
+		]]>
+	</delete>
+	
 	<!-- parent 댓글 가져오기 -->
 	<select id="boardParentCommentList" resultMap="commentResult" parameterType="int">
 		<![CDATA[
@@ -207,10 +214,47 @@
 		]]>
 	</select>
 	
-	<!-- 좋아요 개수 가져오기 -->
+	<!-- 댓글 개수 가져오기 -->
 	<select id="total_cntComment" resultType="_int" parameterType="int">
 		<![CDATA[
-			SELECT NVL(count(*),0) AS total_cntComment FROM commenttbl WHERE board_num=#{board_num}
+			SELECT NVL(count(*),0) AS total_cntComment FROM commenttbl WHERE board_num=#{board_num} AND deleteis=1
 		]]>
 	</select>
+	
+	<!-- 댓글 작성하기 -->
+	<insert id="addParentComment" parameterType="communityVO">
+		<![CDATA[
+			INSERT INTO commenttbl (board_num, comment_num,id, comment_parent, comment_content, comment_annot)  
+			VALUES(#{board_num}, (SELECT NVL(MAX(comment_num),0)+1 FROM commenttbl), #{id}, 0, #{comment_content}, 0)
+		]]>
+	</insert>
+	
+	<!-- 댓글 삭제하기 -->
+	<insert id="delComment" parameterType="int">
+		<![CDATA[
+			DELETE FROM commenttbl WHERE comment_num=#{comment_num}
+		]]>
+	</insert>
+	
+	<!-- 관련 댓글 삭제하기 -->
+	<insert id="delReplyRelatedComment" parameterType="int">
+		<![CDATA[
+			DELETE FROM commenttbl WHERE comment_parent=#{comment_num}
+		]]>
+	</insert>
+	
+	<!-- 부모댓글인지 확인 -->
+	<select id="getComment_parent" parameterType="int" resultType="int">
+		<![CDATA[
+			SELECT comment_parent FROM commenttbl WHERE comment_num=#{comment_num}
+		]]>
+	</select>
+	
+	<!-- 자식댓글 삭제를 위한 수정 -->
+	<update id="delChildComment" parameterType="communityVO">
+		<![CDATA[
+			update commenttbl set deleteis=0 
+			where comment_num=#{comment_num}
+		]]>
+	</update>
 </mapper>

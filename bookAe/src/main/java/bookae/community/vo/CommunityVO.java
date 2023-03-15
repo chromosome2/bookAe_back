@@ -23,6 +23,7 @@ public class CommunityVO {
 	private int comment_annot; //답글의 주인
 	private String comment_content; //답글 내용
 	private String annot_nickname; //답글 주인의 닉네임
+	private int deleteis;
 	
 	
 	
@@ -121,6 +122,12 @@ public class CommunityVO {
 	}
 	public void setAnnot_nickname(String annot_nickname) {
 		this.annot_nickname = annot_nickname;
+	}
+	public int getDeleteis() {
+		return deleteis;
+	}
+	public void setDeleteis(int deleteis) {
+		this.deleteis = deleteis;
 	}
 	
 	

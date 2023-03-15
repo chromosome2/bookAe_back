@@ -112,25 +112,60 @@ public class CommunityDAOImpl implements CommunityDAO{
 		sqlSession.delete("mapper.community.delArticle",communityVO);
 	}
 
+	//게시글 수정
 	@Override
 	public void modArticle(CommunityVO communityVO) throws DataAccessException {
 		sqlSession.update("mapper.community.modArticle",communityVO);
 		
 	}
 
+	//부모 코멘트 가져오기
 	@Override
 	public List boardParentCommentList(int board_num) throws DataAccessException {
 		return sqlSession.selectList("mapper.community.boardParentCommentList", board_num);
 	}
 
+	//자식 코멘트 가져오기
 	@Override
 	public List boardChildCommentList(int board_num) throws DataAccessException {
 		return sqlSession.selectList("mapper.community.boardChildCommentList", board_num);
 	}
 
+	//총 코멘트 개수 세기
 	@Override
 	public int total_cntComment(int board_num) throws DataAccessException {
 		return (int)sqlSession.selectOne("mapper.community.total_cntComment",board_num);
+	}
+
+	//댓글 작성
+	@Override
+	public void addParentComment(CommunityVO communityVO) throws DataAccessException {
+		sqlSession.insert("mapper.community.addParentComment", communityVO);
+		
+	}
+
+	//댓글 삭제
+	@Override
+	public void delComment(int comment_num) throws DataAccessException {
+		//부모댓글인지 확인(부모댓글일시 관련 답글까지 삭제)
+		int result=(int)sqlSession.selectOne("mapper.community.getComment_parent",comment_num);
+		
+		if(result==0) {
+			System.out.println("부모댓글");
+			//관련 답글 삭제
+			sqlSession.delete("mapper.community.delReplyRelatedComment",comment_num);
+			
+			//댓글 삭제
+			sqlSession.delete("mapper.community.delComment",comment_num);
+		}else {//자식 댓일경우에는 삭제된 댓글이라고 update
+			System.out.println("자식댓글");
+			
+			//자식댓글 삭제처리
+			sqlSession.delete("mapper.community.delChildComment",comment_num);
+		}
+		
+		
+		
 	}
 
 }

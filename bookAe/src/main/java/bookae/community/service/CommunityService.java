@@ -28,5 +28,7 @@ public interface CommunityService {
 	public List boardParentCommentList(int board_num) throws DataAccessException;
 	public List boardChildCommentList(int board_num) throws DataAccessException;
 	public int total_cntComment(int board_num) throws DataAccessException;
+	public void addParentComment(CommunityVO communityVO) throws DataAccessException;
+	public void delComment(int comment_num) throws DataAccessException;
 
 }

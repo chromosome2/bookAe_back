@@ -139,6 +139,36 @@
   			}
   		}
   		
+  		//댓글 삭제
+  		function fn_delComment(writer,comment_num){
+  			var id='<%=(String)session.getAttribute("id")%>';
+  			var board_num=${board.board_num};
+  			
+  			console.log(id+" / "+writer+" / "+comment_num+" / "+board_num);
+  			
+  			//본인확인
+  			if(id==writer){
+  				if(confirm("댓글을 정말 삭제하시겠습니까?")){
+  					var data={"board_num" : board_num, "comment_num" : comment_num};
+  	  				$.ajax({
+  	    				type:'POST',
+  						dataType:"json",
+  						data: data,
+  	    				url:'${contextPath}/community/delComment.do',
+  	    				success:function(data){
+  	    					alert("삭제 완료했습니다.");
+  	    					location.href='${contextPath}/community/viewArticle.do?board_num='+board_num;
+  	    				},
+  	    				error : function(data){
+  	    					alert('삭제를 실패했습니다. 1:1 문의를 이용해 주세요.');
+  	    				}
+  	    			})
+  				}
+  			}else{
+  				alert("잘못된 접근입니다. 다시 시도해주세요.");
+  			}
+  		}
+  		
     </script>
     
 	<title>북愛 - 커뮤니티 페이지</title>
@@ -177,7 +207,8 @@
             			
             			<p id="articleInfo">
 	            			<c:if test="${board.id==id }">
-	            				<input type="button" value="수정" class="articleInfoBtn modifyArticle" onclick="fn_modArticle()"/> | <input type="button" value="삭제" class="articleInfoBtn deleteArticle" onclick="fn_deleteArticle()"/>
+	            				<input type="button" value="수정" class="articleInfoBtn modifyArticle btn" onclick="fn_modArticle()"/>
+	            				 | <input type="button" value="삭제" class="articleInfoBtn deleteArticle btn" onclick="fn_deleteArticle()"/>
 	            			</c:if>
             			</p>
             			
@@ -196,21 +227,25 @@
 			            					</p>
 			            					<p class="parent_comment_content comment_content">${parent.comment_content }</p>
 			            					<p class="parent_comment_footer comment_footer">
-			            						<a href="#">수정</a> | <a href="#">삭제</a> | <a href="#">답글</a>
+			            						<input type="button" value="수정" class="commentBtn btn" onclick="fn_modComment()"/>
+			            						 | <input type="button" value="삭제" class="commentBtn btn" onclick="fn_delComment('${parent.id}','${parent.comment_num }')"/>
+			            						 | <input type="button" value="답글" class="commentBtn btn" onclick="fn_replyComment()"/>
 			            					</p>
 			            				</div>
 			            				<c:if test="${!empty childComment}">
 			            					<c:forEach var="child" items="${childComment}">
-			            						<c:if test="${child.comment_parent==parent.comment_num}">
+			            						<c:if test="${child.comment_parent==parent.comment_num && child.deleteis==1}">
 			            							<div class="child_comment comment_box">
 						            					<p class="child_comment_header comment_header">
 						            						<span class="child_comment_L">┗</span>
 						            						<span class="child_comment_nickname comment_nickname">${child.nickname }</span>
 							            					<span class="child_comment_date comment_date">${child.comment_date }</span>
 						            					</p>
-						            					<p class="child_comment_content comment_content"><span class="reply_parent_nickname">@${child.annot_nickname }</span>${child.comment_content }</p>
+						            					<p class="child_comment_content comment_content"><span class="reply_parent_nickname">@${child.annot_nickname }</span><span class="child_comment_content_span">${child.comment_content }</span></p>
 						            					<p class="child_comment_footer comment_footer">
-						            						<a href="#">수정</a> | <a href="#">삭제</a> | <a href="#">답글</a>
+						            						<input type="button" value="수정" class="commentBtn btn" onclick="fn_modComment()"/>
+						            						 | <input type="button" value="삭제" class="commentBtn btn" onclick="fn_delComment('${child.id}','${child.comment_num }')"/>
+						            						 | <input type="button" value="답글" class="commentBtn btn" onclick="fn_replyComment()"/>
 						            					</p>
 						            				</div>
 			            						</c:if>
@@ -222,8 +257,10 @@
             			</section>
             				
            				<div id="write_comment">
-           					<form action="${contextPath}/community/writeComment.do" method="post" id="writeComment" name="writeComment">
+           					<form action="${contextPath}/community/addParentComment.do" method="post" id="writeComment" name="writeComment">
            						<textarea id="comment_textarea" rows="5" cols="100" name="comment_content"></textarea>
+           						<input type="hidden" value="${id }" name="id">
+           						<input type="hidden" value="${board.board_num }" name="board_num">
            						<div id="button_box">
 				            		<input id="submitBtn" class="commBtn subBtn" type="button" value="작성" onclick="before_submit(this.form)"/>
 			            		</div>
