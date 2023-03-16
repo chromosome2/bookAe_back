@@ -170,48 +170,14 @@
   		}
   		
   		//댓글 수정기능
-  		function fn_modComment(comment_num) {
+  		/*function fn_modComment(comment_num) {
   			var url='${contextPath}/popup/modCommentPopup.do?comment_num='+comment_num;
   			var popOption="width=350px, height=300px, top=100%, left=100% scrollbars=yes";
   			
   			window.open(url, 'modCommentPopup', popOption);
-  		}
+  		}*/
   		
-  		//댓글 답글기능
-  		function fn_replyComment(board_num, parent_num, child_num) {
-  			//모든 답글창 닫기(하나만 띄우기 위해)
-  			$('.replyBox').css('display','none');
-  			
-  			//답글창 하나 보이기
-  			var replybox = document.getElementById('replyBox'+parent_num);
-  			$(replybox).css('display','block'); 
-  			
-  			//부모댓글에 답댓인지 자식댓글에 답댓인지 확인 후 input에 필요한 value넣어주기
-  			if(child_num == 0){//부모댓글 답댓
-  	  			$('.reply_comment_annot').attr('value',parent_num);
-  			}else{
-  				$('.reply_comment_annot').attr('value',child_num);
-  			}
-  			$('.reply_board_num').attr('value',board_num);
-  			
-  		}
   		
-  		//답글 닫기
-  		function closeReply(){
-  			$('.replyBox').css('display','none');
-  		}
-  		
-  		//답글 전송
-  		function before_submit_replyComment(frm) {
-			var content= $('#reply_textarea').val();
-			
-			if(content.trim() == ''){
- 				alert("내용을 입력해주세요.");
- 				return false;
- 			}
-			
-			frm.submit();
-  		}
   		
     </script>
     
@@ -270,8 +236,24 @@
 				            					<span class="parent_comment_date comment_date">${parent.comment_date }</span>
 			            					</p>
 			            					
-			            					<div class="content_box">
-			            						<p class="parent_comment_content comment_content comment_content_box">${parent.comment_content }</p>
+			            					<div class="content_box content_box${parent.comment_num }">
+			            						<p class="parent_comment_content comment_content parent_comment_content${parent.comment_num }">${parent.comment_content }</p>
+			            						
+			            						<!-- 댓글 수정 -->
+			            						<div id="mod_comment${parent.comment_num }" class="mod_comment">
+													<form method="post" id="modComment" name="modComment">
+														<textarea id="modComment_textarea" rows="9" cols="40" name="comment_content">${parent.comment_content }</textarea>
+														<input type="hidden" value="${parent.comment_num }" name="comment_num">
+														<input type="hidden" value="${parent.board_num }" name="board_num">
+														
+														<div id="button_box">
+															<input id="closeMod" class="commBtn closeBtn" type="button" value="닫기" onclick="modCommentClose()"/>
+												 			<input id="submitBtn" class="commBtn subBtn" type="button" value="수정" onclick="before_submit_modComment(this.form)"/>
+														</div>
+													</form>
+												</div>
+												<!-- 댓글 수정 끝 -->
+												
 			            					</div>
 			            					
 			            					<c:if test="${!empty id }">
@@ -285,6 +267,9 @@
 				            						 <input type="button" value="답글" class="commentBtn btn" onclick="fn_replyComment('${board.board_num }', '${parent.comment_num }', 0)"/>
 				            					</p>
 			            					</c:if>
+			            					<c:if test="${empty id}">
+			            						<div class="space"></div>
+			            					</c:if>
 			            				</div>
 			            				<c:if test="${!empty childComment}">
 			            					<c:forEach var="child" items="${childComment}">
@@ -296,8 +281,24 @@
 							            					<span class="child_comment_date comment_date">${child.comment_date }</span>
 						            					</p>
 						            					
-						            					<div class="content_box">
-						            						<p class="child_comment_content comment_content"><span class="reply_parent_nickname">@${child.annot_nickname }</span><span class="comment_content_box">${child.comment_content }</span></p>
+						            					<div class="content_box content_box${child.comment_num }">
+						            						<p class="child_comment_content child_comment_content${child.comment_num } comment_content"><span class="reply_parent_nickname">@${child.annot_nickname }</span><span class="comment_content_box">${child.comment_content }</span></p>
+						            						
+						            						<!-- 댓글 수정 -->
+						            						<div id="mod_comment${child.comment_num }" class="mod_comment">
+																<form method="post" id="modComment" name="modComment">
+																	<textarea id="modComment_textarea" rows="9" cols="40" name="comment_content">${child.comment_content }</textarea>
+																	<input type="hidden" value="${child.comment_num }" name="comment_num">
+																	<input type="hidden" value="${child.board_num }" name="board_num">
+																	
+																	<div id="button_box">
+																		<input id="closeMod" class="commBtn closeBtn" type="button" value="닫기" onclick="modCommentClose()"/>
+															 			<input id="submitBtn" class="commBtn subBtn" type="button" value="수정" onclick="before_submit_modComment(this.form)"/>
+																	</div>
+																</form>
+															</div>
+															<!-- 댓글 수정 끝 -->
+															
 						            					</div>
 						            						
 						            					<c:if test="${!empty id }">
@@ -308,6 +309,9 @@
 							            						 </c:if>
 							            						  | <input type="button" value="답글" class="commentBtn btn" onclick="fn_replyComment('${board.board_num }', '${parent.comment_num }', '${child.comment_num }')"/>
 							            					</p>
+						            					</c:if>
+						            					<c:if test="${empty id}">
+						            						<div class="space"></div>
 						            					</c:if>
 						            				</div>
 			            						</c:if>
@@ -323,7 +327,7 @@
 												<input type="hidden" value="${id }" name="id">
 												
 												<div id="button_box">
-													<input id="closeReply" class="commBtn closeBtn" type="button" value="닫기" onclick="closeReply()"/>
+													<input id="closeReply" class="commBtn closeBtn" type="button" value="닫기" onclick="replyClose()"/>
 										 			<input id="submitBtn" class="commBtn subBtn" type="button" value="작성" onclick="before_submit_replyComment(this.form)"/>
 												</div>
 											</form>

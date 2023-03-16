@@ -305,3 +305,18 @@ Caused by: java.io.IOException: Could not find org.springframework.beans.factory
 	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:200)
 	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:169)
 	... 15 more
+
+!ENTRY org.eclipse.lsp4e 1 0 2023-03-17 02:28:42.511
+!MESSAGE [Info]	ESLint server running in node v16.14.2
+
+!ENTRY org.eclipse.lsp4e 1 0 2023-03-17 02:45:46.508
+!MESSAGE [Info]	[lspserver] No content was available for completion request
+
+!ENTRY org.eclipse.lsp4e 1 0 2023-03-17 02:45:46.640
+!MESSAGE [Info]	[lspserver] No content was available for completion request
+
+!ENTRY org.eclipse.lsp4e 1 0 2023-03-17 02:46:02.731
+!MESSAGE [Info]	[lspserver] No content was available for completion request
+
+!ENTRY org.eclipse.core.resources 4 376 2023-03-17 02:49:28.879
+!MESSAGE Marker id 13049 not found.

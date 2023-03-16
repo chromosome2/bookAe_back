@@ -38,9 +38,9 @@
 <body>
 	<h2>댓글 수정하기</h2>
 	
-	<div id="write_comment">
+	<div id="mod_comment">
 		<form method="post" id="modComment" name="modComment">
-			<textarea id="comment_textarea" rows="9" cols="40" name="comment_content">${comment.comment_content }</textarea>
+			<textarea id="modComment_textarea" rows="9" cols="40" name="comment_content">${comment.comment_content }</textarea>
 			<input type="hidden" value="${comment.comment_num }" name="comment_num">
 			<input type="hidden" value="${comment.board_num }" name="board_num">
 			
