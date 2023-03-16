@@ -272,4 +272,28 @@
 			where comment_num=#{comment_num}
 		]]>
 	</update>
+	
+	<!-- 댓글 수정 -->
+	<update id="modComment" parameterType="communityVO">
+		<![CDATA[
+			update commenttbl set comment_content=#{comment_content} 
+			where comment_num=#{comment_num}
+		]]>
+	</update>
+	
+	<!-- 답글 작성하기 -->
+	<insert id="replyComment" parameterType="communityVO">
+		<![CDATA[
+			INSERT INTO commenttbl (board_num, comment_num,id, comment_parent, comment_content, comment_annot)  
+			VALUES(#{board_num}, (SELECT NVL(MAX(comment_num),0)+1 FROM commenttbl), #{id}, #{comment_parent}, #{comment_content}, #{comment_annot})
+		]]>
+	</insert>
+	
+	<!-- 답글의 comment_parent 구해오기 -->
+	<select id="ReGetComment_parent" parameterType="int" resultType="int">
+		<![CDATA[
+			SELECT comment_parent FROM commenttbl WHERE comment_num=#{comment_annot}
+		]]>
+	</select>
+	
 </mapper>

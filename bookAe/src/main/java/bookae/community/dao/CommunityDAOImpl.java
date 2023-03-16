@@ -172,9 +172,30 @@ public class CommunityDAOImpl implements CommunityDAO{
 		
 	}
 
+	//코멘트 하나 가져오기
 	@Override
 	public CommunityVO getComment(int comment_num) throws DataAccessException {
 		return (CommunityVO)sqlSession.selectOne("mapper.community.getComment", comment_num);
+	}
+
+	//코멘트 수정하기
+	@Override
+	public void modComment(CommunityVO communityVO) throws DataAccessException {
+		sqlSession.update("mapper.community.modComment",communityVO);
+		
+	}
+
+	//답글 추가 (자식 코멘트)
+	@Override
+	public void replyComment(CommunityVO communityVO) throws DataAccessException {
+		sqlSession.insert("mapper.community.replyComment", communityVO);
+		
+	}
+	
+	//comment_parent 구해오기
+	@Override
+	public int ReGetComment_parent(int comment_annot) throws DataAccessException {
+		return (int)sqlSession.selectOne("mapper.community.ReGetComment_parent", comment_annot);
 	}
 
 }

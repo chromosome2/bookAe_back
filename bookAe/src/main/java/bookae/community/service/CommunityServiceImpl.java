@@ -104,6 +104,23 @@ public class CommunityServiceImpl implements CommunityService{
 	public CommunityVO getComment(int comment_num) throws DataAccessException {
 		return communityDAO.getComment(comment_num);
 	}
+
+	@Override
+	public void modComment(CommunityVO communityVO) throws DataAccessException {
+		communityDAO.modComment(communityVO);
+		
+	}
+
+	@Override
+	public void replyComment(CommunityVO communityVO) throws DataAccessException {
+		communityDAO.replyComment(communityVO);
+		
+	}
+
+	@Override
+	public int ReGetComment_parent(int comment_annot) throws DataAccessException {
+		return communityDAO.ReGetComment_parent(comment_annot);
+	}
 	
 	
 

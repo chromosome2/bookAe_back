@@ -339,7 +339,8 @@ public class CommunityControllerImpl extends MultiActionController implements Co
 	//글쓰기 폼 열기
 	@Override
 	@RequestMapping(value="/popup/modCommentPopup.do", method=RequestMethod.GET)
-	public ModelAndView modCommentPopup(@RequestParam("comment_num") int comment_num, HttpServletRequest request, HttpServletResponse response)
+	public ModelAndView modCommentPopup(@RequestParam("comment_num") int comment_num,
+			HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 		String viewName=getViewName(request);
 		
@@ -350,6 +351,49 @@ public class CommunityControllerImpl extends MultiActionController implements Co
 		mav.addObject("comment", comment);
 		
 		System.out.println("modCommentPopup.jsp 열기");
+		return mav;
+	}
+
+	//댓글 수정
+	@Override
+	@RequestMapping(value="/community/modComment.do", method=RequestMethod.POST)
+	public ModelAndView modComment(CommunityVO communityVO, HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		request.setCharacterEncoding("utf-8");
+		
+		communityService.modComment(communityVO);
+		
+		ModelAndView mav=new ModelAndView("redirect:/community/viewArticle.do?board_num="+communityVO.getBoard_num());
+		
+		System.out.println("modComment 실행");
+		return mav;
+	}
+
+	//답글추가
+	@Override
+	@RequestMapping(value="/community/replyComment.do", method=RequestMethod.POST)
+	public ModelAndView replyComment(CommunityVO communityVO, HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		request.setCharacterEncoding("utf-8");
+		
+		//comment_parent 구해오기
+		int comment_annot=communityVO.getComment_annot();
+		System.out.println(comment_annot);
+		int comment_parent = communityService.ReGetComment_parent(comment_annot);
+		System.out.println(comment_parent);
+		//comment_parent가 0이라면(부모 댓글에 답글을 다는거라면) comment_annot, 내가 답글 다는 댓글을 comment_parent로
+		if(comment_parent == 0) {
+			communityVO.setComment_parent(comment_annot);
+		}else {
+			communityVO.setComment_parent(comment_parent);
+		}
+		System.out.println(communityVO.getComment_parent());
+		
+		communityService.replyComment(communityVO);
+		
+		ModelAndView mav=new ModelAndView("redirect:/community/viewArticle.do?board_num="+communityVO.getBoard_num());
+		
+		System.out.println("modComment 실행");
 		return mav;
 	}
 	

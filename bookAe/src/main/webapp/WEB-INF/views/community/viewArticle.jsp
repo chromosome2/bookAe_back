@@ -172,9 +172,45 @@
   		//댓글 수정기능
   		function fn_modComment(comment_num) {
   			var url='${contextPath}/popup/modCommentPopup.do?comment_num='+comment_num;
-  			var popOption="width=350px, height=350px, top=300px, left=300px scrollbars=yes";
+  			var popOption="width=350px, height=300px, top=100%, left=100% scrollbars=yes";
   			
   			window.open(url, 'modCommentPopup', popOption);
+  		}
+  		
+  		//댓글 답글기능
+  		function fn_replyComment(board_num, parent_num, child_num) {
+  			//모든 답글창 닫기(하나만 띄우기 위해)
+  			$('.replyBox').css('display','none');
+  			
+  			//답글창 하나 보이기
+  			var replybox = document.getElementById('replyBox'+parent_num);
+  			$(replybox).css('display','block'); 
+  			
+  			//부모댓글에 답댓인지 자식댓글에 답댓인지 확인 후 input에 필요한 value넣어주기
+  			if(child_num == 0){//부모댓글 답댓
+  	  			$('.reply_comment_annot').attr('value',parent_num);
+  			}else{
+  				$('.reply_comment_annot').attr('value',child_num);
+  			}
+  			$('.reply_board_num').attr('value',board_num);
+  			
+  		}
+  		
+  		//답글 닫기
+  		function closeReply(){
+  			$('.replyBox').css('display','none');
+  		}
+  		
+  		//답글 전송
+  		function before_submit_replyComment(frm) {
+			var content= $('#reply_textarea').val();
+			
+			if(content.trim() == ''){
+ 				alert("내용을 입력해주세요.");
+ 				return false;
+ 			}
+			
+			frm.submit();
   		}
   		
     </script>
@@ -238,11 +274,17 @@
 			            						<p class="parent_comment_content comment_content comment_content_box">${parent.comment_content }</p>
 			            					</div>
 			            					
-			            					<p class="parent_comment_footer comment_footer">
-			            						<input type="button" value="수정" class="commentBtn btn" onclick="fn_modComment('${parent.comment_num}')"/>
-			            						 | <input type="button" value="삭제" class="commentBtn btn" onclick="fn_delComment('${parent.id}','${parent.comment_num }')"/>
-			            						 | <input type="button" value="답글" class="commentBtn btn" onclick="fn_replyComment()"/>
-			            					</p>
+			            					<c:if test="${!empty id }">
+				            					<p class="parent_comment_footer comment_footer">
+				            						<c:if test="${id == parent.id }">
+					            						<input type="button" value="수정" class="commentBtn btn" onclick="fn_modComment('${parent.comment_num}')"/>
+					            						 | 
+					            						 <input type="button" value="삭제" class="commentBtn btn" onclick="fn_delComment('${parent.id}','${parent.comment_num }')"/>
+				            						 </c:if>
+					            						 | 
+				            						 <input type="button" value="답글" class="commentBtn btn" onclick="fn_replyComment('${board.board_num }', '${parent.comment_num }', 0)"/>
+				            					</p>
+			            					</c:if>
 			            				</div>
 			            				<c:if test="${!empty childComment}">
 			            					<c:forEach var="child" items="${childComment}">
@@ -258,15 +300,35 @@
 						            						<p class="child_comment_content comment_content"><span class="reply_parent_nickname">@${child.annot_nickname }</span><span class="comment_content_box">${child.comment_content }</span></p>
 						            					</div>
 						            						
-						            					<p class="child_comment_footer comment_footer">
-						            						<input type="button" value="수정" class="commentBtn btn" onclick="fn_modComment('${child.comment_num}')"/>
-						            						 | <input type="button" value="삭제" class="commentBtn btn" onclick="fn_delComment('${child.id}','${child.comment_num }')"/>
-						            						 | <input type="button" value="답글" class="commentBtn btn" onclick="fn_replyComment()"/>
-						            					</p>
+						            					<c:if test="${!empty id }">
+							            					<p class="child_comment_footer comment_footer">
+							            						<c:if test="${id == child.id }">
+								            						<input type="button" value="수정" class="commentBtn btn" onclick="fn_modComment('${child.comment_num}')"/>
+								            						 | <input type="button" value="삭제" class="commentBtn btn" onclick="fn_delComment('${child.id}','${child.comment_num }')"/>
+							            						 </c:if>
+							            						  | <input type="button" value="답글" class="commentBtn btn" onclick="fn_replyComment('${board.board_num }', '${parent.comment_num }', '${child.comment_num }')"/>
+							            					</p>
+						            					</c:if>
 						            				</div>
 			            						</c:if>
 			            					</c:forEach>
 			            				</c:if>
+			            				
+			            				<div id="replyBox${parent.comment_num }" class="replyBox">
+			            					<span class="child_comment_L">┗</span>
+			            					<form action="${contextPath}/community/replyComment.do" method="post" id="replyComment" name="replyComment">
+												<textarea id="reply_textarea" rows="5" cols="90" name="comment_content"></textarea>
+												<input type="hidden" name="comment_annot" class="reply_comment_annot">
+												<input type="hidden" name="board_num" class="reply_board_num">
+												<input type="hidden" value="${id }" name="id">
+												
+												<div id="button_box">
+													<input id="closeReply" class="commBtn closeBtn" type="button" value="닫기" onclick="closeReply()"/>
+										 			<input id="submitBtn" class="commBtn subBtn" type="button" value="작성" onclick="before_submit_replyComment(this.form)"/>
+												</div>
+											</form>
+			            				</div>
+			            				
 			            			</div>
 	            				</c:forEach>
 	            			</c:if>
