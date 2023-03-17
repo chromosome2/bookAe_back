@@ -193,3 +193,37 @@
 .space{
 	padding: 5px;
 }
+
+/*댓글 수정 form*/
+#modComment_textarea {
+    width: 800px;
+    height: 120px;
+    margin-left: 30px;
+    padding: 10px;
+}
+
+#reply_textarea {
+    width: 800px;
+    height: 120px;
+    margin-left: 60px;
+    padding: 10px;
+}
+
+.reply_child_comment_L {
+    position: relative;
+    top: 20px;
+    left: 28px;
+}
+
+.mod_comment #button_box {
+    margin-right: 70px;
+}
+
+.replyBox #button_box {
+    margin-right: 70px;
+}
+
+.closeBtn {
+    border-radius: 5px;
+    border: none;
+}

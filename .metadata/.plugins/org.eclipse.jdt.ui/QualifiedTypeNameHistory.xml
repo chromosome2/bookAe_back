@@ -37,7 +37,7 @@
     <fullyQualifiedTypeName name="bookae.util.PagingVO"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ModelAttribute"/>
     <fullyQualifiedTypeName name="bookae.community.service.CommunityService"/>
-    <fullyQualifiedTypeName name="org.springframework.web.servlet.ModelAndView"/>
     <fullyQualifiedTypeName name="java.lang.Override"/>
     <fullyQualifiedTypeName name="bookae.community.vo.CommunityVO"/>
+    <fullyQualifiedTypeName name="org.springframework.web.servlet.ModelAndView"/>
 </qualifiedTypeNameHistroy>

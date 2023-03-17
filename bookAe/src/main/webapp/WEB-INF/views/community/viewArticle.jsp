@@ -168,17 +168,6 @@
   				alert("잘못된 접근입니다. 다시 시도해주세요.");
   			}
   		}
-  		
-  		//댓글 수정기능
-  		/*function fn_modComment(comment_num) {
-  			var url='${contextPath}/popup/modCommentPopup.do?comment_num='+comment_num;
-  			var popOption="width=350px, height=300px, top=100%, left=100% scrollbars=yes";
-  			
-  			window.open(url, 'modCommentPopup', popOption);
-  		}*/
-  		
-  		
-  		
     </script>
     
 	<title>북愛 - 커뮤니티 페이지</title>
@@ -237,11 +226,12 @@
 			            					</p>
 			            					
 			            					<div class="content_box content_box${parent.comment_num }">
-			            						<p class="parent_comment_content comment_content parent_comment_content${parent.comment_num }">${parent.comment_content }</p>
+			            						<!-- 댓글 내용 -->
+			            						<p class="parent_comment_content comment_content" id="comment_content${parent.comment_num }">${parent.comment_content }</p>
 			            						
 			            						<!-- 댓글 수정 -->
 			            						<div id="mod_comment${parent.comment_num }" class="mod_comment">
-													<form method="post" id="modComment" name="modComment">
+													<form action="${contextPath}/community/modComment.do" method="post" id="modComment" name="modComment">
 														<textarea id="modComment_textarea" rows="9" cols="40" name="comment_content">${parent.comment_content }</textarea>
 														<input type="hidden" value="${parent.comment_num }" name="comment_num">
 														<input type="hidden" value="${parent.board_num }" name="board_num">
@@ -256,20 +246,25 @@
 												
 			            					</div>
 			            					
+			            					<!-- 수정, 삭제, 답글 -->
 			            					<c:if test="${!empty id }">
-				            					<p class="parent_comment_footer comment_footer">
+				            					<p class="parent_comment_footer comment_footer" id="comment_footer${parent.comment_num }">
 				            						<c:if test="${id == parent.id }">
 					            						<input type="button" value="수정" class="commentBtn btn" onclick="fn_modComment('${parent.comment_num}')"/>
 					            						 | 
-					            						 <input type="button" value="삭제" class="commentBtn btn" onclick="fn_delComment('${parent.id}','${parent.comment_num }')"/>
-				            						 </c:if>
-					            						 | 
-				            						 <input type="button" value="답글" class="commentBtn btn" onclick="fn_replyComment('${board.board_num }', '${parent.comment_num }', 0)"/>
+					            						<input type="button" value="삭제" class="commentBtn btn" onclick="fn_delComment('${parent.id}','${parent.comment_num }')"/>
+				            						</c:if>
+					            					 | 
+				            						<input type="button" value="답글" class="commentBtn btn" onclick="fn_replyComment('${board.board_num }', '${parent.comment_num }', 0)"/>
 				            					</p>
 			            					</c:if>
+			            					
+			            					<!-- 로그인 안됐을 시, 댓글들 사이 간격이 짧아 넣어줌. -->
 			            					<c:if test="${empty id}">
 			            						<div class="space"></div>
 			            					</c:if>
+			            					<!-- 수정, 삭제, 답글 끝 -->
+			            					
 			            				</div>
 			            				<c:if test="${!empty childComment}">
 			            					<c:forEach var="child" items="${childComment}">
@@ -282,11 +277,12 @@
 						            					</p>
 						            					
 						            					<div class="content_box content_box${child.comment_num }">
-						            						<p class="child_comment_content child_comment_content${child.comment_num } comment_content"><span class="reply_parent_nickname">@${child.annot_nickname }</span><span class="comment_content_box">${child.comment_content }</span></p>
+						            						<!-- 댓글 내용 -->
+						            						<p class="child_comment_content comment_content" id="comment_content${child.comment_num }"><span class="reply_parent_nickname">@${child.annot_nickname }</span><span class="comment_content_box">${child.comment_content }</span></p>
 						            						
 						            						<!-- 댓글 수정 -->
 						            						<div id="mod_comment${child.comment_num }" class="mod_comment">
-																<form method="post" id="modComment" name="modComment">
+																<form action="${contextPath}/community/modComment.do" method="post" id="modComment" name="modComment">
 																	<textarea id="modComment_textarea" rows="9" cols="40" name="comment_content">${child.comment_content }</textarea>
 																	<input type="hidden" value="${child.comment_num }" name="comment_num">
 																	<input type="hidden" value="${child.board_num }" name="board_num">
@@ -301,25 +297,30 @@
 															
 						            					</div>
 						            						
+					            						<!-- 수정, 삭제, 답글 -->
 						            					<c:if test="${!empty id }">
-							            					<p class="child_comment_footer comment_footer">
+							            					<p class="child_comment_footer comment_footer" id="comment_footer${child.comment_num }">
 							            						<c:if test="${id == child.id }">
 								            						<input type="button" value="수정" class="commentBtn btn" onclick="fn_modComment('${child.comment_num}')"/>
 								            						 | <input type="button" value="삭제" class="commentBtn btn" onclick="fn_delComment('${child.id}','${child.comment_num }')"/>
-							            						 </c:if>
-							            						  | <input type="button" value="답글" class="commentBtn btn" onclick="fn_replyComment('${board.board_num }', '${parent.comment_num }', '${child.comment_num }')"/>
+							            						</c:if>
+							            						 | <input type="button" value="답글" class="commentBtn btn" onclick="fn_replyComment('${board.board_num }', '${parent.comment_num }', '${child.comment_num }')"/>
 							            					</p>
 						            					</c:if>
+						            					
+						            					<!-- 로그인 안됐을 시, 댓글들 사이 간격이 짧아 넣어줌. -->
 						            					<c:if test="${empty id}">
 						            						<div class="space"></div>
 						            					</c:if>
+						            					<!-- 수정, 삭제, 답글 끝 -->
+						            					
 						            				</div>
 			            						</c:if>
 			            					</c:forEach>
 			            				</c:if>
 			            				
 			            				<div id="replyBox${parent.comment_num }" class="replyBox">
-			            					<span class="child_comment_L">┗</span>
+			            					<span class="reply_child_comment_L">┗</span>
 			            					<form action="${contextPath}/community/replyComment.do" method="post" id="replyComment" name="replyComment">
 												<textarea id="reply_textarea" rows="5" cols="90" name="comment_content"></textarea>
 												<input type="hidden" name="comment_annot" class="reply_comment_annot">
