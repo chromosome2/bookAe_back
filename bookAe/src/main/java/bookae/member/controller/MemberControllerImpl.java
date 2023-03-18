@@ -1,5 +1,9 @@
 package bookae.member.controller;
 
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -21,7 +25,7 @@ public class MemberControllerImpl extends MultiActionController implements Membe
 	
 	@Autowired
 	private MemberService memberService;
-	HttpSession session;
+	HttpSession session; // 이렇게 해도 에러 안나려나?
 	//프로젝트 내부 전체를 검색해서, 해당 타입의 인스턴스가 1개만 있는 경우 그 인스턴스를 자동으로 연결
 	//autowired를 사용하면 set을 따로 안해줘도됨.
 	@Autowired
@@ -122,6 +126,29 @@ public class MemberControllerImpl extends MultiActionController implements Membe
 		return mav;
 	}
 	
+	//myPageView.jsp 열기
+	@RequestMapping(value="/myPage/myPageView.do", method=RequestMethod.GET)
+	public ModelAndView myPageView(HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		String viewName=getViewName(request);
+		
+		//session에서 id 얻어오기
+		session=request.getSession();
+		String id=(String)session.getAttribute("id");
+		
+		//가입날짜정보 가져와서 계산하기
+		String joindate=memberService.getJoinDate("tnwls356"); //change
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+		Date join=sdf.parse(joindate);
+		Date today=new Date();
+		int dayLeft=(int)Math.ceil((double)(today.getTime() - join.getTime())/1000/(24*60*60));
+		
+		ModelAndView mav=new ModelAndView("myPage/"+viewName);
+		mav.addObject("dayLeft", dayLeft);
+		
+		System.out.println("myPageView.jsp 열기");
+		return mav;
+	}
 	
 	
 	

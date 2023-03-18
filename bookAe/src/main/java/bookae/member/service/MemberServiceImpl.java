@@ -1,5 +1,7 @@
 package bookae.member.service;
 
+import java.sql.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
@@ -21,6 +23,11 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public String loginMember(MemberVO memberVO) throws DataAccessException {
 		return memberDAO.loginMember(memberVO);
+	}
+
+	@Override
+	public String getJoinDate(String id) throws DataAccessException {
+		return memberDAO.getJoinDate(id);
 	}
 	
 

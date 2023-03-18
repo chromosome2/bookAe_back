@@ -27,7 +27,7 @@
                 <c:choose>
                 	<c:when test="${isLogin == true }">
                 		<ul class="infoLink">
-		                    <li><a href="#">마이 페이지</a></li>
+		                    <li><a href="${contextPath}/myPage/myPageView.do">마이 페이지</a></li>
 		                    <li><a href="${contextPath }/login/logout.do">로그아웃</a></li>
 		                </ul>
                 	</c:when>

@@ -19,6 +19,8 @@ function fn_modComment(comment_num){
 	$('.mod_comment').css('display','none');
 	//수정버튼때문에 사라졌을 다른 comment_footer 보이기
 	$('.comment_footer').css('display','block');
+	//수정땜에 가려졌던 글 내용보이게
+	$('.comment_content').css('display','block');
 	
 	//글 내용은 안보이게
 	var comment_content = document.getElementById('comment_content'+comment_num);

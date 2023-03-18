@@ -1,0 +1,20 @@
+@charset "UTF-8";
+
+.mainContents{
+	width: 1280px;
+    margin: 0 auto;
+    position: relative;
+    min-height: 1000px;
+}
+
+#leftContents{
+	width: 300px;
+	float: left;
+        box-sizing: border-box;
+}
+
+#rightContents{
+	width: 800px;
+	float: right;
+        box-sizing: border-box;
+}

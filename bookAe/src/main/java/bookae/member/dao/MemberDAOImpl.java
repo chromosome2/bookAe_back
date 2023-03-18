@@ -1,5 +1,7 @@
 package bookae.member.dao;
 
+import java.sql.Date;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
@@ -23,6 +25,11 @@ public class MemberDAOImpl implements MemberDAO{
 	public String loginMember(MemberVO memberVO) throws DataAccessException {
 		String result=(String)sqlSession.selectOne("mapper.member.loginMember", memberVO);
 		return result;
+	}
+
+	@Override
+	public String getJoinDate(String id) throws DataAccessException {
+		return (String)sqlSession.selectOne("mapper.member.getJoinDate",id);
 	}
 	
 	

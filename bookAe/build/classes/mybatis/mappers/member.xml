@@ -20,4 +20,12 @@
 		]]>
 	</select>
 	
+	<select id="getJoinDate" resultType="String" parameterType="String">
+		<![CDATA[
+			SELECT TO_CHAR(joindate, 'YYYY/MM/DD') 
+			FROM jointbl 
+			WHERE id=#{id}
+		]]>
+	</select>
+	
 </mapper>
