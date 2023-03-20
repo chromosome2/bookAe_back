@@ -127,8 +127,8 @@ public class MemberControllerImpl extends MultiActionController implements Membe
 	}
 	
 	//myPageView.jsp 열기
-	@RequestMapping(value="/myPage/myPageView.do", method=RequestMethod.GET)
-	public ModelAndView myPageView(HttpServletRequest request, HttpServletResponse response)
+	@RequestMapping(value="/myPage/myPagePrivacyCheck.do", method=RequestMethod.GET)
+	public ModelAndView myPagePrivacyCheck(HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 		String viewName=getViewName(request);
 		
@@ -149,6 +149,34 @@ public class MemberControllerImpl extends MultiActionController implements Membe
 		System.out.println("myPageView.jsp 열기");
 		return mav;
 	}
+
+	@Override
+	@RequestMapping(value="/myPage/PwdCheck.do", method=RequestMethod.GET)
+	public ModelAndView pwdCheck(String pw, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		//session에서 id 얻어오기
+		session=request.getSession();
+		String id=(String)session.getAttribute("id");
+		return null;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

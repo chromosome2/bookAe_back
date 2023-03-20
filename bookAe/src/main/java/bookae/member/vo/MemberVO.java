@@ -22,7 +22,7 @@ public class MemberVO {
 		return email_add;
 	}
 	public void setEmail_add(String email_add) {
-		this.email_add = "@"+email_add;
+		this.email_add = email_add;
 	}
 	public String getId() {
 		return id;

@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import bookae.member.vo.MemberVO;
@@ -13,5 +14,7 @@ public interface MemberController {
 	public ModelAndView joinMember (@ModelAttribute("memberVO") MemberVO memberVO, HttpServletRequest request,
 			HttpServletResponse response) throws Exception;
 	public ModelAndView loginMember (@ModelAttribute("memberVO") MemberVO memberVO, HttpServletRequest request,
+			HttpServletResponse response) throws Exception;
+	public ModelAndView pwdCheck (@RequestParam("pw") String pw, HttpServletRequest request,
 			HttpServletResponse response) throws Exception;
 }
