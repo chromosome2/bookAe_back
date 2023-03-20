@@ -5,6 +5,7 @@
    
 <mapper namespace="mapper.member">
 	
+	<!-- 회원가입 -->
 	<insert id="joinMember" parameterType="memberVO">
 		<![CDATA[
 			INSERT INTO jointbl(name, id, pw, nickname, tel, email, email_add) 
@@ -12,6 +13,7 @@
 		]]>
 	</insert>
 	
+	<!-- 로그인 -->
 	<select id="loginMember" resultType="String" parameterType="memberVO">
 		<![CDATA[
 			SELECT DECODE(count(*), 1, 'true', 'false') 
@@ -20,9 +22,19 @@
 		]]>
 	</select>
 	
+	<!-- joindate 가져오기 -->
 	<select id="getJoinDate" resultType="String" parameterType="String">
 		<![CDATA[
 			SELECT TO_CHAR(joindate, 'YYYY/MM/DD') 
+			FROM jointbl 
+			WHERE id=#{id}
+		]]>
+	</select>
+	
+	<!-- 개인정보 가져오기 -->
+	<select id="getPrivacy" resultType="MemberVO" parameterType="String">
+		<![CDATA[
+			SELECT * 
 			FROM jointbl 
 			WHERE id=#{id}
 		]]>

@@ -1,6 +1,7 @@
 package bookae.member.controller;
 
 
+import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -8,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -150,15 +152,48 @@ public class MemberControllerImpl extends MultiActionController implements Membe
 		return mav;
 	}
 
+	//마이페이지 비밀번호 맞는지 확인
 	@Override
-	@RequestMapping(value="/myPage/PwdCheck.do", method=RequestMethod.GET)
-	public ModelAndView pwdCheck(String pw, HttpServletRequest request, HttpServletResponse response) throws Exception {
+	@RequestMapping(value="/myPage/PwdCheck.do", method=RequestMethod.POST)
+	public void pwdCheck(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		String id=request.getParameter("id");
+		String pw=request.getParameter("pw");
+		
+		memberVO.setId(id);
+		memberVO.setPw(pw);
+		
+		//id와 가져온 pw로 비밀번호 맞는지 확인
+		String result=memberService.loginMember(memberVO);
+		
+		//json설정
+		JSONObject json=new JSONObject();
+		json.put("result", result);
+		
+		PrintWriter pwt=response.getWriter();
+		pwt.println(json);//보내주기
+		pwt.flush();
+		pwt.close();
+	}
+	
+	//myPagePrivacy.jsp 열기
+	@RequestMapping(value="/myPage/myPagePrivacy.do", method=RequestMethod.GET)
+	public ModelAndView myPagePrivacy(HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		String viewName=getViewName(request);
+		
 		//session에서 id 얻어오기
 		session=request.getSession();
 		String id=(String)session.getAttribute("id");
-		return null;
+		
+		//개인정보 담아가기
+		memberVO=memberService.getPrivacy(id);
+
+		ModelAndView mav=new ModelAndView("myPage/"+viewName);
+		mav.addObject("member",memberVO);
+		System.out.println("myPagePrivacy.jsp 열기");
+		return mav;
 	}
-	
+
 	
 	
 	

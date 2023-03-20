@@ -71,7 +71,7 @@
 				                        <span class="logInfo"></span>
 				                    </p>
 				                    <p>
-				                        <input type="tel" id="tel" name="tel" maxlength="11" value="${member.tel }" placeholder="전화번호" required>
+				                        <input type="tel" id="tel" name="tel" maxlength="11" value="0${member.tel }" placeholder="전화번호" required>
 				                        <span class="logInfo"></span>
 				                    </p>
 				                    <p class="emailArea">

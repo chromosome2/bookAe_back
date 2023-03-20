@@ -29,6 +29,11 @@ public class MemberServiceImpl implements MemberService{
 	public String getJoinDate(String id) throws DataAccessException {
 		return memberDAO.getJoinDate(id);
 	}
+
+	@Override
+	public MemberVO getPrivacy(String id) throws DataAccessException {
+		return memberDAO.getPrivacy(id);
+	}
 	
 
 }

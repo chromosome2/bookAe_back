@@ -24,6 +24,29 @@
     <script src="${contextPath }/resources/js/common.js"></script>
     <script src="${contextPath }/resources/js/myPageView1.js"></script>
 	<title>북愛 - 감상평 페이지</title>
+	<script type="text/javascript">
+		function fn_pwCheck(id) {
+			var pw=$('.pwd_check_box').val();
+			
+			var data={"id" : id, "pw" : pw};
+			$.ajax({
+				type:'POST',
+				dataType:"json",
+				data: data,
+				url:'${contextPath}/myPage/PwdCheck.do',
+				success:function(data){
+					if(data['result']=='true'){
+						location.href='${contextPath}/myPage/myPagePrivacy.do';
+					}else{
+						alert('비밀번호가 맞지 않습니다.');
+					}
+				},
+				error : function(data){
+					alert('실패했습니다. 1:1 문의를 이용해 주세요.');
+				}
+			})
+		}
+	</script>
 </head>
 
 <body>
@@ -49,14 +72,14 @@
             			
             			<div class="contents_wrapper">
 		                    <p class="mini_title">※ 개인정보 수정</p>
-		                    <form action="${contextPath}" method="post" id="pwd_checkForm" name="pwd_checkForm">
+		                        
 		                        <div class="password_check_area">
 		                            <h5>비밀번호 재확인</h5>
 		                            <p>안전한 정보보호를 위하여 비밀번호를 다시 한번 확인합니다.<br>비밀번호가 타인에게 노출되지 않도록 주의하여 주세요.</p>
-		                            <input type="password" class="pwd_check_box" name="pwd" placeholder="비밀번호">
+		                            <input type="password" class="pwd_check_box" name="pw" placeholder="비밀번호">
 		                        </div>
-		                        <input class="submitBtn" type="submit" value="확인">
-		                    </form>
+		                        <input type="button" value="확인" class="submitBtn btn" onclick="fn_pwCheck('${id}')"/>
+		                    
 		                </div>
 		                
             		</div>

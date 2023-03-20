@@ -15,6 +15,6 @@ public interface MemberController {
 			HttpServletResponse response) throws Exception;
 	public ModelAndView loginMember (@ModelAttribute("memberVO") MemberVO memberVO, HttpServletRequest request,
 			HttpServletResponse response) throws Exception;
-	public ModelAndView pwdCheck (@RequestParam("pw") String pw, HttpServletRequest request,
+	public void pwdCheck (HttpServletRequest request,
 			HttpServletResponse response) throws Exception;
 }
