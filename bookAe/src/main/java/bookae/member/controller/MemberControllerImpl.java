@@ -86,7 +86,6 @@ public class MemberControllerImpl extends MultiActionController implements Membe
 	@RequestMapping(value="/join/joinMember.do", method=RequestMethod.POST)
 	public ModelAndView joinMember(MemberVO memberVO, HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
-		System.out.println("?");
 		request.setCharacterEncoding("UTF-8");
 		int result=memberService.joinMember(memberVO);
 		ModelAndView mav=new ModelAndView("redirect:/join/joinComplete.do");
@@ -140,11 +139,7 @@ public class MemberControllerImpl extends MultiActionController implements Membe
 		String id=(String)session.getAttribute("id");
 		
 		//가입날짜정보 가져와서 계산하기
-		String joindate=memberService.getJoinDate("tnwls356"); //change
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
-		Date join=sdf.parse(joindate);
-		Date today=new Date();
-		int dayLeft=(int)Math.ceil((double)(today.getTime() - join.getTime())/1000/(24*60*60));
+		int dayLeft=calDayLeft(id);
 		
 		ModelAndView mav=new ModelAndView("myPage/"+viewName);
 		mav.addObject("dayLeft", dayLeft);
@@ -186,11 +181,15 @@ public class MemberControllerImpl extends MultiActionController implements Membe
 		session=request.getSession();
 		String id=(String)session.getAttribute("id");
 		
+		//가입날짜정보 가져와서 계산하기
+		int dayLeft=calDayLeft(id);
+		
 		//개인정보 담아가기
 		memberVO=memberService.getPrivacy(id);
 
 		ModelAndView mav=new ModelAndView("myPage/"+viewName);
 		mav.addObject("member",memberVO);
+		mav.addObject("dayLeft",dayLeft);
 		System.out.println("myPagePrivacy.jsp 열기");
 		return mav;
 	}
@@ -240,6 +239,37 @@ public class MemberControllerImpl extends MultiActionController implements Membe
 		pwt.close();
 	}
 
+	//개인정보 수정
+	@Override
+	@RequestMapping(value="/myPage/privacyChange.do", method=RequestMethod.POST)
+	public ModelAndView privacyChange(MemberVO memberVO, HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		request.setCharacterEncoding("UTF-8");
+		
+		//개인정보 업데이트하기
+		memberService.privacyChange(memberVO);
+		
+		ModelAndView mav=new ModelAndView("redirect:/myPage/myPagePrivacy.do");
+		
+		return mav;
+	}
+
+	
+	//가입날짜정보 가져와서 계산하는 메소드
+	private int calDayLeft(String id) {
+		try {
+			String joindate=memberService.getJoinDate(id); //change
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+			Date join=sdf.parse(joindate);
+			Date today=new Date();
+			int dayLeft=(int)Math.ceil((double)(today.getTime() - join.getTime())/1000/(24*60*60));
+			
+			return dayLeft;
+		}catch(Exception e) {
+			System.out.println("날짜 계산 오류");
+		}
+		return -1;
+	}
 	
 	
 	

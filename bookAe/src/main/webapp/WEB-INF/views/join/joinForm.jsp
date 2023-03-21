@@ -48,7 +48,6 @@
                     </p>
                     <p>
                         <input type="password" id="pw" name="pw" required placeholder="비밀번호">
-                        <span class="logInfo"></span>
                     </p>
                     <p>
                         <input type="password" id="passwordCheck" name="passwordCheck" required placeholder="비밀번호 확인" onkeyup="passCheck()">

@@ -41,14 +41,23 @@ public class MemberDAOImpl implements MemberDAO{
 		return (MemberVO)sqlSession.selectOne("mapper.member.getPrivacy",id);
 	}
 
+	//닉네임 중복 체크
 	@Override
 	public String nicknameCheck(String nickname) throws DataAccessException {
 		return (String)sqlSession.selectOne("mapper.member.nicknameCheck",nickname);
 	}
 
+	//id 중복 체크
 	@Override
 	public String idCheck(String id) throws DataAccessException {
 		return (String)sqlSession.selectOne("mapper.member.idCheck",id);
+	}
+
+	//개인정보 수정
+	@Override
+	public void privacyChange(MemberVO memberVO) throws DataAccessException {
+		sqlSession.update("mapper.member.privacyChange",memberVO);
+		
 	}
 	
 	

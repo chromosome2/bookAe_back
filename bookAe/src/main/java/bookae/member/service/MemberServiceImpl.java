@@ -44,6 +44,12 @@ public class MemberServiceImpl implements MemberService{
 	public String idCheck(String id) throws DataAccessException {
 		return memberDAO.idCheck(id);
 	}
+
+	@Override
+	public void privacyChange(MemberVO memberVO) throws DataAccessException {
+		memberDAO.privacyChange(memberVO);
+		
+	}
 	
 
 }

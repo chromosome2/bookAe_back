@@ -13,5 +13,6 @@ public interface MemberService {
 	public MemberVO getPrivacy(String id) throws  DataAccessException;
 	public String nicknameCheck(String nickname) throws  DataAccessException;
 	public String idCheck(String id) throws  DataAccessException;
+	public void privacyChange(MemberVO memberVO) throws  DataAccessException;
 
 }

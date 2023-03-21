@@ -58,4 +58,12 @@
 		]]>
 	</select>
 	
+	<!-- 개인정보 수정 -->
+	<update id="privacyChange" parameterType="memberVO"> 
+		<![CDATA[
+			update jointbl set name=#{name}, pw=#{pw},nickname=#{nickname},tel=#{tel},email=#{email},email_add=#{email_add} 
+			where id=#{id}
+		]]>
+	</update>
+	
 </mapper>

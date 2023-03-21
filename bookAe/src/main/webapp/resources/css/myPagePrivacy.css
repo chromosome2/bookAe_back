@@ -1,29 +1,41 @@
-@charset "utf-8";
+@charset "UTF-8";
 
-/*가입하기 시작*/
-.memberJoin {
-    position: relative;
+.contents_wrapper {
+    margin: 100px 0 300px 0;
 }
-.memberJoin >h2 {
-    font-size: 3em;
-    letter-spacing: 5px;
-    text-align: center;
-    margin-top: 120px;
-    margin-bottom: 80px;
+
+.mini_title{
+    text-align: left;
+    margin-left: 10%;
+    font-weight: 500;
+    color: #595959;
 }
-fieldset {
-    width: 550px;
-    height: 1000px;
-    margin: 0 auto;
-    border: none;
+/*float 영역 차지하게 해주기*/
+section {
+    overflow: hidden;
 }
-fieldset >p {
-    width: 550px;
+
+.privacyBox {
+    padding-left: 120px;
+    margin-top: 80px;
+}
+
+.oneBox{
     height: 50px;
     margin-bottom: 40px;
 }
-.memberJoin p > input{
-    width: 550px;
+#id{
+	background-color: #e0e0e0;
+    border-radius: 3px;
+}
+.obj {
+    width: 150px;
+    display: inline-block;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+.oneBox > input{
+	width: 300px;
     height: 50px;
     font-size: 1.3em;
     border: none;
@@ -31,15 +43,13 @@ fieldset >p {
     outline: none;
     padding-left: 10px;
 }
-.memberJoin p > input::placeholder {
-    color: rgb(184, 184, 184);
-}
 .logInfo {
     height: 2px;
     font-size: 0.7em;
-    margin: 0 0 0 15px;
+    margin: 10px 0 0 160px;
     color: rgb(226, 42, 42);
     font-weight: bold;
+    display: block;
 }
 #email {
     width: 200px;
@@ -58,17 +68,18 @@ fieldset >p {
     width: 130px;
     height: 50px;
     font-size: 1.1em;
-    float: right;
+    margin-left: 10px;
 }
 .emailArea #email_after option {
     font-size: 1em;
 }
-.news{
+.news {
     font-size: 1.2em;
     font-weight: bold;
     color: rgb(107, 107, 107);
     position: relative;
     width: 562px;
+    margin: 100px auto 0 auto;
 }
 .news span {
     margin-right: 40px;
@@ -105,10 +116,10 @@ fieldset >p {
     border-color: rgb(31, 114, 31);
     background-image: url(../images/check_white.png);
 }
-.btnJoinArea {
+.modBtnArea {
     text-align: center;
 }
-.btnJoin {
+.modBtn {
     width: 500px;
     height: 70px;
     margin-top: 40px;
@@ -121,8 +132,7 @@ fieldset >p {
     font-size: 1.5em;
     letter-spacing: 3px;
 }
-.btnJoin >p {
+.modBtn >p {
     text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
     padding-left: 3px;
 }
-/*가입하기 끝*/

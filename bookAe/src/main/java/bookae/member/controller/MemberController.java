@@ -21,4 +21,6 @@ public interface MemberController {
 			HttpServletResponse response) throws Exception;
 	public void idCheck(HttpServletRequest request, 
 			HttpServletResponse response) throws Exception;
+	public ModelAndView privacyChange (@ModelAttribute("memberVO") MemberVO memberVO, HttpServletRequest request,
+			HttpServletResponse response) throws Exception;
 }
