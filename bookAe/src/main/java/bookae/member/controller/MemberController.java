@@ -17,4 +17,8 @@ public interface MemberController {
 			HttpServletResponse response) throws Exception;
 	public void pwdCheck (HttpServletRequest request,
 			HttpServletResponse response) throws Exception;
+	public void nicknameCheck(HttpServletRequest request, 
+			HttpServletResponse response) throws Exception;
+	public void idCheck(HttpServletRequest request, 
+			HttpServletResponse response) throws Exception;
 }

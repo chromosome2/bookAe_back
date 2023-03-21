@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+#mainContents {
+    width: 1280px;
+    margin: 0 auto;
+    height: 500px;
+    margin-top: 150px;
+}
+.join_complete_contents {
+    width: 800px;
+    background-color: #f0f0f0;
+    height: 300px;
+    margin: 0 auto;
+}
+h2{
+	text-align: center;
+    font-size: 2em;
+    padding-top: 90px;
+}
+#btnBox {
+    text-align: center;
+}
+.btn{
+	width: 140px;
+    height: 50px;
+    margin: 40px 30px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1em;
+    letter-spacing: 3px;
+    color: rgb(252, 252, 252);
+    background-color: rgb(112, 112, 112);
+    transition: background-color ease 0.5s 0s;
+}
+
+.btn:hover{
+    background-color:rgb(9, 148, 39);
+}

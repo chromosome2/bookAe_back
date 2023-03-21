@@ -49,32 +49,39 @@
             			
             			<div class="contents_wrapper">
 		                    <p class="mini_title">※ 개인정보 수정</p>
-		                    <form action="${contextPath}" method="post" id="privacyChange" name="privacyChange">
+		                    <form action="${contextPath}/myPage/privacyChange.do" method="post" id="privacyChange" name="privacyChange">
 		                        <div class="privacyBox">
 		                            <p>
+		                            	<span class="obj">이름</span>
 				                        <input type="text" id="name" name="name" value="${member.name }" required placeholder="이름">
 				                    </p>
 				                    <p>
+				                    	<span class="obj">아이디</span>
 				                        <input type="text" id="id" name="id" value="${member.id }" readonly required placeholder="아이디">
 				                        <span class="logInfo"></span>
 				                    </p>
 				                    <p>
+				                    	<span class="obj">비밀번호</span>
 				                        <input type="password" id="pw" name="pw" required placeholder="비밀번호">
 				                        <span class="logInfo"></span>
 				                    </p>
 				                    <p>
+				                    	<span class="obj">비밀번호 확인</span>
 				                        <input type="password" id="passwordCheck" name="passwordCheck" required placeholder="비밀번호 확인" onkeyup="passCheck()">
 				                        <span class="logInfo passCInfo"></span>
 				                    </p>
 				                    <p>
+				                    	<span class="obj">닉네임</span>
 				                        <input type="text" id="nickname" name="nickname" maxlength=7 value="${member.nickname }" required placeholder="닉네임">
 				                        <span class="logInfo"></span>
 				                    </p>
 				                    <p>
+				                    	<span class="obj">전화번호</span>
 				                        <input type="tel" id="tel" name="tel" maxlength="11" value="0${member.tel }" placeholder="전화번호" required>
 				                        <span class="logInfo"></span>
 				                    </p>
 				                    <p class="emailArea">
+				                    	<span class="obj">이메일</span>
 				                        <input type="text" id="email" name="email" value="${member.email }" required placeholder="이메일">
 				                        <a>@</a>
 				                        <input type="text" id="email_add" name="email_add" value="${member.email_add }" required readonly value="naver.com">
@@ -95,7 +102,6 @@
 				                        <button type="submit" class="btnJoin">수정</button>
 				                    </div>
 		                        </div>
-		                        <input class="submitBtn" type="submit" value="확인">
 		                    </form>
 		                </div>
 		                

@@ -16,9 +16,8 @@
     <link rel="shortcut icon" href="${contextPath }/resources/images/그림2.ico">
     <link rel="stylesheet" href="${contextPath }/resources/css/common.css">
     <link rel="stylesheet" href="${contextPath }/resources/css/normalize.css">
-    <link rel="stylesheet" href="${contextPath }/resources/css/join.css">
+    <link rel="stylesheet" href="${contextPath }/resources/css/joinComplete.css">
     <script src="${contextPath }/resources/js/jquery-3.6.0.min.js"></script>
-    <script src="${contextPath }/resources/js/join.js"></script>
     <script src="${contextPath }/resources/js/common.js"></script>
 	<title>북愛 - 가입 페이지</title>
 </head>
@@ -32,12 +31,20 @@
     
     	<jsp:include page="../common/header.jsp"/>
     
-    <!--메인컨텐츠 시작-->
-        <section class="join_complete_contents">
-            <h2>회원가입에 성공하셨습니다.</h2>
-            <button>로그인</button>
-            <button>메인 페이지</button>
-        </section>
+	    <!--메인컨텐츠 시작-->
+	    <div id="mainContents">
+	
+	        <section class="join_complete_contents">
+	            <h2>회원가입을 완료했습니다.</h2>
+	            
+	            <div id="btnBox">
+	            	<input type="button" class="btn" onclick="location.href='${contextPath}/login/loginForm.do'" value="로그인">
+	            	<input type="button" class="btn" onclick="location.href='${contextPath }'" value="메인 페이지">
+	            </div>
+	            
+	        </section>
+        
+        </div>
         <!--메인컨텐츠 종료-->
         
         <jsp:include page="../common/footer.jsp"/>

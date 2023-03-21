@@ -86,6 +86,7 @@ public class MemberControllerImpl extends MultiActionController implements Membe
 	@RequestMapping(value="/join/joinMember.do", method=RequestMethod.POST)
 	public ModelAndView joinMember(MemberVO memberVO, HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
+		System.out.println("?");
 		request.setCharacterEncoding("UTF-8");
 		int result=memberService.joinMember(memberVO);
 		ModelAndView mav=new ModelAndView("redirect:/join/joinComplete.do");
@@ -192,6 +193,51 @@ public class MemberControllerImpl extends MultiActionController implements Membe
 		mav.addObject("member",memberVO);
 		System.out.println("myPagePrivacy.jsp 열기");
 		return mav;
+	}
+	
+	//닉네임 중복 체크
+	@Override
+	@RequestMapping(value="/join/nicknameCheck.do", method=RequestMethod.POST)
+	public void nicknameCheck(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		String nickname=request.getParameter("nickname");
+		
+		//닉네임이 존재하는지
+		String result=memberService.nicknameCheck(nickname);
+		
+		//json설정
+		JSONObject json=new JSONObject();
+		json.put("result", result);
+		
+		PrintWriter pwt=response.getWriter();
+		pwt.println(json);//보내주기
+		pwt.flush();
+		pwt.close();
+	}
+	
+	//아이디 중복 체크
+	@Override
+	@RequestMapping(value="/join/idCheck.do", method=RequestMethod.POST)
+	public void idCheck(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		String id=request.getParameter("id");
+		String result="false";
+		
+		//특수문자 검사
+		if(!id.matches("[0-9|a-z|-|_]*")){
+		  System.out.println("특수문자가 입력되었습니다.");
+		  result="yesMark";
+		}else {
+			//id중복 체크
+			result=memberService.idCheck(id);
+		}
+		
+		//json설정
+		JSONObject json=new JSONObject();
+		json.put("result", result);
+		
+		PrintWriter pwt=response.getWriter();
+		pwt.println(json);//보내주기
+		pwt.flush();
+		pwt.close();
 	}
 
 	

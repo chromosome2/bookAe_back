@@ -5,17 +5,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="sujin">
-    <meta name="robots" content="all">
-	<title>북愛 - 메인 페이지</title>
-</head>
-<body>
+
 		<!--헤더 시작-->
         <header>
             <div class="head">
@@ -88,5 +78,3 @@
             </nav>
         </header>
         <!--헤더 종료-->
-</body>
-</html>

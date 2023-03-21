@@ -27,8 +27,26 @@ function passCheck(){
     var pass=document.getElementById('pw').value;
     var passC=document.getElementById('passwordCheck').value;
     if(pass==passC){
-        $('.passCInfo').text('*일치합니다');
+        $('.passCInfo').text('* 일치합니다.');
+        $('#pwCheckBeforeJoin').attr('value','true');
+        $('.passCInfo').css('color','rgb(42, 148, 42)');
     }else{
-        $('.passCInfo').text('*비밀번호가 일치하지 않습니다.');
+        $('.passCInfo').text('* 비밀번호가 일치하지 않습니다.');
+        $('#pwCheckBeforeJoin').attr('value','false');
+        $('.passCInfo').css('color','rgb(226, 42, 42)');
     }
 };
+
+//전화번호에 하이픈(-)안들어가게
+function telCheck() {
+	var tel=document.getElementById('tel').value;
+	
+	if(tel.indexOf('-')!=-1){
+		$('.telInfo').text('* 하이픈(-) 없이 입력해주세요.');
+		$('#telCheckBeforeJoin').attr('value','false');
+		$('.telInfo').css('color','rgb(226, 42, 42)');
+	}else{
+		$('.telInfo').text('');
+		$('#telCheckBeforeJoin').attr('value','true');
+	}
+}

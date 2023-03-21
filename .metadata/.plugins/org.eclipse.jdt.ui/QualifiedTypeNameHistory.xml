@@ -5,14 +5,11 @@
     <fullyQualifiedTypeName name="bookae.member.controller.MemberController"/>
     <fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
     <fullyQualifiedTypeName name="javax.servlet.http.HttpServletResponse"/>
-    <fullyQualifiedTypeName name="bookae.member.vo.MemberVO"/>
     <fullyQualifiedTypeName name="bookae.community.controller.CommunityController"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.SessionAttributes"/>
     <fullyQualifiedTypeName name="org.springframework.ui.Model"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
-    <fullyQualifiedTypeName name="java.sql.Date"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
-    <fullyQualifiedTypeName name="bookae.member.service.MemberService"/>
     <fullyQualifiedTypeName name="bookae.member.dao.MemberDAO"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
     <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
@@ -32,7 +29,6 @@
     <fullyQualifiedTypeName name="org.json.simple.JSONObject"/>
     <fullyQualifiedTypeName name="java.io.PrintWriter"/>
     <fullyQualifiedTypeName name="java.util.Map"/>
-    <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
     <fullyQualifiedTypeName name="java.lang.Integer"/>
     <fullyQualifiedTypeName name="bookae.util.PagingVO"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ModelAttribute"/>
@@ -40,4 +36,11 @@
     <fullyQualifiedTypeName name="java.lang.Override"/>
     <fullyQualifiedTypeName name="bookae.community.vo.CommunityVO"/>
     <fullyQualifiedTypeName name="org.springframework.web.servlet.ModelAndView"/>
+    <fullyQualifiedTypeName name="bookae.member.service.MemberService"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
+    <fullyQualifiedTypeName name="java.sql.Date"/>
+    <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
+    <fullyQualifiedTypeName name="java.util.Date"/>
+    <fullyQualifiedTypeName name="java.lang.Math"/>
+    <fullyQualifiedTypeName name="bookae.member.vo.MemberVO"/>
 </qualifiedTypeNameHistroy>

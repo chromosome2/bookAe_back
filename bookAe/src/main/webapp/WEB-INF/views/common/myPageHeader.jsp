@@ -5,17 +5,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="sujin">
-    <meta name="robots" content="all">
-	<title>북愛 - 메인 페이지</title>
-</head>
-<body>
 		<!--헤더와 메뉴 시작-->
        			<div id="myPageHeader">
             		<h2 id="myPageTitle"><a href="${contextPath}/myPage/myPagePrivacyCheck.do">마이 페이지</a></h2>
@@ -35,5 +24,3 @@
 	        		</div>
         		</div>
         <!--헤더와 메뉴 종료-->
-</body>
-</html>

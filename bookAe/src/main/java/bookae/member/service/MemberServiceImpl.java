@@ -34,6 +34,16 @@ public class MemberServiceImpl implements MemberService{
 	public MemberVO getPrivacy(String id) throws DataAccessException {
 		return memberDAO.getPrivacy(id);
 	}
+
+	@Override
+	public String nicknameCheck(String nickname) throws DataAccessException {
+		return memberDAO.nicknameCheck(nickname);
+	}
+
+	@Override
+	public String idCheck(String id) throws DataAccessException {
+		return memberDAO.idCheck(id);
+	}
 	
 
 }
