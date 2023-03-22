@@ -73,12 +73,12 @@
             			<div class="contents_wrapper">
 		                    <p class="mini_title">※ 개인정보 수정</p>
 		                        
-		                        <div class="password_check_area">
-		                            <h5>비밀번호 재확인</h5>
-		                            <p>안전한 정보보호를 위하여 비밀번호를 다시 한번 확인합니다.<br>비밀번호가 타인에게 노출되지 않도록 주의하여 주세요.</p>
-		                            <input type="password" class="pwd_check_box" name="pw" placeholder="비밀번호">
-		                        </div>
-		                        <input type="button" value="확인" class="submitBtn btn" onclick="fn_pwCheck('${id}')"/>
+	                        <div class="password_check_area">
+	                            <h5>비밀번호 재확인</h5>
+	                            <p>안전한 정보보호를 위하여 비밀번호를 다시 한번 확인합니다.<br>비밀번호가 타인에게 노출되지 않도록 주의하여 주세요.</p>
+	                            <input type="password" class="pwd_check_box" name="pw" placeholder="비밀번호">
+	                        </div>
+	                        <input type="button" value="확인" class="submitBtn btn" onclick="fn_pwCheck('${id}')"/>
 		                    
 		                </div>
 		                
