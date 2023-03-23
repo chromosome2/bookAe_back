@@ -4,6 +4,7 @@ package bookae.member.controller;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,8 +20,10 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
 
+import bookae.community.service.CommunityService;
 import bookae.member.service.MemberService;
 import bookae.member.vo.MemberVO;
+import bookae.util.PagingVO;
 
 @Controller("memberController")
 public class MemberControllerImpl extends MultiActionController implements MemberController{
@@ -28,6 +31,7 @@ public class MemberControllerImpl extends MultiActionController implements Membe
 	@Autowired
 	private MemberService memberService;
 	HttpSession session; // 이렇게 해도 에러 안나려나?
+	
 	//프로젝트 내부 전체를 검색해서, 해당 타입의 인스턴스가 1개만 있는 경우 그 인스턴스를 자동으로 연결
 	//autowired를 사용하면 set을 따로 안해줘도됨.
 	@Autowired
@@ -269,6 +273,49 @@ public class MemberControllerImpl extends MultiActionController implements Membe
 			System.out.println("날짜 계산 오류");
 		}
 		return -1;
+	}
+	
+	//페이징 기능을 합친 myPageLike.jsp 열기
+	@Override
+	@RequestMapping(value="/myPage/myPageLike.do", method=RequestMethod.GET)
+	public ModelAndView myPageLike(PagingVO pagingVO, String nowPage, HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		String viewName=getViewName(request);
+		
+		pagingVO=new PagingVO();
+		
+		//session에서 id 얻어오기
+		session=request.getSession();
+		String id=(String)session.getAttribute("id");
+		
+		pagingVO.setId(id);
+		
+		//필요한 게시글 가져오기
+		//nowpage 세팅, 현재 보고있는 페이지 번호
+		if(nowPage == null) {
+			nowPage ="1";
+		}
+		pagingVO.setNowPage(Integer.parseInt(nowPage));
+		
+		//totalArticle 세팅, 게시글 개수 가져오기
+		int totalArticle=memberService.totalLikeArticle(id);
+		pagingVO.setTotalArticle(totalArticle);
+		
+		//pagingVO의 나머지값 계산
+		pagingVO.calcLastPage(pagingVO.getTotalArticle());
+		pagingVO.calcStartEndPage(pagingVO.getNowPage());
+		pagingVO.calcStartEnd(pagingVO.getNowPage());
+		
+		//페이징된 리스트 불러오기
+		List communityList=memberService.pagingLikeBoard(pagingVO);
+		
+		ModelAndView mav=new ModelAndView("myPage/"+viewName);
+		mav.addObject("totalArticle",totalArticle);
+		mav.addObject("paging",pagingVO);
+		mav.addObject("communityList",communityList);
+		
+		System.out.println("myPageLike.jsp 열기");
+		return mav;
 	}
 	
 	

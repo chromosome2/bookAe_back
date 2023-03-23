@@ -15,6 +15,8 @@ public class PagingVO {
 	private String head; //검색 select option
 	private String search_community; //검색 키워드
 	
+	private String id; //검색 select option
+	
 	public PagingVO() {
 		
 	}
@@ -143,6 +145,15 @@ public class PagingVO {
 
 	public void setSearch_community(String search_community) {
 		this.search_community = search_community;
+	}
+	
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	@Override

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import bookae.member.vo.MemberVO;
+import bookae.util.PagingVO;
 
 public interface MemberController {
 	public ModelAndView joinMember (@ModelAttribute("memberVO") MemberVO memberVO, HttpServletRequest request,
@@ -22,5 +23,9 @@ public interface MemberController {
 	public void idCheck(HttpServletRequest request, 
 			HttpServletResponse response) throws Exception;
 	public ModelAndView privacyChange (@ModelAttribute("memberVO") MemberVO memberVO, HttpServletRequest request,
+			HttpServletResponse response) throws Exception;
+	public ModelAndView myPageLike (PagingVO pagingVO, 
+			@RequestParam(value="nowPage", required=false) String nowPage, 
+			HttpServletRequest request,
 			HttpServletResponse response) throws Exception;
 }

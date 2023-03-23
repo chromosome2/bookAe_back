@@ -82,6 +82,32 @@
 		                    
 		                </div>
 		                
+		                <div id="contents_footer">
+			                <!-- 페이징 -->
+			                <div class="page">
+			                	<!-- 시작페이지가 1이 아니면 '<' 추가 -->
+			                	<c:if test="${paging.startPage !=1 }">
+			                		<a href="${contextPath }/myPage/myPageLike.do?nowPage=${paging.startPage - 1 }">&lt;</a>
+			                	</c:if>
+			                	
+			                	<c:forEach begin="${paging.startPage }" end="${paging.endPage }" var="p">
+			                		<c:choose>
+			                			<c:when test="${p == paging.nowPage }">
+			                				<span class="present_page">${p }</span>
+			                			</c:when>
+			                			<c:when test="${p != paging.nowPage }">
+			                				<a href="${contextPath }/myPage/myPageLike.do?nowPage=${p }">${p }</a>
+			                			</c:when>
+			                		</c:choose>
+			                	</c:forEach>
+			                	
+			                	<!-- 화면의 끝 페이지랑 전체마지막페이지랑 같지않다면 '>'추가 -->
+			                	<c:if test="${paging.endPage !=paging.lastPage }">
+			                		<a href="${contextPath }/myPage/myPageLike.do?nowPage=${paging.startPage - 1 }">&gt;</a>
+			                	</c:if>
+			                </div>
+	             		</div>
+		                
             		</div>
             	</div>
             	

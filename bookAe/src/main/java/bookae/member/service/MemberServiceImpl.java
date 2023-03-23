@@ -1,6 +1,7 @@
 package bookae.member.service;
 
 import java.sql.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import bookae.member.dao.MemberDAO;
 import bookae.member.vo.MemberVO;
+import bookae.util.PagingVO;
 
 @Service("memberService")
 public class MemberServiceImpl implements MemberService{
@@ -49,6 +51,16 @@ public class MemberServiceImpl implements MemberService{
 	public void privacyChange(MemberVO memberVO) throws DataAccessException {
 		memberDAO.privacyChange(memberVO);
 		
+	}
+
+	@Override
+	public int totalLikeArticle(String id) throws DataAccessException {
+		return memberDAO.totalLikeArticle(id);
+	}
+
+	@Override
+	public List<PagingVO> pagingLikeBoard(PagingVO pagingVO) throws DataAccessException {
+		return memberDAO.pagingLikeBoard(pagingVO);
 	}
 	
 

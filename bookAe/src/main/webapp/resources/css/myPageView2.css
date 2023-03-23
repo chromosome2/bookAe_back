@@ -1,0 +1,97 @@
+@charset "UTF-8";
+
+/*메인 컨텐츠*/
+section{
+	overflow: hidden;
+}
+
+.contents_wrapper{
+    margin-top: 100px;
+}
+
+.myPageContents {
+    padding-left: 20px;
+}
+
+table{
+	clear: both;
+    margin: 0 auto;
+}
+.tableCommu #title {
+    border-bottom: 2px solid rgb(90, 90, 90);
+}
+.tableCommu th{
+    font-size: 1em;
+    padding-bottom: 10px;
+}
+.tableCommu th:nth-child(1){
+    width: 50px;
+}
+.tableCommu th:nth-child(2){
+    width: 800px;
+}
+.tableCommu th:nth-child(3){
+    width: 150px;
+}
+.tableCommu th:nth-child(4){
+    width: 150px;
+}
+.tableCommu tr:nth-child(2) td{
+    padding-top: 20px;
+}
+.tableCommu td {
+    padding: 15px 5px;
+    font-size: 0.9em;
+}
+.tableCommu .best {
+    color: rgb(245, 27, 27);
+    font-weight: bold;
+}
+.tableCommu td .genre {
+    color: rgb(19, 145, 25);
+    font-weight: bold;
+    padding-right: 5px;
+}
+.tableCommu tr td:nth-child(3){
+    text-align: center;
+}
+.tableCommu tr td:nth-child(2):hover{
+    font-weight: bold;
+}
+.tableCommu tr:last-child {
+    border-bottom: 2px solid rgb(201, 201, 201);
+}
+.tableCommu .recommend{
+    display: inline-block;
+    width: 23px;
+    text-indent: 23px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.tableCommu .recommend::before{
+    position: relative;
+    left: -23px;
+    top: 5px;
+    content: "\2661";
+    color: rgb(255, 124, 124);
+}
+.page{
+    float: right;
+    font-size: 1.2em;
+    position: relative;
+    top: 40px;
+    color: rgb(58, 58, 58);
+    right: 50px;
+}
+.page .present_page {
+    font-weight: bold;
+    border-bottom: 1px solid;
+}
+.page a:hover{
+    font-weight: bold;
+}
+
+#contents_footer{
+	position: relative;
+	height: 350px;
+}
