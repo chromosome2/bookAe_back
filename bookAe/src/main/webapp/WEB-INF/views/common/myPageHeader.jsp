@@ -17,8 +17,8 @@
 	        			<ul class="sideMenu">
 	        				<li class="sideMenuPart sideMenu1"><a href="${contextPath}/myPage/myPagePrivacyCheck.do">1. 개인정보 수정</a></li>
 	        				<li class="sideMenuPart sideMenu2"><a href="${contextPath}/myPage/myPageLike.do">2. 좋아요 누른 게시글</a></li>
-	        				<li class="sideMenuPart sideMenu4"><a href="${contextPath}/myPage/myPageArticle.do">3. 내가 쓴 게시글</a></li>
-	        				<li class="sideMenuPart sideMenu5"><a href="${contextPath}/myPage/myPageComment.do">4. 내가 달은 댓글</a></li>
+	        				<li class="sideMenuPart sideMenu3"><a href="${contextPath}/myPage/myPageArticle.do">3. 내가 쓴 게시글</a></li>
+	        				<li class="sideMenuPart sideMenu4"><a href="${contextPath}/myPage/myPageComment.do">4. 내가 달은 댓글</a></li>
 	        			</ul>
 	        		</div>
         		</div>

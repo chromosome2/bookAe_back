@@ -290,6 +290,9 @@ public class MemberControllerImpl extends MultiActionController implements Membe
 		
 		pagingVO.setId(id);
 		
+		//가입날짜정보 가져와서 계산하기
+		int dayLeft=calDayLeft(id);
+		
 		//필요한 게시글 가져오기
 		//nowpage 세팅, 현재 보고있는 페이지 번호
 		if(nowPage == null) {
@@ -313,8 +316,56 @@ public class MemberControllerImpl extends MultiActionController implements Membe
 		mav.addObject("totalArticle",totalArticle);
 		mav.addObject("paging",pagingVO);
 		mav.addObject("communityList",communityList);
+		mav.addObject("dayLeft",dayLeft);
 		
 		System.out.println("myPageLike.jsp 열기");
+		return mav;
+	}
+	
+	//페이징 기능을 합친 myPageArticle.jsp 열기
+	@Override
+	@RequestMapping(value="/myPage/myPageArticle.do", method=RequestMethod.GET)
+	public ModelAndView myPageArticle(PagingVO pagingVO, String nowPage, HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		String viewName=getViewName(request);
+		
+		pagingVO=new PagingVO();
+		
+		//session에서 id 얻어오기
+		session=request.getSession();
+		String id=(String)session.getAttribute("id");
+		
+		pagingVO.setId(id);
+		
+		//가입날짜정보 가져와서 계산하기
+		int dayLeft=calDayLeft(id);
+		
+		//필요한 게시글 가져오기
+		//nowpage 세팅, 현재 보고있는 페이지 번호
+		if(nowPage == null) {
+			nowPage ="1";
+		}
+		pagingVO.setNowPage(Integer.parseInt(nowPage));
+		
+		//totalArticle 세팅, 게시글 개수 가져오기
+		int totalArticle=memberService.totalMyArticle(id);
+		pagingVO.setTotalArticle(totalArticle);
+		
+		//pagingVO의 나머지값 계산
+		pagingVO.calcLastPage(pagingVO.getTotalArticle());
+		pagingVO.calcStartEndPage(pagingVO.getNowPage());
+		pagingVO.calcStartEnd(pagingVO.getNowPage());
+		
+		//페이징된 리스트 불러오기
+		List communityList=memberService.pagingMyBoard(pagingVO);
+		
+		ModelAndView mav=new ModelAndView("myPage/"+viewName);
+		mav.addObject("totalArticle",totalArticle);
+		mav.addObject("paging",pagingVO);
+		mav.addObject("communityList",communityList);
+		mav.addObject("dayLeft",dayLeft);
+		
+		System.out.println("myPageArticle.jsp 열기");
 		return mav;
 	}
 	

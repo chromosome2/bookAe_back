@@ -62,6 +62,16 @@ public class MemberServiceImpl implements MemberService{
 	public List<PagingVO> pagingLikeBoard(PagingVO pagingVO) throws DataAccessException {
 		return memberDAO.pagingLikeBoard(pagingVO);
 	}
+
+	@Override
+	public int totalMyArticle(String id) throws DataAccessException {
+		return memberDAO.totalMyArticle(id);
+	}
+
+	@Override
+	public List<PagingVO> pagingMyBoard(PagingVO pagingVO) throws DataAccessException {
+		return memberDAO.pagingMyBoard(pagingVO);
+	}
 	
 
 }

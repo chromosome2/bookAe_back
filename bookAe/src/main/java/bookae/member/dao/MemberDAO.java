@@ -18,4 +18,6 @@ public interface MemberDAO {
 	public void privacyChange(MemberVO memberVO) throws  DataAccessException;
 	public int totalLikeArticle(String id) throws DataAccessException;
 	public List<PagingVO> pagingLikeBoard(PagingVO pagingVO) throws DataAccessException;
+	public int totalMyArticle(String id) throws DataAccessException;
+	public List<PagingVO> pagingMyBoard(PagingVO pagingVO) throws DataAccessException;
 }

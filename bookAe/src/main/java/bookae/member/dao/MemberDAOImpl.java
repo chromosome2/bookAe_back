@@ -72,6 +72,17 @@ public class MemberDAOImpl implements MemberDAO{
 	public List<PagingVO> pagingLikeBoard(PagingVO pagingVO) throws DataAccessException {
 		return sqlSession.selectList("mapper.community.pagingLikeBoard", pagingVO);
 	}
+
+	@Override
+	public int totalMyArticle(String id) throws DataAccessException {
+		int totalArticle =(int)sqlSession.selectOne("mapper.community.totalMyArticle", id);
+		return totalArticle;
+	}
+
+	@Override
+	public List<PagingVO> pagingMyBoard(PagingVO pagingVO) throws DataAccessException {
+		return sqlSession.selectList("mapper.community.pagingMyBoard", pagingVO);
+	}
 	
 	
 
