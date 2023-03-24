@@ -27,5 +27,4 @@ public interface MemberService {
 	public int totalMember(PagingVO pagingVO) throws DataAccessException;
 	public List memberList(PagingVO pagingVO) throws DataAccessException;
 	public void delMember(String id) throws DataAccessException;
-
 }

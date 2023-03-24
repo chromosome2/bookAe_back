@@ -136,6 +136,16 @@ public class CommunityServiceImpl implements CommunityService{
 	public int addMagazine(CommunityVO communityVO) throws DataAccessException {
 		return communityDAO.addMagazine(communityVO);
 	}
+
+	@Override
+	public CommunityVO viewMagazine(int magazine_num) throws DataAccessException {
+		return communityDAO.viewMagazine(magazine_num);
+	}
+
+	@Override
+	public List magazineList() throws DataAccessException {
+		return communityDAO.magazineList();
+	}
 	
 	
 

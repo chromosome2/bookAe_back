@@ -38,7 +38,10 @@ public interface CommunityService {
 	public int totalMagazine(PagingVO pagingVO) throws DataAccessException;
 	//매거진목록
 	public List magazineList(PagingVO pagingVO) throws DataAccessException;
+	public List magazineList() throws DataAccessException;
 	//매거진 작성
 	public int addMagazine (CommunityVO communityVO) throws DataAccessException;
+	//매거진 보기
+	public CommunityVO viewMagazine (int magazine_num) throws DataAccessException;
 
 }

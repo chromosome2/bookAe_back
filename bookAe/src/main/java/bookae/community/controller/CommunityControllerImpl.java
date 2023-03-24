@@ -32,6 +32,8 @@ public class CommunityControllerImpl extends MultiActionController implements Co
 	@Autowired
 	private CommunityService communityService;
 	
+	
+	
 	//커뮤니티 목록 불러오기
 	/*@Override
 	@RequestMapping(value="/community/community.do", method=RequestMethod.GET)
@@ -408,8 +410,26 @@ public class CommunityControllerImpl extends MultiActionController implements Co
 		pagingVO.calcStartEnd(pagingVO.getNowPage());
 		
 		//페이징된 리스트 불러오기
-		List magazineList=communityService.magazineList(pagingVO);
+		List<CommunityVO> magazineList=communityService.magazineList(pagingVO);
 		
+		//magazine_content에서 <img>태그 빼기
+		for(CommunityVO m : magazineList){
+			String magazine_content=m.getMagazine_content();
+			String magazine_img;
+			int begin, end;
+			while(true){
+				if(magazine_content.indexOf("<img src=")!=-1) {
+					begin=magazine_content.indexOf("<img src=");
+					magazine_img=magazine_content.substring(begin);
+					end=magazine_img.indexOf(">");
+					magazine_img=magazine_img.substring(0,end+1);
+					magazine_content.replace(magazine_img,"");
+					m.setMagazine_content(magazine_content);
+				}else{
+					break;
+				}
+			}
+		}
 		
 		ModelAndView mav=new ModelAndView("admin/magazine/"+viewName);
 		mav.addObject("totalArticle",totalArticle);
@@ -442,7 +462,7 @@ public class CommunityControllerImpl extends MultiActionController implements Co
 		
 		String[] eng_genre= {"interview","event","news"};
 		String[] kor_genre= {"인터뷰","행사","뉴스"};
-		String result=null;
+		String result=genre;
 		for(int i=0; i<eng_genre.length; i++) {
 			if(genre.equals(eng_genre[i])) {
 				result=kor_genre[i];
@@ -464,9 +484,29 @@ public class CommunityControllerImpl extends MultiActionController implements Co
 		}
 		
 		
+		
+		
 		communityService.addMagazine(communityVO);
 		ModelAndView mav=new ModelAndView("redirect:/community/magazine.do");
 		System.out.println("addMagazine 실행");
+		return mav;
+	}
+	
+	//게시글 하나 보기
+	@Override
+	@RequestMapping(value="/community/viewMagazine.do", method=RequestMethod.GET)
+	public ModelAndView viewMagazine(@RequestParam("magazine_num") int magazine_num, HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		String viewName=getViewName(request);
+		
+		//magazine 정보 다 가져오기
+		CommunityVO communityVO=communityService.viewMagazine(magazine_num);
+		
+		ModelAndView mav=new ModelAndView("admin/magazine/"+viewName);
+		mav.addObject("magazine", communityVO);
+		
+		System.out.println("viewMagazine.jsp 열기");
+		
 		return mav;
 	}
 	

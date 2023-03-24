@@ -55,5 +55,7 @@ public interface CommunityController {
 			HttpServletResponse response) throws Exception;
 	public ModelAndView addMagazine (@ModelAttribute("communityVO") CommunityVO communityVO, HttpServletRequest request,
 			HttpServletResponse response) throws Exception;
+	public ModelAndView viewMagazine (@RequestParam("magazine_num") int magazine_num, HttpServletRequest request,
+			HttpServletResponse response) throws Exception;
 
 }

@@ -71,7 +71,7 @@
 		                        	<span class="genre">&lt;${magazine.magazine_genre }&gt;</span> 
 		                        	${magazine.magazine_title }</a>
 		                        </td>
-		                        <td>${magazine.board_date}</td>
+		                        <td>${magazine.magazine_date}</td>
 		                        <td>관리자</td>
 		                    </tr>
 	                    </c:forEach>

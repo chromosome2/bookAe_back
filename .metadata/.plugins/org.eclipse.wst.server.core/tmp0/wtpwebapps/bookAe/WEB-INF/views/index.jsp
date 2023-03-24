@@ -4,6 +4,9 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
+<%@page import="org.apache.ibatis.session.SqlSession"%>
+<%@page import="bookae.community.vo.CommunityVO"%>
+<%@page import="java.util.List"%>
 
 <!DOCTYPE html>
 <html>
@@ -23,6 +26,34 @@
 	<title>북愛 - 메인 페이지</title>
 </head>
 <body>
+
+	<!-- 데이터 가져오기 -->
+	<%!
+		/*SqlSession sqlSession;
+	
+		List<CommunityVO> RecentMagazineList=sqlSession.selectList("mapper.community.RecentMagazineList");
+		int listSize=RecentMagazineList.size();*/
+		
+		//magazine_content에서 <img>태그 빼기
+		/*for(CommunityVO m : RecentMagazineList){
+			String magazine_content=m.getMagazine_content();
+			String magazine_img;
+			int begin, end;
+			while(true){
+				if(magazine_content.indexOf("<img src=")!=-1) {
+					begin=magazine_content.indexOf("<img src=");
+					magazine_img=magazine_content.substring(begin);
+					end=magazine_img.indexOf(">");
+					magazine_img=magazine_img.substring(0,end+1);
+					magazine_content.replace(magazine_img,"");
+					m.setMagazine_content(magazine_content);
+				}else{
+					break;
+				}
+			}
+		}*/
+		
+	%>
     <!--건너뛰기 링크 시작-->
     <a id="skipNav" href="mainContents">본문 바로가기</a>
     <!--건너뛰기 링크 종료-->
@@ -299,7 +330,23 @@
             <div id="magazineBanner">
                 <h2>매거진</h2>
                 <ul>
-                    <li>
+                	<!--<c:if test="${empty magazineList }">
+                		
+                    </c:if>
+                    <c:if test="${!empty magazineList }">
+	                    <c:forEach var="magazine" items="${magazineList }">
+                			<li>
+		                        <div>
+		                            <a href="#"><span class="magazineImg">${magazine.magazine_image }</span></a>
+		                            <span>&lt;${magazine.magazine_genre }&gt;</span>
+		                            <h3><a href="#">${magazine.magazine_title}</a></h3>
+		                            <p class="naeyoung"><a href="#"><span>${magazine.magazine_content}</span></a></p>
+		                            <p class="plus">p</p>
+		                        </div>
+		                    </li>
+                		</c:forEach>
+                    </c:if>-->
+                   <li>
                         <div>
                             <a href="#"><img src="resources/images/magazine1.jpg" alt="작가 이미예"></a>
                             <span>&lt;인터뷰&gt;</span>

@@ -218,4 +218,18 @@ public class CommunityDAOImpl implements CommunityDAO{
 		return result;
 	}
 
+	//매거진 자세히 보기
+	@Override
+	public CommunityVO viewMagazine(int magazine_num) throws DataAccessException {
+		//조회수업데이트
+		sqlSession.update("mapper.community.updateMagazineView", magazine_num);
+		CommunityVO magazine=(CommunityVO)sqlSession.selectOne("mapper.community.viewMagazine", magazine_num);
+		return magazine;
+	}
+
+	@Override
+	public List magazineList() throws DataAccessException {
+		return sqlSession.selectList("mapper.community.RecentMagazineList");
+	}
+
 }
