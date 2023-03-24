@@ -341,4 +341,30 @@
 		]]>
 	</select>
 	
+	<!-- 마이 페이지 - 내가 쓴 모든 댓글 가져오기 -->
+	<select id="myCommentList" resultMap="commentResult" parameterType="bookae.util.PagingVO">
+		<![CDATA[
+			SELECT * FROM 
+		    (SELECT ROWNUM rn, A.* FROM 
+		        (SELECT c.*, 
+					    (SELECT nickname FROM jointbl WHERE id=
+					        (SELECT id FROM commenttbl WHERE comment_num=c.comment_annot)) 
+					    as annot_nickname, 
+            			(SELECT board_title FROM boardtbl WHERE board_num=c.board_num) 
+            			as board_title 
+					FROM commenttbl c 
+					WHERE id=#{id} AND not deleteis = 0 
+					ORDER BY comment_num desc)
+			    A ) 
+			WHERE rn BETWEEN #{start} AND #{end}
+		]]>
+	</select>
+	
+	<!-- 마이 페이지 - 내가 쓴 모든 댓글 가져오기 -->
+	<select id="totalMyComment" resultType="int" parameterType="String">
+		<![CDATA[
+			select count(*) from commenttbl where id=#{id} AND not deleteis = 0 
+		]]>
+	</select>
+	
 </mapper>

@@ -368,6 +368,54 @@ public class MemberControllerImpl extends MultiActionController implements Membe
 		System.out.println("myPageArticle.jsp 열기");
 		return mav;
 	}
+
+	//내가 쓴 댓글 보기
+	@Override
+	@RequestMapping(value="/myPage/myPageComment.do", method=RequestMethod.GET)
+	public ModelAndView myCommentList(PagingVO pagingVO, String nowPage, HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		String viewName=getViewName(request);
+		
+		//session에서 id 얻어오기
+		session=request.getSession();
+		String id=(String)session.getAttribute("id");
+		
+		pagingVO.setId(id);
+		
+		//id로 닉네임 찾아오기
+		String nickname=memberService.getNickname(id);
+		
+		
+		//가입날짜정보 가져와서 계산하기
+		int dayLeft=calDayLeft(id);
+		
+		//내가 쓴 댓글 가져오기
+		//nowpage 세팅, 현재 보고있는 페이지 번호
+		if(nowPage == null) {
+			nowPage ="1";
+		}
+		pagingVO.setNowPage(Integer.parseInt(nowPage));
+		
+		//totalComment 세팅, 게시글 개수 가져오기
+		int totalComment=memberService.totalMyComment(id);
+		pagingVO.setTotalArticle(totalComment);
+		
+		//pagingVO의 나머지값 계산
+		pagingVO.calcLastPage(pagingVO.getTotalArticle());
+		pagingVO.calcStartEndPage(pagingVO.getNowPage());
+		pagingVO.calcStartEnd(pagingVO.getNowPage());
+		
+		//페이징된 리스트 불러오기
+		List commentList=memberService.myCommentList(pagingVO);
+		
+		ModelAndView mav=new ModelAndView("myPage/"+viewName);
+		mav.addObject("totalComment",totalComment);
+		mav.addObject("paging",pagingVO);
+		mav.addObject("commentList",commentList);
+		mav.addObject("dayLeft",dayLeft);
+		mav.addObject("nickname",nickname);
+		return mav;
+	}
 	
 	
 	

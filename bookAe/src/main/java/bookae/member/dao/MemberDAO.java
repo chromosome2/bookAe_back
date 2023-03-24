@@ -17,7 +17,10 @@ public interface MemberDAO {
 	public String idCheck(String id) throws  DataAccessException;
 	public void privacyChange(MemberVO memberVO) throws  DataAccessException;
 	public int totalLikeArticle(String id) throws DataAccessException;
-	public List<PagingVO> pagingLikeBoard(PagingVO pagingVO) throws DataAccessException;
+	public List pagingLikeBoard(PagingVO pagingVO) throws DataAccessException;
 	public int totalMyArticle(String id) throws DataAccessException;
-	public List<PagingVO> pagingMyBoard(PagingVO pagingVO) throws DataAccessException;
+	public List pagingMyBoard(PagingVO pagingVO) throws DataAccessException;
+	public int totalMyComment(String id) throws DataAccessException;
+	public List myCommentList(PagingVO pagingVO) throws DataAccessException;
+	public String getNickname(String id) throws DataAccessException;
 }

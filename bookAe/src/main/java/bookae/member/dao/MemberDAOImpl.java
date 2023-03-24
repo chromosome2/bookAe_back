@@ -69,7 +69,7 @@ public class MemberDAOImpl implements MemberDAO{
 	}
 
 	@Override
-	public List<PagingVO> pagingLikeBoard(PagingVO pagingVO) throws DataAccessException {
+	public List pagingLikeBoard(PagingVO pagingVO) throws DataAccessException {
 		return sqlSession.selectList("mapper.community.pagingLikeBoard", pagingVO);
 	}
 
@@ -80,8 +80,26 @@ public class MemberDAOImpl implements MemberDAO{
 	}
 
 	@Override
-	public List<PagingVO> pagingMyBoard(PagingVO pagingVO) throws DataAccessException {
+	public List pagingMyBoard(PagingVO pagingVO) throws DataAccessException {
 		return sqlSession.selectList("mapper.community.pagingMyBoard", pagingVO);
+	}
+
+	//내가 쓴 댓글 수 가져오기
+	@Override
+	public int totalMyComment(String id) throws DataAccessException {
+		int totalComment =(int)sqlSession.selectOne("mapper.community.totalMyComment", id);
+		return totalComment;
+	}
+
+	//내가 쓴 댓글 리스트 가져오기
+	@Override
+	public List myCommentList(PagingVO pagingVO) throws DataAccessException {
+		return sqlSession.selectList("mapper.community.myCommentList", pagingVO);
+	}
+
+	@Override
+	public String getNickname(String id) throws DataAccessException {
+		return (String)sqlSession.selectOne("mapper.community.getNickname", id);
 	}
 	
 	

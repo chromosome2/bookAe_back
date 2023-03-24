@@ -60,7 +60,7 @@
 			                    <!-- 게시글 -->
 			                    <c:if test="${empty communityList }">
 			                    	<tr>
-			                    		<td colspan="4" align="center">좋아요한 게시글이 없습니다.</td>
+			                    		<td colspan="4" align="center">내가 쓴 게시글이 없습니다.</td>
 			                    	</tr>
 			                    </c:if>
 			                    <c:if test="${!empty communityList }">

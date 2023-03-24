@@ -1,0 +1,14 @@
+@charset "UTF-8";
+
+/*메인 컨텐츠*/
+.comment_content {
+    line-height: 30px;
+}
+.comment_board_title{
+	font-size: 0.8em;
+    color: #949494;
+}
+.reply_parent_nickname {
+    color: #68ad56;
+    font-weight: bold;
+}

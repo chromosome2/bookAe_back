@@ -59,7 +59,7 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 	@Override
-	public List<PagingVO> pagingLikeBoard(PagingVO pagingVO) throws DataAccessException {
+	public List pagingLikeBoard(PagingVO pagingVO) throws DataAccessException {
 		return memberDAO.pagingLikeBoard(pagingVO);
 	}
 
@@ -69,8 +69,23 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 	@Override
-	public List<PagingVO> pagingMyBoard(PagingVO pagingVO) throws DataAccessException {
+	public List pagingMyBoard(PagingVO pagingVO) throws DataAccessException {
 		return memberDAO.pagingMyBoard(pagingVO);
+	}
+
+	@Override
+	public int totalMyComment(String id) throws DataAccessException {
+		return memberDAO.totalMyComment(id);
+	}
+
+	@Override
+	public List myCommentList(PagingVO pagingVO) throws DataAccessException {
+		return memberDAO.myCommentList(pagingVO);
+	}
+
+	@Override
+	public String getNickname(String id) throws DataAccessException {
+		return memberDAO.getNickname(id);
 	}
 	
 
