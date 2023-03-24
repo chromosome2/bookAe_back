@@ -94,13 +94,19 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 	@Override
-	public int totalMember() throws DataAccessException {
-		return memberDAO.totalMember();
+	public int totalMember(PagingVO pagingVO) throws DataAccessException {
+		return memberDAO.totalMember(pagingVO);
 	}
 
 	@Override
 	public List memberList(PagingVO pagingVO) throws DataAccessException {
 		return memberDAO.memberList(pagingVO);
+	}
+
+	@Override
+	public void delMember(String id) throws DataAccessException {
+		memberDAO.delMember(id);
+		
 	}
 	
 

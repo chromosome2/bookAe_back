@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="${contextPath }/resources/css/myPageView2.css">
     <script src="${contextPath }/resources/js/jquery-3.6.0.min.js"></script>
     <script src="${contextPath }/resources/js/common.js"></script>
-    <script src="${contextPath }/resources/js/myPageView3.js"></script>
+    <script src="${contextPath }/resources/js/manageMember.js"></script>
 	<title>북愛 - 감상평 페이지</title>
 	<script type="text/javascript">
 	</script>
@@ -45,18 +45,31 @@
         	
         		<!-- header시작 -->
     			<div id="manageMemberHeader">
-            		<h2 id="manageMemberTitle"><a href="${contextPath}/admin/manageMember.do">마이 페이지</a></h2>
+            		<h2 id="manageMemberTitle"><a href="${contextPath}/admin/manageMember.do">회원 관리</a></h2>
            		</div>
            		<!-- header시작 -->
             		
            		<div class="manageMemberContents">
            			
            			<div class="contents_wrapper">
+           			
+           				<form action="${contextPath}/admin/manageMember.do" method="get" id="searchMember">
+		                    <select name="head" id="searchHeadBox">
+		                        <option value="id">아이디</option>
+		                        <option value="name">이름</option>
+		                        <option value="nickname">닉네임</option>
+		                        <option value="tel">전화번호</option>
+		                        <option value="email">이메일</option>
+		                        <option value="joindate">가입 날짜</option>
+		                    </select>
+		                    <input type="text" id="search_member_keyword" name="search_community" required>
+		                    <input id="submitBtn" class="subBtn" type="submit" value="검색"/>
+		                </form>
 	                    
 	                    <table class="tableCommu">
 	                    
 		                    <tr id="title">
-		                        <th>번호</th><th>아이디</th><th>이름</th><th>닉네임</th><th>전화번호</th><th>이메일</th><th>가입일</th><th></th>
+		                        <th>번호</th><th>아이디</th><th>이름</th><th>닉네임</th><th>전화번호</th><th>이메일</th><th>가입일</th><th>삭제</th>
 		                    </tr>
 		                    
 		                    <!-- 게시글 -->
@@ -72,10 +85,10 @@
 				                        <td>${member.id}</td>
 				                        <td>${member.name}</td>
 				                        <td>${member.nickname }</td>
-				                        <td>${member.tel }</td>
+				                        <td>0${member.tel }</td>
 				                        <td>${member.email }</td>
 				                        <td>${member.joindate }</td>
-				                        <td><a href="${contextPath}/admin/delMember.do?id=${member.id}">정보 삭제</a></td>
+				                        <td><input type="button" value="정보 삭제" onclick="delMember('${member.id}')"></td>
 				                    </tr>
 			                    </c:forEach>
 		                    </c:if>
@@ -88,7 +101,7 @@
 		                <div class="page">
 		                	<!-- 시작페이지가 1이 아니면 '<' 추가 -->
 		                	<c:if test="${paging.startPage !=1 }">
-		                		<a href="${contextPath }/admin/manageMember.do?nowPage=${paging.startPage - 1 }">&lt;</a>
+		                		<a href="${contextPath }/admin/manageMember.do?nowPage=${paging.startPage - 1 }&head=${head}&search_community=${keyword}">&lt;</a>
 		                	</c:if>
 		                	
 		                	<c:forEach begin="${paging.startPage }" end="${paging.endPage }" var="p">
@@ -97,14 +110,14 @@
 		                				<span class="present_page">${p }</span>
 		                			</c:when>
 		                			<c:when test="${p != paging.nowPage }">
-		                				<a href="${contextPath }/admin/manageMember.do?nowPage=${p }">${p }</a>
+		                				<a href="${contextPath }/admin/manageMember.do?nowPage=${p }&head=${head}&search_community=${keyword}">${p }</a>
 		                			</c:when>
 		                		</c:choose>
 		                	</c:forEach>
 		                	
 		                	<!-- 화면의 끝 페이지랑 전체마지막페이지랑 같지않다면 '>'추가 -->
 		                	<c:if test="${paging.endPage !=paging.lastPage }">
-		                		<a href="${contextPath }/admin/manageMember.do?nowPage=${paging.startPage - 1 }">&gt;</a>
+		                		<a href="${contextPath }/admin/manageMember.do?nowPage=${paging.startPage - 1 }&head=${head}&search_community=${keyword}">&gt;</a>
 		                	</c:if>
 		                </div>
              		</div>
@@ -121,4 +134,30 @@
     </div>
     <!--#wrapper 종료-->
 </body>
+<script type="text/javascript">
+	//멤버 삭제
+	function delMember(id){
+		var admin='<%=(String)session.getAttribute("id")%>';
+		if(admin=='admin'){
+			if(confirm("회원을 정말 삭제하시겠습니까?")){
+				var data={"id" : id};
+				$.ajax({
+  					type:'POST',
+					dataType:"json",
+					data: data,
+  					url:'${contextPath}/admin/delMember.do',
+  					success:function(data){
+  						alert("삭제 완료했습니다.");
+  						location.href='${contextPath}/admin/manageMember.do';
+  					},
+  					error : function(data){
+  						alert('삭제를 실패했습니다. 서버로 문의해주세요.');
+  					}
+  				})
+			}
+		}else{
+			alert("잘못된 접근입니다. 다시 시도해주세요.");
+		}
+	}
+</script>
 </html>

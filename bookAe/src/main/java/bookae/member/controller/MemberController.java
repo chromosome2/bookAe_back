@@ -38,6 +38,11 @@ public interface MemberController {
 			HttpServletResponse response) throws Exception;
 	public ModelAndView manageMember (PagingVO pagingVO, 
 			@RequestParam(value="nowPage", required=false) String nowPage, 
+			@RequestParam(value="head", required=false) String head,
+			@RequestParam(value="search_community", required=false) String search_community, 
+			HttpServletRequest request,
+			HttpServletResponse response) throws Exception;
+	public void delMember (@RequestParam(value="id") String id, 
 			HttpServletRequest request,
 			HttpServletResponse response) throws Exception;
 }

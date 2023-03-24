@@ -86,23 +86,75 @@
 	</update>
 	
 	<!-- 회원관리 - 회원의 총 개수 -->
-	<select id="totalMember" resultType="_int">
+	<select id="totalMember" resultType="_int" parameterType="bookae.util.PagingVO">
 		<![CDATA[
-			select count(*) from jointbl
+			select count(*) from jointbl 
 		]]>
+		<if test="head != '' and head != null">
+			<choose>
+				<when test="head == 'id'">
+					WHERE id like '%'||#{search_community}||'%' 
+				</when>
+				<when test="head == 'name'">
+					WHERE name like '%'||#{search_community}||'%' 
+				</when>
+				<when test="head == 'nickname'">
+					WHERE head like '%'||#{search_community}||'%' 
+				</when>
+				<when test="head == 'tel'">
+					WHERE tel like '%'||#{search_community}||'%' 
+				</when>
+				<when test="head == 'email'">
+					WHERE email like '%'||#{search_community}||'%' 
+				</when>
+				<when test="head == 'joindate'">
+					WHERE joindate like '%'||#{search_community}||'%' 
+				</when>
+			</choose>
+		</if>
 	</select>
 			
 	<!-- 회원관리 - 회원 조회 -->
 	<select id="memberList" resultMap="memberResult" parameterType="bookae.util.PagingVO">
-		<![CDATA[
 			SELECT * FROM 
 			    (SELECT ROWNUM rn, A.* FROM 
 			        (
-			        SELECT * from jointbl ORDER BY joindate desc
+			        SELECT * from jointbl 
+			        <if test="head != '' and head != null">
+						<choose>
+							<when test="head == 'id'">
+								WHERE id like '%'||#{search_community}||'%' 
+							</when>
+							<when test="head == 'name'">
+								WHERE name like '%'||#{search_community}||'%' 
+							</when>
+							<when test="head == 'nickname'">
+								WHERE head like '%'||#{search_community}||'%' 
+							</when>
+							<when test="head == 'tel'">
+								WHERE tel like '%'||#{search_community}||'%' 
+							</when>
+							<when test="head == 'email'">
+								WHERE email like '%'||#{search_community}||'%' 
+							</when>
+							<when test="head == 'joindate'">
+								WHERE joindate like '%'||#{search_community}||'%' 
+							</when>
+						</choose>
+					</if>
+			        ORDER BY joindate desc
 			        ) A
 			    )
 			WHERE rn BETWEEN #{start} AND #{end}
-		]]>
 	</select>
+	
+	<!-- 회원 삭제 -->
+	<delete id="delMember" parameterType="String">
+		<![CDATA[
+			DELETE 
+			FROM jointbl 
+			WHERE id=#{id}
+		]]>
+	</delete>
 	
 </mapper>

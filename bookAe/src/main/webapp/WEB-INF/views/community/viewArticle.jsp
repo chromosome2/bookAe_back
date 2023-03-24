@@ -247,7 +247,7 @@
 			            					</div>
 			            					
 			            					<!-- 수정, 삭제, 답글 -->
-			            					<c:if test="${!empty id }">
+			            					<c:if test="${!empty id}">
 				            					<p class="parent_comment_footer comment_footer" id="comment_footer${parent.comment_num }">
 				            						<c:if test="${id == parent.id }">
 					            						<input type="button" value="수정" class="commentBtn btn" onclick="fn_modComment('${parent.comment_num}')"/>
@@ -339,7 +339,8 @@
 	            			</c:if>
             			</section>
             				
-           				<div id="write_comment">
+            			
+   						<div id="write_comment">
            					<form action="${contextPath}/community/addParentComment.do" method="post" id="writeComment" name="writeComment">
            						<textarea id="comment_textarea" rows="5" cols="100" name="comment_content"></textarea>
            						<input type="hidden" value="${id }" name="id">
@@ -349,6 +350,7 @@
 			            		</div>
            					</form>
            				</div>
+           				
             		</div>
             	</div>
             </section>

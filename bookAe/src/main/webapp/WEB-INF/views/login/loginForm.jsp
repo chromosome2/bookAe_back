@@ -57,7 +57,7 @@
                     <label class="autoLogin"><input type="checkbox" name="autoLoginCheck" value="autoLoginCheck"><i class="circle"></i>자동 로그인</label>
                     <button type="submit"><p>로그인</p></button>
                     <p>
-                        <a href="#" class="lg_Fid">아이디찾기</a>/<a href="#" class="lg_Fpw">비밀번호찾기</a><a href="join.html" class="lg_join">회원가입하러가기</a>
+                        <a href="#" class="lg_Fid">아이디찾기</a>/<a href="#" class="lg_Fpw">비밀번호찾기</a><a href="${contextPath}/join/joinForm.do" class="lg_join">회원가입하러가기</a>
                     </p>
                 </fieldset>
             </form>

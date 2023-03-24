@@ -24,7 +24,8 @@ public interface MemberService {
 	public List myCommentList(PagingVO pagingVO) throws DataAccessException;
 	public String getNickname(String id) throws DataAccessException;
 	public String loginAdmin(MemberVO memberVO) throws DataAccessException;
-	public int totalMember() throws DataAccessException;
+	public int totalMember(PagingVO pagingVO) throws DataAccessException;
 	public List memberList(PagingVO pagingVO) throws DataAccessException;
+	public void delMember(String id) throws DataAccessException;
 
 }

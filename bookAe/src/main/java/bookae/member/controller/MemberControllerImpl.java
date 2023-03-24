@@ -117,8 +117,10 @@ public class MemberControllerImpl extends MultiActionController implements Membe
 		if(result.equals("true")) {
 			System.out.println("로그인 성공");
 			mav=new ModelAndView("redirect:/");
-			session.setAttribute("isLogin", true);//session에 로그인 정보 추가.
-			session.setAttribute("id", memberVO.getId());
+			if(admin.equals("n")) {//member일 경우
+				session.setAttribute("isLogin", true);//session에 로그인 정보 추가.
+				session.setAttribute("id", memberVO.getId());
+			}
 			session.setAttribute("admin", admin);
 		}else {
 			System.out.println("로그인 안성공");
@@ -430,8 +432,8 @@ public class MemberControllerImpl extends MultiActionController implements Membe
 	//멤버관리
 	@Override
 	@RequestMapping(value="/admin/manageMember.do", method=RequestMethod.GET)
-	public ModelAndView manageMember(PagingVO pagingVO, String nowPage, HttpServletRequest request,
-			HttpServletResponse response) throws Exception {
+	public ModelAndView manageMember(PagingVO pagingVO, String nowPage, String head, String search_community,
+			HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String viewName=getViewName(request);
 		
 		//가입한 멤버 가져오기
@@ -441,8 +443,19 @@ public class MemberControllerImpl extends MultiActionController implements Membe
 		}
 		pagingVO.setNowPage(Integer.parseInt(nowPage));
 		
+		//검색 키워드 가져오기
+		if(head != null && search_community != null) {
+			//date sql문에 적용할 수 있게 바꿔주기
+			if(head.equals("joindate")){
+				search_community=search_community.substring(2,4)+"/"+search_community.substring(5,7)+"/"+search_community.substring(8);
+			}
+			pagingVO.setHead(head); //검색할 항목
+			pagingVO.setSearch_community(search_community); //검색 키워드
+		}
+		
 		//멤버 개수 가져오기
-		int totalMember=memberService.totalMember();
+		int totalMember=memberService.totalMember(pagingVO);
+		System.out.println(totalMember);
 		pagingVO.setTotalArticle(totalMember);
 		
 		//pagingVO의 나머지값 계산
@@ -455,9 +468,27 @@ public class MemberControllerImpl extends MultiActionController implements Membe
 		
 		ModelAndView mav=new ModelAndView("admin/manage/"+viewName);
 		mav.addObject("totalMember",totalMember);
+		mav.addObject("head",head);
+		mav.addObject("keyword",search_community);
 		mav.addObject("paging",pagingVO);
 		mav.addObject("memberList",memberList);
 		return mav;
+	}
+
+	//멤버 삭제
+	@Override
+	@RequestMapping(value="/admin/delMember.do", method=RequestMethod.POST)
+	public void delMember(String id, HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		memberService.delMember(id);
+		
+		//json설정
+		JSONObject json=new JSONObject();
+		
+		PrintWriter pwt=response.getWriter();
+		pwt.println(json);//보내주기
+		pwt.flush();
+		pwt.close();
 	}
 	
 	

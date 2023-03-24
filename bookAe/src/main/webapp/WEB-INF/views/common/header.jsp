@@ -15,13 +15,13 @@
                     </a>
                 </h1>
                 <c:choose>
-                	<c:when test="${isLogin == true && admin=='n'}">
+                	<c:when test="${isLogin == true}">
                 		<ul class="infoLink">
 		                    <li><a href="${contextPath}/myPage/myPagePrivacyCheck.do">마이 페이지</a></li>
 		                    <li><a href="${contextPath }/login/logout.do">로그아웃</a></li>
 		                </ul>
                 	</c:when>
-                	<c:when test="${isLogin == true && admin=='y'}">
+                	<c:when test="${admin=='y'}">
                 		<ul class="infoLink">
 		                    <li><a href="${contextPath}/admin/manageMember.do">회원관리</a></li>
 		                    <li><a href="${contextPath }/login/logout.do">로그아웃</a></li>

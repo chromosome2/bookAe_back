@@ -114,15 +114,24 @@ public class MemberDAOImpl implements MemberDAO{
 		return result;
 	}
 
+	//회원 수
 	@Override
-	public int totalMember() throws DataAccessException {
-		int totalMember =(int)sqlSession.selectOne("mapper.member.totalMember");
+	public int totalMember(PagingVO pagingVO) throws DataAccessException {
+		int totalMember =(int)sqlSession.selectOne("mapper.member.totalMember", pagingVO);
 		return totalMember;
 	}
 
+	//회원 리스트
 	@Override
 	public List memberList(PagingVO pagingVO) throws DataAccessException {
 		return sqlSession.selectList("mapper.member.memberList", pagingVO);
+	}
+
+	//회원 삭제
+	@Override
+	public void delMember(String id) throws DataAccessException {
+		sqlSession.delete("mapper.member.delMember", id);
+		
 	}
 	
 	
