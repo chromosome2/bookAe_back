@@ -121,6 +121,21 @@ public class CommunityServiceImpl implements CommunityService{
 	public int ReGetComment_parent(int comment_annot) throws DataAccessException {
 		return communityDAO.ReGetComment_parent(comment_annot);
 	}
+
+	@Override
+	public int totalMagazine(PagingVO pagingVO) throws DataAccessException {
+		return communityDAO.totalMagazine(pagingVO);
+	}
+
+	@Override
+	public List magazineList(PagingVO pagingVO) throws DataAccessException {
+		return communityDAO.magazineList(pagingVO);
+	}
+	
+	@Override
+	public int addMagazine(CommunityVO communityVO) throws DataAccessException {
+		return communityDAO.addMagazine(communityVO);
+	}
 	
 	
 

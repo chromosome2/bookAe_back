@@ -29,5 +29,11 @@ public interface CommunityDAO {
 	public void modComment(CommunityVO communityVO) throws DataAccessException;
 	public void replyComment(CommunityVO communityVO) throws DataAccessException;
 	public int ReGetComment_parent(int comment_annot) throws DataAccessException;
+	//매거진 개수
+	public int totalMagazine(PagingVO pagingVO) throws DataAccessException;
+	//매거진목록
+	public List magazineList(PagingVO pagingVO) throws DataAccessException;
+	//매거진 작성
+	public int addMagazine (CommunityVO communityVO) throws DataAccessException;
 
 }

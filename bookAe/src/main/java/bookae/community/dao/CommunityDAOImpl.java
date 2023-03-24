@@ -198,4 +198,24 @@ public class CommunityDAOImpl implements CommunityDAO{
 		return (int)sqlSession.selectOne("mapper.community.ReGetComment_parent", comment_annot);
 	}
 
+	//매거진개수
+	@Override
+	public int totalMagazine(PagingVO pagingVO) throws DataAccessException {
+		int totalMagazine =(int)sqlSession.selectOne("mapper.community.totalMagazine", pagingVO);
+		return totalMagazine;
+	}
+
+	//매거진목록
+	@Override
+	public List magazineList(PagingVO pagingVO) throws DataAccessException {
+		return sqlSession.selectList("mapper.community.magazineList", pagingVO);
+	}
+	
+	//매거진 작성
+	@Override
+	public int addMagazine(CommunityVO communityVO) throws DataAccessException {
+		int result=sqlSession.insert("mapper.community.addMagazine", communityVO);
+		return result;
+	}
+
 }

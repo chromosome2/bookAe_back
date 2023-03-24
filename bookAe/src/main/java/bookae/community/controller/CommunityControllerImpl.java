@@ -360,9 +360,9 @@ public class CommunityControllerImpl extends MultiActionController implements Co
 		
 		//comment_parent 구해오기
 		int comment_annot=communityVO.getComment_annot();
-		System.out.println(comment_annot);
+		
 		int comment_parent = communityService.ReGetComment_parent(comment_annot);
-		System.out.println(comment_parent);
+		
 		//comment_parent가 0이라면(부모 댓글에 답글을 다는거라면) comment_annot, 내가 답글 다는 댓글을 comment_parent로
 		if(comment_parent == 0) {
 			communityVO.setComment_parent(comment_annot);
@@ -376,6 +376,97 @@ public class CommunityControllerImpl extends MultiActionController implements Co
 		ModelAndView mav=new ModelAndView("redirect:/community/viewArticle.do?board_num="+communityVO.getBoard_num());
 		
 		System.out.println("modComment 실행");
+		return mav;
+	}
+
+	//매거진 열기
+	@Override
+	@RequestMapping(value="/community/magazine.do", method=RequestMethod.GET)
+	public ModelAndView magazine(PagingVO pagingVO, String nowPage, String head, String search_community,
+			HttpServletRequest request, HttpServletResponse response) throws Exception {
+		String viewName=getViewName(request);
+		
+		//nowpage 세팅, 현재 보고있는 페이지 번호
+		if(nowPage == null) {
+			nowPage ="1";
+		}
+		pagingVO.setNowPage(Integer.parseInt(nowPage));
+		
+		//검색 키워드 가져오기
+		if(head != null && search_community != null) {
+			pagingVO.setHead(head); //검색할 항목
+			pagingVO.setSearch_community(search_community); //검색 키워드
+		}
+		
+		//totalArticle 세팅, 게시글 개수 가져오기
+		int totalArticle=communityService.totalMagazine(pagingVO);
+		pagingVO.setTotalArticle(totalArticle);
+		
+		//pagingVO의 나머지값 계산
+		pagingVO.calcLastPage(pagingVO.getTotalArticle());
+		pagingVO.calcStartEndPage(pagingVO.getNowPage());
+		pagingVO.calcStartEnd(pagingVO.getNowPage());
+		
+		//페이징된 리스트 불러오기
+		List magazineList=communityService.magazineList(pagingVO);
+		
+		
+		ModelAndView mav=new ModelAndView("admin/magazine/"+viewName);
+		mav.addObject("totalArticle",totalArticle);
+		mav.addObject("head",head);
+		mav.addObject("keyword",search_community);
+		mav.addObject("paging",pagingVO);
+		mav.addObject("magazineList",magazineList);
+		
+		return mav;
+	}
+	//매거진 글쓰기 폼 열기
+	@RequestMapping(value="/community/writeMagazine.do", method=RequestMethod.GET)
+	public ModelAndView writeMagazine(HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		String viewName=getViewName(request);
+		ModelAndView mav=new ModelAndView("admin/magazine/"+viewName);
+		System.out.println("writeMagazine.jsp 열기");
+		return mav;
+	}
+	
+	//글쓰기 기능
+	@Override
+	@RequestMapping(value="/community/addMagazine.do", method=RequestMethod.POST)
+	public ModelAndView addMagazine(@ModelAttribute("communityVO") CommunityVO communityVO, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		request.setCharacterEncoding("UTF-8");
+		HttpSession session=request.getSession(false);
+		
+		//장르 한글로 바꾸기
+		String genre=communityVO.getMagazine_genre();
+		
+		String[] eng_genre= {"interview","event","news"};
+		String[] kor_genre= {"인터뷰","행사","뉴스"};
+		String result=null;
+		for(int i=0; i<eng_genre.length; i++) {
+			if(genre.equals(eng_genre[i])) {
+				result=kor_genre[i];
+			}
+		}
+		
+		communityVO.setMagazine_genre(result);
+		
+		//magazine_content에서 <img>태그 뗴서 magazine_image에 저장
+		String magazine_content=communityVO.getMagazine_content();
+		String magazine_img;
+		int begin, end;
+		if(magazine_content.indexOf("<img src=")!=-1) {
+			begin=magazine_content.indexOf("<img src=");
+			magazine_img=magazine_content.substring(begin);
+			end=magazine_img.indexOf(">");
+			magazine_img=magazine_img.substring(0,end+1);
+			communityVO.setMagazine_image(magazine_img);
+		}
+		
+		
+		communityService.addMagazine(communityVO);
+		ModelAndView mav=new ModelAndView("redirect:/community/magazine.do");
+		System.out.println("addMagazine 실행");
 		return mav;
 	}
 	

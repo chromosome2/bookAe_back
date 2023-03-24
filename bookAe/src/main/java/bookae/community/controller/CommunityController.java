@@ -47,5 +47,13 @@ public interface CommunityController {
 	public ModelAndView replyComment(@ModelAttribute("communityVO") CommunityVO communityVO,
 			HttpServletRequest request,
 			HttpServletResponse response) throws Exception;
+	public ModelAndView magazine (PagingVO pagingVO, 
+			@RequestParam(value="nowPage", required=false) String nowPage, 
+			@RequestParam(value="head", required=false) String head,
+			@RequestParam(value="search_community", required=false) String search_community, 
+			HttpServletRequest request,
+			HttpServletResponse response) throws Exception;
+	public ModelAndView addMagazine (@ModelAttribute("communityVO") CommunityVO communityVO, HttpServletRequest request,
+			HttpServletResponse response) throws Exception;
 
 }

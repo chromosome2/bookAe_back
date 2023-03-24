@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Component("communityVO")
 public class CommunityVO {
+	//감상평 게시판
 	private int board_num;
 	private String board_title;
 	private String id;
@@ -17,6 +18,7 @@ public class CommunityVO {
 	private String nickname;
 	private boolean likeIs;
 	
+	//댓글
 	private int comment_num; //댓글 넘버
 	private Date comment_date; //댓글 날짜
 	private int comment_parent; //답글이 어디 소속인지
@@ -24,6 +26,15 @@ public class CommunityVO {
 	private String comment_content; //답글 내용
 	private String annot_nickname; //답글 주인의 닉네임
 	private int deleteis;
+	
+	//매거진 게시판
+	private int magazine_num;
+	private String magazine_title;
+	private int magazine_view;
+	private String magazine_genre;
+	private Date magazine_date;
+	private String magazine_content;
+	private String magazine_image;
 	
 	
 	
@@ -129,6 +140,49 @@ public class CommunityVO {
 	public void setDeleteis(int deleteis) {
 		this.deleteis = deleteis;
 	}
+	public int getMagazine_num() {
+		return magazine_num;
+	}
+	public void setMagazine_num(int magazine_num) {
+		this.magazine_num = magazine_num;
+	}
+	public String getMagazine_title() {
+		return magazine_title;
+	}
+	public void setMagazine_title(String magazine_title) {
+		this.magazine_title = magazine_title;
+	}
+	public int getMagazine_view() {
+		return magazine_view;
+	}
+	public void setMagazine_view(int magazine_view) {
+		this.magazine_view = magazine_view;
+	}
+	public String getMagazine_genre() {
+		return magazine_genre;
+	}
+	public void setMagazine_genre(String magazine_genre) {
+		this.magazine_genre = magazine_genre;
+	}
+	public Date getMagazine_date() {
+		return magazine_date;
+	}
+	public void setMagazine_date(Date magazine_date) {
+		this.magazine_date = magazine_date;
+	}
+	public String getMagazine_content() {
+		return magazine_content;
+	}
+	public void setMagazine_content(String magazine_content) {
+		this.magazine_content = magazine_content;
+	}
+	public String getMagazine_image() {
+		return magazine_image;
+	}
+	public void setMagazine_image(String magazine_image) {
+		this.magazine_image = magazine_image;
+	}
+	
 	
 	
 

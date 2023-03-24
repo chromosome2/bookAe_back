@@ -327,7 +327,7 @@
                         </div>
                     </li>
                 </ul>
-                <a href="#" class="more" title="매거진 더보기">더보기</a>
+                <a href="${contextPath}/community/magazine.do" class="more" title="매거진 더보기">더보기</a>
             </div>
             <!--북애의 선택, 셀럽의 선택-->
             <div id="choice">

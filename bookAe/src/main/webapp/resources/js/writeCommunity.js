@@ -15,7 +15,7 @@ $(document).ready(function() {
 function before_submit(frm){
 	var board_genre=$('#board_genre').val();
 	var title= $('#board_title').val();
-	var content= $('[name="board_content"]').val();
+	var content= $('[name="magazine_content"]').val();
 	
 	if(board_genre.trim() == 'none'){
 		alert("장르를 선택해주세요.");

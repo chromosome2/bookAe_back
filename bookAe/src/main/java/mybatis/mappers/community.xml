@@ -4,6 +4,13 @@
    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
    
 <mapper namespace="mapper.community">
+	<!-- magazineResult -->
+	<resultMap type="communityVO" id="magazineResult">
+		<result property="magazine_num" column="magazine_num"/>
+		<result property="magazine_title" column="magazine_title"/>
+		<result property="magazine_genre" column="magazine_genre"/>
+		<result property="magazine_date" column="magazine_date"/>
+	</resultMap>
 
 	<!-- article 정보 -->
 	<resultMap type="communityVO" id="communityResult">
@@ -366,5 +373,60 @@
 			select count(*) from commenttbl where id=#{id} AND not deleteis = 0 
 		]]>
 	</select>
+	
+	<!-- 매거진 게시글의 총 개수 -->
+	<select id="totalMagazine" resultType="_int" parameterType="bookae.util.PagingVO">
+		<![CDATA[
+			SELECT count(*) as totalMagazine from magazinetbl  
+		]]>
+		<if test="head != '' and head != null"> 
+			<choose>
+				<when test="head == 'total'">
+					WHERE (magazine_title like '%'||#{search_community}||'%' 
+		            or magazine_content like '%'||#{search_community}||'%') 
+				</when>
+				<when test="head == 'board_title'">
+					WHERE magazine_title like '%'||#{search_community}||'%' 
+				</when>
+				<when test="head == 'board_content'">
+					WHERE magazine_content like '%'||#{search_community}||'%' 
+				</when>
+			</choose>
+		</if>
+	</select>
+	
+	<!-- 매거진 게시글 조회 -->
+	<select id="magazineList" resultMap="magazineResult" parameterType="bookae.util.PagingVO">
+			SELECT * FROM 
+				(SELECT ROWNUM rn, A.* FROM 
+					(SELECT magazine_num, magazine_title, magazine_genre,   
+					magazine_date 
+					FROM magazinetbl 
+					<if test="head != '' and head != null">
+						<choose>
+							<when test="head == 'total'">
+								WHERE (magazine_title like '%'||#{search_community}||'%' 
+					            or magazine_content like '%'||#{search_community}||'%') 
+							</when>
+							<when test="head == 'board_title'">
+								WHERE magazine_title like '%'||#{search_community}||'%' 
+							</when>
+							<when test="head == 'board_content'">
+								WHERE magazine_content like '%'||#{search_community}||'%' 
+							</when>
+						</choose>
+					</if>
+					ORDER BY magazine_num desc) A
+				)
+			WHERE rn BETWEEN #{start} AND #{end}
+	</select>
+	
+	<!-- 매거진 추가 -->
+	<insert id="addMagazine" parameterType="communityVO">
+		<![CDATA[
+			INSERT INTO magazinetbl(magazine_num, magazine_title, magazine_view, magazine_genre, magazine_content, magazine_image) 
+			VALUES((SELECT NVL(MAX(magazine_num),0)+1 FROM magazinetbl), #{magazine_title}, 0, #{magazine_genre}, #{magazine_content}, #{magazine_image, jdbcType=VARCHAR})
+		]]>
+	</insert>
 	
 </mapper>

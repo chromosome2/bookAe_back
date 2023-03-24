@@ -58,7 +58,7 @@
                     <li><a href="#">소식 구경</a>
                         <ul class="infomation">
                             <li><a href="#">공지사항</a></li>
-                            <li><a href="#">매거진</a></li>
+                            <li><a href="${contextPath}/community/magazine.do">매거진</a></li>
                             <li><a href="#">이벤트</a></li>
                             <li class="white">.</li>
                         </ul>
@@ -73,7 +73,6 @@
                     </li>
                     <li><a href="#">커뮤니티</a>
                         <ul class="community">
-                            <!-- <li><a href="${contextPath}/community/community.do">감상평</a></li> -->
                             <li><a href="${contextPath}/community/community.do">감상평</a></li>
                             <li><a href="#">자유게시판</a></li>
                             <li><a href="#">추천게시판</a></li>
