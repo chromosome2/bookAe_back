@@ -36,4 +36,8 @@ public interface MemberController {
 			@RequestParam(value="nowPage", required=false) String nowPage, 
 			HttpServletRequest request,
 			HttpServletResponse response) throws Exception;
+	public ModelAndView manageMember (PagingVO pagingVO, 
+			@RequestParam(value="nowPage", required=false) String nowPage, 
+			HttpServletRequest request,
+			HttpServletResponse response) throws Exception;
 }

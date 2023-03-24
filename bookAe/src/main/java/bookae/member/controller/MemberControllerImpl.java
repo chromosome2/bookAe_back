@@ -102,7 +102,16 @@ public class MemberControllerImpl extends MultiActionController implements Membe
 	@RequestMapping(value="/login/loginMember.do", method=RequestMethod.POST)
 	public ModelAndView loginMember(MemberVO memberVO, HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
-		String result=memberService.loginMember(memberVO);
+		String result;
+		String admin;
+		//관리자인지 확인
+		if(memberVO.getId().equals("admin")) {
+			result=memberService.loginAdmin(memberVO);
+			admin="y";
+		}else {
+			result=memberService.loginMember(memberVO);
+			admin="n";
+		}
 		ModelAndView mav;
 		session=request.getSession();
 		if(result.equals("true")) {
@@ -110,6 +119,7 @@ public class MemberControllerImpl extends MultiActionController implements Membe
 			mav=new ModelAndView("redirect:/");
 			session.setAttribute("isLogin", true);//session에 로그인 정보 추가.
 			session.setAttribute("id", memberVO.getId());
+			session.setAttribute("admin", admin);
 		}else {
 			System.out.println("로그인 안성공");
 			mav=new ModelAndView("redirect:/login/loginForm.do");
@@ -414,6 +424,39 @@ public class MemberControllerImpl extends MultiActionController implements Membe
 		mav.addObject("commentList",commentList);
 		mav.addObject("dayLeft",dayLeft);
 		mav.addObject("nickname",nickname);
+		return mav;
+	}
+
+	//멤버관리
+	@Override
+	@RequestMapping(value="/admin/manageMember.do", method=RequestMethod.GET)
+	public ModelAndView manageMember(PagingVO pagingVO, String nowPage, HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		String viewName=getViewName(request);
+		
+		//가입한 멤버 가져오기
+		//nowpage 세팅, 현재 보고있는 페이지 번호
+		if(nowPage == null) {
+			nowPage ="1";
+		}
+		pagingVO.setNowPage(Integer.parseInt(nowPage));
+		
+		//멤버 개수 가져오기
+		int totalMember=memberService.totalMember();
+		pagingVO.setTotalArticle(totalMember);
+		
+		//pagingVO의 나머지값 계산
+		pagingVO.calcLastPage(pagingVO.getTotalArticle());
+		pagingVO.calcStartEndPage(pagingVO.getNowPage());
+		pagingVO.calcStartEnd(pagingVO.getNowPage());
+		
+		//페이징된 멤버 리스트 불러오기
+		List memberList=memberService.memberList(pagingVO);
+		
+		ModelAndView mav=new ModelAndView("admin/manage/"+viewName);
+		mav.addObject("totalMember",totalMember);
+		mav.addObject("paging",pagingVO);
+		mav.addObject("memberList",memberList);
 		return mav;
 	}
 	

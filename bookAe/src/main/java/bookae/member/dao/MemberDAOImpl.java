@@ -62,23 +62,27 @@ public class MemberDAOImpl implements MemberDAO{
 		
 	}
 
+	//좋아요한 article 개수
 	@Override
 	public int totalLikeArticle(String id) throws DataAccessException {
 		int totalArticle =(int)sqlSession.selectOne("mapper.community.totalLikeArticle", id);
 		return totalArticle;
 	}
 
+	//좋아요한 게시글 목록 가져오기
 	@Override
 	public List pagingLikeBoard(PagingVO pagingVO) throws DataAccessException {
 		return sqlSession.selectList("mapper.community.pagingLikeBoard", pagingVO);
 	}
 
+	//내가 쓴 게시글 개수
 	@Override
 	public int totalMyArticle(String id) throws DataAccessException {
 		int totalArticle =(int)sqlSession.selectOne("mapper.community.totalMyArticle", id);
 		return totalArticle;
 	}
 
+	//내가 쓴 게시글 가져오기
 	@Override
 	public List pagingMyBoard(PagingVO pagingVO) throws DataAccessException {
 		return sqlSession.selectList("mapper.community.pagingMyBoard", pagingVO);
@@ -97,9 +101,28 @@ public class MemberDAOImpl implements MemberDAO{
 		return sqlSession.selectList("mapper.community.myCommentList", pagingVO);
 	}
 
+	//닉네임 가져오기
 	@Override
 	public String getNickname(String id) throws DataAccessException {
 		return (String)sqlSession.selectOne("mapper.community.getNickname", id);
+	}
+
+	//관리자 로그인
+	@Override
+	public String loginAdmin(MemberVO memberVO) throws DataAccessException {
+		String result=(String)sqlSession.selectOne("mapper.member.loginAdmin", memberVO);
+		return result;
+	}
+
+	@Override
+	public int totalMember() throws DataAccessException {
+		int totalMember =(int)sqlSession.selectOne("mapper.member.totalMember");
+		return totalMember;
+	}
+
+	@Override
+	public List memberList(PagingVO pagingVO) throws DataAccessException {
+		return sqlSession.selectList("mapper.member.memberList", pagingVO);
 	}
 	
 	

@@ -4,6 +4,16 @@
    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
    
 <mapper namespace="mapper.member">
+
+	<!-- 회원 정보 -->
+	<resultMap type="memberVO" id="memberResult">
+		<result property="name" column="name"/>
+		<result property="id" column="id"/>
+		<result property="nickname" column="nickname"/>
+		<result property="tel" column="tel"/>
+		<result property="email" column="email"/>
+		<result property="joindate" column="joindate"/>
+	</resultMap>
 	
 	<!-- 회원가입 -->
 	<insert id="joinMember" parameterType="memberVO">
@@ -19,6 +29,15 @@
 			SELECT DECODE(count(*), 1, 'true', 'false') 
 			AS RESULT FROM jointbl 
 			WHERE id=#{id} and pw=#{pw}
+		]]>
+	</select>
+	
+	<!-- 관리자 로그인 -->
+	<select id="loginAdmin" resultType="String" parameterType="memberVO">
+		<![CDATA[
+			SELECT DECODE(count(*), 1, 'true', 'false') 
+			AS RESULT FROM admintbl 
+			WHERE admin_id=#{id} and admin_pw=#{pw}
 		]]>
 	</select>
 	
@@ -65,5 +84,25 @@
 			where id=#{id}
 		]]>
 	</update>
+	
+	<!-- 회원관리 - 회원의 총 개수 -->
+	<select id="totalMember" resultType="_int">
+		<![CDATA[
+			select count(*) from jointbl
+		]]>
+	</select>
+			
+	<!-- 회원관리 - 회원 조회 -->
+	<select id="memberList" resultMap="memberResult" parameterType="bookae.util.PagingVO">
+		<![CDATA[
+			SELECT * FROM 
+			    (SELECT ROWNUM rn, A.* FROM 
+			        (
+			        SELECT * from jointbl ORDER BY joindate desc
+			        ) A
+			    )
+			WHERE rn BETWEEN #{start} AND #{end}
+		]]>
+	</select>
 	
 </mapper>

@@ -55,7 +55,7 @@
 		                    <table class="tableCommu">
 		                    
 			                    <tr id="title">
-			                        <th>번호</th><th>댓글 내용</th><th>작성시간</th><th>글쓴이</th>
+			                        <th>번호</th><th>댓글 내용</th><th>작성시간</th><th>작성자</th>
 			                    </tr>
 			                    
 			                    <!-- 게시글 -->

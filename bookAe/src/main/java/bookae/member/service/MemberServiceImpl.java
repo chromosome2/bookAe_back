@@ -87,6 +87,21 @@ public class MemberServiceImpl implements MemberService{
 	public String getNickname(String id) throws DataAccessException {
 		return memberDAO.getNickname(id);
 	}
+
+	@Override
+	public String loginAdmin(MemberVO memberVO) throws DataAccessException {
+		return memberDAO.loginAdmin(memberVO);
+	}
+
+	@Override
+	public int totalMember() throws DataAccessException {
+		return memberDAO.totalMember();
+	}
+
+	@Override
+	public List memberList(PagingVO pagingVO) throws DataAccessException {
+		return memberDAO.memberList(pagingVO);
+	}
 	
 
 }

@@ -23,4 +23,7 @@ public interface MemberDAO {
 	public int totalMyComment(String id) throws DataAccessException;
 	public List myCommentList(PagingVO pagingVO) throws DataAccessException;
 	public String getNickname(String id) throws DataAccessException;
+	public String loginAdmin(MemberVO memberVO) throws DataAccessException;
+	public int totalMember() throws DataAccessException;
+	public List memberList(PagingVO pagingVO) throws DataAccessException;
 }
